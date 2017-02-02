@@ -2,122 +2,162 @@
 {% import '_macros/templateMacros' as templateMacros %}
 {% set guestEntry = (guestEntry is defined) ? guestEntry : false %}
 <html lang="{{ craft.i18n.getCurrentLocale() }}">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,200italic,300italic,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/vendors.{{ craft.bust.filetime('css/vendors.css') }}.css">
-  <link rel="stylesheet" href="/css/style.{{ craft.bust.filetime('css/style.css') }}.css">
-  {% block head %}
-    {# Default meta if "head" block is not defined #}
-    {{ templateMacros.renderMeta({}) }}
-  {% endblock %}
-  {% for profile in siteGlobals.siteSocialProfiles if profile.platform == "google" %}
-    <link rel="author" href="{{ profile.profileUrl }}">
-  {% endfor %}
-  {% for field in socialPlatforms.getFieldLayout().getFields() %}
-    {% set handle = socialPlatforms[field.getField().handle] %}
-    {% if handle %}
-      <meta name="{{ field.getField().handle }}" content="{{ socialPlatforms[field.getField().handle] }}" id="{{ field.getField().handle }}">
-    {% endif %}
-  {% endfor %}
-  <script>
-    window.socialPlatforms = {{ {
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,200italic,300italic,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/vendors.{{ craft.bust.filetime('css/vendors.css') }}.css">
+        <link rel="stylesheet" href="/css/style.{{ craft.bust.filetime('css/style.css') }}.css">
+        {% block head %}
+            {# Default meta if "head" block is not defined #}
+            {{ templateMacros.renderMeta({}) }}
+        {% endblock %}
+        {% for profile in siteGlobals.siteSocialProfiles if profile.platform == "google" %}
+            <link rel="author" href="{{ profile.profileUrl }}">
+        {% endfor %}
+        {% for field in socialPlatforms.getFieldLayout().getFields() %}
+            {% set handle = socialPlatforms[field.getField().handle] %}
+            {% if handle %}
+                <meta name="{{ field.getField().handle }}" content="{{ socialPlatforms[field.getField().handle] }}" id="{{ field.getField().handle }}">
+            {% endif %}
+        {% endfor %}
+        <script>
+            window.socialPlatforms = {{ {
       twitter: socialPlatforms.twitterHandle,
       facebook: socialPlatforms.facebookHandle,
       youtube: socialPlatforms.youtubeHandle,
       google: socialPlatforms.googleHandle,
       pinterest: socialPlatforms.pinterestHandle,
     }|json_encode|raw
-    }};
-  </script>
-  {% if not siteGlobals.siteWebmasterTag %}
-    {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
-    <script>console.{{ serverity }}("Please insert your Google Webmaster HTML Tag")</script>
-  {% else %}
-    {{ siteGlobals.siteWebmasterTag|raw }}
-  {% endif %}
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries  -->
-  <!--[if lt IE 9]>
-  <script type="text/javascript" src="/js/html5shiv.min.js"></script>
-  <script type="text/javascript" src="/js/respond.min.js"></script>
-  <![endif]-->
-  {% include "_layouts/_partials/favicons" %}
-</head>
-<body>
-{% if not siteGlobals.siteGoogleTagManagerId %}
-  {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
-  <script>console.{{ serverity }}("Please insert your Google Tag Manager Container ID")</script>
-{% else %}
-  <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id={{ siteGlobals.siteGoogleTagManagerId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','{{ siteGlobals.siteGoogleTagManagerId }}');</script>
-  <!-- End Google Tag Manager -->
-{% endif %}
-{{ siteGlobals.siteHeaderScriptTags|raw }}
-<div id="container">
-  <header id="header" class="site-header">
-    <div class="container">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
-              <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ siteUrl }}">
-              <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}" style="height: 52px">
-            </a>
-          </div>
-          <div class="collapse navbar-collapse" id="primaryNav">
-            <ul class="nav navbar-nav">
-              {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
-            </ul>
-          </div>
+            }};
+        </script>
+        {% if not siteGlobals.siteWebmasterTag %}
+            {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
+            <script>console.{{ serverity }}("Please insert your Google Webmaster HTML Tag")</script>
+        {% else %}
+            {{ siteGlobals.siteWebmasterTag|raw }}
+        {% endif %}
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries  -->
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="/js/html5shiv.min.js"></script>
+        <script type="text/javascript" src="/js/respond.min.js"></script>
+        <![endif]-->
+        {% include "_layouts/_partials/favicons" %}
+    </head>
+    <body>
+        {% if not siteGlobals.siteGoogleTagManagerId %}
+            {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
+            <script>console.{{ serverity }}("Please insert your Google Tag Manager Container ID")</script>
+        {% else %}
+            <!-- Google Tag Manager -->
+            <noscript><iframe src="//www.googletagmanager.com/ns.html?id={{ siteGlobals.siteGoogleTagManagerId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <script>(function (w, d, s, l, i) {
+                            w[l] = w[l] || [];
+                            w[l].push({'gtm.start':
+                                        new Date().getTime(), event: 'gtm.js'});
+                            var f = d.getElementsByTagName(s)[0],
+                                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                            j.async = true;
+                            j.src =
+                                    '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+                            f.parentNode.insertBefore(j, f);
+                        })(window, document, 'script', 'dataLayer', '{{ siteGlobals.siteGoogleTagManagerId }}');</script>
+            <!-- End Google Tag Manager -->
+        {% endif %}
+        {{ siteGlobals.siteHeaderScriptTags|raw }}
+        <div id="container">
+            <header id="header" class="site-header">
+                <div class="container">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
+                                    <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="{{ siteUrl }}">
+                                    <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}" style="height: 52px">
+                                </a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="primaryNav">
+                                <ul class="nav navbar-nav">
+                                    {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            {% if currentMenuNode is defined and craft.request.path() != '' %}
+                <div class="container">
+                    <ul class="breadcrumb">
+                        {{ templateMacros.renderBreadcrumb(currentMenuNode, {breadcrumbEntry: breadcrumbEntry|default(null)}) }}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <div id="notifications-wrapper" class="container">
+                <div id="notifications">
+                    {% for type, message in craft.session.flashes %}
+                        <div class="notification {{ type }}">
+                            <a href="#" class="pull-right" data-toggle="remove">&times;</a>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <main id="content" role="main">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row site-footer">
+                <div class="col-md-4">
+                    <h2>Connect with us</h2>
+                    <h2>Sign up to our newsletter</h2>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>Information</h2>
+                            <ul>
+                                <li>Becoming a local</li>
+                                <li>Finding a local</li>
+                                <li>Booking advice</li>
+                                <li>Blog</li>
+                                <li>Gallery</li>
+                                <li>FAQ</li>
+                                <li>Privacy Policy</li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6">
+                            <h2>Other</h2>
+                            <ul>
+                                <li>Meet the team</li>
+                                <li>Terms & conditions</li>
+                                <li>Payment & pricing</li>
+                                <li>Cancellations & refunds</li>
+                                <li>Security</li>
+                                <li>FAQ</li>
+                                <li>Reviews & ratings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                &copy; {{ now.year }} {{ siteName }}
+            </div>
         </div>
-      </nav>
-    </div>
-  </header>
-  {% if currentMenuNode is defined and craft.request.path() != '' %}
-    <div class="container">
-      <ul class="breadcrumb">
-        {{ templateMacros.renderBreadcrumb(currentMenuNode, {breadcrumbEntry: breadcrumbEntry|default(null)}) }}
-      </ul>
-    </div>
-  {% endif %}
-
-    <div id="notifications-wrapper" class="container">
-      <div id="notifications">
-        {% for type, message in craft.session.flashes %}
-          <div class="notification {{ type }}">
-            <a href="#" class="pull-right" data-toggle="remove">&times;</a>
-            {{ message }}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-  <main id="content" role="main">
-    {% block content %}{% endblock %}
-  </main>
-</div>
-<footer id="footer">
-  <div class="container">
-    <div class="site-footer">
-      &copy; {{ now.year }} {{ siteName }}
-    </div>
-  </div>
-</footer>
-{% include "_layouts/_partials/siteData" %}
-<script src="/js/vendors.{{ craft.bust.filetime('js/vendors.js') }}.js"></script>
-<script src="/js/scripts.{{ craft.bust.filetime('js/scripts.js') }}.js"></script>
-{{ siteGlobals.siteFooterScriptTags|raw }}
+    </footer>
+    {% include "_layouts/_partials/siteData" %}
+    <script src="/js/vendors.{{ craft.bust.filetime('js/vendors.js') }}.js"></script>
+    <script src="/js/scripts.{{ craft.bust.filetime('js/scripts.js') }}.js"></script>
+    {{ siteGlobals.siteFooterScriptTags|raw }}
 </body>
 </html>

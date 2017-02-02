@@ -23,7 +23,9 @@
         <div class="item {{ loop.first ? "active" : "" }}">
           <img src="{{ craft.imager.base64Pixel(16,5) }}" sizes="100vw" srcset="{{ craft.imager.srcset(transformedImage) }}">
           <div class="carousel-caption">
-            {{ slide.caption }}
+              <div class="container">
+                  {{ slide.caption | raw }}
+              </div>
           </div>
         </div>
       {% endfor %}

@@ -3,37 +3,213 @@
 
 {% block content %}
 
-    {# Slideshow #}
-    {{ templateMacros.renderBody(entry.body.type('relatedPanel')) }}
+    <section>
+        {{ templateMacros.renderBody(entry.body.type('relatedPanel')) }}
+    </section>
 
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">About us</h2>
-          </div>
-          <div class="panel-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus explicabo inventore molestiae quae quisquam repellendus. Dolore dolorem expedita repellendus similique soluta, sunt. Amet dolore enim facilis impedit laboriosam natus, rem?
-          </div>
+    <section id='trust-items'>
+        <div class="container">
+            <h2 class="text-center section-title">We've ensured that your <b>experience</b> be beyond satisfying...</h2>
+            <div class="row trust-items">
+                <div class="trust-item col-md-4 col-sm-6">
+                    <figure class="trust-figure"></figure>
+                    <h3 class="text-bold text-center">
+                        <span>
+                            <span class="sub-heading">100%</span>
+                            <!-- react-text: 10 --> With locals
+                        </span>
+                    </h3>
+                    <p class="text-center text-light">
+                        <span>Who you see is who you get.
+                            <br>The Withlocals host you book is the
+                            <br>host that welcomes you.
+                        </span>
+                    </p>
+                </div>
+                <div class="trust-item col-md-4 col-sm-6">
+                    <figure class="trust-figure slick-slide slick-active local-image"></figure>
+                    <h3 class="text-bold text-center">
+                        <span>
+                            <span class="sub-heading">100%</span>
+                            <!-- react-text: 23 --> Private
+                        </span>
+                    </h3>
+                    <p class="text-center text-light">
+                        <span>All Withlocals experiences
+                            <br>are private, meaning exclusively
+                            <br>for you or your group.
+                        </span>
+                    </p>
+                </div>
+                <div class="trust-item col-md-4 col-sm-6">
+                    <figure class="trust-figure slick-slide slick-active taste-image"></figure>
+                    <h3 class="text-bold text-center">
+                        <span><!-- react-text: 35 -->a 
+                            <span class="sub-heading">100%</span>
+                            <!-- react-text: 37 --> taste of the city
+                        </span>
+                    </h3>
+                    <p class="text-center text-light">
+                        <span><!-- react-text: 40 -->From city highlights to hidden gems.
+                            <br><!-- react-text: 42 -->From food essentials to home dinners.
+                            <br><!-- react-text: 44 -->Our hosts share it with you.
+                        </span>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">Latest news</h2>
-          </div>
-          <div class="panel-body">
-            {% for entry in craft.entries.section('news').with(["featureImage"]).limit(1) %}
-              {{ templateMacros.renderMediaBlockFromEntry(entry, {sharing: false, alignment: "left"}) }}
-            {% endfor %}
-            <a href="{{ url('news') }}" class="btn btn-default align-right">
-              View all
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
+</section>
+
+<section id='how-it-works'>
+    <div class="container">
+        <h2 class="text-center section-title">How it <b>works</b></h2>
+        <div class="row trust-items">
+            <div class="trust-item col-md-4 col-sm-6">
+                <figure class="trust-figure"></figure>
+                <h3 class="text-bold text-center">
+                    <span>
+                        <span class="sub-heading">Step 1</span>
+                    </span>
+                </h3>
+                <p class="text-center text-light">
+                    <span>Who you see is who you get.
+                        <br>The Withlocals host you book is the
+                        <br>host that welcomes you.
+                    </span>
+                </p>
+            </div>
+            <div class="trust-item col-md-4 col-sm-6">
+                <figure class="trust-figure slick-slide slick-active local-image"></figure>
+                <h3 class="text-bold text-center">
+                    <span>
+                        <span class="sub-heading">Step 2</span>
+                    </span>
+                </h3>
+                <p class="text-center text-light">
+                    <span>All Withlocals experiences
+                        <br>are private, meaning exclusively
+                        <br>for you or your group.
+                    </span>
+                </p>
+            </div>
+            <div class="trust-item col-md-4 col-sm-6">
+                <figure class="trust-figure slick-slide slick-active taste-image"></figure>
+                <h3 class="text-bold text-center">
+                    <span>
+                        <span class="sub-heading">Step 3</span>
+                    </span>
+                </h3>
+                <p class="text-center text-light">
+                    <span><!-- react-text: 40 -->From city highlights to hidden gems.
+                        <br><!-- react-text: 42 -->From food essentials to home dinners.
+                        <br><!-- react-text: 44 -->Our hosts share it with you.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews">
+    <div class="container">
+        <h2 class="text-center section-title">What <b>guests</b> are saying</h2>
+        <div class="row trust-items">
+            <div class="trust-item col-md-4 col-sm-6">
+                <figure class="trust-figure"></figure>
+                <h3 class="text-bold text-center">
+                    <span>
+                        <span class="sub-heading">Highlights of Prague: Old & New Town</span>
+                    </span>
+                </h3>
+                <p class="text-center text-light">
+                    Such a great guide for an amazing tour! Totally recommended if you want to know the cities 
+                </p>
+            </div>
+            <div class="trust-item col-md-4 col-sm-6">
+                <figure class="trust-figure slick-slide slick-active local-image"></figure>
+                <h3 class="text-bold text-center">
+                    Exhilarating Morning/Evening Hike in
+                </h3>
+                <p class="text-center text-light">
+                    I found this site and this hike at the last minute after I was already in KL for 2 days and looking 
+                </p>
+            </div>
+            <div class="trust-item col-md-4 col-sm-6">
+                <figure class="trust-figure slick-slide slick-active taste-image"></figure>
+                <h3 class="text-bold text-center">
+                    1 Day Tour with Private Driver to Sintra 
+                </h3>
+                <p class="text-center text-light">
+                    Because of the rainy weather conditions we didn't do all the points on our planned programs 
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog">
+    <div class="container">
+        <h2 class="text-center section-title"><b>Tourism</b> blog</h2>
+        <div class="row text-align-center">
+            <div class="col-md-4 col-sm-6">
+                <article class="media media-responsive">
+                    <div class="media-top pull-top">
+                        <a href="http://www.zimweek.com/news/2017/thisflags-mawarire-returns-arrested">
+                            <img class="media-object" src="https://withlocals-com-res.cloudinary.com/image/upload/w_360,h_214,c_fill,g_auto,q_auto,f_auto/asian-farmer-on-boat_c5mnez">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            Become a Withlocals Host!           
+                        </h2>
+                        <div class="media-summary">
+                            Never miss a chance to experience a country like a local.
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-default">Read More</a>
+                </article>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <article class="media media-responsive">
+                    <div class="media-top pull-top">
+                        <a href="http://www.zimweek.com/news/2017/thisflags-mawarire-returns-arrested">
+                            <img class="media-object" src="https://withlocals-com-res.cloudinary.com/image/upload/w_360,h_214,c_fill,g_auto,q_auto,f_auto/451a1b7ad3b4c9f06225f4e157efb78c">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            10 things to do in Bangkok        
+                        </h2>
+                        <div class="media-summary">
+                            There are quite a few highlights worth seeing in Bangkok, but….
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-default">Read More</a>
+                </article>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <article class="media media-responsive">
+                    <div class="media-top pull-top">
+                        <a href="http://www.zimweek.com/news/2017/thisflags-mawarire-returns-arrested">
+                            <img class="media-object" src="https://withlocals-com-res.cloudinary.com/image/upload/w_360,h_214,c_fill,g_auto,q_auto,f_auto/dcec1bece9ac3cb4de7d01f7d6d43fb1">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            147k Facebook followers           
+                        </h2>
+                        <div class="media-summary">
+                            Want to earn money with your passion? Join us as a host!
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-default">Read More</a>
+                </article>
+            </div>
+            <div class="clear-both">
+                <a href="#" class="btn btn-lg btn-default">View More</a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
