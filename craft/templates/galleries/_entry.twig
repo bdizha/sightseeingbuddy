@@ -1,0 +1,52 @@
+{% extends "_layouts/master" %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').linkUrl('galleries').first() %}
+{% set breadcrumbEntry = entry %}
+
+{% block head %}
+  {{ templateMacros.renderMetaFromEntry(entry) }}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <article class="article">
+
+      <h1 class="article-title">
+        {{ entry.displayTitle|raw }}
+        {{ templateMacros.renderEditButton(entry) }}
+      </h1>
+
+      <div class="article-byline">
+        {{ entry.postDate.format(craft.config.dateFormat) }}
+        {% if entry.byline %}
+          &mdash; {{ entry.byline }}
+        {% endif %}
+      </div>
+
+      <div class="article-sharing">
+        <div data-share-default></div>
+      </div>
+
+      <div class="article-body">
+
+        <div class="grid">
+          <div class="grid-sizer"></div>
+
+            {% for image in entry.gallery %}
+              {% set imageLink = image.image.first().getUrl({width:800, quality:80}) %}
+              {% set myClasses = ['grid-item', 'grid-item grid-item-width2', 'grid-item', 'grid-item grid-item-width2'] %}
+
+              <div class="grid-item gallery-link">
+                <a href="{{ imageLink }}" class="gallery-image" data-description="{{ image.caption|e }}">
+                  <img src="{{ imageLink }}" class="img-responsive">
+                  <div class="caption">
+                    <div class="center-align vertical-align-middle">{{ image.caption }}</div>
+                 </div>
+                </a>
+              </div>     
+            {% endfor %}
+
+        </div>
+
+    </article>
+  </div>
+{% endblock %}

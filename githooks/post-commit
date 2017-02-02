@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# We need to ensure that the post-commit hook only runs once
+# We add a file in the pre-commit and then remove it in the post-commit to prevent an infinite loop
+echo
+if [ -a .commitprogress ]
+    then
+    rm .commitprogress
+    git add .
+
+    # amend the commit using the same message, don't run pre-commit again using --no-verify
+    git commit --amend -C HEAD --no-verify 
+
+	echo " ";
+	echo "--------------------------------";
+	echo "THIS IS WHAT YOU HAVE COMMITTED:";
+	echo "--------------------------------";
+	echo " ";
+
+    git --no-pager diff HEAD~1 HEAD --color
+fi
+exit

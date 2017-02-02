@@ -8,18 +8,14 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@red-base:               #df1b1c;
-@black-base:             #000;
-@white-base:             #fff;
-@gray-base:              #000;
+@gray-base:              #3D3D3D;
 @gray-darker:            lighten(@gray-base, 13.5%); // #222
-@gray-dark:              lighten(@gray-base, 13.5%);   // #333
+@gray-dark:              lighten(@gray-base, 20%);   // #333
 @gray:                   lighten(@gray-base, 33.5%); // #555
-@red:                    @red-base;
-@white:                  @white-base;
-@black:                  lighten(@gray-base, 1.5%);
-@gray-light:             #ddd; // #ddd
+@gray-light:             #3D3D3D; // #3D3D3D
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+@white:                  #FFFFFF;
+@yellow:                 #FDBF0F;              
 
 @brand-primary:         darken(#428bca, 6.5%); // #337ab7
 @brand-success:         #5cb85c;
@@ -33,37 +29,37 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #FFF;
+@body-bg:               #fff;
 //** Global text color on `<body>`.
-@text-color:            @gray-darker;
+@text-color:            @gray-dark;
 
 //** Global textual link color.
-@link-color:            @red-base;
+@link-color:            @brand-primary;
 //** Link hover color set via `darken()` function.
-@link-hover-color:      darken(@link-color, 5%);
+@link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
-@link-hover-decoration: none;
+@link-hover-decoration: underline;
 
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  'Source Sans Pro', sans-serif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:       'Hind', 'Open Sans', 'PT Serif', Georgia, "Times New Roman", Times, serif;
+@font-family-sans-serif: "Roboto", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-@font-family-base:        @font-family-serif;
+@font-family-base:        @font-family-sans-serif;
 
 @font-size-base:          16px;
 @font-size-large:         18px;
-@font-size-small:         13px;
+@font-size-small:         12px;
 
 @font-size-h1:            36px;
-@font-size-h2:            26px;
-@font-size-h3:            20px;
-@font-size-h4:            17px;
-@font-size-h5:            14px;
+@font-size-h2:            28px;
+@font-size-h3:            24px;
+@font-size-h4:            18px;
+@font-size-h5:            16px;
 @font-size-h6:            12px;
 
 //** Unit-less `line-height` for use in components like buttons.
@@ -72,8 +68,8 @@
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
-@headings-font-family:    @font-family-sans-serif;
-@headings-font-weight:    700;
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
 @headings-line-height:    1.2;
 @headings-color:          inherit;
 
@@ -94,8 +90,8 @@
 //
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-@padding-base-vertical:     10px;
-@padding-base-horizontal:   10px;
+@padding-base-vertical:     6px;
+@padding-base-horizontal:   12px;
 
 @padding-large-vertical:    10px;
 @padding-large-horizontal:  16px;
@@ -109,7 +105,7 @@
 @line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
 @line-height-small:         1.5;
 
-@border-radius-base:        2px;
+@border-radius-base:        4px;
 @border-radius-large:       6px;
 @border-radius-small:       3px;
 
@@ -142,7 +138,7 @@
 @table-bg-active:               @table-bg-hover;
 
 //** Border color for table and cell borders.
-@table-border-color:            #ddd;
+@table-border-color:            #3D3D3D;
 
 
 //== Buttons
@@ -207,7 +203,7 @@
 @input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             @red-base;
+@input-border-focus:             #66afe9;
 
 //** Placeholder text color
 @input-color-placeholder:        #999;
@@ -220,7 +216,7 @@
 @input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
 
 //** `.form-group` margin
-@form-group-margin-bottom:       10px;
+@form-group-margin-bottom:       15px;
 
 @legend-color:                   @gray-dark;
 @legend-border-color:            #e5e5e5;
@@ -334,7 +330,7 @@
 @grid-gutter-width:         30px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:     @screen-md-min;
+@grid-float-breakpoint:     @screen-sm-min;
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
@@ -364,11 +360,11 @@
 //##
 
 // Basics of a navbar
-@navbar-height:                    50px;
+@navbar-height:                    74px;
 @navbar-margin-bottom:             0;
 @navbar-border-radius:             @border-radius-base;
-@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
-@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
+@navbar-padding-horizontal:        15px;
+@navbar-padding-vertical:          13px;
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #fff;
@@ -376,7 +372,7 @@
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                @black;
+@navbar-default-link-color:                @gray-light;
 @navbar-default-link-hover-color:          #fff;
 @navbar-default-link-hover-bg:             transparent;
 @navbar-default-link-active-color:         #fff;
@@ -390,9 +386,9 @@
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           @black;
-@navbar-default-toggle-icon-bar-bg:        @white;
-@navbar-default-toggle-border-color:       @black;
+@navbar-default-toggle-hover-bg:           #3D3D3D;
+@navbar-default-toggle-icon-bar-bg:        #888;
+@navbar-default-toggle-border-color:       #3D3D3D;
 
 
 //=== Inverted navbar
@@ -426,22 +422,22 @@
 //##
 
 //=== Shared nav styles
-@nav-link-padding:                          10px 10px;
+@nav-link-padding:                          10px 15px;
 @nav-link-hover-bg:                         @gray-lighter;
 
 @nav-disabled-link-color:                   @gray-light;
 @nav-disabled-link-hover-color:             @gray-light;
 
 //== Tabs
-@nav-tabs-border-color:                     #ddd;
+@nav-tabs-border-color:                     #3D3D3D;
 
 @nav-tabs-link-hover-border-color:          @gray-lighter;
 
 @nav-tabs-active-link-hover-bg:             @body-bg;
 @nav-tabs-active-link-hover-color:          @gray;
-@nav-tabs-active-link-hover-border-color:   #ddd;
+@nav-tabs-active-link-hover-border-color:   #3D3D3D;
 
-@nav-tabs-justified-link-border-color:            #ddd;
+@nav-tabs-justified-link-border-color:            #3D3D3D;
 @nav-tabs-justified-active-link-border-color:     @body-bg;
 
 //== Pills
@@ -456,11 +452,11 @@
 
 @pagination-color:                     @link-color;
 @pagination-bg:                        #fff;
-@pagination-border:                    #ddd;
+@pagination-border:                    #3D3D3D;
 
 @pagination-hover-color:               @link-hover-color;
 @pagination-hover-bg:                  @gray-lighter;
-@pagination-hover-border:              #ddd;
+@pagination-hover-border:              #3D3D3D;
 
 @pagination-active-color:              #fff;
 @pagination-active-bg:                 @brand-primary;
@@ -468,7 +464,7 @@
 
 @pagination-disabled-color:            @gray-light;
 @pagination-disabled-bg:               #fff;
-@pagination-disabled-border:           #ddd;
+@pagination-disabled-border:           #3D3D3D;
 
 
 //== Pager
@@ -477,7 +473,7 @@
 
 @pager-bg:                             @pagination-bg;
 @pager-border:                         @pagination-border;
-@pager-border-radius:                  10px;
+@pager-border-radius:                  15px;
 
 @pager-hover-bg:                       @pagination-hover-bg;
 
@@ -595,10 +591,10 @@
 //##
 
 //** Padding applied to the modal body
-@modal-inner-padding:         10px;
+@modal-inner-padding:         15px;
 
 //** Padding applied to the modal title
-@modal-title-padding:         10px;
+@modal-title-padding:         15px;
 //** Modal title line-height
 @modal-title-line-height:     @line-height-base;
 
@@ -627,7 +623,7 @@
 //
 //## Define alert colors, border radius, and padding.
 
-@alert-padding:               10px;
+@alert-padding:               15px;
 @alert-border-radius:         @border-radius-base;
 @alert-link-font-weight:      bold;
 
@@ -678,7 +674,7 @@
 //** Background color on `.list-group-item`
 @list-group-bg:                 #fff;
 //** `.list-group-item` border color
-@list-group-border:             #ddd;
+@list-group-border:             #3D3D3D;
 //** List group border radius
 @list-group-border-radius:      @border-radius-base;
 
@@ -710,17 +706,17 @@
 //##
 
 @panel-bg:                    #fff;
-@panel-body-padding:          10px;
-@panel-heading-padding:       10px 10px;
+@panel-body-padding:          15px;
+@panel-heading-padding:       10px 15px;
 @panel-footer-padding:        @panel-heading-padding;
 @panel-border-radius:         @border-radius-base;
 
 //** Border color for elements within panels
-@panel-inner-border:          #ddd;
+@panel-inner-border:          #3D3D3D;
 @panel-footer-bg:             #f5f5f5;
 
 @panel-default-text:          @gray-dark;
-@panel-default-border:        #ddd;
+@panel-default-border:        #3D3D3D;
 @panel-default-heading-bg:    #f5f5f5;
 
 @panel-primary-text:          #fff;
@@ -753,7 +749,7 @@
 //** Thumbnail background color
 @thumbnail-bg:                @body-bg;
 //** Thumbnail border color
-@thumbnail-border:            #ddd;
+@thumbnail-border:            #3D3D3D;
 //** Thumbnail border radius
 @thumbnail-border-radius:     @border-radius-base;
 
@@ -795,7 +791,7 @@
 //##
 
 @breadcrumb-padding-vertical:   8px;
-@breadcrumb-padding-horizontal: 10px;
+@breadcrumb-padding-horizontal: 15px;
 //** Breadcrumb background color
 @breadcrumb-bg:                 #f5f5f5;
 //** Breadcrumb text color

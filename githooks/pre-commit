@@ -1,0 +1,13 @@
+#!/bin/sh
+# This runs from the working directory
+
+# Create a file that is checked in the post-commit to prevent infinite loop
+touch .commitprogress
+
+# DB_NAME="default2014"
+
+# Run grunt to minify javascript and css
+gulp
+
+
+

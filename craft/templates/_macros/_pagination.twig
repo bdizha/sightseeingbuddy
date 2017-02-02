@@ -1,0 +1,32 @@
+{% macro renderPagination(paginate) %}
+    <nav>
+        <ul class="pagination">
+            {% if paginate.prevUrl %}
+                <li>
+                    <a href="{{ paginate.prevUrl }}">&laquo;</a>
+                </li>
+            {% else %}
+                <li class="disabled">
+                    <span>&laquo;</span>
+                </li>
+            {% endif %}
+
+            {% for page, url in paginate.getPrevUrls(5) %}
+                <li><a href="{{ url }}">{{ page }}</a></li>
+            {% endfor %}
+            <li class="disabled">
+                <span class="current">{{ paginate.currentPage }}</span>
+            </li>
+            {% for page, url in paginate.getNextUrls(5) %}
+                <li><a href="{{ url }}">{{ page }}</a></li>
+            {% endfor %}
+
+            {% if paginate.nextUrl %}
+                <li><a href="{{ paginate.nextUrl }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+{% endmacro %}

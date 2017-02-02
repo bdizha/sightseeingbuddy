@@ -1,0 +1,134 @@
+{% macro renderBody(body, guestEntry) %}
+  {% import '_macros/_body' as bodyMacro %}
+  {{ bodyMacro.renderBody(body,guestEntry) }}
+{% endmacro %}
+
+{% macro renderPanel(body) %}
+  {% import '_macros/_body' as panelMacro %}
+  {{ panelMacro.renderPanel(body) }}
+{% endmacro %}
+
+{% macro renderForm(formConfigEntry, guestEntry) %}
+  {% import '_macros/_form' as formMacro %}
+  {{ formMacro.renderForm(formConfigEntry, guestEntry) }}
+{% endmacro %}
+
+{% macro renderMeta(meta) %}
+  {% import '_macros/_meta' as metaMacro %}
+  {{ metaMacro.renderMeta(meta) }}
+{% endmacro %}
+
+{% macro renderMetaFromEntry(meta, options) %}
+  {% import '_macros/_meta' as metaMacro %}
+  {{ metaMacro.renderMetaFromEntry(meta) }}
+{% endmacro %}
+
+{% macro renderMediaBlock(mediaBlock) %}
+  {% import '_macros/_mediaBlock' as mediaBlockMacros %}
+  {{ mediaBlockMacros.renderMediaBlock(mediaBlock) }}
+{% endmacro %}
+
+{% macro renderMediaBlockFromEntry(mediaBlock, options) %}
+  {% import '_macros/_mediaBlock' as mediaBlockMacros %}
+  {{ mediaBlockMacros.renderMediaBlockFromEntry(mediaBlock, options) }}
+{% endmacro %}
+
+{% macro renderEditButton(entry) %}
+  {% import '_macros/_editButton' as editButtonMacro %}
+  {{ editButtonMacro.renderEditButton(entry) }}
+{% endmacro %}
+
+{% macro renderPagination(paginate) %}
+  {% import '_macros/_pagination' as paginationMacro %}
+  {{ paginationMacro.renderPagination(paginate) }}
+{% endmacro %}
+
+{% macro renderNav(navigation, activeMenuNode, options) %}
+  {% import '_macros/_nav' as navMacro %}
+  {{ navMacro.renderNav(navigation, activeMenuNode, options) }}
+{% endmacro %}
+
+{% macro renderBreadcrumb(activeMenuNode, options) %}
+  {% import '_macros/_nav' as navMacro %}
+  {{ navMacro.renderBreadcrumb(activeMenuNode, options) }}
+{% endmacro %}
+
+{% macro renderGallery(gallery) %}
+  {% import '_macros/_gallery' as galleryMacro %}
+  {{ galleryMacro.renderGallery(gallery) }}
+{% endmacro %}
+
+{% macro renderGalleryFromEntry(gallery, options) %}
+  {% import '_macros/_gallery' as galleryMacro %}
+  {{ galleryMacro.renderGalleryFromEntry(gallery, options) }}
+{% endmacro %}
+
+{% macro renderVideoBlock(block) %}
+  {% import '_macros/_video' as macro %}
+  {{ macro.renderVideoBlock(block) }}
+{% endmacro %}
+
+{% macro renderPullQuoteBlock(pullQuoteBlock) %}
+    {% set colSize = pullQuoteBlock.alignment in ['left', 'right'] ? "5" : "" %}
+
+    <div class="article-pull-quote col-md-{{ colSize }} align-{{ pullQuoteBlock.alignment }}">
+        <div class="pull-quote">
+            &ldquo;{{ pullQuoteBlock.pullQuote }}&rdquo;
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro renderDownloadsBlock(downloadsBlock) %}
+    <div class="downloads-list-group list-group">
+        {% for asset in downloadsBlock.downloads %}
+            <a href="{{ asset.url }}" download class="list-group-item" target="_blank">
+                <i class="fa fa-download"></i> {{ asset.title }} ({{ asset.size|filesize }})
+            </a>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro renderImageBlock(imageBlock) %}
+    {% set image = imageBlock.image.first() %}
+    {% set colSize = imageBlock.alignment in ['left', 'right'] ? "5" : "" %}
+    {% set imageWidth = imageBlock.alignment in ['left', 'right'] ? 600 : 1200 %}
+    {% set src = image.getUrl({ width: imageWidth }) %}
+    {% set originalWidth = image.getWidth(false) %}
+
+    {% if imageWidth < originalWidth %}
+        {% set src = image.getUrl({width: imageWidth}) %}
+        {% set isResized = true %}
+    {% else %}
+        {% set src = image.getUrl() %}
+        {% set isResized = false %}
+    {% endif %}
+
+    <div class="article-image {% if isResized %}col-md-{{ colSize }}{% endif %} align-{{ imageBlock.alignment }} clear-{{ imageBlock.clear }}">
+        <div class="thumbnail">
+            <img src="{{ src }}" alt="{{ imageBlock.caption }}">
+            {% if imageBlock.caption or image.attribution %}
+
+                <div class="caption">
+                    {% if image.attribution %}
+                        <div class="article-image-attribution">
+                            (Photo by
+                            {% if image.attributionUrl %}
+                            <a href="{{ image.attributionUrl }}" target="_blank">
+                                {% endif %}
+                                {{ image.attribution }}{% if image.attributionUrl %}</a>{% endif -%})
+
+                        </div>
+                    {% endif %}
+
+                    {% if imageBlock.caption %}
+                        <p>
+                            {{ imageBlock.caption }}
+                        </p>
+                    {% endif %}
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+
+{% endmacro %}

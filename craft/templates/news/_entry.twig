@@ -1,0 +1,34 @@
+{% extends "_layouts/master" %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').linkUrl('news').first() %}
+{% set breadcrumbEntry = entry %}
+{% block head %}
+  {{ templateMacros.renderMetaFromEntry(entry) }}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <article class="article">
+
+      <h1 class="article-title">
+        {{ entry.displayTitle|raw }}
+        {{ templateMacros.renderEditButton(entry) }}
+      </h1>
+
+      <div class="article-byline">
+        {{ entry.postDate.format(craft.config.dateFormat) }}
+        {% if entry.byline %}
+          &mdash; {{ entry.byline }}
+        {% endif %}
+      </div>
+
+      <div class="article-sharing">
+        <div data-share-default></div>
+      </div>
+
+      <div class="article-body">
+        {{ templateMacros.renderBody(entry.body) }}
+      </div>
+
+    </article>
+  </div>
+{% endblock %}

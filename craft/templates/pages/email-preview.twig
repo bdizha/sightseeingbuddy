@@ -1,0 +1,6 @@
+{% block content %}
+  {% set entry = craft.entries.id(77).first() %}
+
+  {% include "_emails/contact" %}
+
+{% endblock %}

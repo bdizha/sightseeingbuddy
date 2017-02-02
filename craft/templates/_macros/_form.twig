@@ -1,0 +1,3 @@
+{% macro renderForm(formConfigEntry, guestEntry) %}
+  {% include "_includes/form" with {'formConfigEntry': formConfigEntry, 'guestEntry': guestEntry} only %}
+{% endmacro %}

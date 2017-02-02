@@ -1,0 +1,47 @@
+{% extends "_layouts/master" %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').linkUrl('search').first() %}
+{% block head %}
+  {{ templateMacros.renderMeta({
+    "title": "Search",
+    "canonical": url("search")
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% set query = craft.request.getParam('q') %}
+  {% set entries = craft.entries.section([
+  'news', 'galleries', 'pages'
+  ]).search(query).order('score') %}
+
+  <div class="container">
+    <h1 class="page-title">Search</h1>
+
+    <form action="{{ url('search') }}" class="form-horizontal" role="search">
+      <div class="form-group">
+        <div class="col-md-9 col-md-push-1">
+          <input type="text" class="form-control" placeholder="Search" name="q" value="{{ query }}">
+        </div>
+        <div class="col-md-1 col-md-push-1">
+          <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </form>
+
+    {% if query %}
+      {% if entries|length %}
+        <p style="text-align: center;">Your search for "{{ query }}" returned {{ entries|length }} results</p>
+        {% for entry in entries %}
+          {{ templateMacros.renderMediaBlockFromEntry(entry) }}
+        {% endfor %}
+      {% else %}
+        <p class="text-align-center">Your search for “{{ query }}” didn’t return any results.</p>
+      {% endif %}
+    {% else %}
+
+    {% endif %}
+
+  </div>
+{% endblock %}
+
+

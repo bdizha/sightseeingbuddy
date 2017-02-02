@@ -1,0 +1,19 @@
+{% macro renderGallery(gallery) %}
+  {% if gallery.image is defined and not gallery.image is null %}
+    {% set image = gallery.image.first() %}
+    {% set imgURL = image.getUrl({width:800, quality:80}) %}
+    {% set imgCaption = gallery.caption %}
+    {% set imgTitle = gallery.imageTitle %}
+
+    <div class="">
+      <a href="{{ imgURL }}" class="lightbox" data-description="{{ imgCaption }}">
+        <img src="{{ imgURL }}" class="img-responsive">
+        <div class="caption">
+          <div class="horizontal-align-center vertical-align-middle">{{ imgTitle }}</div>
+        </div>
+      </a>
+    </div>
+
+  {% endif %}
+
+{% endmacro %}

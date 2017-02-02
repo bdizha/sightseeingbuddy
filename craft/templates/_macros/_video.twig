@@ -1,0 +1,22 @@
+{% macro renderVideoBlock(block, options) %}
+  {% set alignment = block.alignment is defined %}
+  {% set config = {
+    html: false,
+    url: block.video is defined ? block.video,
+    colSize: block.alignment is defined ? (block.alignment in ['left', 'right'] ? 5),
+    alignment: block.alignment is defined ? block.alignment,
+    clear: block.clear is defined ? block.clear
+  }|merge(options?:{}) %}
+
+  {% set video = config.url ? craft.embedder.url(config.url, {max_width:500, max_height:800}) %}
+
+  {% if video %}
+    {% set config = config|merge({html: video.embed_code}) %}
+  {% endif %}
+
+  <div class="article-image {% if config.colSize %}col-md-{{ config.colSize }} {% endif %} align-{{ config.alignment }} clear-{{ config.clear }}">
+    <div class="embed-responsive embed-responsive-16by9">
+      {{ config.html }}
+    </div>
+  </div>
+{% endmacro %}

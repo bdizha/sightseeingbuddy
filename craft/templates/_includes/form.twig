@@ -1,0 +1,24 @@
+{% extends "_includes/formDefault" %}
+{% block formInner %}
+
+  {% set submitButtonText = formConfigEntry.submitButtonText ? formConfigEntry.submitButtonText : 'Submit'|t %}
+
+  {% if guestEntry is not defined %}{% set guestEntry = null %}{% endif %}
+  {% if namespace is not defined %}{% set namespace = 'fields' %}{% endif %}
+
+  {% namespace namespace %}
+  {% for fieldLayoutField in fields %}
+    {% include "_includes/field" with {
+    fieldLayoutField: fieldLayoutField,
+    guestEntry: guestEntry,
+    static:     (static is defined ? static : null)
+    } only %}
+  {% endfor %}
+  {% endnamespace %}
+
+  <button type="submit" class="btn btn-primary">
+    <span data-submitting-text class="hide"><i class="fa fa-spinner fa-pulse"></i> {{ 'Submitting' | t }}</span>
+    <span data-submit-text>{{ submitButtonText | t }}</span>
+  </button>
+
+{% endblock %}

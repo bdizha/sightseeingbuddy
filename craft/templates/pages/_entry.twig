@@ -1,0 +1,32 @@
+{% extends "_layouts/master" %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').relatedTo(entry).first() %}
+{% set parentMenuNode = currentMenuNode.getAncestors().first() %}
+
+{% block head %}
+  {{ templateMacros.renderMetaFromEntry(entry) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+
+      <aside id="sidebar" class="col-sm-4">
+        {% if parentMenuNode %}
+            <ul class="nav nav-stacked nav-pills">
+              {{ templateMacros.renderNav(parentMenuNode.getDescendants(), currentMenuNode|default(null), {dropdown: false}) }}
+            </ul>
+        {% endif %}
+
+      </aside>
+
+      <article class="article col-sm-8">
+        <h1 class="page-title page-title-left">{{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}</h1>
+
+        {{ templateMacros.renderBody(entry.body, guestEntry) }}
+      </article>
+    </div>
+  </div>
+
+
+{% endblock %}

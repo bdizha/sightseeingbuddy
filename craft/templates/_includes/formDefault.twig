@@ -1,0 +1,19 @@
+{% set form = craft.sections.getSectionByHandle('formSubmissions').getEntryTypes('handle')[formConfigEntry.associatedForm] %}
+{% set fields = form.getFieldLayout().getFields() %}
+{% set submitButtonText = formConfigEntry.submitButtonText ? formConfigEntry.submitButtonText : 'Submit'|t %}
+
+<form method="post" accept-charset="utf-8" class="form {{ class|default('') }}" id="{{ formConfigEntry.slug }}">
+  {{ getCsrfInput() }}
+
+  <input type="hidden" name="action" value="guestEntries/saveEntry">
+  <input type="hidden" name="handle" value="{{ form.handle }}">
+  <input type="hidden" name="typeId" value="{{ form.id }}">
+  <input type="hidden" name="sectionId" value="{{ form.sectionId }}">
+  <input type="hidden" name="redirect" value="{{ formConfigEntry.redirectPage }}">
+  <input type="hidden" name="successMessage" value="{{ formConfigEntry.successMessage }}">
+  <input type="hidden" name="failedMessage" value="{{ formConfigEntry.failedMessage }}">
+
+  {% block formInner %}{% endblock %}
+
+  <span class="help-block">*{{ 'Required' }}</span>
+</form>

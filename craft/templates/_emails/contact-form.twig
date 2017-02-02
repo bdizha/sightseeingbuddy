@@ -1,0 +1,18 @@
+{% extends '_emails/base' %}
+
+{% block content %}
+    <h1>{{ entry.type | capitalize }} submission</h1>
+    {#<h2>{{ entry.title }}</h2>#}
+    <table width="100%" class="table">
+        {% set fields = entry.getFieldLayout().getFields() %}
+        {% for field in fields %}
+            {% set fieldElement = craft.fields.getFieldById(field.fieldId) %}
+            {% if fieldElement.type != 'SproutFields_Invisible' %}
+                <tr>
+                    <td width="150" valign="top"><strong>{{ fieldElement.name }}</strong></td>
+                    <td valign="top">{{ entry.getContent()[fieldElement.handle] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}

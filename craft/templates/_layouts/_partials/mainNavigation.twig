@@ -1,0 +1,56 @@
+
+{% macro activeParent(children, currentEntryId) %}
+    {% spaceless %}
+        {% if children %}
+            {% for child in children %}
+                {% set childIsLinkedEntry = (child.type == 'entryLink') %}
+                {% set childLinkedEntry = childIsLinkedEntry ? child.relatedEntry.first() : false %}
+                {% set childUri = childLinkedEntry ? childLinkedEntry.uri : child.linkUrl %}
+                {% set childIsInPath = (craft.request.firstSegment matches '{^' ~ childUri ~ '}') %}
+                {% set childIsCurrent = (childLinkedEntry and currentEntryId and childLinkedEntry.id == currentEntryId) %}
+                {{ (childIsCurrent or childIsInPath) }}
+            {% endfor %}
+        {% endif %}
+    {% endspaceless %}
+{% endmacro %}
+{% from _self import activeParent %}
+
+{% set isEntryPage = (entry.id is defined) %}
+{% set currentEntryId = isEntryPage ? entry.id : false %}
+
+{% spaceless %}
+<ul class="nav navbar-nav">
+  {% nav page in craft.entries.section('mainNavigation') %}
+
+    {% set pageIsLinkedEntry = (page.type == 'entryLink') %}
+    {% set pageLinkedEntry = pageIsLinkedEntry ? page.relatedEntry.first() : false %}
+    {% set pageUri = url(pageIsLinkedEntry ? pageLinkedEntry.uri : page.linkUrl) %}
+
+    {% set pageIsCurrent = ((pageLinkedEntry and isEntryPage and pageLinkedEntry.id == entry.id) or (craft.request.url == pageUri)) %}
+    {% set pageIsTopParent = (craft.request.firstSegment matches '{^' ~ pageUri ~ '}') %}
+    {% set pageIsActiveParent = (activeParent(page.getDescendants(), currentEntryId) |trim) %}
+    {% set pageIsInPath = (isEntryPage and not pageIsLinkedEntry and pageUri and entry.uri matches '{^' ~ pageUri ~ '}') %}
+
+    {% set classes = ['nav-item--level-' ~ page.level] %}
+    {% set classes = classes|merge([ pageIsActiveParent ? 'nav-item--is-active-parent' : 'whitespace']) %}
+    {% set classes = classes|merge([pageIsCurrent ? 'nav-item--is-active active' : 'whitespace']) %}
+    {% set classes = classes|merge([pageIsTopParent ? 'nav-item--is-top-parent' : 'whitespace']) %}
+    {% set classes = classes|merge([pageIsInPath ? 'nav-item--is-in-path active' : 'whitespace']) %}
+    {% set classes = classes|merge([page.hasDescendants ? 'nav-item--has-children dropdown' : 'whitespace']) %}
+    {% set classes = classes|merge([page.hasDescendants and page.level > 1 ? 'dropdown-submenu' : 'whitespace']) %}
+    {% set classes = classes|join(' ')|replace({' whitespace': ''}) %}
+
+    <li class="{{ classes }}">
+      <a href="{{ pageUri }}" class="{% if page.hasDescendants %}dropdown-toggle{% endif %}"{% if page.hasDescendants %} data-toggle="dropdown"{% endif %}>
+        {{ page.title }}{% if page.hasDescendants %} <span class="caret"></span>{% endif %}
+      </a>
+
+      {% ifchildren %}
+        <ul class="{{ 'dropdown-menu nav-list nav-list--level-' ~ (page.level + 1) }}">
+          {% children %}
+        </ul>
+      {% endifchildren %}
+    </li>
+  {% endnav %}
+</ul>
+{% endspaceless %}

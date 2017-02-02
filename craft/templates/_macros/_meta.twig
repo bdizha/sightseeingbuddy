@@ -1,0 +1,57 @@
+{% macro renderMeta(meta) %}
+  {% set defaultMeta = {
+    "title": "",
+    "entryTitle": "",
+    "canonical": "",
+    "description": siteGlobals.siteDescription,
+    "image": siteGlobals.siteImage.first(),
+  } %}
+
+  {% set meta = defaultMeta|merge(meta) %}
+
+  {# Title #}
+  <title>{% if meta.title %}{{ meta.title }} {{ craft.config.titleSeparator }} {% endif %}{{ siteName }}</title>
+  <meta content="{% if meta.title %}{{ meta.title }} {{ craft.config.titleSeparator }} {% endif %}{{ siteName }}" property="og:title"/>
+  {% if meta.entryTitle -%}
+    <meta content="{{ meta.entryTitle }}" property="article-title"/>
+  {% endif %}
+
+  {# Description #}
+  <meta name="description" content="{{ meta.description }}">
+  <meta property="og:description" content="{{ meta.description }}" />
+  <meta itemprop="description" content="{{ meta.description }}">
+
+  <!-- Image -->
+  {% if meta.image -%}
+    <meta property="og:image" content="{{ meta.image.getUrl({ width: 600 }) }}"/>
+    <meta itemprop="image" content="{{ meta.image.getUrl({ width: 600 }) }}">
+    <link rel="image_src" href="{{ meta.image.getUrl({ width: 600 }) }}"/>
+  {% endif %}
+
+  {% if meta.canonical %}
+    <link rel="canonical" href="{{ meta.canonical }}">
+  {% endif %}
+
+{% endmacro %}
+
+{% macro renderMetaFromEntry(entry, options) %}
+  {% set options = options ?: {} %}
+  {% set title = entry.metaTitle ? entry.metaTitle : (entry.displayTitle ? entry.displayTitle|striptags : entry.title) %}
+  {% set image = entry.metaImage and entry.metaImage.first()
+    ? entry.metaImage.first()
+    : (
+      entry.featureImage and entry.featureImage.first()
+        ? entry.featureImage.first()
+        : siteGlobals.siteImage.first()
+    )
+  %}
+
+  {% set options = {
+  "title": title,
+  "entryTitle": title,
+  "description": entry.metaDescription ? entry.metaDescription : entry.summary|striptags,
+  "image": image
+  }|merge(options) %}
+
+  {{ _self.renderMeta(options) }}
+{% endmacro %}

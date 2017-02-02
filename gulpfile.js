@@ -1,7 +1,6 @@
 var path = require('path');
 var gulp = require('gulp');
 var del = require('del');
-var gutil = require('gulp-util');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var wiredep = require('wiredep');
@@ -9,8 +8,7 @@ var gulpLoadPlugins = require('gulp-load-plugins');
 var pkg = require('./package.json');
 var realFavicon = require ('gulp-real-favicon');
 var fs = require('fs');
-var flatten = require('gulp-flatten');
-
+var gutil = require('gulp-util');
 var plugins = gulpLoadPlugins();
 var reload = browserSync.reload;
 
@@ -26,27 +24,25 @@ gulp.task('default', ['help']);
 // Compile and automatically prefix stylesheets
 gulp.task('css', function () {
   return gulp.src([SRC_PATH + '/css/style.less'])
-    .pipe(plugins.newer(TEMP_PATH + '/css'))
     .pipe(plugins.sourcemaps.init())
     .pipe(
-      plugins.less().on('error', function(err){
+      plugins.less().on('error', function (err) {
         gutil.log(err);
         this.emit('end');
       })
     )
     .pipe(plugins.autoprefixer({browsers: ['last 3 version', '> 5%']}))
     .pipe(gulp.dest(TEMP_PATH + '/css'))
-    // Concatenate and minify styles
+    // Minify styles
     //.pipe(plugins.if('*.css', plugins.minifyCss()))
     .pipe(plugins.size({title: 'css'}))
-    .pipe(plugins.sourcemaps.write('./'))
+    .pipe(plugins.sourcemaps.write('.'))
     .pipe(gulp.dest(BUILD_PATH + '/css'));
 });
 
 gulp.task('vendor-css', function () {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src(getWireDepFiles('css'))
-    .pipe(plugins.newer(TEMP_PATH + '/css'))
     .pipe(plugins.sourcemaps.init())
     .pipe(gulp.dest(TEMP_PATH + '/css'))
     .pipe(plugins.concat('vendors.css'))
@@ -61,11 +57,8 @@ gulp.task('vendor-css', function () {
 gulp.task('fonts', function () {
   return gulp.src([
       BOWER_PATH + '/font-awesome/fonts/*',
-      SRC_PATH + '/fonts/**/*.*',
-      BOWER_PATH + '/*/fonts/*'
+      SRC_PATH + '/fonts/**/*.*'
     ])
-
-      .pipe(flatten())
     .pipe(gulp.dest(BUILD_PATH + '/fonts'));
 });
 
@@ -73,10 +66,12 @@ gulp.task('scripts', function () {
   return gulp.src([SRC_PATH + '/js/*'])
     .pipe(plugins.newer(TEMP_PATH + '/js'))
     .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.sourcemaps.write())
     .pipe(gulp.dest(TEMP_PATH + '/js'))
     .pipe(plugins.concat('scripts.js'))
-    .pipe(plugins.uglify())
+    .pipe(plugins.uglify().on('error', function(err){
+      gutil.log(err);
+      this.emit('end');
+    }))
     //.pipe(plugins.stripDebug())
     // Output files
     .pipe(plugins.size({title: 'js'}))
@@ -89,7 +84,6 @@ gulp.task('vendor-js', function () {
   return gulp.src(getWireDepFiles('js'))
     .pipe(plugins.newer(TEMP_PATH + '/js'))
     .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.sourcemaps.write())
     .pipe(gulp.dest(TEMP_PATH + '/js'))
     .pipe(plugins.concat('vendors.js'))
     .pipe(plugins.uglify())

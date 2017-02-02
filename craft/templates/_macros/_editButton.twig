@@ -1,0 +1,10 @@
+{% macro renderEditButton(entry) %}
+  {% if currentUser is not null %}
+    {% set sectionPermission = 'editEntries' ~ entry.sectionId %}
+    {% if currentUser.can(sectionPermission) %}
+      <a href="{{ entry.getCpEditUrl() }}" target="_blank" class="edit-this-page">
+        <i class="fa fa-edit"></i>
+      </a>
+    {% endif %}
+  {% endif %}
+{% endmacro %}

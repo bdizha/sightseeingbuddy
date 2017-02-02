@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+if (! getenv('CRAFT_ENVIRONMENT')) {
+    exit("Environment variable [CRAFT_ENVIRONMENT] not defined.\n Try: export CRAFT_ENVIRONMENT=local\n");
+}
+
+if (!defined('CRAFT_ENVIRONMENT')) {
+  define('CRAFT_ENVIRONMENT', getenv('CRAFT_ENVIRONMENT'));
+}
+
+include "craft/app/etc/console/yiic.php";

@@ -1,0 +1,25 @@
+{% extends "_layouts/master" %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').linkUrl('news').first() %}
+
+{% block head %}
+  {{ templateMacros.renderMeta({
+    "title": "News",
+    "canonical": url("news")
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="page-title">News</h1>
+
+    {% paginate craft.entries.section('news').with(["featureImage"]).limit(3) as paging, entries %}
+      {% for entry in entries %}
+        {{ templateMacros.renderMediaBlockFromEntry(entry, {}) }}
+      {% endfor %}
+
+    {% if paging.totalPages > 1 %}
+      {{ templateMacros.renderPagination(paging) }}
+    {% endif %}
+
+  </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+  {% macro renderMediaBlock(mediaBlock) %}
+    {% import '_macros/_editButton' as editButtonMacros %}
+
+    {% set defaultMediaBlock = {
+      "entry": "",
+      "image": "",
+      "fallbackImage": "",
+      "summary": "",
+      "title": "",
+      "url": "",
+      "date": "",
+      "byline": "",
+      "readmore": "Read more",
+      "alignment": "left",
+    } %}
+
+    {% set mediaBlock = defaultMediaBlock|merge(mediaBlock) %}
+
+    {% if not mediaBlock.image and mediaBlock.fallbackImage %}
+      {% set mediaBlock = mediaBlock|merge({image: mediaBlock.fallbackImage}) %}
+    {% endif %}
+
+    {% set transformedImage = craft.imager.transformImage(mediaBlock.image, [
+      {width: 380},
+      {width: 200},
+      {width: 160}
+      ], { ratio: 1/1, mode: 'crop', cropZoom: 1, position: mediaBlock.image.focalPoint, jpegQuality: 80 }) %}
+
+
+    <article class="media media-responsive">
+      <div class="media-{{ mediaBlock.alignment }} pull-{{ mediaBlock.alignment }}">
+        {% if mediaBlock.url %}<a href="{{ mediaBlock.url }}">{% endif %}
+          {% if mediaBlock.image %}
+            <img class="media-object"
+                  src="{{ craft.imager.base64Pixel(1,1) }}" sizes="(min-width: 992px) 160px, (min-width: 381px) 200px, 380px" srcset="{{ craft.imager.srcset(transformedImage) }}" alt="{{ mediaBlock.image.Title }}"
+              >
+            {% if mediaBlock.url %}</a>{% endif %}
+          {% endif %}
+      </div>
+
+      <div class="media-body">
+
+        <h2 class="media-heading">
+          {% if mediaBlock.url %}<a href="{{ mediaBlock.url }}">{% endif %}
+            {{ mediaBlock.title|raw }}
+            {% if mediaBlock.url %}</a>{% endif %}
+          {{ editButtonMacros.renderEditButton(mediaBlock.entry) }}
+        </h2>
+
+        {% if mediaBlock.date %}
+          <div class="media-date-byline">
+          <span class="media-date">
+            {{ mediaBlock.date.format(craft.config.dateFormat)|raw }}
+          </span>
+            {% if mediaBlock.byline %}
+              &mdash;
+              <span class="media-byline">
+              {{ mediaBlock.byline }}
+            </span>
+            {% endif %}
+
+
+            {% if mediaBlock.sharing %}
+            <span class="media-sharing">
+              <span data-share-default data-url="{{ mediaBlock.url }}"></span>
+            </span>
+            {% endif %}
+
+          </div>
+        {% endif %}
+
+        {% if mediaBlock.summary %}
+          <div class="media-summary">
+            {{ mediaBlock.summary }}
+          </div>
+        {% endif %}
+
+        {% if mediaBlock.url %}
+          <div class="readmore">
+            <a href="{{ mediaBlock.url }}">{{ mediaBlock.readmore }}</a>
+          </div>
+        {% endif %}
+
+      </div>
+
+    </article>
+  {% endmacro %}
+
+  {% macro renderMediaBlockFromEntry(entry, options) %}
+    {% set options = options ?: {} %}
+
+    {% set options = {
+      "entry": entry,
+      "image": entry.featureImage[0]|default(null),
+      "fallbackImage": siteGlobals.siteImage.first(),
+      "summary": entry.summary,
+      "title": entry.displayTitle,
+      "url": entry.url,
+      "date": entry.postDate,
+      "byline": entry.byline,
+      "sharing": true,
+    }|merge(options) %}
+
+    {{ _self.renderMediaBlock(options) }}
+  {% endmacro %}

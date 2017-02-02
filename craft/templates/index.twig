@@ -1,0 +1,39 @@
+{% extends "_layouts/master.twig" %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').id(26).first() %}
+
+{% block content %}
+
+    {# Slideshow #}
+    {{ templateMacros.renderBody(entry.body.type('relatedPanel')) }}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">About us</h2>
+          </div>
+          <div class="panel-body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus explicabo inventore molestiae quae quisquam repellendus. Dolore dolorem expedita repellendus similique soluta, sunt. Amet dolore enim facilis impedit laboriosam natus, rem?
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">Latest news</h2>
+          </div>
+          <div class="panel-body">
+            {% for entry in craft.entries.section('news').with(["featureImage"]).limit(1) %}
+              {{ templateMacros.renderMediaBlockFromEntry(entry, {sharing: false, alignment: "left"}) }}
+            {% endfor %}
+            <a href="{{ url('news') }}" class="btn btn-default align-right">
+              View all
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

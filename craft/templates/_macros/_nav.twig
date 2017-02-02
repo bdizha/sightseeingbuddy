@@ -1,0 +1,107 @@
+{% macro renderNav(navItems, activeMenuNode, options) %}
+
+    {% set options = {
+    dropdown: true
+    }|merge(options ?: {}) %}
+
+    {% nav navItem in navItems %}
+
+    {% set active = _self.activeNavItem(navItem, activeMenuNode) %}
+    {% set activeParent = activeMenuNode.id is defined and navItem.isAncestorOf(activeMenuNode) ? 'active-parent' %}
+    {% set isDropdown = navItem.getDescendants().first() and options.dropdown %}
+
+    {% if navItem.level > 1 and isDropdown  %}
+        {% set dropdownClass = 'dropdown-submenu' %}
+    {% elseif isDropdown %}
+        {% set dropdownClass = 'dropdown' %}
+    {% else %}
+        {% set dropdownClass = '' %}
+    {% endif %}
+
+    {% if navItem.level == 1 and isDropdown %}
+        {% set dropdownToggle = 'data-toggle="dropdown"' %}
+    {% else %}
+        {% set dropdownToggle = '' %}
+    {% endif %}
+
+    <li class="
+                item
+                item-level-{{ navItem.level }}
+                {{ active }}
+                {{ activeParent }}
+                {{ dropdownClass }}
+            ">
+        <a href="{{ _self.renderNavItemUri(navItem) }}" {{ dropdownToggle|raw }}>
+            {{ navItem.title }}
+        </a>
+
+        {% ifchildren %}
+        <ul class="item item-level-{{ navItem.level + 1 }} {% if options.dropdown %}dropdown-menu{% else %}nav nav-stacked nav-pills{% endif %}">
+            {% children %}
+        </ul>
+        {% endifchildren %}
+    </li>
+    {% endnav %}
+{% endmacro %}
+
+{% macro renderBreadcrumb(activeMenuNode, options) %}
+
+    {% set options = {}|merge(options ?: {}) %}
+    {% set ancestorNodes = activeMenuNode.getAncestors() %}
+
+    <li>
+        <a href="{{ siteUrl }}">Home</a>
+    </li>
+
+    {% for navItem in ancestorNodes %}
+        <li class="item item-level-{{ navItem.level }}">
+            <a href="{{ _self.renderNavItemUri(navItem) }}">{{ navItem.title }}</a>
+        </li>
+    {% endfor %}
+
+    <li>
+        {% if options.breadcrumbEntry %}
+        <a href="{{ _self.renderNavItemUri(activeMenuNode) }}">
+            {% endif %}
+            {{ activeMenuNode.title }}
+            {% if options.breadcrumbEntry %}
+        </a>
+        {% endif %}
+    </li>
+
+    {% if options.breadcrumbEntry %}
+        <li>
+            {{ options.breadcrumbEntry.title|raw }}
+        </li>
+    {% endif %}
+
+{% endmacro %}
+
+
+{% macro renderNavItemUri(navItem) %}{% spaceless %}
+
+
+    {% if 'typeId' in navItem|keys %}
+        {% set navItemLinkedEntry = navItem.type == 'entryLink' and navItem.relatedEntry[0] ? navItem.relatedEntry[0] %}
+        {% set navItemUri = url(navItemLinkedEntry ? navItemLinkedEntry.uri : navItem.linkUrl) %}
+    {% else %}
+        {% set navItemUri = navItem.url %}
+    {% endif %}
+    {{ navItemUri }}
+
+{% endspaceless %}{% endmacro %}
+
+{% macro activeNavItem(navItem, activeNodeItem) %}{% spaceless %}
+
+    {% set navActiveLinked = false  %}
+
+    {% if 'typeId' in navItem|keys and 'typeId' in  activeNodeItem|keys %}
+        {% set navItemLinkedEntry = navItem.type == 'entryLink' and navItem.relatedEntry[0] ? navItem.relatedEntry[0] %}
+        {% set activeNodeItemLinkedEntry = activeNodeItem.type == 'entryLink' and activeNodeItem.relatedEntry[0] ? activeNodeItem.relatedEntry.first() %}
+        {% set navActiveLinked = navItemLinkedEntry and activeNodeItemLinkedEntry and navItemLinkedEntry.id == activeNodeItemLinkedEntry.id  %}
+    {% endif %}
+
+    {% set navActive = activeNodeItem.id is defined and navItem.id == activeNodeItem.id  %}
+
+    {{  navActiveLinked or navActive ? 'active'  }}
+{% endspaceless %}{% endmacro %}

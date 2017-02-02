@@ -1,0 +1,52 @@
+
+{% set siteDataSchema = {
+"@context" : "http://schema.org",
+"@type" : siteGlobals.siteType.value,
+"name" : siteName,
+"url" : siteUrl,
+} %}
+
+
+{# Contacts #}
+{% if siteGlobals.siteContacts.length %}
+  {% set contacts = [] %}
+
+  {% for contact in siteGlobals.siteContacts %}
+    {% set contacts = contacts|merge([{
+    "@type" : "ContactPoint",
+    "telephone" : contact.contactNumber,
+    "contactType" : contact.contactType.value
+    }]) %}
+  {% endfor %}
+
+  {% set siteDataSchema = siteDataSchema|merge({
+  "contactPoint" : contacts
+  }) %}
+{% endif %}
+
+{# Profiles #}
+{% if siteGlobals.siteSocialProfiles.length %}
+  {% set sameAs = [] %}
+
+  {% for profile in siteGlobals.siteSocialProfiles %}
+    {% set sameAs = sameAs|merge([profile.profileUrl]) %}
+  {% endfor %}
+
+  {% set siteDataSchema = siteDataSchema|merge({
+  "sameAs" : sameAs
+  }) %}
+
+{% endif %}
+
+{# Logo #}
+{% if siteGlobals.siteLogo.length %}
+
+  {% set siteDataSchema = siteDataSchema|merge({
+  "logo" : siteGlobals.siteLogo.first().getUrl({ width: 500 })
+  }) %}
+{% endif %}
+
+
+<script type="application/ld+json">
+    {{ siteDataSchema|json_encode|raw }}
+</script>

@@ -1,0 +1,81 @@
+{% set field = fieldLayoutField.getField() %}
+{% set required = fieldLayoutField.required %}
+{% set static = static is defined ? static : false %}
+{% set guestEntry = guestEntry is defined ? guestEntry : null %}
+
+{% set value = (guestEntry ? guestEntry.getFieldValue(field.handle) : null) %}
+{% set errors = (guestEntry and not static ? guestEntry.getErrors(field.handle) : null) %}
+{% set fieldtype = field.getFieldType() %}
+{% set instructions = (not static and field.instructions ? field.instructions|t : null) %}
+
+{% if fieldtype %}
+  {% if guestEntry %}
+    {% do fieldtype.setElement(guestEntry) %}
+  {% endif %}
+  {% if not static %}
+    {% set input = craft.fieldProxy.getInputHtml(fieldtype, field.handle, value) %}
+  {% else %}
+    {% set input = fieldtype.getStaticHtml(value) %}
+  {% endif %}
+{% else %}
+  {% set input = '<p class="error">' ~ "The fieldtype class “{class}” could not be found."|t({ class: field.type }) ~ '</p>' %}
+{% endif %}
+
+{% set hiddenField = fieldtype.classHandle in ["SproutFields_Hidden"] %}
+
+{% if hiddenField %}
+<div class="hide">
+{% endif %}
+
+{% if instructions or input %}
+
+  {%- set label = field.name|t|e %}
+  {%- set locale = field.translatable ? (locale is defined ? locale : (guestEntry ? guestEntry.locale : craft.locale)) %}
+  {%- set id = field.handle %}
+  {%- set fieldId = (fieldId is defined ? fieldId : (id is defined ? id~'-field' : null)) %}
+  {%- set label = (label is defined and label != '__blank__' ? label : null) %}
+  {%- set locale = ((craft.isLocalized() and locale is defined) ? locale : null) %}
+  {%- set instructions = (instructions is defined ? instructions : null) %}
+  {%- set warning = (warning is defined ? warning : null) %}
+  {%- set orientation = craft.i18n.getLocaleData(locale ?: craft.locale).getOrientation() %}
+  {%- set errors = (errors is defined ? errors : null) -%}
+  {%- set fieldClass = [
+  'field form-group',
+  (first is defined and first ? 'first' : null),
+  (errors ? 'has-error' : null),
+  (fieldClass is defined and fieldClass ? fieldClass : null)
+  ]|filter|join(' ') -%}
+
+  <div class="{{ fieldClass }}"{% if fieldId %} id="{{ fieldId }}"{% endif %}>
+    {% if label or instructions %}
+      <div class="heading">
+        {% if label %}
+          <label class="control-label {% if required is defined and required %}required{% endif %}" {% if id is defined and id %} for="{{ id }}"{% endif %}>
+            {{- label|raw -}}
+            {% if required is defined and required %}*{% endif %}
+          </label>
+        {% endif %}
+        {% if instructions %}
+          <div class="instructions">{{ instructions|md|replace('/&amp;(\\w+);/', '&$1;')|raw }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="input {{ orientation }}{% if errors %} errors{% endif %}">
+      {{ input|raw }}
+    </div>
+    {% if warning %}
+      <p class="warning">{{ warning }}</p>
+    {% endif %}
+
+    {%- if errors %}
+      {% for error in errors %}
+        <div class="help-block"><small>{{ error }}</small></div>
+      {% endfor %}
+    {%- endif %}
+
+  </div>
+
+{% endif %}
+{% if hiddenField %}
+</div>
+{% endif %}

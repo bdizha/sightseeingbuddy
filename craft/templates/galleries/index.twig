@@ -1,0 +1,50 @@
+{% extends "_layouts/master" %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').linkUrl('galleries').first() %}
+{% block head %}
+    {{ templateMacros.renderMeta({
+        "title": "Gallery",
+        "canonical": url("galleries")
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+    <section class="container">
+        <h1 class="page-title">Galleries</h1>
+        {% set transform = {width:800, quality:80} %}
+
+        <div class="row">
+
+            {% paginate craft.entries.section('galleries').with('gallery') as paging, entries %}
+
+            {% for entry in entries %}
+
+                {% set image = entry.gallery[0].image[0] ?? null %}
+
+                <div class="col-md-4 mb-1">
+
+                    <a href="{{ entry.Url }}" class="thumbnail">
+
+                        {% if image %}
+                            <img src="{{ image.getUrl(transform) }}" class="img-responsive"
+                                 width="{{ image.getWidth(transform) }}" height="{{ image.getHeight(transform) }}"/>
+                        {% endif %}
+
+                        <div class="caption">
+                            <p>{{ entry.displayTitle }}</p>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+            {% if paging.totalPages > 1 %}
+                {{ templateMacros.renderPagination(paging) }}
+            {% endif %}
+
+        </div>
+
+    </section>
+{% endblock %}

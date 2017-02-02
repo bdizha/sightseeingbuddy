@@ -1,76 +1,66 @@
 {
-    "name": "default2016",
-    "version": "1.0.0",
-    "authors": [],
-    "description": "",
-    "main": "master.html",
-    "moduleType": [
-        "globals",
-        "node"
-    ],
-    "keywords": [],
-    "license": "MIT",
-    "private": true,
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "public/vendor",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "bootstrap": "~3.3.5",
-        "jquery": "~2.1.4",
-        "font-awesome": "fontawesome#~4.5.0",
-	"glyphicons-halflings": "*",
-        "slick-carousel": "~1.5.8",
-        "magnific-popup": "~1.1.0",
-        "masonry": "^4.1.1",
-        "html5shiv": "^3.7.3",
-        "respond": "respond-minmax#^1.4.2",
-        "picturefill": "^3.0.2",
-        "modernizr": "*",
-        "respond-minmax": "*",
-        "slick.js": "*",
-        "sharrre": "*",
-        "svgeezy": "git://github.com/benhowdle89/svgeezy.git",
-        "fontawesome": "*",
-        "matchHeight": "*",
-        "jquery-validation": "*",
-        "fitvids": "*",
-        "imagesloaded": "~3.1.8",
-        "jquery.lazyload": "*"
+  "name": "default2016",
+  "version": "1.0.0",
+  "authors": [],
+  "description": "",
+  "main": "master.html",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "font-awesome": "fontawesome#~4.5.0",
+    "slick-carousel": "~1.5.8",
+    "magnific-popup": "~1.1.0",
+    "masonry": "^4.1.1",
+    "html5shiv": "^3.7.3",
+    "respond": "respond-minmax#^1.4.2",
+    "picturefill": "^3.0.2"
+  },
+  "devDependencies": {
+    "parsleyjs": "^2.3.5"
+  },
+  "overrides": {
+    "respond": {
+      "main": []
     },
-    "devDependencies": {
-        "parsleyjs": "^2.3.5"
+    "html5shiv": {
+      "main": []
     },
-    "overrides": {
-        "respond": {
-            "main": []
-        },
-        "html5shiv": {
-            "main": []
-        },
-        "picturefill": {
-            "main": []
-        },
-        "masonry": {
-            "main": ["dist/masonry.pkgd.js"]
-        },
-        "slick-carousel": {
-            "main": [
-                "slick/slick.js",
-                "slick/slick.css",
-                "slick/slick-theme.css",
-                "slick/fonts/*"
-            ]
-        },
-        "outlayer": {
-            "main": [
-                "item.js",
-                "outlayer.js"
-            ]
-        }
+    "picturefill": {
+      "main": []
+    },
+    "masonry": {
+      "main": [
+        "dist/masonry.pkgd.js"
+      ]
+    },
+    "slick-carousel": {
+      "main": [
+        "slick/slick.js",
+        "slick/slick.css",
+        "slick/slick-theme.css",
+        "slick/fonts/*"
+      ]
+    },
+    "outlayer": {
+      "main": [
+        "item.js",
+        "outlayer.js"
+      ]
     }
+  }
 }

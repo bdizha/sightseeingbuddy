@@ -1,0 +1,139 @@
+{% macro renderBody(body, guestEntry) %}
+
+  {% for block in body %}
+
+    {% set type = block.type %}
+
+
+    {% if type == "heading" %}
+
+      <{{ block.headingType }}>{{ block.heading|raw }}</{{ block.headingType }}>
+
+   {% elseif type == "text" %}
+
+      {{ block.text }}
+
+    {% elseif type == "image" %}
+
+      {{ _self.renderImageBlock(block) }}
+
+    {% elseif type == "video" %}
+
+      {{ _self.renderVideoBlock(block) }}
+
+    {% elseif type == "pullQuote" %}
+
+      {{ _self.renderPullQuoteBlock(block) }}
+
+    {% elseif type == "downloads" %}
+
+      {{ _self.renderDownloadsBlock(block) }}
+
+    {% elseif type == "relatedPanel" %}
+
+      {{ _self.renderPanel(block.panel.first()) }}
+
+    {% elseif type == "relatedForm" %}
+
+      {{ _self.renderForm(block.form.first(), guestEntry) }}
+
+    {% endif %}
+
+  {% endfor %}
+
+{% endmacro %}
+
+{% macro renderPullQuoteBlock(pullQuoteBlock) %}
+  {% set colSize = pullQuoteBlock.alignment in ['left', 'right'] ? "5" : "" %}
+
+  <div class="article-pull-quote col-md-{{ colSize }} align-{{ pullQuoteBlock.alignment }}">
+    <div class="pull-quote">
+      &ldquo;{{ pullQuoteBlock.pullQuote }}&rdquo;
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro renderDownloadsBlock(downloadsBlock) %}
+  <div class="downloads-list-group list-group">
+    {% for asset in downloadsBlock.downloads %}
+      <a href="{{ asset.url }}" download class="list-group-item" target="_blank">
+        <i class="fa fa-download"></i> {{ asset.title }} ({{ asset.size|filesize }})
+      </a>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro renderImageBlock(imageBlock) %}
+  {% set image = imageBlock.image.first() %}
+  {% set colSize = imageBlock.alignment in ['left', 'right'] ? "5" : "" %}
+  {% set imageWidth = imageBlock.alignment in ['left', 'right'] ? 600 : 1200 %}
+  {% set src = image.getUrl({ width: imageWidth }) %}
+  {% set originalWidth = image.getWidth(false) %}
+
+  {% if imageWidth < originalWidth %}
+    {% set src = image.getUrl({width: imageWidth}) %}
+    {% set isResized = true %}
+  {% else %}
+    {% set src = image.getUrl() %}
+    {% set isResized = false %}
+  {% endif %}
+
+  {% set classes = [] %}
+
+  {% if isResized %}
+    {% set classes = classes|merge(["col-md-" ~ colSize]) %}
+  {% endif %}
+
+  {% set classes = classes|merge(["clear-" ~ imageBlock.clear]) %}
+  {% set classes = classes|merge(["align-" ~ imageBlock.alignment]) %}
+
+  {#
+  {% if not isResized and imageBlock.alignment == "center" %}style="width: {{ image.getWidth(false) }}px"{% endif %}
+  #}
+
+  <div class="article-image {{ classes|join(" ") }}" >
+    <div class="thumbnail">
+      <img src="{{ src }}" alt="{{ imageBlock.caption }}">
+      {% if imageBlock.caption or image.attribution %}
+
+        <div class="caption">
+          {% if image.attribution %}
+            <div class="article-image-attribution">
+              (Image:
+              {% if image.attributionUrl %}
+              <a href="{{ image.attributionUrl }}" target="_blank">
+                {% endif %}
+                {{ image.attribution }}{% if image.attributionUrl %}</a>{% endif -%})
+
+            </div>
+          {% endif %}
+
+          {% if imageBlock.caption %}
+            <p>
+              {{ imageBlock.caption }}
+            </p>
+          {% endif %}
+        </div>
+
+      {% endif %}
+    </div>
+  </div>
+
+{% endmacro %}
+
+
+{% macro renderVideoBlock(videoBlock) %}
+  {% import '_macros/_video' as macros %}
+  {{ macros.renderVideoBlock(videoBlock) }}
+{% endmacro %}
+
+
+{% macro renderPanel(entry) %}
+  {% import '_macros/_panel' as panelMacro %}
+  {{ panelMacro.renderPanel(entry) }}
+{% endmacro %}
+
+{% macro renderForm(entry, guestEntry) %}
+  {% import '_macros/_form' as formMacro %}
+  {{ formMacro.renderForm(entry, guestEntry) }}
+{% endmacro %}
