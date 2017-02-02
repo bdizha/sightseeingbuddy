@@ -1,0 +1,41 @@
+*.gz
+*.log
+*.zip
+*.tar.gz
+._*
+*.db
+*.swp
+.DS_Store
+.svn
+.idea
+.tmp
+/db/*
+
+# Exclude SQL files in home dir, but leave for modules etc
+/*.sql
+!/default2016.sql
+/vendor/*
+node_modules
+
+# Upload folders
+public/thumbs/*
+public/uploads/*
+!public/uploads/files
+public/uploads/files/*
+
+!public/uploads/files/lorem-1.jpg
+!public/uploads/files/lorem-2.jpg
+!public/uploads/files/lorem-3.jpg
+!public/uploads/files/lorem-4-portrait.jpg
+!public/uploads/files/500x500.png
+!public/uploads/files/default-logo.jpg
+
+# Keep these files!
+!.sf
+!placeholder.gif
+!.keepdir
+!.gitignore
+
+!**/Flow-logo_600x600_white-background.png
+/nbproject/private/nbproject
+nbproject/
