@@ -132,3 +132,8 @@
     </div>
 
 {% endmacro %}
+
+{% macro renderReview(review) %}
+  {% import '_macros/_review' as reviewMacro %}
+  {{ reviewMacro.renderReview(review) }}
+{% endmacro %}

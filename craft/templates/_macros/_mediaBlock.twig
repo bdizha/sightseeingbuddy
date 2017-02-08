@@ -21,18 +21,18 @@
     {% endif %}
 
     {% set transformedImage = craft.imager.transformImage(mediaBlock.image, [
-      {width: 380},
+      {width: 370},
       {width: 200},
       {width: 160}
-      ], { ratio: 1/1, mode: 'crop', cropZoom: 1, position: mediaBlock.image.focalPoint, jpegQuality: 80 }) %}
+      ], { ratio: 2/1, mode: 'crop', cropZoom: 1, position: mediaBlock.image.focalPoint, jpegQuality: 80 }) %}
 
 
-    <article class="media media-responsive">
+    <article class="media media-responsive same-height">
       <div class="media-{{ mediaBlock.alignment }} pull-{{ mediaBlock.alignment }}">
         {% if mediaBlock.url %}<a href="{{ mediaBlock.url }}">{% endif %}
           {% if mediaBlock.image %}
             <img class="media-object"
-                  src="{{ craft.imager.base64Pixel(1,1) }}" sizes="(min-width: 992px) 160px, (min-width: 381px) 200px, 380px" srcset="{{ craft.imager.srcset(transformedImage) }}" alt="{{ mediaBlock.image.Title }}"
+                  src="{{ craft.imager.base64Pixel(1,1) }}" sizes="(min-width: 768px) 370px, (min-width: 381px) 200px, 380px" srcset="{{ craft.imager.srcset(transformedImage) }}" alt="{{ mediaBlock.image.Title }}"
               >
             {% if mediaBlock.url %}</a>{% endif %}
           {% endif %}
@@ -47,7 +47,7 @@
           {{ editButtonMacros.renderEditButton(mediaBlock.entry) }}
         </h2>
 
-        {% if mediaBlock.date %}
+        {% if mediaBlock.date and false%}
           <div class="media-date-byline">
           <span class="media-date">
             {{ mediaBlock.date.format(craft.config.dateFormat)|raw }}
@@ -76,8 +76,8 @@
         {% endif %}
 
         {% if mediaBlock.url %}
-          <div class="readmore">
-            <a href="{{ mediaBlock.url }}">{{ mediaBlock.readmore }}</a>
+          <div class="readmore mt-1">
+            <a href="{{ mediaBlock.url }}" class="btn btn-default">Read More</a>
           </div>
         {% endif %}
 
@@ -93,8 +93,8 @@
       "entry": entry,
       "image": entry.featureImage[0]|default(null),
       "fallbackImage": siteGlobals.siteImage.first(),
-      "summary": entry.summary,
-      "title": entry.displayTitle,
+      "summary": entry.summary | hacksaw(chars='135', append='...'),
+      "title": entry.displayTitle | hacksaw(chars='45', append='...'),
       "url": entry.url,
       "date": entry.postDate,
       "byline": entry.byline,
