@@ -1,32 +1,42 @@
 {% extends "_layouts/master" %}
 {% set currentMenuNode = craft.entries.section('mainNavigation').relatedTo(entry).first() %}
-{% set parentMenuNode = currentMenuNode.getAncestors().first() %}
+
+
+{% if currentMenuNode is not null %}
+    {% set parentMenuNode = currentMenuNode.getAncestors().first() %}
+{% endif %}
 
 {% block head %}
-  {{ templateMacros.renderMetaFromEntry(entry) }}
+    {{ templateMacros.renderMetaFromEntry(entry) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="container">
-    <div class="row">
+    <section id="page">
+        <div class="container">
+            <div class="row">
+                <aside id="sidebar" class="col-sm-3">
+                    <h2>{{ "Let's Start" }}</h2>
+                    <ul class="nav nav-stacked nav-pills">
+                        {% set navItems = craft.entries.section('sidebar').search('group:"letsStart"') %}
+                        {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
+                    </ul>
 
-      <aside id="sidebar" class="col-sm-4">
-        {% if parentMenuNode %}
-            <ul class="nav nav-stacked nav-pills">
-              {{ templateMacros.renderNav(parentMenuNode.getDescendants(), currentMenuNode|default(null), {dropdown: false}) }}
-            </ul>
-        {% endif %}
+                    <h2>{{ "Other" }}</h2>
+                    <ul class="nav nav-stacked nav-pills">
+                        {% set navItems = craft.entries.section('sidebar').search('group:"other"') %}
+                        {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
+                    </ul>
+                </aside>
 
-      </aside>
-
-      <article class="article col-sm-8">
-        <h1 class="page-title page-title-left">{{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}</h1>
-
-        {{ templateMacros.renderBody(entry.body, guestEntry) }}
-      </article>
-    </div>
-  </div>
-
+                <article class="article col-sm-8 col-sm-offset-1 mt-3">
+                    <div class="row">
+                        <h1 class="page-title page-title-left">{{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}</h1>
+                        {{ templateMacros.renderBody(entry.body, guestEntry) }}
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

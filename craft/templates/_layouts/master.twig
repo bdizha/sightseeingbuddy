@@ -91,13 +91,6 @@
                     </nav>
                 </div>
             </header>
-            {% if currentMenuNode is defined and craft.request.path() != '' %}
-                <div class="container">
-                    <ul class="breadcrumb">
-                        {{ templateMacros.renderBreadcrumb(currentMenuNode, {breadcrumbEntry: breadcrumbEntry|default(null)}) }}
-                    </ul>
-                </div>
-            {% endif %}
 
             <div id="notifications-wrapper" class="container">
                 <div id="notifications">

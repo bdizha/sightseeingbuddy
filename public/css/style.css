@@ -8891,7 +8891,8 @@ body {
   min-height: 100%;
 }
 #how-it-works,
-#blog {
+#blog,
+#page {
   background: #E6E6E6;
 }
 #blog article {
@@ -8930,6 +8931,10 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+}
+#page article {
+  border-top: 1px solid #3D3D3D;
+  border-bottom: 1px solid #3D3D3D;
 }
 .mt-1 {
   margin-top: 24px;
@@ -9017,6 +9022,14 @@ body {
 }
 .page-title.page-title-left {
   text-align: left;
+  font-weight: 900;
+  font-size: 28px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 0;
+}
+.page-title p {
+  margin: 0 0 5px;
 }
 section {
   padding-bottom: 40px;
@@ -9033,6 +9046,11 @@ section h3 {
 section b {
   font-weight: 900;
 }
+section #sidebar h2 {
+  font-weight: 900;
+  font-size: 26px;
+  margin: 0;
+}
 .article {
   padding-bottom: 10px;
 }
@@ -9043,10 +9061,14 @@ section b {
 }
 .article h2 {
   margin-top: 1em;
-  margin-bottom: 0.5em;
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 700;
 }
 #sidebar {
-  padding-top: 36px;
+  padding-top: 20px;
+  background: #FFFFFF;
+  margin-top: 60px;
 }
 .article-body:before,
 .article-body:after {
@@ -9172,8 +9194,31 @@ section b {
     width: 160px;
   }
 }
+.nav-stacked {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  margin-bottom: 20px;
+}
 .nav-stacked .nav-stacked > li > a {
   padding-left: 40px;
+}
+.nav-stacked > li {
+  margin-top: 10px;
+}
+.nav-stacked > li > a {
+  padding: 2px 0px;
+}
+.nav-stacked > li > a:hover {
+  color: #FDBF0F;
+}
+.nav-stacked > li.active a {
+  color: #FDBF0F;
 }
 .edit-this-page {
   font-size: 14px !important;
@@ -9239,6 +9284,9 @@ section b {
   right: 9px;
   font-size: 0.75em;
 }
+.form-control {
+  border: 2px solid #3d3d3d;
+}
 .navbar-form .form-control {
   background: transparent;
   border: 0;
@@ -9255,6 +9303,12 @@ section b {
 }
 .btn-default:hover {
   background: transparent;
+}
+.btn-primary {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 7px 24px;
 }
 .article-sharing {
   min-height: 28px;

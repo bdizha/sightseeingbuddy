@@ -25,6 +25,6 @@ return [
         ]
     ],
     "local" => [
-        'devMode' => false,
+        'devMode' => true,
     ]
 ];

@@ -21,7 +21,8 @@ html, body {
 }
 
 #how-it-works,
-#blog{
+#blog,
+#page{
     background: #E6E6E6;
 }
 
@@ -69,6 +70,13 @@ html, body {
         padding-right: 0;
     }
 
+}
+
+#page{
+    article{
+        border-top: 1px solid @gray-base;
+        border-bottom: 1px solid @gray-base;;   
+    }
 }
 
 .mt-1 {
@@ -170,7 +178,16 @@ html, body {
 
     &.page-title-left {
         text-align: left;
+        font-weight: 900;
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-top: 0;
     }
+    p{
+       margin: 0 0 5px;
+    }
+  
 }
 
 section{
@@ -187,6 +204,14 @@ section{
         font-weight: 900;
     }
     padding-bottom: 40px;
+
+    #sidebar{
+        h2{
+            font-weight: 900;
+            font-size: 26px;
+            margin: 0;
+        }
+    }
 }
 
 .article {
@@ -204,12 +229,16 @@ section{
 
     h2 {
         margin-top: 1em;
-        margin-bottom: 0.5em;
+        margin-bottom: 20px;
+        font-size: 21px;
+        font-weight: 700;
     }
 }
 
 #sidebar {
-    padding-top: 1 * @font-size-h1;
+    padding-top: 20px;
+    background: @white;
+    margin-top: 60px;
 }
 
 .article-body {
@@ -352,9 +381,34 @@ section{
 }
 
 .nav-stacked {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    margin-bottom: 20px;
     .nav-stacked {
-        > li > a {
-            padding-left: 40px;
+        > li{
+            > a {
+                padding-left: 40px;
+            } 
+        } 
+    }
+    > li{
+        margin-top: 10px;
+        > a{
+            padding: 2px 0px;
+            &:hover{
+                color: @yellow;
+            }
+        }  
+        &.active{
+            a {
+                color: @yellow;
+            }
         }
     }
 }
@@ -406,6 +460,7 @@ section{
         text-transform: uppercase;
         font-size: 13px;
         font-weight: 700;
+        border-radius: 3px;
     }
 
     // Uncollapse the nav
@@ -431,6 +486,10 @@ section{
     }
 }
 
+.form-control{
+    border: 2px solid #3d3d3d;
+}
+
 // Nav form
 
 .navbar-form {
@@ -454,6 +513,13 @@ section{
     &:hover{
         background: transparent;
     }
+}
+
+.btn-primary {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 7px 24px;
 }
 
 // share
