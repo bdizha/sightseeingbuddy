@@ -3,58 +3,14 @@
 
 {% block content %}
     
-    {{ templateMacros.renderBody(entry.body.type('relatedPanel')) }}
+    {{  templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
 
     <section id='trust-items'>
         <div class="container">
             <h2 class="text-center section-title">We've ensured that your <b>experience</b> be beyond satisfying...</h2>
-            <div class="row trust-items">
-                <div class="trust-item col-md-4 col-sm-6">
-                    <figure class="trust-figure"></figure>
-                    <h3 class="text-bold text-center">
-                        <span>
-                            <span class="sub-heading">100%</span>
-                            <!-- react-text: 10 --> With locals
-                        </span>
-                    </h3>
-                    <p class="text-center text-light">
-                        <span>Who you see is who you get.
-                            <br>The Withlocals host you book is the
-                            <br>host that welcomes you.
-                        </span>
-                    </p>
-                </div>
-                <div class="trust-item col-md-4 col-sm-6">
-                    <figure class="trust-figure slick-slide slick-active local-image"></figure>
-                    <h3 class="text-bold text-center">
-                        <span>
-                            <span class="sub-heading">100%</span>
-                            <!-- react-text: 23 --> Private
-                        </span>
-                    </h3>
-                    <p class="text-center text-light">
-                        <span>All Withlocals experiences
-                            <br>are private, meaning exclusively
-                            <br>for you or your group.
-                        </span>
-                    </p>
-                </div>
-                <div class="trust-item col-md-4 col-sm-6">
-                    <figure class="trust-figure slick-slide slick-active taste-image"></figure>
-                    <h3 class="text-bold text-center">
-                        <span><!-- react-text: 35 -->a 
-                            <span class="sub-heading">100%</span>
-                            <!-- react-text: 37 --> taste of the city
-                        </span>
-                    </h3>
-                    <p class="text-center text-light">
-                        <span><!-- react-text: 40 -->From city highlights to hidden gems.
-                            <br><!-- react-text: 42 -->From food essentials to home dinners.
-                            <br><!-- react-text: 44 -->Our hosts share it with you.
-                        </span>
-                    </p>
-                </div>
-            </div>
+            {% set points = craft.entries.section('points').limit(3) %}
+        
+            {%- include "panels/points.twig" -%}
         </div>
     </div>
 </section>
