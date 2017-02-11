@@ -1,25 +1,45 @@
 {% extends "_layouts/master" %}
-{% set currentMenuNode = craft.entries.section('mainNavigation').linkUrl('news').first() %}
+{% set currentMenuNode = craft.entries.section('mainNavigation').linkUrl('blog').first() %}
 
 {% block head %}
-  {{ templateMacros.renderMeta({
+    {{ templateMacros.renderMeta({
     "title": "News",
     "canonical": url("news")
   }) }}
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    <h1 class="page-title">News</h1>
+    <section id="blog">
+        <div class="container">
+            <div class="row">
 
-    {% paginate craft.entries.section('news').with(["featureImage"]).limit(3) as paging, entries %}
-      {% for entry in entries %}
-        {{ templateMacros.renderMediaBlockFromEntry(entry, {}) }}
-      {% endfor %}
+                {%- include "_includes/sidebar.twig" -%}
 
-    {% if paging.totalPages > 1 %}
-      {{ templateMacros.renderPagination(paging) }}
-    {% endif %}
+                <div class="col-sm-8 col-sm-offset-1 mt-3">
+                    <div class="row articles-block">
+                        <div class="blogs-header">
+                            <h1 class="page-title page-title-left inline">Blog Posts</h1>
+                            <div class="inline pull-right">
+                                <div class="field form-group" id="fields-fullName-field">
+                                    <div class="input ltr">
+                                        <input class="text form-control nicetext fullwidth" type="text" id="fields-fullName" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Search blog posts...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-  </div>
+                        <div class="blog-list text-align-center">
+                            {% paginate craft.entries.section('blog').with(["featureImage"]).limit(12) as paging, entries %}
+
+                            {%- include "blog/_list.twig" -%}
+
+                            {% if paging.totalPages > 1 %}
+                                {{ templateMacros.renderPagination(paging) }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

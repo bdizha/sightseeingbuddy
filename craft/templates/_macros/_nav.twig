@@ -7,6 +7,7 @@
     {% nav navItem in navItems %}
 
     {% set active = _self.activeNavItem(navItem, activeMenuNode) %}
+    
     {% set activeParent = activeMenuNode.id is defined and navItem.isAncestorOf(activeMenuNode) ? 'active-parent' %}
     {% set isDropdown = navItem.getDescendants().first() and options.dropdown %}
 
@@ -102,6 +103,9 @@
     {% endif %}
 
     {% set navActive = activeNodeItem.id is defined and navItem.id == activeNodeItem.id  %}
+    
+    {% set paramActive = "/" ~ craft.request.getPath() == _self.renderNavItemUri(navItem) %}
 
-    {{  navActiveLinked or navActive ? 'active'  }}
+    {{  navActiveLinked or navActive or paramActive ? 'active'  }}
+    
 {% endspaceless %}{% endmacro %}

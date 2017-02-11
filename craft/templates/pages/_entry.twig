@@ -1,7 +1,6 @@
 {% extends "_layouts/master" %}
 {% set currentMenuNode = craft.entries.section('mainNavigation').relatedTo(entry).first() %}
 
-
 {% if currentMenuNode is not null %}
     {% set parentMenuNode = currentMenuNode.getAncestors().first() %}
 {% endif %}
@@ -15,20 +14,7 @@
     <section id="page">
         <div class="container">
             <div class="row">
-                <aside id="sidebar" class="col-sm-3">
-                    <h2>{{ "Let's Start" }}</h2>
-                    <ul class="nav nav-stacked nav-pills">
-                        {% set navItems = craft.entries.section('sidebar').search('group:"letsStart"') %}
-                        {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
-                    </ul>
-
-                    <h2>{{ "Other" }}</h2>
-                    <ul class="nav nav-stacked nav-pills">
-                        {% set navItems = craft.entries.section('sidebar').search('group:"other"') %}
-                        {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
-                    </ul>
-                </aside>
-
+                {%- include "_includes/sidebar.twig" -%}
                 <article class="article col-sm-8 col-sm-offset-1 mt-3">
                     <div class="row">
                         <h1 class="page-title page-title-left">{{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}</h1>

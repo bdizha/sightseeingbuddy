@@ -11,7 +11,7 @@
 @gray-base:              #3D3D3D;
 @gray-darker:            lighten(@gray-base, 13.5%); // #222
 @gray-dark:              lighten(@gray-base, 20%);   // #333
-@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray:                   lighten(@gray-base, 5.5%); // #555
 @gray-light:             #3D3D3D; // #3D3D3D
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 @white:                  #FFFFFF;
@@ -189,9 +189,9 @@
 @input-bg-disabled:              @gray-lighter;
 
 //** Text color for `<input>`s
-@input-color:                    @gray;
+@input-color:                    @gray-base;
 //** `<input>` border color
-@input-border:                   #ccc;
+@input-border:                   @gray;
 
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -203,7 +203,7 @@
 @input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             #66afe9;
+@input-border-focus:             @gray-base;
 
 //** Placeholder text color
 @input-color-placeholder:        #999;

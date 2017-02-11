@@ -1,0 +1,13 @@
+<aside id="sidebar" class="col-sm-3">
+    <h2>{{ "Let's Start" }}</h2>
+    <ul class="nav nav-stacked nav-pills">
+        {% set navItems = craft.entries.section('sidebar').search('group:"letsStart"') %}
+        {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
+    </ul>
+
+    <h2>{{ "Other" }}</h2>
+    <ul class="nav nav-stacked nav-pills">
+        {% set navItems = craft.entries.section('sidebar').search('group:"other"') %}
+        {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
+    </ul>
+</aside>

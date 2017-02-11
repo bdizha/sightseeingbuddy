@@ -68,27 +68,53 @@
         {{ siteGlobals.siteHeaderScriptTags|raw }}
         <div id="container">
             <header id="header" class="site-header">
-                <div class="container">
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
-                                    <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="{{ siteUrl }}">
-                                    <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}" style="height: 52px">
-                                </a>
-                            </div>
-                            <div class="collapse navbar-collapse" id="primaryNav">
-                                <ul class="nav navbar-nav">
-                                    {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
-                                </ul>
-                            </div>
+                <div class="top-yellow-bg">
+                    <div class="container">
+                        <div class="inline">
+                            <a href="mailto:info@keepitlocal.co.za">
+                                <i class="fa fa-envelope-o"></i>
+                                <span>info@keepitlocal.co.za</span>
+                            </a>
+                            <span>
+                                <i class="fa fa-link"></i>
+                                <span>082 987 1234</span>
+                            </span>
                         </div>
-                    </nav>
+                        <div class="inline pull-right">
+                            <a class="text-uppercase" href="/auth/login">
+                                Login
+                            </a>
+                            <a class="text-uppercase text-bold" href="/auth/register">
+                                Sign Up
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
+                                            <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="{{ siteUrl }}">
+                                            <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}" style="height: 52px">
+                                        </a>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="primaryNav">
+                                        <ul class="nav navbar-nav">
+                                            {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </header>
 
@@ -112,38 +138,41 @@
             <div class="row site-footer">
                 <div class="col-md-4">
                     <h2>Connect with us</h2>
+                    <div class="socials-block">
+                        <a class="share-btn"><i class="fa fa-facebook"></i></a>
+                        <a class="share-btn"><i class="fa fa-twitter"></i></a>
+                        <a class="share-btn"><i class="fa fa-instagram"></i></a>
+                        <a class="share-btn"><i class="fa fa-google-plus"></i></a>
+                        <a class="share-btn"><i class="fa fa-youtube"></i></a>
+                        <a class="share-btn"><i class="fa fa-skype"></i></a>
+                    </div>
                     <h2>Sign up to our newsletter</h2>
+                    <div class="field form-group" id="fields-fullName-field">
+                        <div class="input ltr">
+                            <input class="text form-control nicetext fullwidth" type="text" id="fields-fullName" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Please enter your email address...">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-xs-6">
                             <h2>Information</h2>
-                            <ul>
-                                <li>Becoming a local</li>
-                                <li>Finding a local</li>
-                                <li>Booking advice</li>
-                                <li>Blog</li>
-                                <li>Gallery</li>
-                                <li>FAQ</li>
-                                <li>Privacy Policy</li>
+                            <ul class="nav nav-stacked nav-pills">
+                                {% set navItems = craft.entries.section('sidebar').search('group:"letsStart"') %}
+                                {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
                             </ul>
                         </div>
                         <div class="col-xs-6">
                             <h2>Other</h2>
-                            <ul>
-                                <li>Meet the team</li>
-                                <li>Terms & conditions</li>
-                                <li>Payment & pricing</li>
-                                <li>Cancellations & refunds</li>
-                                <li>Security</li>
-                                <li>FAQ</li>
-                                <li>Reviews & ratings</li>
+                            <ul class="nav nav-stacked nav-pills">
+                                {% set navItems = craft.entries.section('sidebar').search('group:"other"') %}
+                                {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 mb-1 mt-1">
                 &copy; {{ now.year }} {{ siteName }}
             </div>
         </div>
