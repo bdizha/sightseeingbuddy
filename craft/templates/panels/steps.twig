@@ -1,11 +1,9 @@
-<div class="row steps-block">
-    {% for step in steps %}
+<div class="row steps-block mt-1 mb-1">
+    {% for step in entry.steps %}
         <div class="step col-md-4 col-sm-6">
-            <figure class="step-figure" style="background-image: url({{ step.featureImage.first().getUrl({height:100, quality:80}) }})"></figure>
+            <figure class="step-figure" style="background-image: url({{ step.image.first().getUrl({height:160, quality:80}) }})"></figure>
             <h3 class="text-bold text-center">
-                <span>
-                    <span class="sub-heading">{{ step.title }}</span>
-                </span>
+                <span class="sub-heading">{{ step.displayTitle }}</span>
             </h3>
             <p class="text-center text-light">
                 {{ step.summary | hacksaw(chars='140', append='...') }}

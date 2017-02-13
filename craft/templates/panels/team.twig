@@ -1,0 +1,15 @@
+<div class="row profiles-block">
+    {% for profile in entry.profiles %}
+        <div class="profile col-md-4 col-sm-6 mt-1">
+            <figure class="profile-figure" style="background-image: url({{ profile.image.first().getUrl({height:100, quality:80}) }})"></figure>
+            <h3 class="text-bold text-center">
+                <span>
+                    <span class="sub-heading">{{ profile.member }}</span>
+                </span>
+            </h3>
+            <p class="text-center text-light">
+                {{ profile.summary | hacksaw(chars='140', append='...') }}
+            </p>
+        </div>
+    {% endfor %}
+</div>

@@ -81,36 +81,39 @@
                             </span>
                         </div>
                         <div class="inline pull-right">
-                            <a class="text-uppercase" href="/auth/login">
+                            <a class="text-uppercase" href="/experience/auth/login">
                                 Login
                             </a>
-                            <a class="text-uppercase text-bold" href="/auth/register">
+                            <a class="text-uppercase text-bold" href="/experience/auth/register">
                                 Sign Up
                             </a>
                         </div>
                     </div>
                 </div>
+                <div class="clear-both"></div>
                 <div class="container">
                     <div class="row">
                         <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
-                                            <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
-                                        <a class="navbar-brand" href="{{ siteUrl }}">
-                                            <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}" style="height: 52px">
-                                        </a>
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
+                                    <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="{{ siteUrl }}">
+                                    <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}" style="height: 52px">
+                                </a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="primaryNav">
+                                <ul class="nav navbar-nav">
+                                    {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
+                                </ul>
+                                <div class="field form-group fields-search-field" id="fields-search-field">
+                                    <div class="input ltr">
+                                        <input class="text form-control nicetext fullwidth" type="text" id="fields-email" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Search ...">
                                     </div>
-                                    <div class="collapse navbar-collapse" id="primaryNav">
-                                        <ul class="nav navbar-nav">
-                                            {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
-                                        </ul>
-                                    </div>
+                                    <i class="fa fa-search"></i>
                                 </div>
                             </div>
                         </nav>
@@ -147,9 +150,9 @@
                         <a class="share-btn"><i class="fa fa-skype"></i></a>
                     </div>
                     <h2>Sign up to our newsletter</h2>
-                    <div class="field form-group" id="fields-fullName-field">
+                    <div class="field form-group" id="fields-email-field">
                         <div class="input ltr">
-                            <input class="text form-control nicetext fullwidth" type="text" id="fields-fullName" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Please enter your email address...">
+                            <input class="text form-control nicetext fullwidth" type="text" id="fields-email" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Please enter your email address...">
                         </div>
                     </div>
                 </div>

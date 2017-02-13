@@ -1,5 +1,5 @@
-{% macro renderPanel(entry) %}
-    {% if entry.type != "buttons" %}
+{% macro renderButton(entry) %}
+    {% if entry.type == "buttons" %}
         {% include "panels/" ~ entry.type %}
     {% endif %}
 {% endmacro %}

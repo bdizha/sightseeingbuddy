@@ -7,9 +7,8 @@
 
     <section id='trust-items'>
         <div class="container">
-            <h2 class="text-center section-title">We've ensured that your <b>experience</b> be beyond satisfying...</h2>
+            <h2 class="text-center section-title"> {{ entry.body.type('text').first().text }}</h2>
             {% set points = craft.entries.section('points').limit(3) %}
-        
             {%- include "panels/points.twig" -%}
         </div>
     </div>
@@ -18,8 +17,7 @@
 <section id='how-it-works'>
     <div class="container">
         <h2 class="text-center section-title">How it <b>works</b></h2>
-        {% set steps = craft.entries.section('steps').limit(3) %}
-        
+        {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(1).panel.first()) }}
         {%- include "panels/steps.twig" -%}
     </div>
 </section>
@@ -28,14 +26,13 @@
     <div class="container">
         <h2 class="text-center section-title">What <b>guests</b> are saying</h2>
         {% set reviews = craft.entries.section('reviews').limit(3) %}
-        
         {%- include "panels/reviews.twig" -%}
     </div>
 </section>
 
 <section id="blog">
     <div class="container">
-        <h2 class="text-center section-title"><b>Tourism</b> blog</h2>
+        <h2 class="text-center section-title"><b>Tourism</b> news blog</h2>
         <div class="row text-align-center">
             {%- include "blog/_list.twig" -%}
         </div>

@@ -1,0 +1,5 @@
+{% for button in entry.buttons %}
+    <div class="text-align-center pt-3">
+        <a href="{{ button.customLink }}" class="btn btn-default btn-lg">{{ button.text }}</a>
+    </div>
+{% endfor %}

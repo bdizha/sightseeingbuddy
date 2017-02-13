@@ -137,3 +137,8 @@
   {% import '_macros/_review' as reviewMacro %}
   {{ reviewMacro.renderReview(review) }}
 {% endmacro %}
+
+{% macro renderButton(button) %}
+  {% import '_macros/_button' as buttonMacro %}
+  {{ buttonMacro.renderButton(button) }}
+{% endmacro %}

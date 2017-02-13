@@ -13,14 +13,15 @@
 
     <section id="page">
         <div class="container">
-            <div class="row">
-                {%- include "_includes/sidebar.twig" -%}
-                <article class="article col-sm-8 col-sm-offset-1 mt-3">
-                    <div class="row">
+            {%- include "_includes/sidebar.twig" -%}
+            <div class="col-sm-8 col-sm-offset-1">
+                <div class="row">
+                    <article class="article">
                         <h1 class="page-title page-title-left">{{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}</h1>
                         {{ templateMacros.renderBody(entry.body, guestEntry) }}
-                    </div>
-                </article>
+                    </article>
+                    {{  templateMacros.renderButton(entry.body.type('relatedPanel').last().panel.last()) }}
+                </div>
             </div>
         </div>
     </section>

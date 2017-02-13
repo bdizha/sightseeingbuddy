@@ -76,6 +76,8 @@ html, body {
     article{
         border-top: 1px solid @gray-base;
         border-bottom: 1px solid @gray-base;
+        font-size: 15px;
+        margin-top: 60px;
     }
 }
 
@@ -129,6 +131,18 @@ html, body {
     margin-bottom: @line-height-computed * 3;
 }
 
+.ml-1 {
+    margin-left: @line-height-computed * 1px;
+}
+
+.ml-2 {
+    margin-left: @line-height-computed * 2px;
+}
+
+.ml-3 {
+    margin-left: @line-height-computed * 3px;
+}
+
 .pl-1 {
     padding-left: @line-height-computed * 1px;
 }
@@ -139,6 +153,18 @@ html, body {
 
 .pl-3 {
     padding-left: @line-height-computed * 3px;
+}
+
+.pt-1 {
+    padding-top: @line-height-computed * 1px;
+}
+
+.pt-2 {
+    padding-top: @line-height-computed * 2px;
+}
+
+.pt-3 {
+    padding-top: @line-height-computed * 3px;
 }
 
 .align-right {
@@ -241,7 +267,7 @@ section{
         margin: 40px 0
     }
     h3{
-        font-size: 20px;
+        font-size: 23px;
         font-weight: 900;
     };
     b{
@@ -264,7 +290,7 @@ section{
     .article-title {
         &:extend(.page-title);
     }
-    
+
     .article-meta{
         position: relative;
         .article-author{
@@ -305,11 +331,12 @@ section{
 
 .steps-block{
     figure {
-        width: 100px;
-        height: 100px;
+        width: 160px;
+        height: 160px;
         margin: 0 auto;
         border-radius: 50%;
         overflow: hidden;
+        background-size: 100%;
     }
 
     .step{
@@ -317,14 +344,41 @@ section{
         &:nth-child(1),
             &:nth-child(2){
             .step-arrow{
+                display: none;
                 background: url(/images/gray_right_arrow.png);
-                width: 56px;
-                height: 56px;
+                width: 100px;
+                height: 100px;
                 position: absolute;
-                right: -23px;
-                top: 70px;
+                right: -45px;
+                top: 86px;
                 margin-top: -50px;
                 background-size: 100%;
+                @media (min-width: @grid-float-breakpoint) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+#page{
+    .steps-block{
+        figure {
+            width: 100px;
+            height: 100px;
+        }
+
+        .step{
+            padding: 0 40px;
+            &:nth-child(1),
+                &:nth-child(2){
+                .step-arrow{
+                    width: 60px;
+                    height: 60px;
+                    right: -34px;
+                    top: 69px;
+                    margin-top: -50px;
+                }
             }
         }
     }
@@ -332,8 +386,8 @@ section{
 
 .points-block{
     figure {
-        width: 100px;
-        height: 100px;
+        width: 160px;
+        height: 160px;
         margin: 0 auto;
         border-radius: 50%;
         overflow: hidden;
@@ -365,6 +419,20 @@ section{
 
     .slick-dots{
         bottom: -15px;
+    }
+}
+
+.profiles-block{
+    figure {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    h3{
+        font-size: 21px;
     }
 }
 
@@ -560,6 +628,9 @@ section{
         span{
             font-size: 14px;
             color: @gray;
+            .fa{
+                font-size: 12px;
+            }
         }
         .text-uppercase{
             font-size: 13px;
@@ -568,19 +639,44 @@ section{
     }
 }
 
-.navbar-nav {
-    > li > a {
-        padding-top:    2px;
-        padding-bottom: 2px;
-        text-transform: uppercase;
-        font-size: 13px;
-        font-weight: 700;
-        border-radius: 3px;
+.navbar-default{
+    .fields-search-field {
+        position: relative;
+        @media (min-width: @grid-float-breakpoint) {
+            position: absolute;
+            right: 30px;
+            top: 5px;
+        }
+        .form-control{
+            font-size: 14px;
+            height: 27px;
+        }
+        .fa-search{
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            font-size: 14px;
+            color: @yellow;
+        }
     }
+}
+
+.navbar-nav {
+    > li{
+        margin-left: 10px;
+        > a {
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 900;
+            border-radius: 3px;
+            padding: 2px 10px;
+            line-height: 25px;
+        }
+    } 
 
     // Uncollapse the nav
     @media (min-width: @grid-float-breakpoint) {
-        margin: 27px 0 0;
+        margin: 44px 0 0;
         float: right;
     }
 }
@@ -623,6 +719,13 @@ section{
     text-transform: uppercase;
     &:hover{
         background: transparent;
+    }
+
+    &.btn-lg{
+        background: @yellow;
+        color: @gray-base;
+        font-weight: 900;
+        border-color: transparent;
     }
 }
 
