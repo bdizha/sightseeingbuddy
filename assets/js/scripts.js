@@ -50,7 +50,7 @@ function StickyFooter($wrap, $footer) {
         this.updateWrapperCSS();
 
         return this;
-    }
+    };
 }
 
 
@@ -177,9 +177,9 @@ function UIBindings() {
         $('.grid').masonry({
             itemSelector: '.grid-item',
             columnWidth: '.grid-sizer',
-            gutter: 5,
+            gutter: 5
         });
-    }
+    };
 
     this.bindSubmittingButtons = function () {
         $(document).on('submit', function () {
@@ -209,7 +209,7 @@ function Notifications() {
             } else {
                 div.removeClass('fixed');
             }
-        })
+        });
     };
 
     this.bindCloseButton = function () {
@@ -231,6 +231,7 @@ function Notifications() {
 }
 
 function Vertilize() {
+    var $window = $(window);
     var sameHeight = $('.same-height');
     var height = 0;
     var currentHeight = height;
@@ -238,8 +239,6 @@ function Vertilize() {
     this.setHeight = function () {
         sameHeight.each(function () {
             height = Math.max(height, $(this).height());
-
-            console.log("height>>>>" + height);
         });
     };
 
@@ -255,6 +254,8 @@ function Vertilize() {
             currentHeight = height;
         }
     };
+
+    $window.on('resize', this.init);
 }
 
 $(function () {

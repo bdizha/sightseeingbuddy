@@ -31,6 +31,12 @@ html, body {
     padding-bottom: 15px;
 }
 
+@media (max-width: 400px) {
+    .col-xs-6 {
+        width: 100%;
+    }
+}
+
 .article-image {
     margin-bottom: @line-height-computed;
 }
@@ -82,7 +88,6 @@ html, body {
 }
 
 // blog
-
 .articles-block{
     border-top: 1px solid @gray-base;
     border-bottom: 1px solid @gray-base;    
@@ -104,7 +109,7 @@ html, body {
 // text
 
 .text-bold {
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .mt-1 {
@@ -267,10 +272,10 @@ section{
         margin: 40px 0
     }
     h3{
-        font-size: 23px;
-        font-weight: 900;
-    };
-    b{
+        font-size: 21px;
+    }
+    b,
+    strong{
         font-weight: 900;
     }
     padding-bottom: 40px;
@@ -278,9 +283,31 @@ section{
     #sidebar{
         h2{
             font-weight: 900;
-            font-size: 26px;
+            font-size: 29px;
             margin: 0;
         }
+    }
+
+    @media (max-width: @screen-sm) {
+        h2{
+            font-size: 26px;
+            margin: 30px 0;
+        }
+        h3{
+            font-size: 19px;
+        }
+        padding-bottom: 30px;
+    }
+
+    @media (max-width: @screen-xs) {
+        h2{
+            font-size: 22px;
+            margin: 20px 0;
+        }
+        h3{
+            font-size: 18px;
+        }
+        padding-bottom: 20px;
     }
 }
 
@@ -329,7 +356,8 @@ section{
     .clearfix();
 }
 
-.steps-block{
+.steps-block,
+.reviews-block{
     figure {
         width: 160px;
         height: 160px;
@@ -357,6 +385,20 @@ section{
                     display: block;
                 }
             }
+        }
+    }
+
+    @media (max-width: @screen-sm) {
+        figure {
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    @media (max-width: @screen-xs) {
+        figure {
+            width: 100px;
+            height: 100px;
         }
     }
 }
@@ -473,11 +515,20 @@ section{
                 text-decoration: none;
             }
         }
+        @media (max-width: @screen-sm) {
+            font-size: 21px;
+        }
+        @media (max-width: @screen-xs) {
+            font-size: 19px;
+        }
     }
 
     .media-summary {
         p:last-child {
             margin-bottom: @padding-base-vertical;
+        }
+        @media (max-width: @screen-xs) {
+            font-size: 14px;
         }
     }
 
@@ -526,7 +577,7 @@ section{
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-padding-start: 0px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
     > li{
         margin-top: 10px;
         > a{
@@ -634,7 +685,7 @@ section{
         }
         .text-uppercase{
             font-size: 13px;
-            margin-right: 10px;
+            margin-left: 10px;
         }
     }
 }
@@ -644,7 +695,7 @@ section{
         position: relative;
         @media (min-width: @grid-float-breakpoint) {
             position: absolute;
-            right: 30px;
+            right: 15px;
             top: 5px;
         }
         .form-control{
@@ -659,11 +710,22 @@ section{
             color: @yellow;
         }
     }
+
+    .navbar-toggle{
+        .icon-bar{
+            background-color: @gray-base;
+        }
+        &:hover, 
+            &:focus {
+            .icon-bar{
+                background-color: @yellow;
+            }
+        }
+    }
 }
 
 .navbar-nav {
     > li{
-        margin-left: 10px;
         > a {
             text-transform: uppercase;
             font-size: 15px;
@@ -672,17 +734,27 @@ section{
             padding: 2px 10px;
             line-height: 25px;
         }
+        margin-bottom: 10px;
     } 
+    margin: 0;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
 
     // Uncollapse the nav
     @media (min-width: @grid-float-breakpoint) {
         margin: 44px 0 0;
         float: right;
+        > li{
+            margin-bottom: 0px;
+            margin-left: 0px;
+        }
     }
 }
 
 // Nav bar dropdown
-
 .navbar-nav > li.dropdown {
     > a {
         padding-right: 30px;
@@ -698,7 +770,6 @@ section{
 }
 
 // Nav form
-
 .navbar-form {
     .form-control {
         background: transparent;

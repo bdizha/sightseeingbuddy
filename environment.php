@@ -1,8 +1,7 @@
 <?php
 $environments = array(
     'local'   => array('\.dev'),
-    'staging' => array('\.test\.(.+)\.flowsa\.net', '\.staging\.(.+)\.flowsa.net'),
-    'live'    => array('\.live\.(.+)\.flowsa\.net', ".*"),
+    'live' => array('\.co\.za')
 );
 
 if (getenv('CRAFT_ENVIRONMENT')) {

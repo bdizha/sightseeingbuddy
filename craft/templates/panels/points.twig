@@ -1,6 +1,6 @@
 <div class="row points-block">
     {% for point in points %}
-        <div class="point col-md-4 col-sm-6">
+        <div class="point col-sm-4 col-xs-12">
             <figure class="point-figure" style="background-image: url({{ point.featureImage.first().getUrl({height:160, quality:80}) }})"></figure>
             <h3 class="text-bold text-center">
                 <span>
@@ -10,7 +10,7 @@
             <p class="text-center text-light">
                 {{ point.summary | hacksaw(chars='140', append='...') }}
             </p>
-            <div class="step-arrow"></div>
+            <div class="point-arrow"></div>
         </div>
     {% endfor %}
 </div>

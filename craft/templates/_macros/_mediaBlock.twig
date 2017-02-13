@@ -21,9 +21,9 @@
     {% endif %}
 
     {% set transformedImage = craft.imager.transformImage(mediaBlock.image, [
-      {width: 370},
-      {width: 200},
-      {width: 160}
+      {width: 390},
+      {width: 400},
+      {width: 390}
       ], { ratio: 2/1, mode: 'crop', cropZoom: 1, position: mediaBlock.image.focalPoint, jpegQuality: 80 }) %}
 
 
@@ -32,7 +32,7 @@
         {% if mediaBlock.url %}<a href="{{ mediaBlock.url }}">{% endif %}
           {% if mediaBlock.image %}
             <img class="media-object"
-                  src="{{ craft.imager.base64Pixel(1,1) }}" sizes="(min-width: 768px) 370px, (min-width: 381px) 200px, 380px" srcset="{{ craft.imager.srcset(transformedImage) }}" alt="{{ mediaBlock.image.Title }}"
+                  src="{{ craft.imager.base64Pixel(1,1) }}" sizes="(min-width: 768px) 390px, (min-width: 400px) 400px, 390px" srcset="{{ craft.imager.srcset(transformedImage) }}" alt="{{ mediaBlock.image.Title }}"
               >
             {% if mediaBlock.url %}</a>{% endif %}
           {% endif %}

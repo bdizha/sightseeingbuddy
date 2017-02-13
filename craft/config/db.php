@@ -16,8 +16,8 @@ return array(
         'database' => '',
     ],
     'live'    => [
-        'user'     => '',
-        'password' => '',
-        'database' => '',
+        'user'     => 'root',
+        'password' => '@%Gr4f1f0x#',
+        'database' => 'keepitlocal',
     ],
 );

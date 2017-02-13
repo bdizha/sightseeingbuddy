@@ -2,7 +2,7 @@
 {% set currentMenuNode = craft.entries.section('mainNavigation').id(26).first() %}
 
 {% block content %}
-    
+
     {{  templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
 
     <section id='trust-items'>
@@ -11,31 +11,30 @@
             {% set points = craft.entries.section('points').limit(3) %}
             {%- include "panels/points.twig" -%}
         </div>
-    </div>
-</section>
+    </section>
 
-<section id='how-it-works'>
-    <div class="container">
-        <h2 class="text-center section-title">How it <b>works</b></h2>
-        {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(1).panel.first()) }}
-        {%- include "panels/steps.twig" -%}
-    </div>
-</section>
-
-<section id="reviews">
-    <div class="container">
-        <h2 class="text-center section-title">What <b>guests</b> are saying</h2>
-        {% set reviews = craft.entries.section('reviews').limit(3) %}
-        {%- include "panels/reviews.twig" -%}
-    </div>
-</section>
-
-<section id="blog">
-    <div class="container">
-        <h2 class="text-center section-title"><b>Tourism</b> news blog</h2>
-        <div class="row text-align-center">
-            {%- include "blog/_list.twig" -%}
+    <section id='how-it-works'>
+        <div class="container">
+            <h2 class="text-center section-title">How it <b>works</b></h2>
+            {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(1).panel.first()) }}
+            {%- include "panels/steps.twig" -%}
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="reviews">
+        <div class="container">
+            <h2 class="text-center section-title">What <b>guests</b> are saying</h2>
+            {% set reviews = craft.entries.section('reviews').limit(3) %}
+            {%- include "panels/reviews.twig" -%}
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2 class="text-center section-title"><b>Tourism</b> news blog</h2>
+            <div class="text-align-center blog-list">
+                {%- include "blog/_list.twig" -%}
+            </div>
+        </div>
+    </section>
 {% endblock %}
