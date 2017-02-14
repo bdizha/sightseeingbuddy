@@ -31,9 +31,9 @@ html, body {
     padding-bottom: 15px;
 }
 
-@media (max-width: 400px) {
-    .col-xs-6 {
-        width: 100%;
+@media (max-width: @screen-xs) {
+    .col-xs-6-full {
+        width: 100% !important;
     }
 }
 
@@ -59,10 +59,6 @@ html, body {
     .thumbnail {
         display: inline-block;
     }
-}
-
-.article-image.align-full {
-
 }
 
 .article-image.align-left, .article-image.align-right {
