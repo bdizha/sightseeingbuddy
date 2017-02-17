@@ -3,9 +3,9 @@
   {{ bodyMacro.renderBody(body,guestEntry) }}
 {% endmacro %}
 
-{% macro renderPanel(body) %}
+{% macro renderPanel(body, hasArrows, panelType) %}
   {% import '_macros/_body' as panelMacro %}
-  {{ panelMacro.renderPanel(body) }}
+  {{ panelMacro.renderPanel(body, hasArrows, panelType) }}
 {% endmacro %}
 
 {% macro renderForm(formConfigEntry, guestEntry) %}

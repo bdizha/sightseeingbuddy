@@ -1,20 +1,24 @@
 <?php
-require __DIR__ . "/../environment.php";
+$requestUri = $_SERVER['REQUEST_URI'];
 
-// Path to your craft/ folder
-$craftPath = '../craft';
+if (strpos($requestUri, "/local") !== false) {
+    require_once "./local.php";
+} else {
+    require __DIR__ . "/../environment.php";
 
-// Do not edit below this line
-$path = rtrim($craftPath, '/').'/app/index.php';
+    // Path to your craft/ folder
+    $craftPath = '../craft';
 
-if (!is_file($path))
-{
-	if (function_exists('http_response_code'))
-	{
-		http_response_code(503);
-	}
+    // Do not edit below this line
+    $path = rtrim($craftPath, '/') . '/app/index.php';
 
-	exit('Could not find your craft/ folder. Please ensure that <strong><code>$craftPath</code></strong> is set correctly in '.__FILE__);
+    if (!is_file($path)) {
+        if (function_exists('http_response_code')) {
+            http_response_code(503);
+        }
+
+        exit('Could not find your craft/ folder. Please ensure that <strong><code>$craftPath</code></strong> is set correctly in ' . __FILE__);
+    }
+
+    require_once $path;
 }
-
-require_once $path;

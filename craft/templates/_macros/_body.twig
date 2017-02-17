@@ -128,9 +128,9 @@
 {% endmacro %}
 
 
-{% macro renderPanel(entry) %}
+{% macro renderPanel(entry, hasArrows, renderPanel) %}
   {% import '_macros/_panel' as panelMacro %}
-  {{ panelMacro.renderPanel(entry) }}
+  {{ panelMacro.renderPanel(entry, hasArrows, renderPanel) }}
 {% endmacro %}
 
 {% macro renderForm(entry, guestEntry) %}

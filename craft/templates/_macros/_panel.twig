@@ -1,5 +1,8 @@
-{% macro renderPanel(entry) %}
+{% macro renderPanel(entry, hasArrows, panelType) %}
+    {% if panelType is not defined or panelType is null %}
+        {% set panelType = entry.type %}
+    {% endif %}
     {% if entry.type != "buttons" %}
-        {% include "panels/" ~ entry.type %}
+        {% include "panels/" ~ panelType %}
     {% endif %}
 {% endmacro %}

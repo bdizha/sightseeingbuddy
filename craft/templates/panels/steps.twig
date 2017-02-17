@@ -8,7 +8,9 @@
             <p class="text-center text-light">
                 {{ step.summary | hacksaw(chars='140', append='...') }}
             </p>
-            <div class="step-arrow"></div>
+            {% if(hasArrows) %}
+                <div class="step-arrow"></div>
+            {% endif %}
         </div>
     {% endfor %}
 </div>
