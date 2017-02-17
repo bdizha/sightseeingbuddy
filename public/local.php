@@ -19,7 +19,7 @@
 |
 */
 
-require __DIR__.'/../experience/bootstrap/autoload.php';
+require __DIR__.'/../local/bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ require __DIR__.'/../experience/bootstrap/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../experience/bootstrap/app.php';
+$app = require_once __DIR__.'/../local/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------

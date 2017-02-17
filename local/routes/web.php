@@ -11,7 +11,7 @@
   |
  */
 
-Route::group(['prefix' => 'experience'], function () {
+Route::group(['prefix' => 'local'], function () {
     Route::get('/', function () {
         return view('welcome');
     });

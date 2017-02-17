@@ -177,7 +177,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Collective\Html\HtmlServiceProvider::class,
+        Weidner\Goutte\GoutteServiceProvider::class,
+	Elasticquent\ElasticquentServiceProvider::class,
     ],
 
     /*
@@ -225,6 +227,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Helper' => App\Helpers\Helper::class,
+	'Goutte' => Weidner\Goutte\GoutteFacade::class,
+	'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
 
     ],
 

@@ -9414,6 +9414,12 @@ section #sidebar h2 {
   background-color: transparent;
   text-decoration: none;
 }
+.local-left .nav-stacked > li {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3D3D3D;
+  padding: 0 10px 10px;
+  margin-bottom: 10px;
+}
 .site-footer {
   text-align: left;
   padding: 10px;
@@ -9643,6 +9649,15 @@ section #sidebar h2 {
   background-color: transparent;
   border-color: #3D3D3D;
   border-width: 3px;
+}
+.btn-yellow {
+  color: #3D3D3D;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 16px;
+  padding: 7px 24px;
+  border-color: transparent;
+  background-color: #FDBF0F;
 }
 .article-sharing {
   min-height: 28px;

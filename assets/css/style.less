@@ -635,8 +635,19 @@ section{
     }
 }
 
-.site-footer{
+.local-left{
+    .nav-stacked{
+        > li {
+            padding-bottom: 10px;
+            border-bottom: 1px solid @gray-base;
+            padding: 0 10px 10px;
+            margin-bottom: 10px;
+        }
 
+    } 
+}
+
+.site-footer{
     text-align: left;
     padding: 10px;
 
@@ -893,6 +904,16 @@ section{
         border-color: @gray-base;
         border-width: 3px;
     }
+}
+
+.btn-yellow {
+    color: @gray-base;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 16px;
+    padding: 7px 24px;
+    border-color: transparent;
+    background-color: @yellow;
 }
 
 // share

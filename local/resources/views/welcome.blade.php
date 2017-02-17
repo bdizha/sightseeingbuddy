@@ -1,95 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app', ['page' => 'home', 'isHome' => true])
+@section('content')
 
-        <title>Laravel</title>
+<div class="jobWelcomeRow jobHomeHeading">
+    <h5>Filter by Category</h5>
+</div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
+<div class="jobWelcomeRow">
+    <ul class="chiclets">
+        @foreach ($categories as $key => $category)
+        <li class="{{ $category->slug }} simpleChiclet jobTable">
+            <a class="chicletLink jobWhite" href="/category/{{ $category->slug }}">
+                <div class="jobCategoryLeft"style="background-image: url('/images/categories/{{ $category->slug }}.png');">
+                    &nbsp;
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="jobCategoryRight jobColumn">
+                    <span class="chicletText">
+                        {{ Helper::strLimit($category->name, 60, " ...") }}
+                        <span class="jobCount">{{ $category->getPositionsCount() }}</span>
+                    </span>
                 </div>
+            </a>
+        </li>
+        @endforeach
+    </ul>
+</div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+<div class="jobWelcomeRow jobHomeHeading">
+    <h5>Filter by Region</h5>
+</div>
+
+<div class="jobWelcomeRow">
+    <ul class="chiclets">
+        @foreach ($provinces as $key => $province)
+        <li class="simpleChiclet">
+            <a class="chicletLink jobWhite jobTable" href="/province/{{ $province->slug }}">
+                <div class="jobCategoryLeft" style="background-image: url('/images/letters/{{ strtoupper($province->name[0]) }}.png');">
+                    &nbsp;
                 </div>
-            </div>
-        </div>
-    </body>
-</html>
+                <div class="jobCategoryRight jobColumn">
+                    <span class="chicletText">
+                        {{ Helper::strLimit($province->name, 60, " ...") }}
+                        <span class="jobCount">{{ $province->getPositionsCount() }}</span>
+                    </span>
+                </div>
+            </a>
+        </li>
+        @endforeach
+    </ul>
+</div>
+@stop
