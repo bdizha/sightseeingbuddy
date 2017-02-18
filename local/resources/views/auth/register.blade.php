@@ -1,5 +1,10 @@
-@extends('layouts.app', ['isHome' => false, 'categories' => []])
+@extends('layouts.app')
 
 @section('content')
-@include('auth.partials.register', ['parent' => 'register'])
+<section class="gray-block" id="page">
+    <div class="container">
+        @include('auth.partials.sidebar', ['active' => 'register', 'links' => $links])
+        @include('auth.partials.register')
+    </div>
+</section>
 @endsection

@@ -1,16 +1,12 @@
 <aside id="sidebar" class="col-sm-3 local-left">
     <ul class="nav nav-stacked nav-pills">
-        <li class="item item-level-1">
-            <a href="/local/register">
-                <h2>Sign up</h2>
-                <span>Become a guest & find a local</span>
+        @foreach($links as $key => $link)
+        <li class="item item-level-1 @if ($key == $active)active @endif">
+            <a href="{{ route($link['route']) }}">
+                <h2>{{ $link['label'] }}</h2>
+                <span>{{ $link['sub_label'] }}</span>
             </a>
         </li>
-        <li class="item item-level-1 active">
-            <a href="/local/login">
-                <h2>Log in</h2>
-                <span>Access my account</span>
-            </a>
-        </li>
+        @endforeach
     </ul>
 </aside>

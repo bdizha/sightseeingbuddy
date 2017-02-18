@@ -1,5 +1,11 @@
-@extends('layouts.app', ['isHome' => false, 'categories' => []])
+@extends('layouts.app')
 
 @section('content')  
-@include('auth.partials.login', ['parent' => 'login'])
+@section('content')
+<section class="gray-block" id="page">
+    <div class="container">
+        @include('auth.partials.sidebar', ['active' => 'login', 'links' => $links])
+        @include('auth.partials.login')
+    </div>
+</section>
 @endsection

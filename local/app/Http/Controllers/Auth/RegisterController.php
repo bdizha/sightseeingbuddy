@@ -43,7 +43,8 @@ use RegistersUsers;
      * @return \Illuminate\Http\Response
      */
     public function showRegistrationForm() {
-        return view('auth.register');
+        $links = $this->getLinks();
+        return view('auth.register', ['links' => $links]);
     }
 
     /**
