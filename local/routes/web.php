@@ -17,4 +17,18 @@ Route::group(['prefix' => 'local'], function () {
     });
 
     Route::auth();
+
+    Route::resource('contact', 'Step\ContactController');
+    Route::resource('introduction', 'Step\IntroductionController');
+    Route::resource('location', 'Step\LocationController');
+    Route::resource('wallet', 'Step\WalletController');
+
+    // profile resources
+    Route::get('/profile/{username}', 'Profile\InfoController@show');
+
+    // contact resource
+    Route::resource('contact-us', 'ContactController');
+
+    // subscribe resource
+//    Route::post('subscriber', 'SubscriberController');
 });
