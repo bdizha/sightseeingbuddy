@@ -23,7 +23,8 @@ class Experience extends Model
         'category_id',
         'sub_category_id',
         'teaser',
-        'description'
+        'description',
+        'cover_image'
     ];
     
     public function user() {

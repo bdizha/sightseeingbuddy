@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLocationsTable extends Migration {
+class CreateCitiesTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,18 +12,13 @@ class CreateLocationsTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->string('name')->unique();
             $table->integer('country_id')->unsigned();
-            $table->integer('city_id')->unsigned();
-            $table->string('street_address');
-            $table->string('postal_code');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
+            
             $table->foreign('country_id')->references('id')->on('countries');
-            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
@@ -33,7 +28,15 @@ class CreateLocationsTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('locations');
+        Schema::table('locations', function (Blueprint $table) {
+            $table->dropForeign(['city_id']);
+        });
+        
+        Schema::table('experiences', function (Blueprint $table) {
+            $table->dropForeign(['city_id']);
+        });
+        
+        Schema::dropIfExists('cities');
     }
 
 }

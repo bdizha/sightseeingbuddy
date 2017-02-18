@@ -16,9 +16,10 @@ class Introduction extends Model
      */
     protected $fillable = [
         'user_id',
-        'email',
-        'mobile',
-        'telephone'
+        'gender',
+        'id_number',
+        'description',
+        'image'
     ];
     
     public function user() {

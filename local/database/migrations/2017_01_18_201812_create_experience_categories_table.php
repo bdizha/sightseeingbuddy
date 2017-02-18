@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWalletsTable extends Migration {
+class CreateExperienceCategoriesTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,15 +12,11 @@ class CreateWalletsTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('wallets', function (Blueprint $table) {
+        Schema::create('experience_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('bank');
-            $table->string('branch');
-            $table->string('account_number');
+            $table->string('name');
+            $table->integer('parent_id');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -30,7 +26,11 @@ class CreateWalletsTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('wallets');
+        Schema::table('experience', function (Blueprint $table) {
+            $table->dropForeign(['category_id', 'sub_category_id']);
+        });
+
+        Schema::dropIfExists('experience_categories');
     }
 
 }
