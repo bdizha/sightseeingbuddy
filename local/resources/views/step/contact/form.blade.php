@@ -1,5 +1,5 @@
 <div class="jobPost">
-    @include('step.partials.heading', ['step' => 5, 'heading' => 'Skills'])  
+    @include('step.partials.links', ['step' => 1])  
     <div class="jobGrey">
         {!! Form::open([
         'method' => $method,

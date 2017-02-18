@@ -11,12 +11,12 @@
                     <form id="sign-in" method="POST" class="form" action="{{ url('/login') }}">
                         {!! csrf_field() !!}
                         @include('partials.errors')
-                        <div class="row form-group {{ $errors->has('email') ? ' hasError' : '' }}" id="fields-email-field">
+                        <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}" id="fields-email-field">
                             <div class="col-sm-6 col-xs-12">
                                 <input class="form-control fullwidth" type="text" id="fields-email" name="fields[email]" value="{{ old('email') }}" data-show-chars-left="" autocomplete="off" placeholder="Your email">
                             </div>
                         </div>
-                        <div class="row form-group {{ $errors->has('password') ? ' hasError' : '' }}" id="fields-email-field">
+                        <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}" id="fields-email-field">
                             <div class="col-sm-6 col-xs-12">
                                 <input class="form-control fullwidth" type="password" id="fields-password" name="fields[password]" value="" data-show-chars-left="" autocomplete="off" placeholder="Your password">
                             </div>
@@ -25,12 +25,12 @@
                             <div class="col-sm-6 col-xs-12">
                                 <input type="submit" class="btn btn-yellow" value="Logn In & Find a Local" />
                             </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <a href="{{ route('register') }}">Don't have an account?</a>
-                            </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col-sm-6 col-xs-12">
+                            <div class="col-sm-4 col-xs-6">
+                                <a href="{{ route('register') }}">Don't have an account?</a>
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
                                 <a href="{{ url('/local/password/reset') }}">Forgot password?</a>
                             </div>
                         </div>

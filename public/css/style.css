@@ -9669,12 +9669,12 @@ section #sidebar h2 {
   margin-right: 5px;
   cursor: pointer;
   color: #3D3D3D;
-  font-size: 14px;
+  font-size: 21px;
   border: 1px solid #3D3D3D;
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  line-height: 30px;
+  height: 38px;
+  width: 38px;
+  line-height: 38px;
   text-align: center;
 }
 .share-btn:hover {

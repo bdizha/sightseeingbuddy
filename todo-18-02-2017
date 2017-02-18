@@ -1,6 +1,6 @@
-Added the profile steps module
-Added the experience steps module
-Added make the footer dynamic
+Add the profile steps module
+Add the experience steps module
+Add make the footer dynamic
 Make the header dynamic
 Handle form errors
 Migrate users, experiences, etc
