@@ -33,6 +33,13 @@ class CreateLocationsTable extends Migration {
      * @return void
      */
     public function down() {
+        
+        Schema::table('locations', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['city_id']);
+            $table->dropForeign(['country_id']);
+        });
+        
         Schema::dropIfExists('locations');
     }
 

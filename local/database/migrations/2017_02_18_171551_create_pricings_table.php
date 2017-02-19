@@ -25,18 +25,14 @@ class CreatePricingsTable extends Migration {
 
     /**
      * Reverse the migrations.
-     *
-     * 
-     * 'experience_id',
-        'guests',
-        'per_person'
      * 
      * @return void
      */
     public function down() {
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->dropForeign(['pricing_id']);
+        Schema::table('pricings', function (Blueprint $table) {
+            $table->dropForeign(['experience_id']);
         });
+        
         Schema::dropIfExists('pricings');
     }
 

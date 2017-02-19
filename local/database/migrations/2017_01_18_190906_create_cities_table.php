@@ -28,14 +28,6 @@ class CreateCitiesTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::table('locations', function (Blueprint $table) {
-            $table->dropForeign(['city_id']);
-        });
-        
-        Schema::table('experiences', function (Blueprint $table) {
-            $table->dropForeign(['city_id']);
-        });
-        
         Schema::dropIfExists('cities');
     }
 

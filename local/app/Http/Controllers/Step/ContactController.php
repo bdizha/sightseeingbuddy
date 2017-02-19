@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\StepController;
 use Session;
+use App\Contact;
 
 class ContactController extends StepController {
 
@@ -26,9 +27,13 @@ class ContactController extends StepController {
         $contact = new Contact();
         $user = Auth::user();
 
-        $contact = Contact::where('user_id', '=', $user->id)->get();
+        $links = $this->getLinks();
 
-        return view('step.contact.add', ['contact' => $contact, 'contact' => $contact, 'user' => $user]);
+        return view('step.contact.add', [
+            'contact' => $contact,
+            'links' => $links,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -55,10 +60,13 @@ class ContactController extends StepController {
         $contact = Contact::where('id', '=', $id)->first();
         $user = Auth::user();
 
-        $contact = Contact::where('user_id', '=', $user->id)
-                        ->where('id', '!=', $id)->get();
+        $links = $this->getLinks();
 
-        return view('step.contact.edit', ['contact' => $contact, 'contact' => $contact, 'user' => $user]);
+        return view('step.contact.edit', [
+            'contact' => $contact,
+            'links' => $links,
+            'user' => $user
+        ]);
     }
 
     /**

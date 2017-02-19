@@ -190,6 +190,14 @@ html, body {
     border-bottom: 1px solid @white;
 }
 
+.gray-right-border{
+    border-right: 1px solid @gray-base;
+}
+
+.gray-left-border{
+    border-left: 1px solid @gray-base;
+}
+
 .clear-both {
     clear: both;
 }
@@ -259,12 +267,29 @@ a{
         font-size: 28px;
         margin-top: 20px;
         margin-bottom: 20px;
-        padding-top: 0;
+        padding-top: 4px;
     }
     p{
         margin: 0 0 5px;
     }
 
+}
+
+.gray-left-border{
+    .page-title{
+        text-align: left;
+        font-weight: 900;
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-top: 0;
+    }
+}
+
+form{
+    .gray-left-border{
+        padding-left: 35px;
+    }
 }
 
 section{
@@ -424,6 +449,13 @@ section{
                     margin-top: -50px;
                 }
             }
+        }
+    }
+
+    .profile-picture{
+        img{
+            width: 150px;
+            height: 150px;
         }
     }
 }

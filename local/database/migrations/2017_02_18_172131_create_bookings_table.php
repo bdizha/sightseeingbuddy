@@ -35,6 +35,14 @@ class CreateBookingsTable extends Migration {
      * @return void
      */
     public function down() {
+        
+        Schema::table('bookings', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['experience_id']);
+            $table->dropForeign(['pricing_id']);
+            $table->dropForeign(['schedule_id']);
+        });
+        
         Schema::dropIfExists('bookings');
     }
 

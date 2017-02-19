@@ -31,6 +31,11 @@ class CreateExperienceHighlightsTable extends Migration {
      * @return void
      */
     public function down() {
+        
+        Schema::table('experience_highlights', function (Blueprint $table) {
+            $table->dropForeign(['experience_id']);
+        });
+
         Schema::dropIfExists('experience_highlights');
     }
 

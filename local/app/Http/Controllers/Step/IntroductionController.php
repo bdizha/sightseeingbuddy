@@ -28,7 +28,13 @@ class IntroductionController extends StepController {
         $introduction = new Introduction();
         $user = Auth::user();
 
-        return view('step.introduction.add', ['introduction' => $introduction, 'user' => $user]);
+        $links = $this->getLinks();
+
+        return view('step.introduction.add', [
+            'introduction' => $introduction,
+            'user' => $user,
+            'links' => $links
+        ]);
     }
 
     /**
@@ -54,7 +60,13 @@ class IntroductionController extends StepController {
         $introduction = Introduction::where('id', '=', $id)->first();
         $user = Auth::user();
 
-        return view('step.introduction.edit', ['introduction' => $introduction, 'user' => $user]);
+        $links = $this->getLinks();
+
+        return view('step.introduction.edit', [
+            'introduction' => $introduction,
+            'user' => $user,
+            'links' => $links
+        ]);
     }
 
     /**
@@ -70,10 +82,11 @@ class IntroductionController extends StepController {
     private function save($introduction, $request) {
 
         $fields = [
-            'position' => 'required|max:255',
-            'company' => 'required|max:255',
-            'start_year' => 'required|max:6',
-            'start_month' => 'required|max:6',
+            'image' => 'required|max:6',
+            'gender' => 'required|max:10',
+            'id_number' => 'required|max:6',
+            'reason' => 'required|max:6',
+            'description' => 'required|max:6',
         ];
 
         $user = Auth::user();
@@ -123,7 +136,7 @@ class IntroductionController extends StepController {
         $introduction = Introduction::findOrFail($id);
         $introduction->delete();
 
-        Session::flash('flash_message', 'Introduction successfully deleted!');        
+        Session::flash('flash_message', 'Introduction successfully deleted!');
         return redirect(route("{$this->cur_step}.create"));
     }
 

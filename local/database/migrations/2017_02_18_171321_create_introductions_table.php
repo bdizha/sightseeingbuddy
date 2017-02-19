@@ -17,6 +17,7 @@ class CreateIntroductionsTable extends Migration {
             $table->integer('user_id')->unsigned();
             $table->enum('gender', ['female', 'male']);
             $table->string('id_number');
+            $table->text('reason');
             $table->text('description');
             $table->string('image');
             $table->timestamps();
@@ -31,6 +32,11 @@ class CreateIntroductionsTable extends Migration {
      * @return void
      */
     public function down() {
+        
+        Schema::table('introductions', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        
         Schema::dropIfExists('introductions');
     }
 

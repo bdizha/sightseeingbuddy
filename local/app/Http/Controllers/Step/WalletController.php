@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\StepController;
 use Session;
+use App\Wallet;
 
 class WalletController extends StepController {
 
@@ -26,9 +27,13 @@ class WalletController extends StepController {
         $wallet = new Wallet();
         $user = Auth::user();
 
-        $wallets = Wallet::where('user_id', '=', $user->id)->get();
+        $links = $this->getLinks();
 
-        return view('step.wallet.add', ['wallet' => $wallet, 'wallets' => $wallets, 'user' => $user]);
+        return view('step.wallet.add', [
+            'wallet' => $wallet,
+            'links' => $links,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -54,10 +59,13 @@ class WalletController extends StepController {
         $wallet = Wallet::where('id', '=', $id)->first();
         $user = Auth::user();
 
-        $wallets = Wallet::where('user_id', '=', $user->id)
-                        ->where('id', '!=', $id)->get();
+        $links = $this->getLinks();
 
-        return view('step.wallet.edit', ['wallet' => $wallet, 'wallets' => $wallets, 'user' => $user]);
+        return view('step.wallet.edit', [
+            'wallet' => $wallet,
+            'links' => $links,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -71,14 +79,14 @@ class WalletController extends StepController {
     }
 
     private function save($wallet, $request) {
-        
+
         $fields = [
             'name' => 'required|max:255'
         ];
-        
+
         $user = Auth::user();
         $isMore = $request->input('is_more');
-        
+
         if (empty($isMore)) {
             $walletsCount = Wallet::where('user_id', '=', $user->id)->count();
 
@@ -108,7 +116,7 @@ class WalletController extends StepController {
         $wallet = Wallet::findOrFail($id);
         $wallet->delete();
 
-        Session::flash('flash_message', 'Wallet successfully deleted!');        
+        Session::flash('flash_message', 'Wallet successfully deleted!');
         return redirect(route("{$this->cur_step}.create"));
     }
 

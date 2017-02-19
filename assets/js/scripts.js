@@ -255,7 +255,7 @@ function Vertilize() {
         }
     };
 
-    $window.on('resize', this.init);
+    $window.on('resize', (new Vertilize).init());
 }
 
 $(function () {
@@ -282,7 +282,5 @@ $(function () {
 
     (new Notifications).init();
 
-    setInterval(function () {
-        (new Vertilize).init();
-    }, 3000);
+    (new Vertilize).init();
 });

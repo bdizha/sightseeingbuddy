@@ -10,19 +10,19 @@ class StepController extends Controller {
         $links = [
             'introduction' => [
                 'label' => 'Introduction',
-                'url' => '/local/step/introduction'
+                'route' => 'introduction'
             ],
             'location' => [
                 'label' => 'Your Locations',
-                'url' => '/local/step/location'
+                'route' => 'location'
             ],
             'wallet' => [
                 'label' => 'Payment Details',
-                'url' => '/local/step/payments'
+                'route' => 'wallet'
             ],
             'contact' => [
                 'label' => 'Contact Information',
-                'url' => '/local/step/contact'
+                'route' => 'contact'
             ]
         ];
         

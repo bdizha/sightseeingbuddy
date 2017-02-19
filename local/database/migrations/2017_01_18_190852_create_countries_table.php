@@ -25,14 +25,6 @@ class CreateCountriesTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::table('locations', function (Blueprint $table) {
-            $table->dropForeign(['country_id']);
-        });
-        
-        Schema::table('experiences', function (Blueprint $table) {
-            $table->dropForeign(['country_id']);
-        });
-        
         Schema::dropIfExists('countries');
     }
 

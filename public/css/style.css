@@ -9020,6 +9020,12 @@ body {
 .white-bottom-border {
   border-bottom: 1px solid #FFFFFF;
 }
+.gray-right-border {
+  border-right: 1px solid #3D3D3D;
+}
+.gray-left-border {
+  border-left: 1px solid #3D3D3D;
+}
 .clear-both {
   clear: both;
 }
@@ -9081,10 +9087,21 @@ a:hover {
   font-size: 28px;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding-top: 0;
+  padding-top: 4px;
 }
 .page-title p {
   margin: 0 0 5px;
+}
+.gray-left-border .page-title {
+  text-align: left;
+  font-weight: 900;
+  font-size: 28px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 0;
+}
+form .gray-left-border {
+  padding-left: 35px;
 }
 section {
   padding-bottom: 40px;
@@ -9241,6 +9258,10 @@ section #sidebar h2 {
   right: -34px;
   top: 69px;
   margin-top: -50px;
+}
+#page .profile-picture img {
+  width: 150px;
+  height: 150px;
 }
 .perks-block figure {
   width: 50px;

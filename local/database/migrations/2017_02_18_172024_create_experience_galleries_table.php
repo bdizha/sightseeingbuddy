@@ -28,6 +28,10 @@ class CreateExperienceGalleriesTable extends Migration {
      * @return void
      */
     public function down() {
+        Schema::table('experience_galleries', function (Blueprint $table) {
+            $table->dropForeign(['experience_id']);
+        });
+        
         Schema::dropIfExists('experience_galleries');
     }
 

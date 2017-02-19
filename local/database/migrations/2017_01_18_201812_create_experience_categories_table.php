@@ -26,10 +26,7 @@ class CreateExperienceCategoriesTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::table('experience', function (Blueprint $table) {
-            $table->dropForeign(['category_id', 'sub_category_id']);
-        });
-
+        
         Schema::dropIfExists('experience_categories');
     }
 

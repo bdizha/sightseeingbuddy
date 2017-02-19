@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\StepController;
 use Session;
+use App\Location;
 
 class LocationController extends StepController {
-    
+
     protected $next_step = "wallet";
     protected $cur_step = "location";
     protected $prev_step = "introduction";
@@ -26,9 +27,13 @@ class LocationController extends StepController {
         $location = new Location();
         $user = Auth::user();
 
-        $location = Location::where('user_id', '=', $user->id)->get();
+        $links = $this->getLinks();
 
-        return view('step.location.add', ['location' => $location, 'location' => $location, 'user' => $user]);
+        return view('step.location.add', [
+            'location' => $location,
+            'links' => $links,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -51,14 +56,16 @@ class LocationController extends StepController {
      * @return Response
      */
     public function edit($id, Request $request) {
-        
+
         $location = Location::where('id', '=', $id)->first();
         $user = Auth::user();
-
-        $location = Location::where('user_id', '=', $user->id)
-                        ->where('id', '!=', $id)->get();
-
-        return view('step.location.edit', ['location' => $location, 'location' => $location, 'user' => $user]);
+        $links = $this->getLinks();
+        
+        return view('step.location.edit', [
+            'location' => $location,
+            'links' => $links,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -118,7 +125,7 @@ class LocationController extends StepController {
         $location = Location::findOrFail($id);
         $location->delete();
 
-        Session::flash('flash_message', 'Location successfully deleted!');        
+        Session::flash('flash_message', 'Location successfully deleted!');
         return redirect(route("{$this->cur_step}.create"));
     }
 

@@ -26,16 +26,13 @@ class CreateExperienceSchedulesTable extends Migration {
     /**
      * Reverse the migrations.
      *
-     * 
-     * 'experience_id',
-        'days',
-        'times'
      * @return void
      */
     public function down() {
-        Schema::table('experience_galleries', function (Blueprint $table) {
+        Schema::table('experience_schedules', function (Blueprint $table) {
             $table->dropForeign(['experience_id']);
         });
+        
         Schema::dropIfExists('experience_schedules');
     }
 

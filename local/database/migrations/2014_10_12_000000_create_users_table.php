@@ -30,30 +30,6 @@ class CreateUsersTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-        
-        Schema::table('experiences', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-        
-        Schema::table('contacts', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-        
-        Schema::table('locations', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-        
-        Schema::table('introductions', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-        
-        Schema::table('wallets', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-
         Schema::dropIfExists('users');
     }
 

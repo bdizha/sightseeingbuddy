@@ -41,24 +41,13 @@ class CreateExperiencesTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::table('experience_galleries', function (Blueprint $table) {
-            $table->dropForeign(['experience_id']);
-        });
 
-        Schema::table('experience_schedules', function (Blueprint $table) {
-            $table->dropForeign(['experience_id']);
-        });
-
-        Schema::table('experience_activities', function (Blueprint $table) {
-            $table->dropForeign(['experience_id']);
-        });
-
-        Schema::table('experience_schedules', function (Blueprint $table) {
-            $table->dropForeign(['experience_id']);
-        });
-
-        Schema::table('experience_highlights', function (Blueprint $table) {
-            $table->dropForeign(['experience_id']);
+        Schema::table('experiences', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['city_id']);
+            $table->dropForeign(['country_id']);
+            $table->dropForeign(['category_id']);
+            $table->dropForeign(['sub_category_id']);
         });
 
         Schema::dropIfExists('experiences');
