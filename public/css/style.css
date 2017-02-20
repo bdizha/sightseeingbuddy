@@ -9026,6 +9026,9 @@ body {
 .gray-left-border {
   border-left: 1px solid #3D3D3D;
 }
+.gray-bottom-border {
+  border-bottom: 1px solid #3D3D3D;
+}
 .clear-both {
   clear: both;
 }
@@ -9103,6 +9106,20 @@ a:hover {
 form .gray-left-border {
   padding-left: 35px;
 }
+form .form-control {
+  background-color: transparent;
+}
+form label.control-value {
+  font-weight: 300;
+}
+form .schedule-item {
+  margin-right: 15px;
+  display: inline-block;
+}
+form small {
+  display: inline-block;
+  margin-top: 15px;
+}
 section {
   padding-bottom: 40px;
 }
@@ -9113,6 +9130,10 @@ section h2 {
 }
 section h3 {
   font-size: 23px;
+}
+section h4 {
+  font-size: 15px;
+  font-weight: 900;
 }
 section b,
 section strong {

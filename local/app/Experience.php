@@ -19,7 +19,6 @@ class Experience extends Model
         'city_id',
         'street_address',
         'postal_code',
-        'start_year',
         'category_id',
         'sub_category_id',
         'teaser',

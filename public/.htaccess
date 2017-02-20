@@ -3,12 +3,13 @@ RewriteEngine On
 # Rewrite cach-bustable file requests
 RewriteRule ^(.+)\.\d{10}\.(js|css|png|jpg|gif)$ /$1.$2 [L]
 
+RewriteRule  ^login /local/login [R=301,L]
+
 # Send would-be 404 requests to Craft
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
 RewriteRule (.+) /index.php?p=$1 [QSA,L]
-
 
 # If the file is an image, return a system 404
 RewriteCond %{REQUEST_URI} !^/admin [NC]

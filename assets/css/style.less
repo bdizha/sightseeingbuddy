@@ -198,6 +198,10 @@ html, body {
     border-left: 1px solid @gray-base;
 }
 
+.gray-bottom-border{
+    border-bottom: 1px solid @gray-base;
+}
+
 .clear-both {
     clear: both;
 }
@@ -290,6 +294,25 @@ form{
     .gray-left-border{
         padding-left: 35px;
     }
+    .form-control{
+        background-color: transparent;
+    }
+
+    label{
+        &.control-value{
+            font-weight: 300;
+        }
+    }
+
+    .schedule-item{
+        margin-right: 15px;
+        display: inline-block;
+    }
+
+    small{
+        display: inline-block;
+        margin-top: 15px;
+    }
 }
 
 section{
@@ -300,6 +323,10 @@ section{
     }
     h3{
         font-size: 23px;
+    }
+    h4{
+        font-size: 15px;
+        font-weight: 900;
     }
     b,
     strong{

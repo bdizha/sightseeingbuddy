@@ -22,6 +22,11 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('introduction', 'Step\IntroductionController');
     Route::resource('location', 'Step\LocationController');
     Route::resource('wallet', 'Step\WalletController');
+    
+    Route::resource('info', 'Experience\InfoController');
+    Route::resource('pricing', 'Experience\PricingController');
+    Route::resource('images', 'Experience\ImagesController');
+    Route::resource('last', 'Experience\LastController');
 
     // profile resources
     Route::get('/profile/{username}', 'Profile\InfoController@show');

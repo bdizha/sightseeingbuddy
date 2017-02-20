@@ -1,1 +1,0 @@
-<img alt="{{ $shot->caption }}" class="pub-media" src="/{{ Helper::imagePathFor($shot->media) }}" title="{{ $shot->caption }}"/>

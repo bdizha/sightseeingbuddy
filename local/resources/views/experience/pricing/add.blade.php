@@ -1,14 +1,14 @@
-@extends('layouts.auth', ['isHome' => false, 'categories' => []])
+@extends('layouts.app')
 
 @section('content')
-<div class="jobPost">
-    <header class="jobPostHeader">
-        <h1><span>Step 1</span>: Contact</h1>
-    </header>
-    {!! Form::open([
-    'route' => 'contact.store',
-    'class' => 'jobForm jobGrey']) !!}
-    @include('step.contact.form', ['user' => $user]) 
-    {!! Form::close() !!}
-</div>
+<section class="gray-block" id="page">
+    <div class="container">
+        @include('experience.partials.sidebar', ['active' => 'pricing', 'links' => $links])
+        {!! Form::open([
+        'route' => 'pricing.store',
+        'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
+        @include('experience.pricing.form', ['user' => $user, 'experience' => $experience]) 
+        {!! Form::close() !!}
+    </div>
+</section>
 @endsection
