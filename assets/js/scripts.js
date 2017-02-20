@@ -255,7 +255,9 @@ function Vertilize() {
         }
     };
 
-    $window.on('resize', (new Vertilize).init());
+    this.init();
+
+    $window.on('resize', Vertilize());
 }
 
 $(function () {

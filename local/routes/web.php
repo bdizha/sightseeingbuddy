@@ -29,7 +29,7 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('last', 'Experience\LastController');
 
     // profile resources
-    Route::get('/profile/{username}', 'Profile\InfoController@show');
+    Route::get('/profile/{id}', 'Profile\InfoController@show');
 
     // contact resource
     Route::resource('contact-us', 'ContactController');

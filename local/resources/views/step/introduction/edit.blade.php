@@ -1,14 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.step')
 
 @section('content')
-<section class="gray-block" id="page">
-    <div class="container">
-        @include('step.partials.sidebar', ['active' => 'introduction', 'links' => $links])
-        {!! Form::open([
-        'route' => ['introduction.update', introduction->id],
-        'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
-        @include('step.contact.form', ['user' => $user, 'introduction' => $introduction]) 
-        {!! Form::close() !!}
-    </div>
-</section>
+@include('step.partials.sidebar', ['active' => 'introduction', 'links' => $links])
+{!! Form::open([
+'route' => ['introduction.update', introduction->id],
+'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
+@include('step.contact.form', ['user' => $user, 'introduction' => $introduction]) 
+{!! Form::close() !!}
 @endsection

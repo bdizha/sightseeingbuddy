@@ -1,14 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.step')
 
 @section('content')
-<section class="gray-block" id="page">
-    <div class="container">
-        @include('step.partials.sidebar', ['active' => 'wallet', 'links' => $links])
-        {!! Form::open([
-        'route' => ['wallet.update', wallet->id],
-        'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
-        @include('step.wallet.form', ['user' => $user, 'wallet' => $wallet]) 
-        {!! Form::close() !!}
-    </div>
-</section>
+@include('step.partials.sidebar', ['active' => 'wallet', 'links' => $links])
+{!! Form::open([
+'route' => ['wallet.update', wallet->id],
+'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
+@include('step.wallet.form', ['user' => $user, 'wallet' => $wallet]) 
+{!! Form::close() !!}
 @endsection

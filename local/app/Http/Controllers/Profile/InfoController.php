@@ -11,11 +11,11 @@ class InfoController extends Controller {
         $this->middleware('auth');
     }
 
-    public function show($username) {
-        $user = User::where('username', '=', $username)->first();
+    public function show($id) {
+        $user = User::where('id', '=', $id)->first();
 
         if ($user) {
-            return view('profile.info', ['user' => $user]);
+            return view('profile.dashboard', ['user' => $user]);
         } else {
             return redirect()->to('/login');
         }
