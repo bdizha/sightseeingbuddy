@@ -80,14 +80,6 @@
                                 <span>082 987 1234</span>
                             </span>
                         </div>
-                        <div class="inline pull-right">
-                            <a class="text-uppercase" href="/local/login">
-                                Login
-                            </a>
-                            <a class="text-uppercase text-bold" href="/local/register">
-                                Sign Up
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <div class="clear-both"></div>
@@ -108,6 +100,7 @@
                             <div class="collapse navbar-collapse" id="primaryNav">
                                 <ul class="nav navbar-nav">
                                     {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
+                                    <div class="same-height hide"></div>
                                 </ul>
                                 <div class="field form-group fields-search-field" id="fields-search-field">
                                     <div class="input ltr">

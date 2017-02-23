@@ -233,6 +233,7 @@ function Notifications() {
 function Vertilize() {
     var $window = $(window);
     var sameHeight = $('.same-height');
+
     var height = 0;
     var currentHeight = height;
 
@@ -257,7 +258,19 @@ function Vertilize() {
 
     this.init();
 
-    $window.on('resize', Vertilize());
+//    $window.on('resize', Vertilize());
+}
+
+function HeaderNav() {
+    var navContainer = $('.top-yellow-bg .container');
+
+    this.init = function () {
+        $.get("/local/auth/nav", function (data) {
+            navContainer.children(".top-nav").remove();
+            navContainer.append(data);
+            console.log(data);
+        });
+    };
 }
 
 $(function () {
@@ -285,4 +298,6 @@ $(function () {
     (new Notifications).init();
 
     (new Vertilize).init();
+
+    (new HeaderNav).init();
 });

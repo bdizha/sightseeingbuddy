@@ -18,6 +18,7 @@ class Introduction extends Model
         'user_id',
         'gender',
         'id_number',
+        'reason',
         'description',
         'image'
     ];

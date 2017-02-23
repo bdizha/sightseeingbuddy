@@ -12,7 +12,7 @@ class WalletController extends StepController {
 
     protected $next_step = "contact";
     protected $cur_step = "wallet";
-    protected $prev_step = "location";
+    protected $prev_step = "wallet";
 
     public function __construct() {
         $this->middleware('auth');
@@ -27,7 +27,7 @@ class WalletController extends StepController {
         $wallet = new Wallet();
         $user = Auth::user();
 
-        $links = $this->getLinks();
+        $links = $this->getLinks($user);
 
         return view('step.wallet.add', [
             'wallet' => $wallet,
@@ -56,10 +56,11 @@ class WalletController extends StepController {
      * @return Response
      */
     public function edit($id, Request $request) {
-        $wallet = Wallet::where('id', '=', $id)->first();
         $user = Auth::user();
 
-        $links = $this->getLinks();
+        $wallet = Wallet::firstOrNew(['user_id' => $user->id]);
+
+        $links = $this->getLinks($user);
 
         return view('step.wallet.edit', [
             'wallet' => $wallet,
@@ -74,26 +75,18 @@ class WalletController extends StepController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $wallet = Wallet::where('id', '=', $id)->first();
+        $user = Auth::user();
+        $wallet = Wallet::firstOrNew(['user_id' => $user->id]);
         return $this->save($wallet, $request);
     }
 
     private function save($wallet, $request) {
 
         $fields = [
-            'name' => 'required|max:255'
+            'bank' => 'required|max:255',
+            'branch' => 'required|max:255',
+            'account_number' => 'required|max:255'
         ];
-
-        $user = Auth::user();
-        $isMore = $request->input('is_more');
-
-        if (empty($isMore)) {
-            $walletsCount = Wallet::where('user_id', '=', $user->id)->count();
-
-            if (!empty($walletsCount)) {
-                return redirect(url("/profile/{$user->username}"));
-            }
-        }
 
         $this->validate($request, $fields);
         $input = $request->all();
@@ -102,8 +95,9 @@ class WalletController extends StepController {
 
         Session::flash('flash_message', 'Wallet successfully saved!');
 
-        $route = $isMore ? $this->cur_step : $this->next_step;
-        return redirect(route("{$route}.create"));
+        $user = Auth::user();
+
+        return redirect(route("{$this->next_step}.edit", ["id" => $user->id]));
     }
 
     /**

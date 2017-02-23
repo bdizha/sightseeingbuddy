@@ -5,7 +5,7 @@
             </div>
             <div class='col-sm-8 col-xs-12'>
                 <div class="gray-left-border mt-1">
-                    <h1 class="page-title">
+                    <h1 class="page-title page-title-left">
                         How do we contact you?
                     </h1>
                     {!! csrf_field() !!}
@@ -14,7 +14,10 @@
                             @if ($errors->has('email'))
                             <label class="control-label" for="email">{{ $errors->first('email') }}</label>
                             @endif
-                            {{ Form::text('email', old('email'), ['class' => 'form-control fullwidth', 'placeholder' => 'Your email address*']) }}
+                            <div class="input-group">
+                                <label class="control-label" for="email">Email</label>
+                                {{ Form::text('email', $contact->email, ['class' => 'form-control fullwidth', 'placeholder' => 'Your email address*']) }}
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('mobile') ? 'has-error' : '' }}" id="mobile">
@@ -22,15 +25,21 @@
                             @if ($errors->has('mobile'))
                             <label class="control-label" for="mobile">{{ $errors->first('mobile') }}</label>
                             @endif
-                            {{ Form::text('mobile', old('mobile'), ['class' => 'form-control fullwidth', 'placeholder' => 'Your mobile number*']) }}
+                            <div class="input-group">
+                                <label class="control-label" for="mobile">Mobile</label>
+                                {{ Form::text('mobile', $contact->mobile, ['class' => 'form-control fullwidth', 'placeholder' => 'Your mobile number*']) }}
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('telephone') ? 'has-error' : '' }}" id="telephone">
                         <div class="col-xs-12">
                             @if ($errors->has('telephone'))
-                            <label class="control-label" for="mobile">{{ $errors->first('telephone') }}</label>
+                            <label class="control-label" for="telephone">{{ $errors->first('telephone') }}</label>
                             @endif
-                            {{ Form::text('telephone', old('telephone'), ['class' => 'form-control fullwidth', 'placeholder' => 'Your home telephone number*']) }}
+                            <div class="input-group">
+                                <label class="control-label" for="telephone">Telephone</label>
+                                {{ Form::text('telephone', $contact->telephone, ['class' => 'form-control fullwidth', 'placeholder' => 'Your home telephone number*']) }}
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -43,7 +52,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <a href="{{ route('wallet.create') }}" class="btn btn-primary">Back</a>
+                        <a href="{{ route('wallet.edit', ["id" => $user->id]) }}" class="btn btn-primary">Back</a>
                         <input type="submit" class="btn btn-primary pull-right" value="Next" />
                     </div>
                 </div>

@@ -1,36 +1,37 @@
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:url" content="http://www.jobeet.co.za">
-    <meta property="og:site_name" content="">
-    <meta property="og:title" content="Jobeet | Find your job">
-    <meta property="og:image" content="/images/icon.png">
-    <meta property="og:description" content="">
-    <link rel="shortcut icon" href="/images/icon.png" />
-    <title>Jobeet | Exciting jobs for bright candidates in South Africa.</title>
-    @if(!empty($meta))
-    <meta name="description" content="{{ $meta['description'] }} ">
-    <meta name="keywords" content="{{ $meta['keywords'] }} ">
-    @else
-    <meta name="description" content="Find your job. Make your next career move with Jobeet. Find the recruiters, opportunities and companies that will match your job search and enhance your career.">
-    <meta name="keywords" content="Jobeet, Cape Town Jobs, Careers South Africa, Better Jobs, New Jobs, Gauteng Jobs, job search, find jobs, careers, recruiter">    
-    @endif
-    <link rel="canonical" href="{{ url('/') }}">
-    <link rel="stylesheet" href="/css/fonts.css" type="text/css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/summernote/summernote.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css">
-    @if(!empty($isAdmin))
-    <link rel="stylesheet" href="/css/admin.css" type="text/css">
-    @endif
-
-    <script src="/js/react-with-addons.min.js"></script>
-    <script src="/js/cookie.js"></script>
-    <script src="/js/highlight.min.js"></script>
-    <script src="/js/jquery.min.js" type="text/javascript"></script>
-    <script src="/js/main.js" type="text/javascript"></script>
-    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/summernote/summernote.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,200italic,300italic,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/vendors.css?v={{ Helper::timestamp('/css/style.css') }}">
+    <link rel="stylesheet" href="/css/style.css?v={{ Helper::timestamp('/css/style.css') }}">
+    <title>Keep It Local</title>
+    <meta content="Keep It Local" property="og:title"/>
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta itemprop="description" content="">
+    <!-- Image -->
+    <meta property="og:image" content="http://keepitlocal.dev/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png"/>
+    <meta itemprop="image" content="http://keepitlocal.dev/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png">
+    <link rel="image_src" href="http://keepitlocal.dev/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png"/>
+    <link rel="author" href="">
+    <script>
+        window.socialPlatforms = {"twitter": "", "facebook": "", "youtube": "", "google": "", "pinterest": ""};
+    </script>
+    <script>console.warn("Please insert your Google Webmaster HTML Tag")</script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries  -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#ffffff">
+    <link rel="shortcut icon" href="/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">    
 </head>

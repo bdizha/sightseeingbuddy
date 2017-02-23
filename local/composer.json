@@ -16,7 +16,8 @@
         "symfony/dom-crawler": "3.1.*",
         "laravelcollective/html": "^5.3.0",
         "elasticquent/elasticquent": "dev-master",
-        "weidner/goutte": "@dev"
+        "weidner/goutte": "@dev",
+        "cviebrock/eloquent-sluggable": "^4.1.2"
     },
     "autoload": {
         "classmap": [

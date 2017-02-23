@@ -11,14 +11,7 @@
                     <span>082 987 1234</span>
                 </span>
             </div>
-            <div class="inline pull-right">
-                <a class="text-uppercase" href="/experience/auth/login">
-                    Login
-                </a>
-                <a class="text-uppercase text-bold" href="/experience/auth/register">
-                    Sign Up
-                </a>
-            </div>
+            @include('auth.partials.nav')
         </div>
     </div>
     <div class="clear-both"></div>

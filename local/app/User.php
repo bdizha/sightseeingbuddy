@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +22,20 @@ class User extends Authenticatable
         'email', 
         'password',
     ];
+    
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'username' => [
+                'source' => ['first_name', 'last_name']
+            ]
+        ];
+    }
 
     /**
      * The attributes that should be hidden for arrays.

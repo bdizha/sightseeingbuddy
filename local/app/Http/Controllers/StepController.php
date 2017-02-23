@@ -6,26 +6,30 @@ use App\Http\Controllers\Controller;
 
 class StepController extends Controller {
 
-    public function getLinks() {
+    public function getLinks($user = null) {
+
+        $action = empty($user) ? "create" : "edit";
+        $parameters = empty($user) ? [] : ["id" => $user->id];
+        
         $links = [
             'introduction' => [
                 'label' => 'Introduction',
-                'route' => 'introduction'
+                'route' => route("introduction.{$action}", $parameters)
             ],
             'location' => [
                 'label' => 'Your Locations',
-                'route' => 'location'
+                'route' => route("location.{$action}", $parameters)
             ],
             'wallet' => [
                 'label' => 'Payment Details',
-                'route' => 'wallet'
+                'route' => route("wallet.{$action}", $parameters)
             ],
             'contact' => [
                 'label' => 'Contact Information',
-                'route' => 'contact'
+                'route' => route("contact.{$action}", $parameters)
             ]
         ];
-        
+
         return $links;
     }
 

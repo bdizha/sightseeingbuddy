@@ -268,33 +268,6 @@ a{
     text-align: center;
 }
 
-.page-title {
-    text-align: center;
-    margin-top: @font-size-h1;
-    margin-bottom: @font-size-h1;
-
-    &.page-title-left {
-        text-align: left;
-        font-weight: 900;
-        font-size: 28px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding-top: 4px;
-    }
-    &.page-title-center {
-        text-align: center;
-        font-weight: 900;
-        font-size: 28px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding-top: 4px;
-    }
-    p{
-        margin: 0 0 5px;
-    }
-
-}
-
 .gray-left-border{
     .page-title{
         text-align: left;
@@ -310,8 +283,22 @@ form{
     .gray-left-border{
         padding-left: 35px;
     }
-    .form-control{
-        background-color: transparent;
+
+    .input-group{
+        display: block;
+        .form-control{
+            background-color: transparent;
+            padding: 15px 15px 6px;
+            height: auto;
+        }
+        .control-label{
+            font-size: 10px;
+            font-weight: 300;
+            position: absolute;
+            top: 2px;
+            left: 15px;
+            z-index: 50;
+        }
     }
 
     label{
@@ -499,7 +486,35 @@ section{
         img{
             width: 150px;
             height: 150px;
+            border-radius: 50%;
         }
+    }
+
+    .page-title {
+        text-align: center;
+        margin-top: @font-size-h1;
+        margin-bottom: @font-size-h1;
+
+        &.page-title-left {
+            text-align: left;
+            font-weight: 900;
+            font-size: 28px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-top: 4px;
+        }
+        &.page-title-center {
+            text-align: center;
+            font-weight: 900;
+            font-size: 28px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-top: 4px;
+        }
+        p{
+            margin: 0 0 5px;
+        }
+
     }
 }
 
@@ -604,6 +619,7 @@ section{
                 img{
                     width: 200px;
                     height: 200px;
+                    border-radius: 50%;
                 }
                 display: table-cell;
             }
@@ -637,6 +653,7 @@ section{
                     img{
                         width: 150px;
                         height: 150px;
+                        border-radius: 50%;
                     }
                     display: table-cell;
                 }
@@ -791,7 +808,7 @@ section{
         display: inline-block;
         margin-top: 10px;
         > a{
-            font-weight: 700;
+            font-weight: 900;
             text-transform: uppercase;
             i{
                 width: 30px;
@@ -809,12 +826,15 @@ section{
                     background-image: url(/images/bookings.png);
                 }
             }
+            img{
+                height: 35px;
+                width: 35px;
+            }
 
             text-decoration: none;
             padding: 2px 0px 2px 35px;
             position: relative;
             &:hover{
-                font-weight: 900;
                 color: @yellow;
                 background-color: transparent;
                 text-decoration: none;
@@ -832,6 +852,26 @@ section{
                     text-decoration: none;
                 }
             }
+        }
+    }
+}
+
+.top-nav{
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    > li{
+        display: inline-block;
+        float: left;
+        > a{
+            padding: 0 10px;
         }
     }
 }
@@ -970,7 +1010,7 @@ section{
             font-size: 14px;
             color: @gray;
             .fa{
-                font-size: 12px;
+                font-size: 13px;
             }
         }
         .text-uppercase{
@@ -1115,6 +1155,7 @@ section{
     padding: 7px 24px;
     border-color: transparent;
     background-color: @yellow;
+    position: relative;
     &.btn-lg{
         padding: 10px 16px;
         font-size: 27px;
@@ -1353,3 +1394,76 @@ a.thumbnail:hover, a.thumbnail:active {
     }
 }
 
+// jquery upload
+
+.fileupload-buttonbar .btn,
+.fileupload-buttonbar .toggle {
+    margin-bottom: 5px;
+}
+.progress-animated .progress-bar,
+.progress-animated .bar {
+    background: url("../img/progressbar.gif") !important;
+    filter: none;
+}
+.fileupload-process {
+    float: right;
+    display: none;
+}
+.fileupload-processing .fileupload-process,
+.files .processing .preview {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url("../img/loading.gif") center no-repeat;
+    background-size: contain;
+}
+.files audio,
+.files video {
+    max-width: 300px;
+}
+
+@media (max-width: 767px) {
+    .fileupload-buttonbar .toggle,
+    .files .toggle,
+    .files .btn span {
+        display: none;
+    }
+    .files .name {
+        width: 80px;
+        word-wrap: break-word;
+    }
+    .files audio,
+    .files video {
+        max-width: 80px;
+    }
+    .files img,
+    .files canvas {
+        max-width: 100%;
+    }
+}
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.btn input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.progress {
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}

@@ -40,23 +40,31 @@ class Helper {
             6 => 'Sutardays',
             7 => 'Sundays'
         ];
-        
+
         return $days;
     }
 
     public static function times() {
         $hours = range(0, 23);
         $times = [];
-        foreach($hours as $hour){
+        foreach ($hours as $hour) {
             $paddedHour = str_pad($hour, 2, 0, STR_PAD_LEFT);
             $time = $paddedHour . "h00";
             $times[$time] = $time;
-            
+
             $midTime = $paddedHour . "h30";
             $times[$midTime] = $midTime;
         }
-        
+
         return $times;
+    }
+
+    public static function personImage($image) {
+        if (empty($image)) {
+            $image = "/files/person.png";
+        }
+
+        return $image;
     }
 
 }

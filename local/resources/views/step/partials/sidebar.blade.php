@@ -4,7 +4,7 @@
         @foreach($links as $key => $link)
         <?php $counter++ ?>
         <li class="item item-level-1 @if ($key == $active)active @endif">
-            <a href="{{ route($link['route'] . '.create') }}">
+            <a href="{{ $link['route'] }}">
                 <h2>{{ 'Step ' . ($counter) }}</h2>
                 <span>{{ $link['label'] }}</span>
             </a>

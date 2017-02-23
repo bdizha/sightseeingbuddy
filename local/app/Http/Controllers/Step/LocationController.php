@@ -27,7 +27,7 @@ class LocationController extends StepController {
         $location = new Location();
         $user = Auth::user();
 
-        $links = $this->getLinks();
+        $links = $this->getLinks($user);
 
         return view('step.location.add', [
             'location' => $location,
@@ -56,11 +56,12 @@ class LocationController extends StepController {
      * @return Response
      */
     public function edit($id, Request $request) {
-
-        $location = Location::where('id', '=', $id)->first();
         $user = Auth::user();
-        $links = $this->getLinks();
-        
+
+        $location = Location::firstOrNew(['user_id' => $user->id]);
+
+        $links = $this->getLinks($user);
+
         return view('step.location.edit', [
             'location' => $location,
             'links' => $links,
@@ -74,34 +75,19 @@ class LocationController extends StepController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $location = Location::where('id', '=', $id)->first();
+        $user = Auth::user();
+        $location = Location::firstOrNew(['user_id' => $user->id]);
         return $this->save($location, $request);
     }
 
     private function save($location, $request) {
 
         $fields = [
-            'name' => 'required|max:255',
-            'qualification' => 'required|max:255',
-            'start_year' => 'required|max:6',
-            'start_month' => 'required|max:6',
+            'country_id' => 'required|max:255',
+            'city_id' => 'required|max:255',
+            'street_address' => 'required|max:255',
+            'postal_code' => 'required|max:255',
         ];
-
-        $user = Auth::user();
-        $isMore = $request->input('is_more');
-        if (empty($isMore)) {
-            $locationCount = Location::where('user_id', '=', $user->id)->count();
-
-            if (!empty($locationCount)) {
-                return redirect(route("{$this->next_step}.create"));
-            }
-        }
-
-        $isCurrent = $request->input('is_current');
-        if (empty($isCurrent)) {
-            $fields['end_year'] = 'required|max:6';
-            $fields['end_month'] = 'required|max:6';
-        }
 
         $this->validate($request, $fields);
         $input = $request->all();
@@ -110,9 +96,9 @@ class LocationController extends StepController {
 
         Session::flash('flash_message', 'Location successfully saved!');
 
-        $route = $isMore ? $this->cur_step : $this->next_step;
+        $user = Auth::user();
 
-        return redirect(route("{$route}.create"));
+        return redirect(route("{$this->next_step}.edit", ["id" => $user->id]));
     }
 
     /**

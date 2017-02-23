@@ -27,9 +27,13 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('pricing', 'Experience\PricingController');
     Route::resource('images', 'Experience\ImagesController');
     Route::resource('last', 'Experience\LastController');
+    
+    Route::post('/upload/image', 'Step\IntroductionController@upload');
 
     // profile resources
-    Route::get('/profile/{id}', 'Profile\InfoController@show');
+    Route::get('/profile/{username}', 'Profile\InfoController@show');
+    
+    Route::get('/auth/nav', 'Profile\InfoController@nav');
 
     // contact resource
     Route::resource('contact-us', 'ContactController');

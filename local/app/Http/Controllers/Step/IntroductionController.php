@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\StepController;
 use Session;
 use App\Introduction;
-use App\Company;
+use App\Images\UploadHandler;
 
 class IntroductionController extends StepController {
 
@@ -28,7 +28,7 @@ class IntroductionController extends StepController {
         $introduction = new Introduction();
         $user = Auth::user();
 
-        $links = $this->getLinks();
+        $links = $this->getLinks($user);
 
         return view('step.introduction.add', [
             'introduction' => $introduction,
@@ -57,10 +57,10 @@ class IntroductionController extends StepController {
      * @return Response
      */
     public function edit($id, Request $request) {
-        $introduction = Introduction::where('id', '=', $id)->first();
         $user = Auth::user();
+        $introduction = Introduction::firstOrNew(['user_id' => $user->id]);
 
-        $links = $this->getLinks();
+        $links = $this->getLinks($user);
 
         return view('step.introduction.edit', [
             'introduction' => $introduction,
@@ -75,55 +75,42 @@ class IntroductionController extends StepController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $introduction = Introduction::where('id', '=', $id)->first();
+        $user = Auth::user();
+        $introduction = Introduction::firstOrNew(['user_id' => $user->id]);
         return $this->save($introduction, $request);
     }
 
     private function save($introduction, $request) {
-
+        
         $fields = [
-            'image' => 'required|max:6',
-            'gender' => 'required|max:10',
-            'id_number' => 'required|max:6',
-            'reason' => 'required|max:6',
-            'description' => 'required|max:6',
+            'image' => 'required',
+            'id_number' => 'required',
+            'reason' => 'required',
+            'description' => 'required',
         ];
-
-        $user = Auth::user();
-        $isMore = $request->input('is_more');
-        if (empty($isMore)) {
-            $introductionCount = Introduction::where('user_id', '=', $user->id)->count();
-
-            if (!empty($introductionCount)) {
-                return redirect(route("{$this->next_step}.create"));
-            }
-        }
-
-        $isCurrent = $request->input('is_current');
-
-        if (empty($isCurrent)) {
-            $fields['end_year'] = 'required|max:6';
-            $fields['end_month'] = 'required|max:6';
-        }
 
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $company = Company::where("name", "=", $input["company"])->first();
+        $userInput = [
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name']
+        ];
 
-        if (empty($company["name"]) && !empty($input["company"])) {
-            $company = Company::create([
-                        'name' => $input["company"]
-            ]);
-        }
+        unset($input['first_name'], $input['last_name']);
 
-        $input["company_id"] = $company->id;
+        $user = Auth::user();
+        $user->fill($userInput)->save();
+
         $introduction->fill($input)->save();
 
         Session::flash('flash_message', 'Introduction successfully saved!');
 
-        $route = $isMore ? $this->cur_step : $this->next_step;
-        return redirect(route("{$route}.create"));
+        return redirect(route("{$this->next_step}.edit", ["id" => $user->id]));
+    }
+
+    public function upload(Request $request) {
+        new UploadHandler();
     }
 
     /**
