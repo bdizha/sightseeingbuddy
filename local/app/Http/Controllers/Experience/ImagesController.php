@@ -25,13 +25,13 @@ class ImagesController extends ExperienceController {
      * @return Response
      */
     public function create(Request $request) {
-        $images = new ExperienceGallery();
+        $gallery = new ExperienceGallery();
         $user = Auth::user();
 
         $links = $this->getLinks();
 
         return view('experience.images.add', [
-            'images' => $images,
+            'gallery' => $gallery,
             'experience' => new Experience(),
             'links' => $links,
             'user' => $user
@@ -58,13 +58,13 @@ class ImagesController extends ExperienceController {
      * @return Response
      */
     public function edit($id, Request $request) {
-        $images = ExperienceController::where('id', '=', $id)->first();
+        $gallery = ExperienceGallery::where('experience_id', '=', $id)->first();
         $user = Auth::user();
 
         $links = $this->getLinks();
 
         return view('experience.images.edit', [
-            'images' => $images,
+            'gallery' => $gallery,
             'experience' => new Experience(),
             'links' => $links,
             'user' => $user

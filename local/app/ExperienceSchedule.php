@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExperienceSchedule extends Model {
 
-    protected $table = 'experiences_schedules';
+    protected $table = 'experience_schedules';
     
     /*
      * Fillable fields

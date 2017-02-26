@@ -27,6 +27,7 @@ class CreateExperiencesTable extends Migration {
             $table->enum('extra_pickup', ['Free of charge', 'Extra charges', 'Not included'])->default('Free of charge');
             $table->enum('extra_food', ['Free of charge', 'Extra charges', 'Not included'])->default('Free of charge');
             $table->enum('extra_misc', ['Free of charge', 'Extra charges', 'Not included'])->default('Free of charge');
+            $table->string('transportation_mode');
             $table->string('cover_image')->nullable();
             $table->text('description');
             $table->timestamps();

@@ -6,6 +6,7 @@
                     Pricing
                 </h1>
                 {!! csrf_field() !!}
+                {{ Form::hidden('experience_id', $pricing->experience_id) }}
                 <p>
                     Lorem ipsum dolor sit amet, vis saperet delectus eu, id vel recusabo facilisis. Graece tibique periculis
                     eu cum, at fabulas omittam nec, et vis vitae tantas quaerendum. Pri inani platonem at, vix eu scaevola
@@ -24,7 +25,7 @@
                         @if ($errors->has('guests'))
                         <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
                         @endif
-                        {{ Form::select('guests', Helper::guests(), old('guests'), ['class' => 'form-control fullwidth', 'placeholder' => 'Maximum number of guests*']) }}
+                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'placeholder' => 'Maximum number of guests*']) }}
                     </div>
                 </div>
                 <div class='row'>
@@ -36,7 +37,7 @@
                             </div>
                             <div class="col-sm-4 col-xs-4">
                                 <label class="control-label">Price per person</label>
-                                {{ Form::text('per_person', old('per_person'), ['class' => 'form-control fullwidth', 'placeholder' => 'R0.00']) }}
+                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth', 'placeholder' => 'R0.00']) }}
                             </div>
                             <div class="col-sm-4 col-xs-4">
                                 <label class="control-label">You'll receive</label>
@@ -69,7 +70,7 @@
                         @foreach(Helper::days() as $key => $day)
                         <div class="schedule-item">
                             <label class="checkbox-inline">
-                                {{ Form::checkbox($day, $key, false) }}
+                                {{ Form::checkbox('days[' . $day . ']', $key, false) }}
                                 {{ $day }}
                             </label>
                         </div>
@@ -84,7 +85,7 @@
                         @foreach(Helper::times() as $key => $time)
                         <div class="schedule-item">
                             <label class="checkbox-inline">
-                                {{ Form::checkbox($time, $key, false) }}
+                                {{ Form::checkbox('times[' . $time . ']', $key, false) }}
                                 {{ $time }}
                             </label>
                         </div>

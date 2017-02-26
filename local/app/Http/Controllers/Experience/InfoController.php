@@ -16,7 +16,7 @@ use App\ExperienceCategory;
 
 class InfoController extends ExperienceController {
 
-    protected $next_step = "experience";
+    protected $next_step = "pricing";
     protected $cur_step = "info";
     protected $prev_step = "last";
 
@@ -66,7 +66,7 @@ class InfoController extends ExperienceController {
         $experience = Experience::where('id', '=', $id)->first();
         $user = Auth::user();
 
-        $links = $this->getLinks();
+        $links = $this->getLinks($experience);
 
         return view('experience.info.edit', [
             'experience' => $experience,
@@ -93,9 +93,9 @@ class InfoController extends ExperienceController {
             'city' => 'required|max:255',
             'street_address' => 'required|max:255',
             'postal_code' => 'required|max:255',
-            'language' => 'required',
-            'activity' => 'required',
-            'highlight' => 'required',
+            'languages' => 'required',
+            'activities' => 'required',
+            'highlights' => 'required',
             'duration' => 'required',
             'units' => 'required',
             'category_id' => 'required|max:255',
@@ -109,21 +109,26 @@ class InfoController extends ExperienceController {
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $city = City::firstOrCreate("name", "=", trim($input["city"]))->first();
+        $city = City::updateOrCreate(
+                        [
+                            'country_id' => $input['country_id'],
+                            "name" => trim($input["city"])
+        ]);
+
         $input["city_id"] = $city->id;
 
         $categoryArray = [
             "level" => "sub",
-            "name" => trim($input["city"])
+            "name" => trim($input["sub_category"])
         ];
-        $subCategory = ExperienceCategory::firstOrCreate($categoryArray)->first();
+        $subCategory = ExperienceCategory::updateOrCreate($categoryArray);
 
         $input["sub_category_id"] = $subCategory->id;
         $experience->fill($input)->save();
 
         // set languages
-        foreach ($input['language'] as $language) {
-            $language = Language::firstOrCreate(['name' => $language])->first();
+        foreach ($input['languages'] as $language) {
+            $language = Language::updateOrCreate(['name' => $language]);
             ExperienceLanguage::updateOrCreate([
                 'experience_id' => $experience->id,
                 'language_id' => $language->id
@@ -131,17 +136,17 @@ class InfoController extends ExperienceController {
         }
 
         // set highlights
-        foreach ($input['highlight'] as $highlight) {
+        foreach ($input['highlights'] as $highlight) {
             ExperienceHighlight::updateOrCreate([
-                'name' => $highlight,
+                'description' => $highlight,
                 'experience_id' => $experience->id
             ]);
         }
 
         // set activities
-        foreach ($input['activity'] as $activity) {
+        foreach ($input['activities'] as $activity) {
             ExperienceActivity::updateOrCreate([
-                'name' => $activity,
+                'description' => $activity,
                 'experience_id' => $experience->id
             ]);
         }

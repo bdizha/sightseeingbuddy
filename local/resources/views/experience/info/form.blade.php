@@ -26,7 +26,7 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="city">Your city</label>
-                                    {{ Form::text('city', $experience->formatted_city, ['class' => 'form-control fullwidth', 'placeholder' => 'Your city*']) }}
+                                    {{ Form::text('city', $experience->city_name, ['class' => 'form-control fullwidth', 'placeholder' => 'Your city*']) }}
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="street_address">Street address</label>
-                                    {{ Form::text('street_address', old('street_address'), ['class' => 'form-control fullwidth', 'placeholder' => 'Meeting point street address*']) }}
+                                    {{ Form::text('street_address', $experience->street_address, ['class' => 'form-control fullwidth', 'placeholder' => 'Meeting point street address*']) }}
                                 </div>
                             </div>
                         </div>
@@ -48,19 +48,26 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="postal_code">Postal code</label>
-                                    {{ Form::text('postal_code', old('postal_code'), ['class' => 'form-control fullwidth', 'placeholder' => 'Postal code*']) }}
+                                    {{ Form::text('postal_code', $experience->postal_code, ['class' => 'form-control fullwidth', 'placeholder' => 'Postal code*']) }}
                                 </div>
                             </div>
                         </div>
-                        <div class="row form-group {{ $errors->has('language') ? 'has-error' : '' }}" id="languages">
+                        <div class="row form-group {{ $errors->has('languages') ? 'has-error' : '' }}" id="languages">
                             <div class="col-sm-12 col-xs-12">
                                 <div class="gray-bottom-border"></div>
                                 <div class="line-items language-items">
+                                    @foreach($experience->languages as $key => $language)
+                                    <div class="line-item" id="language-{{ $key + 1}}">
+                                        <label>{{ $language->name }}</label>
+                                        <input type="hidden" value="{{ $language->name }}" name="languages[]">
+                                        <i class="fa fa-close line-close" data-id="language-{{ $key + 1}}"></i>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="col-sm-9 col-xs-9">
-                                @if ($errors->has('language'))
-                                <label class="control-label" for="language">{{ $errors->first('language') }}</label>
+                                @if ($errors->has('languages'))
+                                <label class="control-label" for="language">{{ $errors->first('languages') }}</label>
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="activity">Offered languages</label>
@@ -68,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-3 col-xs-3">
-                                <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="language" value="Add" />
+                                <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="language" plural="languages" value="Add" />
                             </div>
                         </div>
                     </div>
@@ -99,7 +106,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="sub_category">Experience sub category</label>
-                            {{ Form::text('sub_category', old('sub_category'), ['class' => 'form-control fullwidth', 'placeholder' => 'Experience sub category*']) }}
+                            {{ Form::text('sub_category', $experience->sub_category, ['class' => 'form-control fullwidth', 'placeholder' => 'Experience sub category*']) }}
                         </div>
                     </div>
                 </div>
@@ -110,7 +117,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="teaser">Experience teaser title</label>
-                            {{ Form::text('teaser', old('teaser'), ['class' => 'form-control fullwidth', 'placeholder' => 'Experience teaser title*']) }}
+                            {{ Form::text('teaser', $experience->teaser, ['class' => 'form-control fullwidth', 'placeholder' => 'Experience teaser title*']) }}
                         </div>
                     </div>
                 </div>
@@ -123,7 +130,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="country">Your experience description</label>
-                            {{ Form::textarea('description', old('description'), ['rows' => 5, 'class' => 'form-control fullwidth', 'placeholder' => 'Detailed description of your experience*']) }}
+                            {{ Form::textarea('description', $experience->description, ['rows' => 5, 'class' => 'form-control fullwidth', 'placeholder' => 'Detailed description of your experience*']) }}
                         </div>
                     </div>
                 </div>
@@ -132,15 +139,22 @@
         <div class="gray-bottom-border mt-1 mb-1"></div>
         <div class='row'>
             <div class="col-sm-5 col-xs-12">
-                <div class="row form-group {{ $errors->has('highlight') ? 'has-error' : '' }}" id="highlight">
+                <div class="row form-group {{ $errors->has('highlights') ? 'has-error' : '' }}" id="highlight">
                     <div class="col-sm-12 col-xs-12">
                         <div class="gray-bottom-border"></div>
                         <div class="line-items highlight-items">
+                            @foreach($experience->highlights as $key => $highlight)
+                            <div class="line-item" id="highlight-{{ $key + 1 }}">
+                                <label>{{ $highlight->description }}</label>
+                                <input type="hidden" value="{{ $highlight->description }}" name="highlights[]">
+                                <i class="fa fa-close line-close" data-id="highlight-{{ $key + 1 }}"></i>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-sm-9 col-xs-9">
-                        @if ($errors->has('highlight'))
-                        <label class="control-label" for="highlight">{{ $errors->first('highlight') }}</label>
+                        @if ($errors->has('highlights'))
+                        <label class="control-label" for="highlight">{{ $errors->first('highlights') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="activity">Experience highlights</label>
@@ -148,7 +162,7 @@
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-3">
-                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="highlight" value="Add" />
+                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="highlight" plural="highlights" value="Add" />
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('duration') ? 'has-error' : '' }}" id="duration">
@@ -158,7 +172,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="duration">Duration</label>
-                            {{ Form::text('duration', old('duration'), ['class' => 'form-control fullwidth', 'placeholder' => 'Duration*']) }}
+                            {{ Form::text('duration', $experience->duration, ['class' => 'form-control fullwidth', 'placeholder' => 'Duration*']) }}
                         </div>
                     </div>
                     <div class="col-sm-5 col-xs-5  pull-right">
@@ -167,19 +181,26 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="units">Units</label>
-                            {{ Form::select('units', ['hours' => 'Hours', 'days' => 'Days'], old('units'), ['class' => 'form-control fullwidth', 'placeholder' => 'Units*']) }}
+                            {{ Form::select('units', ['hours' => 'Hours', 'days' => 'Days'], $experience->units, ['class' => 'form-control fullwidth', 'placeholder' => 'Units*']) }}
                         </div>
                     </div>
                 </div>
-                <div class="row form-group {{ $errors->has('activity') ? 'has-error' : '' }}" id="activity">
+                <div class="row form-group {{ $errors->has('activities') ? 'has-error' : '' }}" id="activity">
                     <div class="col-sm-12 col-xs-12">
                         <div class="gray-bottom-border"></div>
                         <div class="line-items activity-items">
+                            @foreach($experience->activities as $key => $activity)
+                            <div class="line-item" id="activity-{{ $key + 1}}">
+                                <label>{{ $activity->description }}</label>
+                                <input type="hidden" value="{{ $activity->description }}" name="activities[]">
+                                <i class="fa fa-close line-close" data-id="activity-{{ $key + 1}}"></i>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-sm-9 col-xs-9">
-                        @if ($errors->has('activity'))
-                        <label class="control-label" for="activity">{{ $errors->first('activity') }}</label>
+                        @if ($errors->has('activities'))
+                        <label class="control-label" for="activity">{{ $errors->first('activities') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="activity">Experience activities</label>
@@ -187,7 +208,7 @@
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-3">
-                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="activity" value="Add" />
+                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="activity" plural="activities" value="Add" />
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('transportation_mode') ? 'has-error' : '' }}" id="transportation_mode">
@@ -197,7 +218,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="activity">Transportation mode</label>
-                            {{ Form::text('transportation_mode', old('transportation_mode'), ['class' => 'form-control fullwidth', 'placeholder' => 'Transportation mode*']) }}
+                            {{ Form::text('transportation_mode', $experience->transportation_mode, ['class' => 'form-control fullwidth', 'placeholder' => 'Transportation mode*']) }}
                         </div>
                     </div>
                 </div>
@@ -211,7 +232,7 @@
                     @foreach($extra['items'] as $item)
                     <div class="col-sm-4 col-xs-4">
                         <label class="radio-inline">
-                            {{ Form::radio($extra['name'], $item['value'], false) }}
+                            {{ Form::radio($extra['name'], $item['value'], $experience[$extra['name']] == $item['label']) }}
                             {{ $item['label'] }}
                         </label>
                     </div>

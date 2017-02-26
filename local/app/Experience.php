@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Experience extends Model {
 
     protected $table = 'experiences';
-    
+
     /*
      * Fillable fields
      * 
@@ -28,7 +28,8 @@ class Experience extends Model {
         'extra_food',
         'extra_misc',
         'description',
-        'cover_image'
+        'cover_image',
+        'transportation_mode'
     ];
 
     public function user() {
@@ -44,14 +45,18 @@ class Experience extends Model {
     }
 
     public function category() {
-        return $this->hasOne('App\Category', 'id', 'category_id');
+        return $this->hasOne('App\ExperienceCategory', 'id', 'category_id');
+    }
+
+    public function sub_category() {
+        return $this->hasOne('App\ExperienceCategory', 'id', 'sub_category_id');
     }
 
     /**
      * Get the languages.
      */
     public function languages() {
-        return $this->hasMany('App\Language');
+        return $this->belongsToMany('App\Language', 'experience_languages');
     }
 
     /**
@@ -66,6 +71,16 @@ class Experience extends Model {
      */
     public function activities() {
         return $this->hasMany('App\ExperienceActivity');
+    }
+
+    public function getSubCategoryAttribute() {
+        $category = \App\ExperienceCategory::where('id', "=", $this->sub_category_id);
+        return $category->first()->name;
+    }
+
+    public function getCityNameAttribute() {
+        $city = \App\City::where('id', "=", $this->city_id);
+        return $city->first()->name;
     }
 
 }

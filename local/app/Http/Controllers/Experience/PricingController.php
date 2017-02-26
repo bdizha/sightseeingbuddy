@@ -8,12 +8,13 @@ use App\Http\Controllers\ExperienceController;
 use Session;
 use App\Pricing;
 use App\Experience;
+use App\ExperienceSchedule;
 
 class PricingController extends ExperienceController {
 
-    protected $next_step = null;
+    protected $next_step = "images";
     protected $cur_step = "pricing";
-    protected $prev_step = "images";
+    protected $prev_step = "info";
 
     public function __construct() {
         $this->middleware('auth');
@@ -59,14 +60,18 @@ class PricingController extends ExperienceController {
      */
     public function edit($id, Request $request) {
 
-        $pricing = Pricing::where('id', '=', $id)->first();
+        $pricing = Pricing::where('experience_id', "=", $id)->first();
+        if (empty($pricing)) {
+            $pricing = new Pricing();
+            $pricing->experience_id = $id;
+        }
+
         $user = Auth::user();
 
-        $links = $this->getLinks();
+        $links = $this->getLinks($pricing);
 
         return view('experience.pricing.edit', [
             'pricing' => $pricing,
-            'experience' => new Experience(),
             'links' => $links,
             'user' => $user
         ]);
@@ -78,45 +83,39 @@ class PricingController extends ExperienceController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $pricing = Pricing::where('id', '=', $id)->first();
+        $pricing = Pricing::where('experience_id', "=", $id)->first();
+        if (empty($pricing)) {
+            $pricing = new Pricing();
+            $pricing->experience_id = $id;
+        }
         return $this->save($pricing, $request);
     }
 
     private function save($pricing, $request) {
 
         $fields = [
-            'name' => 'required|max:255',
-            'qualification' => 'required|max:255',
-            'start_year' => 'required|max:6',
-            'start_month' => 'required|max:6',
+            'guests' => 'required|max:255',
+            'per_person' => 'required|max:255',
+            'days' => 'required',
+            'times' => 'required',
         ];
-
-        $user = Auth::user();
-        $isMore = $request->input('is_more');
-        if (empty($isMore)) {
-            $pricingCount = Pricing::where('user_id', '=', $user->id)->count();
-
-            if (!empty($pricingCount)) {
-                return redirect(route("{$this->next_step}.create"));
-            }
-        }
-
-        $isCurrent = $request->input('is_current');
-        if (empty($isCurrent)) {
-            $fields['end_year'] = 'required|max:6';
-            $fields['end_month'] = 'required|max:6';
-        }
 
         $this->validate($request, $fields);
         $input = $request->all();
 
         $pricing->fill($input)->save();
 
+        ExperienceSchedule::where("experience_id", "=", $input["experience_id"])->delete();
+
+        $schedule = ExperienceSchedule::create([
+                    'experience_id' => $input['experience_id'],
+                    'days' => serialize($input['days']),
+                    'times' => serialize($input['times'])
+        ]);
+
         Session::flash('flash_message', 'Pricing successfully saved!');
 
-        $route = $isMore ? $this->cur_step : $this->next_step;
-
-        return redirect(route("{$route}.create"));
+        return redirect(route("{$this->next_step}.edit", ['id' => $schedule->experience_id]));
     }
 
     /**

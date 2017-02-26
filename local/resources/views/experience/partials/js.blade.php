@@ -4,6 +4,7 @@
         
         $(".btn-add").click(function () {
             var field = $(this).attr("field");
+            var plural = $(this).attr("plural");
             var fieldElm = $("[name=" + field + "]");
             var value = fieldElm.val();
             
@@ -23,7 +24,7 @@
 
             var html = "<div class=\"line-item\" id=\"" + field + "-" + count + "\">" +
                     "<label>" + value + "</label>" +
-                    "<input type=\"hidden\" value=\"" + value + "\" name=\"" + field + "[]\" />" +
+                    "<input type=\"hidden\" value=\"" + value + "\" name=\"" + plural + "[]\" />" +
                     "<i class=\"fa fa-close line-close\" data-id=\"" + field + "-" + count + "\"></i>" +
                     "</div>";
 

@@ -15,9 +15,7 @@ class ExperienceActivity extends Model {
      */
     protected $fillable = [
         'experience_id',
-        'description',
-        'transportation_mode',
-        'charge'
+        'description'
     ];
 
     public function experience() {

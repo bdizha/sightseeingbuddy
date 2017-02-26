@@ -58,7 +58,7 @@ class IntroductionController extends StepController {
      */
     public function edit($id, Request $request) {
         $user = Auth::user();
-        $introduction = Introduction::firstOrNew(['user_id' => $user->id]);
+        $introduction = Introduction::updateOrCreate(['user_id' => $user->id]);
 
         $links = $this->getLinks($user);
 
@@ -76,7 +76,7 @@ class IntroductionController extends StepController {
      */
     public function update($id, Request $request) {
         $user = Auth::user();
-        $introduction = Introduction::firstOrNew(['user_id' => $user->id]);
+        $introduction = Introduction::updateOrCreate(['user_id' => $user->id]);
         return $this->save($introduction, $request);
     }
 

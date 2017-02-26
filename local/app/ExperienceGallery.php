@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExperienceGallery extends Model {
 
-    protected $table = 'experiences_galleries';
+    protected $table = 'experience_galleries';
     
     /*
      * Fillable fields

@@ -16,8 +16,6 @@ class CreateExperienceActivitiesTable extends Migration {
             $table->increments('id');
             $table->integer('experience_id')->unsigned();
             $table->text('description');
-            $table->string('transportation_mode');
-            $table->tinyInteger('charge');
             $table->timestamps();
 
             $table->foreign('experience_id')->references('id')->on('experiences');

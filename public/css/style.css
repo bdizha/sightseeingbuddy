@@ -9114,6 +9114,9 @@ form .input-group .control-label {
 form label.control-value {
   font-weight: 300;
 }
+form label.control-label {
+  display: block;
+}
 form .schedule-item {
   margin-right: 15px;
   display: inline-block;

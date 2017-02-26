@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExperienceLanguage extends Model {
 
-    protected $table = 'experiences_languages';
+    protected $table = 'experience_languages';
 
     /*
      * Fillable fields
