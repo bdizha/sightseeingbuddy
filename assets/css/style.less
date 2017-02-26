@@ -290,6 +290,7 @@ form{
             background-color: transparent;
             padding: 15px 15px 6px;
             height: auto;
+            border-radius: 4px !important;
         }
         .control-label{
             font-size: 10px;
@@ -315,6 +316,37 @@ form{
     small{
         display: inline-block;
         margin-top: 15px;
+    }
+
+    .form-group{
+        .btn-add {
+            padding: 10px 10px;
+        }
+    }
+}
+
+.line-items{
+    margin-bottom: 15px;
+    .gray-bottom-border{
+        margin-bottom: 15px;
+    }
+    .line-item{
+        background-color: @gray-base;
+        color: @white;
+        position: relative;
+        padding: 0px 10px;
+        border-radius: 4px;
+        margin-bottom: 5px;
+        line-height: 25px;
+        label{
+            margin-bottom: 0px;
+        }
+        .line-close{
+            position: absolute;
+            top: 4px;
+            right: 10px;
+            color: @white;
+        }
     }
 }
 

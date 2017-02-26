@@ -15,7 +15,7 @@ class CreateExperienceCategoriesTable extends Migration {
         Schema::create('experience_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('parent_id');
+            $table->enum('level', ['main', 'sub'])->default('main');
             $table->timestamps();
         });
     }

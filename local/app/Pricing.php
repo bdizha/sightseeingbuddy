@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pricing extends Model {
 
     protected $table = 'pricings';
+
     /*
      * Fillable fields
      * 

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
-{
+class Country extends Model {
 
     protected $table = 'countries';
+    
     /*
      * Fillable fields
      * 
@@ -19,6 +19,8 @@ class Country extends Model
 
     public static function getList() {
         return self::orderBy("name", "ASC")
+                        ->where("name", "=", "South Africa")
                         ->pluck("name", "id");
     }
+
 }

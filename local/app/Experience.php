@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Experience extends Model
-{
+class Experience extends Model {
 
-    protected $table = 'experience';
+    protected $table = 'experiences';
+    
     /*
      * Fillable fields
      * 
@@ -22,10 +22,15 @@ class Experience extends Model
         'category_id',
         'sub_category_id',
         'teaser',
+        'duration',
+        'units',
+        'extra_pickup',
+        'extra_food',
+        'extra_misc',
         'description',
         'cover_image'
     ];
-    
+
     public function user() {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
@@ -41,4 +46,26 @@ class Experience extends Model
     public function category() {
         return $this->hasOne('App\Category', 'id', 'category_id');
     }
+
+    /**
+     * Get the languages.
+     */
+    public function languages() {
+        return $this->hasMany('App\Language');
+    }
+
+    /**
+     * Get the highliths.
+     */
+    public function highlights() {
+        return $this->hasMany('App\ExperienceHighlight');
+    }
+
+    /**
+     * Get the activities.
+     */
+    public function activities() {
+        return $this->hasMany('App\ExperienceActivity');
+    }
+
 }

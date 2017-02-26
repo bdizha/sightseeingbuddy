@@ -16,9 +16,6 @@ class CreateExperienceHighlightsTable extends Migration {
             $table->increments('id');
             $table->integer('experience_id')->unsigned();
             $table->text('description');
-            $table->string('duration');
-            $table->string('units');
-            $table->tinyInteger('charge');
             $table->timestamps();
 
             $table->foreign('experience_id')->references('id')->on('experiences');

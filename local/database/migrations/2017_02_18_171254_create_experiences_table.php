@@ -21,9 +21,13 @@ class CreateExperiencesTable extends Migration {
             $table->string('postal_code');
             $table->integer('category_id')->unsigned();
             $table->integer('sub_category_id')->unsigned();
-            $table->mediumText('languages');
             $table->string('teaser');
-            $table->string('cover_image');
+            $table->string('duration');
+            $table->enum('units', ['hours', 'days'])->default('hours');
+            $table->enum('extra_pickup', ['Free of charge', 'Extra charges', 'Not included'])->default('Free of charge');
+            $table->enum('extra_food', ['Free of charge', 'Extra charges', 'Not included'])->default('Free of charge');
+            $table->enum('extra_misc', ['Free of charge', 'Extra charges', 'Not included'])->default('Free of charge');
+            $table->string('cover_image')->nullable();
             $table->text('description');
             $table->timestamps();
 

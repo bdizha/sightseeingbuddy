@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ExperienceController;
 use Session;
 use App\Experience;
+use App\City;
+use App\ExperienceHighlight;
+use App\ExperienceActivity;
+use App\ExperienceLanguage;
+use App\Language;
+use App\ExperienceCategory;
 
 class InfoController extends ExperienceController {
 
@@ -32,7 +38,8 @@ class InfoController extends ExperienceController {
         return view('experience.info.add', [
             'experience' => $experience,
             'user' => $user,
-            'links' => $links
+            'links' => $links,
+            'extras' => $this->getExras()
         ]);
     }
 
@@ -64,7 +71,8 @@ class InfoController extends ExperienceController {
         return view('experience.info.edit', [
             'experience' => $experience,
             'user' => $user,
-            'links' => $links
+            'links' => $links,
+            'extras' => $this->getExras()
         ]);
     }
 
@@ -81,48 +89,66 @@ class InfoController extends ExperienceController {
     private function save($experience, $request) {
 
         $fields = [
-            'image' => 'required|max:6',
-            'gender' => 'required|max:10',
-            'id_number' => 'required|max:6',
-            'reason' => 'required|max:6',
-            'description' => 'required|max:6',
+            'country_id' => 'required|max:255',
+            'city' => 'required|max:255',
+            'street_address' => 'required|max:255',
+            'postal_code' => 'required|max:255',
+            'language' => 'required',
+            'activity' => 'required',
+            'highlight' => 'required',
+            'duration' => 'required',
+            'units' => 'required',
+            'category_id' => 'required|max:255',
+            'sub_category' => 'required|max:255',
+            'description' => 'required|max:1024',
+            'extra_pickup' => 'required|max:1',
+            'extra_food' => 'required|max:1',
+            'extra_misc' => 'required|max:1'
         ];
-
-        $user = Auth::user();
-        $isMore = $request->input('is_more');
-        if (empty($isMore)) {
-            $experienceCount = Experience::where('user_id', '=', $user->id)->count();
-
-            if (!empty($experienceCount)) {
-                return redirect(route("{$this->next_step}.create"));
-            }
-        }
-
-        $isCurrent = $request->input('is_current');
-
-        if (empty($isCurrent)) {
-            $fields['end_year'] = 'required|max:6';
-            $fields['end_month'] = 'required|max:6';
-        }
 
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $company = Company::where("name", "=", $input["company"])->first();
+        $city = City::firstOrCreate("name", "=", trim($input["city"]))->first();
+        $input["city_id"] = $city->id;
 
-        if (empty($company["name"]) && !empty($input["company"])) {
-            $company = Company::create([
-                        'name' => $input["company"]
+        $categoryArray = [
+            "level" => "sub",
+            "name" => trim($input["city"])
+        ];
+        $subCategory = ExperienceCategory::firstOrCreate($categoryArray)->first();
+
+        $input["sub_category_id"] = $subCategory->id;
+        $experience->fill($input)->save();
+
+        // set languages
+        foreach ($input['language'] as $language) {
+            $language = Language::firstOrCreate(['name' => $language])->first();
+            ExperienceLanguage::updateOrCreate([
+                'experience_id' => $experience->id,
+                'language_id' => $language->id
             ]);
         }
 
-        $input["company_id"] = $company->id;
-        $experience->fill($input)->save();
+        // set highlights
+        foreach ($input['highlight'] as $highlight) {
+            ExperienceHighlight::updateOrCreate([
+                'name' => $highlight,
+                'experience_id' => $experience->id
+            ]);
+        }
+
+        // set activities
+        foreach ($input['activity'] as $activity) {
+            ExperienceActivity::updateOrCreate([
+                'name' => $activity,
+                'experience_id' => $experience->id
+            ]);
+        }
 
         Session::flash('flash_message', 'Experience successfully saved!');
 
-        $route = $isMore ? $this->cur_step : $this->next_step;
-        return redirect(route("{$route}.create"));
+        return redirect(route("{$this->next_step}.edit", ['id' => $experience->id]));
     }
 
     /**
@@ -137,6 +163,67 @@ class InfoController extends ExperienceController {
 
         Session::flash('flash_message', 'Experience successfully deleted!');
         return redirect(route("{$this->cur_step}.create"));
+    }
+
+    public function getExras() {
+        $extras = [
+            [
+                'label' => 'Pickup',
+                'name' => 'extra_pickup',
+                'items' => [
+                    [
+                        'label' => 'Free of charge',
+                        'value' => 1
+                    ],
+                    [
+                        'label' => 'Extra charges',
+                        'value' => 2
+                    ],
+                    [
+                        'label' => 'Not included',
+                        'value' => 3
+                    ]
+                ]
+            ],
+            [
+                'label' => 'Food & beverages',
+                'name' => 'extra_food',
+                'items' => [
+                    [
+                        'label' => 'Free of charge',
+                        'value' => 1
+                    ],
+                    [
+                        'label' => 'Extra charges',
+                        'value' => 2
+                    ],
+                    [
+                        'label' => 'Not included',
+                        'value' => 3
+                    ]
+                ]
+            ],
+            [
+                'label' => 'Miscellaneous',
+                'name' => 'extra_misc',
+                'items' => [
+                    [
+                        'label' => 'Free of charge',
+                        'value' => 1
+                    ],
+                    [
+                        'label' => 'Extra charges',
+                        'value' => 2
+                    ],
+                    [
+                        'label' => 'Not included',
+                        'value' => 3
+                    ]
+                ]
+            ]
+        ];
+
+        return $extras;
     }
 
 }

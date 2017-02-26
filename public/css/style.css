@@ -9101,6 +9101,7 @@ form .input-group .form-control {
   background-color: transparent;
   padding: 15px 15px 6px;
   height: auto;
+  border-radius: 4px !important;
 }
 form .input-group .control-label {
   font-size: 10px;
@@ -9108,6 +9109,7 @@ form .input-group .control-label {
   position: absolute;
   top: 2px;
   left: 15px;
+  z-index: 50;
 }
 form label.control-value {
   font-weight: 300;
@@ -9119,6 +9121,33 @@ form .schedule-item {
 form small {
   display: inline-block;
   margin-top: 15px;
+}
+form .form-group .btn-add {
+  padding: 10px 10px;
+}
+.line-items {
+  margin-bottom: 15px;
+}
+.line-items .gray-bottom-border {
+  margin-bottom: 15px;
+}
+.line-items .line-item {
+  background-color: #3D3D3D;
+  color: #FFFFFF;
+  position: relative;
+  padding: 0px 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  line-height: 25px;
+}
+.line-items .line-item label {
+  margin-bottom: 0px;
+}
+.line-items .line-item .line-close {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  color: #FFFFFF;
 }
 section {
   padding-bottom: 40px;

@@ -28,7 +28,8 @@
     "masonry": "^4.1.1",
     "html5shiv": "^3.7.3",
     "respond": "respond-minmax#^1.4.2",
-    "picturefill": "^3.0.2"
+    "picturefill": "^3.0.2",
+    "roboto-fontface": "^0.7.0"
   },
   "devDependencies": {
     "parsleyjs": "^2.3.5"

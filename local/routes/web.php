@@ -28,7 +28,7 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('images', 'Experience\ImagesController');
     Route::resource('last', 'Experience\LastController');
     
-    Route::post('/upload/image', 'Step\IntroductionController@upload');
+    Route::patch('/upload/image', 'Step\IntroductionController@upload');
 
     // profile resources
     Route::get('/profile/{username}', 'Profile\InfoController@show');

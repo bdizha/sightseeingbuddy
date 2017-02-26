@@ -14,10 +14,7 @@ class ExperienceHighlight extends Model {
      */
     protected $fillable = [
         'experience_id',
-        'description',
-        'duration',
-        'units',
-        'charge'
+        'description'
     ];
 
     public function experience() {

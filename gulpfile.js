@@ -57,6 +57,7 @@ gulp.task('vendor-css', function () {
 gulp.task('fonts', function () {
   return gulp.src([
       BOWER_PATH + '/font-awesome/fonts/*',
+      BOWER_PATH + '/roboto-fontface/fonts/Roboto/*',
       SRC_PATH + '/fonts/**/*.*'
     ])
     .pipe(gulp.dest(BUILD_PATH + '/fonts'));
@@ -113,6 +114,10 @@ gulp.task('clean', function () {
 
 //  Grouped Functions
 gulp.task('copy-misc', function () {
+    
+  gulp.src(BOWER_PATH + '/roboto-fontface/fonts/*/*')
+    .pipe(gulp.dest(BUILD_PATH + '/css/fonts'));
+    
   gulp.src(BOWER_PATH + '/slick-carousel/slick/fonts/*')
     .pipe(gulp.dest(BUILD_PATH + '/css/fonts'));
 

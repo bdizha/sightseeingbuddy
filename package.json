@@ -36,5 +36,7 @@
     "wiredep": "^3.0.0"
   },
   "engines": {},
-  "dependencies": {}
+  "dependencies": {
+    "roboto-fontface": "^0.7.0"
+  }
 }
