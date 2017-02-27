@@ -22,4 +22,14 @@ class ExperienceGallery extends Model {
         return $this->hasOne('App\Experience', 'id', 'experience_id');
     }
 
+    public static function findOrNew($experienceid) {
+        $gallery = self::where('experience_id', "=", $experienceid)->first();
+        if (empty($gallery)) {
+            $gallery = new ExperienceGallery();
+            $gallery->experience_id = $experienceid;
+        }
+        
+        return $gallery;
+    }
+
 }

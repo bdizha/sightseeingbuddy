@@ -86,6 +86,27 @@ html, body {
             background-color: @white;
             margin-top: 15px;
         }
+        .media-object {
+            max-width: 400px;
+        }
+    }
+    .experience-block{
+        h3 {
+            font-size: 19px;
+            font-weight: 900;
+        }
+        article{
+            margin-bottom: 0;
+            background-color: @white;
+            border: none;
+        }
+        .media-object {
+            width: 100%;
+        }
+        [data-slick-carousel-default] .slick-slide img {
+            margin: 0 auto;
+            max-height: 400px;
+        }
     }
 }
 
@@ -1191,6 +1212,7 @@ section{
     border-color: transparent;
     background-color: @yellow;
     position: relative;
+    overflow: hidden;
     &.btn-lg{
         padding: 10px 16px;
         font-size: 27px;
@@ -1199,6 +1221,35 @@ section{
         color: @gray-base;
         border-color: @yellow;
         border-width: 3px;
+    }
+}
+
+.image-bin{
+    display: block;
+    background: @white;;
+    overflow: hidden;
+    padding: 15px 15px 0;
+    width: 180px;
+    margin: 0 auto 15px;
+    .bin-item{
+        img{
+            width: 100%;
+        }
+        .bin-close{
+            position: absolute;
+            top: -13px;
+            right: -13px;
+            background-color: @white;
+            height: 25px;
+            width: 25px;
+            line-height: 25px;
+            color: @gray-base;
+            border-radius: 50%;
+        }
+        width: 150px;
+        margin-bottom: 15px;
+        display: block;
+        position: relative;
     }
 }
 

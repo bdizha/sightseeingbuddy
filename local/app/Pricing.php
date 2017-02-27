@@ -23,4 +23,14 @@ class Pricing extends Model {
         return $this->hasOne('App\Experience', 'id', 'experience_id');
     }
 
+    public static function findOrNew($experienceid) {
+        $pricing = self::where('experience_id', "=", $experienceid)->first();
+        if (empty($pricing)) {
+            $pricing = new Pricing();
+            $pricing->experience_id = $experienceid;
+        }
+        
+        return $pricing;
+    }
+
 }

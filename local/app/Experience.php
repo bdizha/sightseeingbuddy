@@ -73,14 +73,39 @@ class Experience extends Model {
         return $this->hasMany('App\ExperienceActivity');
     }
 
+    public function gallery() {
+        return $this->hasMany('App\ExperienceGallery');
+    }
+
     public function getSubCategoryAttribute() {
+        $subCategoryId = $this->sub_category_id;
+
+        if (empty($subCategoryId)) {
+            return "";
+        }
+
         $category = \App\ExperienceCategory::where('id', "=", $this->sub_category_id);
         return $category->first()->name;
     }
 
     public function getCityNameAttribute() {
+
+        if (empty($this->city_id)) {
+            return "";
+        }
+
         $city = \App\City::where('id', "=", $this->city_id);
         return $city->first()->name;
+    }
+
+    public static function findOrNew($userId = null) {
+        $experience = self::where('user_id', '=', $userId)->first();
+
+        if (empty($experience->id)) {
+            $experience = new $this();
+        }
+
+        return $experience;
     }
 
 }

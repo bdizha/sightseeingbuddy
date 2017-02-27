@@ -33,6 +33,14 @@ Route::group(['prefix' => 'local'], function () {
     // profile resources
     Route::get('/profile/{username}', 'Profile\InfoController@show');
     
+    // experience resources
+    Route::get('/experience/{id}', 'ExperienceController@show');
+    
+    // bookings resources
+    Route::get('/booking/create/{id}', 'BookingController@create');
+    Route::post('/booking/place', 'BookingController@place');
+    Route::get('/booking/reciept', 'BookingController@receipt');
+    
     Route::get('/auth/nav', 'Profile\InfoController@nav');
 
     // contact resource

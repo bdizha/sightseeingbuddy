@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Experience;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ExperienceController;
 use Session;
 use App\ExperienceGallery;
@@ -20,54 +19,20 @@ class ImagesController extends ExperienceController {
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create(Request $request) {
-        $gallery = new ExperienceGallery();
-        $user = Auth::user();
-
-        $links = $this->getLinks();
-
-        return view('experience.images.add', [
-            'gallery' => $gallery,
-            'experience' => new Experience(),
-            'links' => $links,
-            'user' => $user
-        ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store(Request $request) {
-
-        $user = Auth::user();
-        $images = new ExperienceGallery();
-        $images->user_id = $user->id;
-
-        return $this->save($images, $request);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @return Response
      */
     public function edit($id, Request $request) {
-        $gallery = ExperienceGallery::where('experience_id', '=', $id)->first();
-        $user = Auth::user();
+        $gallery = ExperienceGallery::findOrNew($id);
+        $experience = Experience::find($id);
 
-        $links = $this->getLinks();
+        $links = $this->getLinks($experience);
 
         return view('experience.images.edit', [
             'gallery' => $gallery,
-            'experience' => new Experience(),
-            'links' => $links,
-            'user' => $user
+            'experience' => $experience,
+            'links' => $links
         ]);
     }
 
@@ -77,36 +42,34 @@ class ImagesController extends ExperienceController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $images = ExperienceController::where('id', '=', $id)->first();
-        return $this->save($images, $request);
+        return $this->save($id, $request);
     }
 
-    private function save($images, $request) {
+    private function save($experienceId, $request) {
 
         $fields = [
-            'name' => 'required|max:255'
+            'image' => 'required|max:255',
+            'images' => 'required'
         ];
-
-        $user = Auth::user();
-        $isMore = $request->input('is_more');
-
-        if (empty($isMore)) {
-            $imagessCount = ExperienceController::where('user_id', '=', $user->id)->count();
-
-            if (!empty($imagessCount)) {
-                return redirect(url("/profile/{$user->username}"));
-            }
-        }
 
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $images->fill($input)->save();
+        $experience = Experience::find($experienceId);
+        $experience->cover_image = $input['image'];
+        $experience->save();
 
-        Session::flash('flash_message', 'ExperienceController successfully saved!');
+        ExperienceGallery::where("experience_id", "=", $experienceId)->delete();
 
-        $route = $isMore ? $this->cur_step : $this->next_step;
-        return redirect(route("{$route}.create"));
+        foreach ($input['images'] as $image) {
+            ExperienceGallery::create([
+                'experience_id' => $experienceId,
+                'image' => $image
+            ]);
+        }
+
+        Session::flash('flash_message', 'Experience gallery successfully saved!');
+        return redirect(route("{$this->next_step}.edit", ['id' => $experienceId]));
     }
 
     /**
@@ -116,10 +79,10 @@ class ImagesController extends ExperienceController {
      * @return Response
      */
     public function destroy($id) {
-        $images = ExperienceController::findOrFail($id);
-        $images->delete();
+        $gallery = ExperienceGallery::findOrFail($id);
+        $gallery->delete();
 
-        Session::flash('flash_message', 'ExperienceController successfully deleted!');
+        Session::flash('flash_message', 'Experience gallery successfully deleted!');
         return redirect(route("{$this->cur_step}.create"));
     }
 

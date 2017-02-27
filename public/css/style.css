@@ -8946,6 +8946,25 @@ body {
   background-color: #FFFFFF;
   margin-top: 15px;
 }
+#page .blog-list .media-object {
+  max-width: 400px;
+}
+#page .experience-block h3 {
+  font-size: 19px;
+  font-weight: 900;
+}
+#page .experience-block article {
+  margin-bottom: 0;
+  background-color: #FFFFFF;
+  border: none;
+}
+#page .experience-block .media-object {
+  width: 100%;
+}
+#page .experience-block [data-slick-carousel-default] .slick-slide img {
+  margin: 0 auto;
+  max-height: 400px;
+}
 .articles-block {
   border-top: 1px solid #3D3D3D;
   border-bottom: 1px solid #3D3D3D;
@@ -9896,6 +9915,7 @@ section #sidebar h2 {
   border-color: transparent;
   background-color: #FDBF0F;
   position: relative;
+  overflow: hidden;
 }
 .btn-yellow.btn-lg {
   padding: 10px 16px;
@@ -9905,6 +9925,34 @@ section #sidebar h2 {
   color: #3D3D3D;
   border-color: #FDBF0F;
   border-width: 3px;
+}
+.image-bin {
+  display: block;
+  background: #FFFFFF;
+  overflow: hidden;
+  padding: 15px 15px 0;
+  width: 180px;
+  margin: 0 auto 15px;
+}
+.image-bin .bin-item {
+  width: 150px;
+  margin-bottom: 15px;
+  display: block;
+  position: relative;
+}
+.image-bin .bin-item img {
+  width: 100%;
+}
+.image-bin .bin-item .bin-close {
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  background-color: #FFFFFF;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  color: #3D3D3D;
+  border-radius: 50%;
 }
 .fullwidth {
   width: 100%;

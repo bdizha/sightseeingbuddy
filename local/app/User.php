@@ -38,6 +38,13 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the experiences.
+     */
+    public function experiences() {
+        return $this->hasMany('App\Experience');
+    }
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array

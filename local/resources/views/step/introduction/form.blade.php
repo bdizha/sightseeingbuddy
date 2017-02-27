@@ -14,7 +14,7 @@
                     <span class="btn btn-yellow">
                         <span>Upload profile pic</span>
                         <!-- The file input field used as target for the file upload widget -->
-                        <input id="fileupload" type="file" name="files[]">
+                        <input id="fileupload" class="fileupload" type="file" name="files[]">
                     </span>
                     <br>
                     <br>
@@ -23,7 +23,7 @@
                         <div class="progress-bar progress-bar-success"></div>
                     </div>
 
-                    <div class="form-group text-center">
+                    <div class="form-group text-center {{ $errors->has('image') ? 'has-error' : '' }}" id="person-image"">
                         @if ($errors->has('image'))
                         <label class="control-label" for="fileupload">{{ $errors->first('image') }}</label>
                         @endif

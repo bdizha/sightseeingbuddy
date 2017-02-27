@@ -60,14 +60,8 @@ class PricingController extends ExperienceController {
      */
     public function edit($id, Request $request) {
 
-        $pricing = Pricing::where('experience_id', "=", $id)->first();
-        if (empty($pricing)) {
-            $pricing = new Pricing();
-            $pricing->experience_id = $id;
-        }
-
+        $pricing = Pricing::findOrNew($id);
         $user = Auth::user();
-
         $links = $this->getLinks($pricing);
 
         return view('experience.pricing.edit', [
@@ -83,11 +77,7 @@ class PricingController extends ExperienceController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $pricing = Pricing::where('experience_id', "=", $id)->first();
-        if (empty($pricing)) {
-            $pricing = new Pricing();
-            $pricing->experience_id = $id;
-        }
+        $pricing = Pricing::findOrNew($id);
         return $this->save($pricing, $request);
     }
 

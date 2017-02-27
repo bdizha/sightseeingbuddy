@@ -3,8 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Experience;
 
 class ExperienceController extends Controller {
+
+    public function show($id) {
+        $experience = Experience::where('id', '=', $id)->first();
+
+        $user = $experience->user;
+        return view('experience.show', [
+            'experience' => $experience,
+            'user' => $user
+        ]);
+    }
 
     public function getLinks($experience = null) {
 
