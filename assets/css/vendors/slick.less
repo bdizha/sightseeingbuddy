@@ -5,6 +5,7 @@
     }
     .slick-dots {
         bottom: 10px;
+        z-index: 99;
         li{
             button {
                 background: transparent;
@@ -31,10 +32,11 @@
     }
     .slick-prev {
         left: 10px;
-        z-index: 1;
+        z-index: 99;
     }
     .slick-next {
         right: 10px;
+        z-index: 99;
     }
 
     .slick-slide {
@@ -61,20 +63,21 @@
         }
     }
 }
-[data-slick-carousel-three]{
+.slick-carousel-three{
+    position: relative;
     .carousel-caption {
         position: absolute;
         right: 0px;
         top: 50%;
         text-align: center;
         margin-top: -40px;
-        font-size: 2.8em;
+        font-size: 35px;
         font-weight: 700;
         @media (max-width: @screen-sm) {
             margin-top: -35px;
             font-size: 26px;
         }
-        
+
         @media (max-width: (@screen-sm - 100)) {
             font-size: 22px;
         }

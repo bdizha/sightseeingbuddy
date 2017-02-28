@@ -63,7 +63,7 @@ class Experience extends Model {
      * Get the bookings.
      */
     public function bookings() {
-        return $this->hasMany('App\Booking');
+        return $this->hasMany('App\Booking', 'experience_id', 'id');
     }
 
     /**
@@ -131,6 +131,10 @@ class Experience extends Model {
 
     public function getDaysAttribute() {
         return array_keys(unserialize($this->schedule->days));
+    }
+
+    public function getExperiencesCountAttribute() {
+        return $this->experiences->count();
     }
 
 }

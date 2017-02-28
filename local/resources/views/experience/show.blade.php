@@ -34,7 +34,7 @@
             <div class="col-sm-6 col-xs-12">
                 <div class='row'>
                     <div class="col-sm-12 col-xs-12">
-                        <a href="/booking/create/3" class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
+                        <a href="/local/booking/create/3" class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
                     </div>
                     <div class="col-sm-6 col-xs-6">
                         <a href="#experience-info" class="btn btn-primary fullwidth">Information</a>
@@ -49,7 +49,7 @@
 
     @include('experience.partials.carousel')
 
-    <div class="container experience-block gray-block" id='experience-info'>
+    <div class="container experience-block gray-block mt-1" id='experience-info'>
 
         <h1 id="experiences" class="page-title page-title-center">
             Local experience information
@@ -143,7 +143,7 @@
                         <label>{{ "No. of guests:" }}</label>
                     </div>
                     <div class="col-sm-6 col-xs-6">
-                        {{ $experience->pricing->guests }}
+                        @if($experience->pricing->guests > 1){{ 1 }} - @endif{{ $experience->pricing->guests }} person(s)
                     </div>
                 </div>
                 @foreach($extras as $extra)

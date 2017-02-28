@@ -8846,6 +8846,7 @@ textarea.parsley-error {
 [data-slick-carousel-default] .slick-dots,
 [data-slick-carousel-three] .slick-dots {
   bottom: 10px;
+  z-index: 99;
 }
 [data-slick-carousel-default] .slick-dots li button,
 [data-slick-carousel-three] .slick-dots li button {
@@ -8873,11 +8874,12 @@ textarea.parsley-error {
 [data-slick-carousel-default] .slick-prev,
 [data-slick-carousel-three] .slick-prev {
   left: 10px;
-  z-index: 1;
+  z-index: 99;
 }
 [data-slick-carousel-default] .slick-next,
 [data-slick-carousel-three] .slick-next {
   right: 10px;
+  z-index: 99;
 }
 [data-slick-carousel-default] .slick-slide img,
 [data-slick-carousel-three] .slick-slide img {
@@ -8890,28 +8892,31 @@ textarea.parsley-error {
 #reviews [data-slick-carousel-default] .slick-dots li:hover button {
   background: #3D3D3D;
 }
-[data-slick-carousel-three] .carousel-caption {
+.slick-carousel-three {
+  position: relative;
+}
+.slick-carousel-three .carousel-caption {
   position: absolute;
   right: 0px;
   top: 50%;
   text-align: center;
   margin-top: -40px;
-  font-size: 2.8em;
+  font-size: 35px;
   font-weight: 700;
 }
 @media (max-width: 768px) {
-  [data-slick-carousel-three] .carousel-caption {
+  .slick-carousel-three .carousel-caption {
     margin-top: -35px;
     font-size: 26px;
   }
 }
 @media (max-width: 668px) {
-  [data-slick-carousel-three] .carousel-caption {
+  .slick-carousel-three .carousel-caption {
     font-size: 22px;
   }
 }
 @media (max-width: 568px) {
-  [data-slick-carousel-three] .carousel-caption {
+  .slick-carousel-three .carousel-caption {
     margin-top: -30px;
     font-size: 19px;
   }
@@ -9159,7 +9164,7 @@ form .input-group {
 }
 form .input-group .form-control {
   background-color: transparent;
-  padding: 15px 15px 6px;
+  padding: 20px 15px 6px;
   height: auto;
   border-radius: 4px !important;
 }
@@ -9168,8 +9173,12 @@ form .input-group .control-label {
   font-weight: 300;
   position: absolute;
   top: 2px;
-  left: 15px;
+  left: 1px;
   z-index: 50;
+  padding: 4px 15px 2px;
+  right: 1px;
+  margin-bottom: 0;
+  background: #E6E6E6;
 }
 form label.control-value {
   font-weight: 300;
@@ -9492,6 +9501,17 @@ section #sidebar h2 {
   display: block;
   font-weight: 900;
   font-size: 14px;
+}
+#page .profile .profile-verified {
+  background-image: url(/images/not-verified.png);
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+  background-position-x: 4px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -2px;
 }
 @media (max-width: 992px) {
   #page .profile h1 {

@@ -55,8 +55,26 @@ class Helper {
             $midTime = $paddedHour . "h30";
             $times[$midTime] = $midTime;
         }
+        
+        
+        str_limit($midTime);
 
         return $times;
+    }
+
+    public static function strLimit($value, $limit, $end) {
+        $limitedParts = explode(" ", str_limit($value, $limit, ""));
+        $valueParts = explode(" ", $value);
+
+        $preserved = "";
+        foreach ($limitedParts as $key => $limitedPart) {
+            if (strcmp($limitedPart, $valueParts[$key]) == 0) {
+                $preserved .= " " . $limitedPart;
+            } else {
+                return $preserved . $end;
+            }
+        }
+        return $preserved;
     }
 
     public static function personImage($image) {

@@ -11,11 +11,11 @@
                 <div class="media-body">
                     <h2 class="media-heading">
                         <a href="/local/experience/{{ $experience->id }}">            
-                            {{ $experience->teaser }}
+                            {{ str_limit($experience->teaser, 35) }}
                         </a>            
                     </h2>
                     <div class="media-summary">
-                        {{ $experience->description }}
+                        {{ str_limit($experience->description) }}
                     </div>
                     <div class="readmore mt-1">
                         <a href="/local/experience/{{ $experience->id }}" class="btn btn-default">View</a>

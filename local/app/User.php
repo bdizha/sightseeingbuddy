@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Experience;
 
 class User extends Authenticatable {
 
@@ -62,6 +63,10 @@ class User extends Authenticatable {
 
     public function getExperiencesCountAttribute() {
         return $this->experiences->count();
+    }
+
+    public function getBookingsCountAttribute() {
+        return Experience::has("bookings")->where("user_id", "=", $this->id)->count();
     }
 
 }

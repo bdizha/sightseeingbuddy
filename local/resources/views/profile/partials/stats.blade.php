@@ -3,7 +3,7 @@
         <img src="{{ Helper::personImage($user->introduction->image) }}" />
     </div>
     <div class="profile-info">
-        <h1>{{ $title }}</h1>
+        <h1>{{ str_limit($title) }}</h1>
         <h2>{{ $user->first_name . " " . $user->last_name }}</h2>
         <div class='row'>
             <div class="col-sm-8 col-xs-8">
@@ -32,7 +32,7 @@
                 </span>
             </div>
             <div class="col-sm-4 col-xs-4">
-                <span class="profile-value">{{ rand(4, 15) }}</span>
+                <span class="profile-value">{{ $user->bookings_count }}</span>
             </div>
         </div>
         <div class='row'>
@@ -42,7 +42,7 @@
                 </span>
             </div>
             <div class="col-sm-4 col-xs-4">
-                <img src="" />
+                <i class="profile-verified"></i>
             </div>
         </div>
     </div>
