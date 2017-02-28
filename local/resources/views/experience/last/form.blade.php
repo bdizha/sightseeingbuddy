@@ -22,7 +22,12 @@
                 <div class='row mb-2'>
                     <div class="col-sm-12 col-xs-12">
                         <div class="text-left mb-1">
-                            <input type="submit" class="btn btn-yellow" value="PREVIEW MY LOCAL EXPERIENCE" />
+                            <a target="_blank" href="/local/experience/{{ $experience->id }}" class="btn btn-yellow">PREVIEW MY LOCAL EXPERIENCE</a>
+                        </div>
+                        <div class="form-group {{ $errors->has('terms') ? 'has-error' : '' }}" id="terms">
+                            @if ($errors->has('terms'))
+                            <label class="control-label" for="fileupload">{{ $errors->first('terms') }}</label>
+                            @endif
                         </div>
                         <label class="checkbox-inline">
                             {{ Form::checkbox("terms", 1, false) }}
@@ -37,7 +42,7 @@
                     <div class="col-sm-12 col-xs-12">
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Save" />
-                            <a href="{{ route('wallet.create') }}" class="btn btn-primary pull-right">Back</a>
+                            <a href="{{ route('images.edit', ["id" => $experience->id]) }}" class="btn btn-primary pull-right">Back</a>
                             <span class='inline pull-right'>&nbsp;&nbsp;</span>
                             <input type="submit" class="btn btn-yellow pull-right" value="Submit" />
                         </div>

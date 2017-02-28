@@ -104,6 +104,14 @@ function UIBindings() {
             fade: true
         });
 
+        $('[data-slick-carousel-three]').slick({
+            dots: true,
+            infinite:true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            adaptiveHeight: true
+        });
+
         $('[data-toggle="slick-nav"]').on('click', function (e) {
             e.preventDefault();
             var index = $(this).data('index');

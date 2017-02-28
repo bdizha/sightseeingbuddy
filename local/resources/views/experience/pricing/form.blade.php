@@ -70,7 +70,7 @@
                         @foreach(Helper::days() as $key => $day)
                         <div class="schedule-item">
                             <label class="checkbox-inline">
-                                {{ Form::checkbox('days[' . $day . ']', $key, false) }}
+                                {{ Form::checkbox('days[' . $day . ']', $key, in_array($day, $experience->days)) }}
                                 {{ $day }}
                             </label>
                         </div>
@@ -85,7 +85,7 @@
                         @foreach(Helper::times() as $key => $time)
                         <div class="schedule-item">
                             <label class="checkbox-inline">
-                                {{ Form::checkbox('times[' . $time . ']', $key, false) }}
+                                {{ Form::checkbox('times[' . $time . ']', $key, in_array($time, $experience->times)) }}
                                 {{ $time }}
                             </label>
                         </div>
@@ -96,7 +96,7 @@
                     <div class="col-sm-12 col-xs-12">
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Save" />
-                            <a href="{{ route('wallet.create') }}" class="btn btn-primary pull-right">Back</a>
+                            <a href="{{ route('info.edit', ["id" => $experience->id]) }}" class="btn btn-primary pull-right">Back</a>
                             <span class='inline pull-right'>&nbsp;&nbsp;</span>
                             <input type="submit" class="btn btn-primary pull-right" value="Next" />
                         </div>

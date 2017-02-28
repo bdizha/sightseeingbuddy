@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="gray-bottom-border mb-1"></div>
-        <div class='row'>
+        <div class='row mb-1'>
             <div class="col-sm-6 col-xs-12">
                 @include('profile.partials.stats', ['title' => $experience->teaser])
             </div>
@@ -47,9 +47,7 @@
         </div>
     </div>
 
-    <div class="container experience-block">
-        @include('experience.partials.carousel')
-    </div>
+    @include('experience.partials.carousel')
 
     <div class="container experience-block gray-block" id='experience-info'>
 
@@ -59,33 +57,27 @@
 
         <div class="row">
             <div class="col-sm-6 col-xs-12">
-                <article class="media media-responsive same-height">
+                <article class="media media-responsive">
                     <div class="media-body">
                         <h3>
                             {{ $experience->teaser }}       
                         </h3>
                         <div class="media-summary">
-                            {{ $experience->description }}
+                            {!! nl2br($experience->description) !!}
                         </div>
                     </div>
                 </article>
-            </div>
-            <div class="col-sm-6 col-xs-12">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-xs-12">
                 <img class="media-object" src="{{ $experience->cover_image }}" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
             </div>
             <div class="col-sm-6 col-xs-12">
+                <div class="gray-bottom-border mt-1"></div>
                 <div class="exp-item">
                     <h3>
                         Offered languages       
                     </h3>
                     <ul>
                         @foreach($experience->languages as $key => $language)
-                        <label>{{ $language->name }}</label>
+                        <li>{{ $language->name }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -95,7 +87,7 @@
                     </h3>
                     <ul>
                         @foreach($experience->highlights as $key => $highlight)
-                        <label>{{ $highlight->description }}</label>
+                        <li>{{ $highlight->description }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -105,10 +97,65 @@
                     </h3>
                     <ul>
                         @foreach($experience->activities as $key => $activity)
-                        <label>{{ $activity->description }}</label>
+                        <li>{{ $activity->description }}</li>
                         @endforeach
                     </ul>
                 </div>
+                <div class="gray-bottom-border mt-1 mb-1"></div>
+                <h3>
+                    {{ $experience->sub_category . " details" }}       
+                </h3>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <label>{{ "Type:" }}</label>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        {{ $experience->category->name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <label>{{ "Duration:" }}</label>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        {{ $experience->duration }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <label>{{ "Transportation mode:" }}</label>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        {{ $experience->transportation_mode }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <label>{{ "Meeting point:" }}</label>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        {{ $experience->city->name }},
+                        {{ $experience->country->name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <label>{{ "No. of guests:" }}</label>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        {{ $experience->pricing->guests }}
+                    </div>
+                </div>
+                @foreach($extras as $extra)
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6">
+                        <label>{{ $extra['label'] . ":" }}</label>
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        {{ $experience[$extra['name']] }}
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -100,7 +100,7 @@ class InfoController extends ExperienceController {
             'units' => 'required',
             'category_id' => 'required|max:255',
             'sub_category' => 'required|max:255',
-            'description' => 'required|max:1024',
+            'description' => 'required|max:10000',
             'extra_pickup' => 'required|max:1',
             'extra_food' => 'required|max:1',
             'extra_misc' => 'required|max:1'
@@ -168,67 +168,6 @@ class InfoController extends ExperienceController {
 
         Session::flash('flash_message', 'Experience successfully deleted!');
         return redirect(route("{$this->cur_step}.create"));
-    }
-
-    public function getExras() {
-        $extras = [
-            [
-                'label' => 'Pickup',
-                'name' => 'extra_pickup',
-                'items' => [
-                    [
-                        'label' => 'Free of charge',
-                        'value' => 1
-                    ],
-                    [
-                        'label' => 'Extra charges',
-                        'value' => 2
-                    ],
-                    [
-                        'label' => 'Not included',
-                        'value' => 3
-                    ]
-                ]
-            ],
-            [
-                'label' => 'Food & beverages',
-                'name' => 'extra_food',
-                'items' => [
-                    [
-                        'label' => 'Free of charge',
-                        'value' => 1
-                    ],
-                    [
-                        'label' => 'Extra charges',
-                        'value' => 2
-                    ],
-                    [
-                        'label' => 'Not included',
-                        'value' => 3
-                    ]
-                ]
-            ],
-            [
-                'label' => 'Miscellaneous',
-                'name' => 'extra_misc',
-                'items' => [
-                    [
-                        'label' => 'Free of charge',
-                        'value' => 1
-                    ],
-                    [
-                        'label' => 'Extra charges',
-                        'value' => 2
-                    ],
-                    [
-                        'label' => 'Not included',
-                        'value' => 3
-                    ]
-                ]
-            ]
-        ];
-
-        return $extras;
     }
 
 }

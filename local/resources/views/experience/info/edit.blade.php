@@ -1,7 +1,7 @@
 @extends('layouts.step', ['hasJs' => true])
 
 @section('content')
-@include('experience.partials.sidebar', ['active' => 'experience', 'links' => $links])
+@include('experience.partials.sidebar', ['active' => 'info', 'links' => $links])
 {!! Form::open([
 'method' => 'PATCH',
 'route' => ['info.update', $experience->id],

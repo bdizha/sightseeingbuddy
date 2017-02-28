@@ -1,6 +1,6 @@
 <div class="table">
     <div class="profile-picture">
-        <img src="/images/person.png" />
+        <img src="{{ Helper::personImage($user->introduction->image) }}" />
     </div>
     <div class="profile-info">
         <h1>{{ $title }}</h1>
@@ -22,7 +22,7 @@
                 </span>
             </div>
             <div class="col-sm-4 col-xs-4">
-                <span class="profile-value">4</span>
+                <span class="profile-value">{{ $user->experiences_count }}</span>
             </div>
         </div>
         <div class='row'>
@@ -32,7 +32,7 @@
                 </span>
             </div>
             <div class="col-sm-4 col-xs-4">
-                <span class="profile-value">15</span>
+                <span class="profile-value">{{ rand(4, 15) }}</span>
             </div>
         </div>
         <div class='row'>

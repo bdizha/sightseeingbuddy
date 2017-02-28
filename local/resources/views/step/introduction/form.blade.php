@@ -6,15 +6,19 @@
                     Create a profile
                 </h1>
                 <div class='text-center'>
-                    <div class="profile-picture form-group">
-                        <img id="person-image" src="{{ Helper::personImage($introduction->image) }}" />
+                    <div id="cover-image-bin" class="image-bin profile-picture form-group">
+                        <div class="bin-item">
+                            <img src="{{ Helper::personImage($introduction->image) }}" />
+                            {{ Form::hidden('image', $introduction->image, ['id' => 'image']) }}
+                            <i class="fa fa-close bin-close"></i>
+                        </div>
                     </div>
 
                     <!-- The fileinput-button span is used to style the file input field as button -->
                     <span class="btn btn-yellow">
                         <span>Upload profile pic</span>
                         <!-- The file input field used as target for the file upload widget -->
-                        <input id="fileupload" class="fileupload" type="file" name="files[]">
+                        <input id="fileupload" class="fileupload" bin="cover-image-bin" image-type="single" type="file" name="files[]">
                     </span>
                     <br>
                     <br>
@@ -39,7 +43,6 @@
                         Introduce yourself
                     </h1>
                     {!! csrf_field() !!}
-                    {{ Form::hidden('image', $introduction->image, ['id' => 'image']) }}
                     {{ Form::hidden('user_id', $user->id) }}
                     <div class="row form-group {{ $errors->has('first_name') ? 'has-error' : '' }}" id="first-name">
                         <div class="col-xs-12">

@@ -21,39 +21,6 @@ class PricingController extends ExperienceController {
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create(Request $request) {
-        $pricing = new Pricing();
-        $user = Auth::user();
-
-        $links = $this->getLinks();
-
-        return view('experience.pricing.add', [
-            'pricing' => $pricing,
-            'experience' => new Experience(),
-            'links' => $links,
-            'user' => $user
-        ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store(Request $request) {
-
-        $user = Auth::user();
-        $pricing = new Pricing();
-        $pricing->user_id = $user->id;
-
-        return $this->save($pricing, $request);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @return Response
@@ -63,11 +30,13 @@ class PricingController extends ExperienceController {
         $pricing = Pricing::findOrNew($id);
         $user = Auth::user();
         $links = $this->getLinks($pricing);
+        $experience = Experience::where('id', '=', $id)->first();
 
         return view('experience.pricing.edit', [
             'pricing' => $pricing,
             'links' => $links,
-            'user' => $user
+            'experience' => $experience,
+            'user' => $user,
         ]);
     }
 

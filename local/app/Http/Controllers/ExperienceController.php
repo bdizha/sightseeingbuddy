@@ -13,7 +13,8 @@ class ExperienceController extends Controller {
         $user = $experience->user;
         return view('experience.show', [
             'experience' => $experience,
-            'user' => $user
+            'user' => $user,
+            'extras' => $this->getExras()
         ]);
     }
 
@@ -42,6 +43,67 @@ class ExperienceController extends Controller {
         ];
 
         return $links;
+    }
+
+    public function getExras() {
+        $extras = [
+            [
+                'label' => 'Pickup',
+                'name' => 'extra_pickup',
+                'items' => [
+                    [
+                        'label' => 'Free of charge',
+                        'value' => 1
+                    ],
+                    [
+                        'label' => 'Extra charges',
+                        'value' => 2
+                    ],
+                    [
+                        'label' => 'Not included',
+                        'value' => 3
+                    ]
+                ]
+            ],
+            [
+                'label' => 'Food & beverages',
+                'name' => 'extra_food',
+                'items' => [
+                    [
+                        'label' => 'Free of charge',
+                        'value' => 1
+                    ],
+                    [
+                        'label' => 'Extra charges',
+                        'value' => 2
+                    ],
+                    [
+                        'label' => 'Not included',
+                        'value' => 3
+                    ]
+                ]
+            ],
+            [
+                'label' => 'Miscellaneous',
+                'name' => 'extra_misc',
+                'items' => [
+                    [
+                        'label' => 'Free of charge',
+                        'value' => 1
+                    ],
+                    [
+                        'label' => 'Extra charges',
+                        'value' => 2
+                    ],
+                    [
+                        'label' => 'Not included',
+                        'value' => 3
+                    ]
+                ]
+            ]
+        ];
+
+        return $extras;
     }
 
 }

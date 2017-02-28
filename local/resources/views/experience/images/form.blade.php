@@ -24,7 +24,13 @@
         <div class='row'>
             <div class="col-sm-6 col-xs-12">
                 <div id="cover-image-bin" class="image-bin">
-
+                    @if($experience->cover_image)
+                    <div class="bin-item">
+                        <img src="{{ $experience->cover_image }}" />
+                        {{ Form::hidden('image', $experience->cover_image) }}
+                        <i class="fa fa-close bin-close"></i>
+                    </div>
+                    @endif
                 </div>
                 <div class="form-group text-center {{ $errors->has('image') ? 'has-error' : '' }}" id="gallery-image">
                     @if ($errors->has('image'))
@@ -40,7 +46,13 @@
             </div>
             <div class="col-sm-6 col-xs-12">
                 <div id="gallery-bin" class="image-bin">
-
+                    @foreach($experience->gallery as $image)
+                    <div class="bin-item">
+                        <img src="{{ $image->image }}" />
+                        {{ Form::hidden('images[]', $image->image) }}
+                        <i class="fa fa-close bin-close"></i>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="form-group text-center {{ $errors->has('images') ? 'has-error' : '' }}" id="gallery-images">
                     @if ($errors->has('images'))
@@ -61,7 +73,7 @@
         <div class="col-sm-12 col-xs-12">
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Save" />
-                <a href="{{ route('wallet.create') }}" class="btn btn-primary pull-right">Back</a>
+                <a href="{{ route('pricing.edit', ["id" => $experience->id]) }}" class="btn btn-primary pull-right">Back</a>
                 <span class='inline pull-right'>&nbsp;&nbsp;</span>
                 <input type="submit" class="btn btn-primary pull-right" value="Next" />
             </div>

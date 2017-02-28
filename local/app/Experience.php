@@ -37,11 +37,11 @@ class Experience extends Model {
     }
 
     public function country() {
-        return $this->hasOne('App\Company', 'id', 'country_id');
+        return $this->hasOne('App\Country', 'id', 'country_id');
     }
 
     public function city() {
-        return $this->hasOne('App\Company', 'id', 'city_id');
+        return $this->hasOne('App\City', 'id', 'city_id');
     }
 
     public function category() {
@@ -57,6 +57,13 @@ class Experience extends Model {
      */
     public function languages() {
         return $this->belongsToMany('App\Language', 'experience_languages');
+    }
+
+    /**
+     * Get the bookings.
+     */
+    public function bookings() {
+        return $this->hasMany('App\Booking');
     }
 
     /**
@@ -76,6 +83,15 @@ class Experience extends Model {
     public function gallery() {
         return $this->hasMany('App\ExperienceGallery');
     }
+
+    public function schedule() {
+        return $this->hasOne('App\ExperienceSchedule');
+    }
+
+    public function pricing() {
+        return $this->hasOne('App\Pricing');
+    }
+
 
     public function getSubCategoryAttribute() {
         $subCategoryId = $this->sub_category_id;
@@ -106,6 +122,15 @@ class Experience extends Model {
         }
 
         return $experience;
+    }
+
+    public function getTimesAttribute() {
+        
+        return unserialize($this->schedule->times);
+    }
+
+    public function getDaysAttribute() {
+        return array_keys(unserialize($this->schedule->days));
     }
 
 }

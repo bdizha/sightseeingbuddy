@@ -6,9 +6,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class User extends Authenticatable
-{
-    use Notifiable, Sluggable;
+class User extends Authenticatable {
+
+    use Notifiable,
+        Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,20 +17,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 
-        'last_name', 
+        'first_name',
+        'last_name',
         'type',
-        'email', 
+        'email',
         'password',
     ];
-    
+
     /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
      */
-    public function sluggable()
-    {
+    public function sluggable() {
         return [
             'username' => [
                 'source' => ['first_name', 'last_name']
@@ -45,6 +45,13 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the introduction.
+     */
+    public function introduction() {
+        return $this->hasOne('App\Introduction');
+    }
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -52,4 +59,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getExperiencesCountAttribute() {
+        return $this->experiences->count();
+    }
+
 }
