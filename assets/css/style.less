@@ -10,6 +10,13 @@
 @import "vendors/parsley";
 @import "vendors/slick";
 
+*{
+    outline: none;
+    &:focus{
+        outline: none;
+    }
+}
+
 html, body {
     height: 100%;
     background: @yellow;
@@ -111,6 +118,31 @@ html, body {
         ul{
             li {
                 font-size: 15px;
+            }
+        }
+        h2{
+            font-weight: 900;
+            font-size: 30px;
+            margin: 40px 0 15px;
+        }
+        .legend{
+            padding-left: 40px;
+            position: relative;
+            font-size: 17px;
+            margin-bottom: 10px;
+            line-height: 30px;
+            icon{
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                &.available{
+                    background-color: @yellow;
+                }
+                &.not-available{
+                    background-color: @gray-base;
+                }
             }
         }
     }
@@ -1573,3 +1605,125 @@ a.thumbnail:hover, a.thumbnail:active {
     border-radius: 4px;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
+
+.datepicker table tr td.active.active.focus, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.highlighted.active.focus, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active.highlighted:active.focus, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active:active.focus, .datepicker table tr td.active:active:focus, .datepicker table tr td.active:active:hover {
+    color: @yellow;
+    background-color: transparent;
+    border: none;
+    text-shadow: none;
+}
+
+.datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active.highlighted:hover, .datepicker table tr td.active:active, .datepicker table tr td.active:hover {
+    color: @white;
+    background-color: @yellow;
+    border: none;
+}
+
+.table-condensed > thead > tr > td, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td {
+    padding: 10px 23px;
+    font-size: 26px;
+    font-weight: 700;
+    border-radius: 0px;
+}
+
+.table-condensed {
+    background-color: @white;
+    > thead > tr,
+    > tfoot > tr{
+        position: relative;
+        &:nth-child(2){
+            background: @yellow;
+        }
+        > th{
+            font-weight: 900;
+            border-radius: 0px;
+            padding: 20px 23px;
+            font-size: 24px;
+            text-transform: uppercase;
+            &:hover,
+                &.focused{
+                background-color: transparent;
+            }
+            &.prev{
+                position: absolute;
+                width: 44px;
+                height: 44px;
+                left: 36px;
+                top: 16px;
+                background-image: url(/images/date-prev-arrow.png) !important;
+                background-size: 100% !important;
+                &:hover,
+                    &:focus{
+                    background-color: transparent;
+                }
+            }
+            &.next{
+                position: absolute;
+                width: 44px;
+                height: 44px;
+                right: 36px;
+                top: 16px;
+                background-image: url(/images/date-next-arrow.png) !important;
+                background-size: 100% !important;
+                &:hover,
+                    &:focus{
+                    background-color: transparent;
+                }
+            }
+            &.datepicker-switch{
+                &:hover,
+                    &:focus{
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+    > tbody > tr{
+        td.day:hover,
+            td.focused {
+            color: @white;
+            background-color: @yellow;
+            border: none;
+        }
+        td.highlighted{
+            color: @yellow;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+// Actual modal
+.modal-content {
+    .modal-header {
+        padding: 10px 15px;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: @yellow;
+        .close {
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 36px;
+        }
+    }
+    .modal-body{
+        .available-times{
+            padding: 15px;
+            border: 1px solid @legend-border-color;
+            .schedule-item{
+                padding: 10px 0;
+                line-height: 34px;
+                &.odd{
+                    background-color: #E6E6E6;
+                }
+            }
+            &:last-child{
+                padding-bottom: 0;
+            }
+            &:first-child{
+                padding-top: 0;
+            }
+        }
+    }
+}
+

@@ -7,13 +7,15 @@ use App\Http\Controllers\Controller;
 
 class BookingController extends Controller {
 
-    public function create($id, Request $request) {
+    public function create($id, $date, $time, Request $request) {
         $experience = Experience::where('id', '=', $id)->first();
 
         $user = $experience->user;
         return view('booking.add', [
             'experience' => $experience,
-            'user' => $user
+            'user' => $user,
+            'time' => $time,
+            'date' => $date
         ]);
     }
 

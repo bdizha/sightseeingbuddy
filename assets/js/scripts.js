@@ -106,7 +106,7 @@ function UIBindings() {
 
         $('[data-slick-carousel-three]').slick({
             dots: true,
-            infinite:true,
+            infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1,
             adaptiveHeight: false
@@ -281,6 +281,28 @@ function HeaderNav() {
     };
 }
 
+function DatePicker() {
+    this.init = function () {
+        $('#datepicker').datepicker({
+            daysOfWeekDisabled: "5,6",
+            daysOfWeekHighlighted: "1,3,4",
+            templates: {
+                leftArrow: '&nbsp;',
+                rightArrow: '&nbsp;'
+            }
+        });
+
+        $('#datepicker').datepicker().on("changeDate", function (e) {
+            console.log("clicked hhh an event:::::data");
+            console.log(e);
+            console.log("Timestamp");
+            console.log(e.timeStamp);
+
+            $("#schedule-modal").modal('show');
+        });
+    };
+}
+
 $(function () {
 
     (new StickyFooter($('#container'), $('#footer'))).update().bindOnResize();
@@ -308,4 +330,6 @@ $(function () {
     (new Vertilize).init();
 
     (new HeaderNav).init();
+
+    (new DatePicker).init();
 });

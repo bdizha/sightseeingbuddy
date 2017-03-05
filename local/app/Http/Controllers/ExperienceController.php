@@ -17,6 +17,16 @@ class ExperienceController extends Controller {
             'extras' => $this->getExras()
         ]);
     }
+    
+    public function schedule($id) {
+        $experience = Experience::where('id', '=', $id)->first();
+
+        $user = $experience->user;
+        return view('experience.schedule', [
+            'experience' => $experience,
+            'user' => $user
+        ]);
+    }
 
     public function getLinks($experience = null) {
 

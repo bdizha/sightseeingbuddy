@@ -22,25 +22,30 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('introduction', 'Step\IntroductionController');
     Route::resource('location', 'Step\LocationController');
     Route::resource('wallet', 'Step\WalletController');
-    
+
     Route::resource('info', 'Experience\InfoController');
     Route::resource('pricing', 'Experience\PricingController');
     Route::resource('images', 'Experience\ImagesController');
     Route::resource('last', 'Experience\LastController');
-    
+
     Route::patch('/upload/image', 'Step\IntroductionController@upload');
 
     // profile resources
     Route::get('/profile/{username}', 'Profile\InfoController@show');
-    
+
     // experience resources
-    Route::get('/experience/{id}', 'ExperienceController@show');
-    
+    Route::group(['prefix' => 'experience'], function () {
+        Route::get('/{id}', 'ExperienceController@show');
+        Route::get('/{id}/schedule', 'ExperienceController@schedule');
+    });
+
     // bookings resources
-    Route::get('/booking/create/{id}', 'BookingController@create');
-    Route::post('/booking/place', 'BookingController@place');
-    Route::get('/booking/reciept', 'BookingController@receipt');
-    
+    Route::group(['prefix' => 'booking'], function () {
+        Route::get('/create/{id}/{date}/{time}', 'BookingController@create');
+        Route::post('/place', 'BookingController@place');
+        Route::get('/reciept', 'BookingController@receipt');
+    });
+
     Route::get('/auth/nav', 'Profile\InfoController@nav');
 
     // contact resource
