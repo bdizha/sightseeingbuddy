@@ -79,7 +79,7 @@ class Helper {
 
     public static function personImage($image) {
         if (empty($image)) {
-            $image = "/files/person.png";
+            $image = "/images/person-yellow.png";
         }
 
         return $image;

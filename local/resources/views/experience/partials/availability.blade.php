@@ -33,7 +33,7 @@
                             {{ fmod($key, 2) ? 'Yes' : 'No' }}
                         </div>
                         <div class="col-sm-7 col-xs-7">
-                            <a href="/local/booking/create/{{ $experience->id }}/{{ $time }}" class="btn btn-yellow pull-right">Book now</a>
+                            <a href="/local/booking/create/{{ $experience->id }}/{{ $time }}" class="btn btn-yellow pull-right book-now">Book now</a>
                         </div>
                     </div>
                     <?php $key++ ?>

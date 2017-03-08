@@ -293,12 +293,21 @@ function DatePicker() {
         });
 
         $('#datepicker').datepicker().on("changeDate", function (e) {
-            console.log("clicked hhh an event:::::data");
-            console.log(e);
-            console.log("Timestamp");
-            console.log(e.timeStamp);
-
+            $(".available-times").attr("timestamp", e.timeStamp);
             $("#schedule-modal").modal('show');
+
+            (new BookNow).init();
+        });
+    };
+}
+
+function BookNow() {
+    this.init = function () {
+        $('.book-now').click(function () {
+            var href = $(this).attr("href");
+            var timestamp = $(".available-times").attr("timestamp");
+            window.location = href + "/" + timestamp;
+            return false;
         });
     };
 }
@@ -332,4 +341,6 @@ $(function () {
     (new HeaderNav).init();
 
     (new DatePicker).init();
+
+    (new BookNow).init();
 });

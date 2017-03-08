@@ -41,9 +41,16 @@ Route::group(['prefix' => 'local'], function () {
 
     // bookings resources
     Route::group(['prefix' => 'booking'], function () {
-        Route::get('/create/{id}/{date}/{time}', 'BookingController@create');
+        Route::get('/create/{id}/{time}/{timestamp}', 'BookingController@create');
         Route::post('/place', 'BookingController@place');
         Route::get('/reciept', 'BookingController@receipt');
+        Route::get('/forex', 'BookingController@forex');
+    });
+
+    // search resources
+    Route::group(['prefix' => 'search'], function () {
+        Route::get('/', 'SearchController@index');
+        Route::post('/', 'SearchController@index');
     });
 
     Route::get('/auth/nav', 'Profile\InfoController@nav');

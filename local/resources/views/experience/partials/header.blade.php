@@ -1,44 +1,44 @@
- <div class="container profile">
-        <div class='row'>
-            <div class="col-sm-12 col-xs-12">
-                <ul class="profile-nav pull-right">
-                    <li class="item active">
-                        <a href="{{ "/dashboard" }}">
-                            <i class="dashboard"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="{{ "/bookings" }}">
-                            <i class="bookings"></i>
-                            <span>Bookings</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="/local/profile/{{ $user->id }}">
-                            <img src="/images/person-66.png" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
+<div class="container profile">
+    <div class='row'>
+        <div class="col-sm-12 col-xs-12">
+            <ul class="profile-nav pull-right">
+                <li class="item active">
+                    <a href="{{ "/dashboard" }}">
+                        <i class="dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="{{ "/bookings" }}">
+                        <i class="bookings"></i>
+                        <span>Bookings</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a href="/local/profile/{{ $user->id }}">
+                        <img src="/images/person-66.png" />
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="gray-bottom-border mb-1"></div>
-        <div class='row mb-1'>
-            <div class="col-sm-6 col-xs-12">
-                @include('profile.partials.stats', ['title' => $experience->teaser])
-            </div>
-            <div class="col-sm-6 col-xs-12">
-                <div class='row'>
-                    <div class="col-sm-12 col-xs-12">
-                        <a href="/local/booking/create/3" class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6">
-                        <a href="/local/experience/{{ $experience->id }}/schedule" class="btn btn-primary fullwidth">Information</a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6">
-                        <a href="#experiences" class="btn btn-primary fullwidth pull-right">My Experiences</a>
-                    </div>
+    </div>
+    <div class="gray-bottom-border mb-1"></div>
+    <div class='row mb-1'>
+        <div class="col-sm-6 col-xs-12">
+            @include('profile.partials.stats', ['title' => $experience->teaser])
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class='row'>
+                <div class="col-sm-12 col-xs-12">
+                    <a href="/local/experience/{{ $experience->id }}/schedule" class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <a href="/local/experience/{{ $experience->id }}/schedule" class="btn btn-primary fullwidth">Information</a>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <a href="#experiences" class="btn btn-primary fullwidth pull-right">My Experiences</a>
                 </div>
             </div>
         </div>
     </div>
+</div>

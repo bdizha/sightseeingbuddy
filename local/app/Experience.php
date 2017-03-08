@@ -3,8 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Experience extends Model {
+
+    use Sluggable;
 
     protected $table = 'experiences';
 
@@ -31,6 +34,19 @@ class Experience extends Model {
         'cover_image',
         'transportation_mode'
     ];
+    
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable() {
+        return [
+            'slug' => [
+                'source' => ['teaser']
+            ]
+        ];
+    }
 
     public function user() {
         return $this->hasOne('App\User', 'id', 'user_id');
@@ -92,7 +108,6 @@ class Experience extends Model {
         return $this->hasOne('App\Pricing');
     }
 
-
     public function getSubCategoryAttribute() {
         $subCategoryId = $this->sub_category_id;
 
@@ -125,7 +140,7 @@ class Experience extends Model {
     }
 
     public function getTimesAttribute() {
-        
+
         return unserialize($this->schedule->times);
     }
 
