@@ -1,4 +1,5 @@
-<div class="modal fade confirm-modal in" id="confirm-modal">
+@if(Session::has('flash_message'))
+<div class="modal fade notice-modal in" id="notice-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,16 +7,13 @@
                     <span aria-hidden="true">×</span>
                 </button>
                 <h3 class="modal-title">
-                    PAYMENT CONFIRMATION
+                    Success
                 </h3>
             </div>
             <div class="modal-body text-center">
-                You're about to make a payment for this experience.
-            </div>
-            <div class="text-center">
-                <button type="button" class="btn btn-primary mb-1">Back</button>
-                <button type="submit" class="btn btn-yellow mb-1">Make payment</button>
+                {{ Session::get('flash_message') }}
             </div>
         </div>
     </div>
 </div>
+@endif

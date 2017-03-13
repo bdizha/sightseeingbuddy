@@ -4,7 +4,7 @@
             @include('booking.partials.user', ['user' => $user])
         </div>
         <div class="col-sm-9 col-xs-12">
-            <div class='row mt-2'>
+            <div class='row mt-1'>
                 <h1>HELLO {{ $user->first_name }}</h1>
                 <h2>{{ $title }}</h2>
             </div>

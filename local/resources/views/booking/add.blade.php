@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['url' => '/local/search'])
 
 @section('content')
 <section id="page" class="booking-block">
@@ -54,7 +54,7 @@
                                 <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
                             </small>
                         </div>
-                        <button type="submit" class="btn btn-lg btn-yellow mb-1">Make payment</button>
+                        <button type="submit"" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-yellow mb-1">Make payment</button>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
@@ -101,10 +101,11 @@
                                 <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
                             </small>
                         </div>
-                        <button type="submit" class="btn btn-lg btn-yellow mb-1">Make payment</button>
+                        <button type="button" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-yellow mb-1">Make payment</button>
                     </div>
                 </div>
             </div>
+            @include('booking.partials.confirm')
         </form>
     </div>
 </section>

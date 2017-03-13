@@ -9622,6 +9622,7 @@ section #sidebar h2 {
   #page .profile .table .profile-picture {
     vertical-align: top;
     text-align: center;
+    padding-top: 15px;
     display: table-cell;
   }
   #page .profile .table .profile-picture img {
@@ -9652,7 +9653,7 @@ section #sidebar h2 {
     font-size: 18px;
     text-align: center;
   }
-  #page.booking-block .profile .mt-2 {
+  #page.booking-block .profile .mt-1 {
     margin-top: 0;
   }
 }
@@ -9893,6 +9894,7 @@ section #sidebar h2 {
   -webkit-padding-start: 0px;
   padding-bottom: 0px;
   margin-top: 0px;
+  float: right !important;
 }
 .top-nav > li {
   display: inline-block;

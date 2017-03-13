@@ -1,3 +1,5 @@
+@include('partials.notice')
+<input type="hidden" id="url" value="@if(!empty($url)){{ $url }}@else{{ "/local/search" }}@endif"/>
 <footer id="footer">
     <div class="container">
         <div class="row site-footer">

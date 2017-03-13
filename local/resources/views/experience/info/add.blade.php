@@ -1,4 +1,4 @@
-@extends('layouts.step', ['hasJs' => true])
+@extends('layouts.step')
 
 @section('content')
 @include('experience.partials.sidebar', ['active' => 'info', 'links' => $links])

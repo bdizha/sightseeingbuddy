@@ -44,8 +44,8 @@ Route::group(['prefix' => 'local'], function () {
     // bookings resources
     Route::group(['prefix' => 'booking'], function () {
         Route::get('/create/{id}/{time}/{timestamp}', 'BookingController@create');
-        Route::post('/place', 'BookingController@place');
-        Route::get('/receipt/{id}', 'BookingController@receipt');
+        Route::post('/place', 'BookingController@place')->name("make_payment");
+        Route::get('/receipt/{id}', 'BookingController@receipt')->name("payment_receipt");
         Route::get('/forex', 'BookingController@forex');
     });
 

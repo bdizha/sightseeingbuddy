@@ -25,8 +25,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://keepitlocal.dev/">
-                        <img src="http://keepitlocal.dev/uploads/files/_AUTOx52_crop_center-center/Keep-It-Local-Website-AssetsAsset-1.png" alt="Keep It Local" style="height: 52px">
+                    <a class="navbar-brand" href="/">
+                        <img src="/uploads/files/_AUTOx52_crop_center-center/Keep-It-Local-Website-AssetsAsset-1.png" alt="Keep It Local" style="height: 52px">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="primaryNav">
@@ -34,83 +34,43 @@
                         <li class="
                             item
                             item-level-1
-                            active
                             ">
-                            <a href="http://keepitlocal.dev/pages/how-it-works" >
+                            <a href="/pages/how-it-works" >
                                 How It Works
                             </a>
-
                         </li>
-
-
-
-
-
                         <li class="
                             item
                             item-level-1
-
-
-
                             ">
-                            <a href="http://keepitlocal.dev/pages/about-keep-it-local" >
+                            <a href="/pages/about-keep-it-local" >
                                 About Us
                             </a>
-
                         </li>
-
-
-
-
-
                         <li class="
                             item
                             item-level-1
-
-
-
                             ">
-                            <a href="http://keepitlocal.dev/pages/becoming-a-local" >
+                            <a href="/pages/becoming-a-local" >
                                 Become a Local
                             </a>
-
                         </li>
-
-
-
-
-
                         <li class="
                             item
                             item-level-1
-
-
-
                             ">
-                            <a href="http://keepitlocal.dev/pages/finding-a-local" >
+                            <a href="/local/search" >
                                 Find a Host
                             </a>
-
                         </li>
-
-
-
-
-
                         <li class="
                             item
                             item-level-1
-
-
-
                             ">
-                            <a href="http://keepitlocal.dev/pages/contact-us" >
+                            <a href="/pages/contact-us" >
                                 Contact
                             </a>
-
                         </li>
-
-
                     </ul>
                     <div class="field form-group fields-search-field" id="fields-search-field">
                         <div class="input ltr">

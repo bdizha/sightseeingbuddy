@@ -17,7 +17,6 @@
                 </p>
             </div>
             <div class='col-xs-12'>
-
                 <div class="gray-bottom-border mt-1 mb-1"></div>
                 <div class='row mb-2'>
                     <div class="col-sm-12 col-xs-12">
@@ -31,8 +30,14 @@
                         </div>
                         <label class="checkbox-inline">
                             {{ Form::checkbox("terms", 1, false) }}
-                            I agree that I will be contacted by an ambassador & confirm that I will be available over the next 3
-                            weeks for a verification meeting.
+                            <label class="checkbox-inline">
+                                {{ Form::checkbox('terms', 1, false, ['id' => 'terms']) }}
+                                <label for="{{ 'terms' }}">
+                                    <span></span>
+                                    I agree that I will be contacted by an ambassador & confirm that I will be available over the next 3
+                                    weeks for a verification meeting.
+                                </label>
+                            </label>
                         </label>
                     </div>
                 </div>

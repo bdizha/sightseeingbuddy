@@ -278,16 +278,15 @@ function HeaderNav() {
             navContainer.append(data);
             console.log(data);
         });
-        
-        var url = window.location;
-        
-        console.log("Url::::");
-        console.log(url);
-        console.log("Url::::");
-        
+
+        var url = $("#url").val();
+        if (url === "undefined" || url === undefined) {
+            return false;
+        }
+
         $(".navbar-nav li a").each(function () {
             $(this).parent().removeClass("active");
-            if($(this).attr("href") === url){
+            if ($(this).attr("href") === url) {
                 $(this).parent().addClass("active");
             }
         });
@@ -345,10 +344,10 @@ function DatePicker() {
             $.get("/local/date/" + timestamp, function (data) {
                 $("#" + $(this).attr("data-id")).val(data.date);
             });
-            
+
             toDate = $("#date-to").val();
             fromDate = $("#date-from").val();
-            
+
             $(".datetime-input").val(fromDate + " - " + toDate);
         });
     };
@@ -360,6 +359,18 @@ function BookNow() {
             var href = $(this).attr("href");
             var timestamp = $(".available-times").attr("timestamp");
             window.location = href + "/" + timestamp;
+            return false;
+        });
+    };
+}
+
+function UIModal() {
+    this.init = function () {
+        
+        $(".notice-modal").modal("show");
+        
+        $(".btn-modal").click(function () {
+            $("#" + $(this).attr("modal-id")).modal('show');
             return false;
         });
     };
@@ -397,4 +408,6 @@ $(function () {
     (new DatePicker).init();
 
     (new BookNow).init();
+
+    (new UIModal).init();
 });
