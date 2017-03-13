@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Experience;
+use Carbon\Carbon;
 
 class ExperienceController extends Controller {
 
-    public function show($id) {
-        $experience = Experience::where('id', '=', $id)->first();
+    public function show($slug) {
+        $experience = Experience::where('slug', '=', $slug)->first();
 
         $user = $experience->user;
         return view('experience.show', [
@@ -26,6 +27,11 @@ class ExperienceController extends Controller {
             'experience' => $experience,
             'user' => $user
         ]);
+    }
+    
+    public function date($timestamp) {
+        $date = Carbon::createFromTimestamp($timestamp);        
+        die(json_encode(['date' => $date->format("d/m/Y")]));
     }
 
     public function getLinks($experience = null) {

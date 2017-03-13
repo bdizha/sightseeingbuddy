@@ -29,13 +29,15 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('last', 'Experience\LastController');
 
     Route::patch('/upload/image', 'Step\IntroductionController@upload');
+    
+    Route::get('/date/{timestamp}', 'ExperienceController@date');
 
     // profile resources
     Route::get('/profile/{username}', 'Profile\InfoController@show');
 
     // experience resources
     Route::group(['prefix' => 'experience'], function () {
-        Route::get('/{id}', 'ExperienceController@show');
+        Route::get('/{slug}', 'ExperienceController@show');
         Route::get('/{id}/schedule', 'ExperienceController@schedule');
     });
 
@@ -43,14 +45,14 @@ Route::group(['prefix' => 'local'], function () {
     Route::group(['prefix' => 'booking'], function () {
         Route::get('/create/{id}/{time}/{timestamp}', 'BookingController@create');
         Route::post('/place', 'BookingController@place');
-        Route::get('/reciept', 'BookingController@receipt');
+        Route::get('/receipt/{id}', 'BookingController@receipt');
         Route::get('/forex', 'BookingController@forex');
     });
 
     // search resources
     Route::group(['prefix' => 'search'], function () {
         Route::get('/', 'SearchController@index');
-        Route::post('/', 'SearchController@index');
+        Route::post('/', 'SearchController@index')->name('search');
     });
 
     Route::get('/auth/nav', 'Profile\InfoController@nav');

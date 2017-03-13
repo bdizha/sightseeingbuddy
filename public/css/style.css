@@ -9621,6 +9621,7 @@ section #sidebar h2 {
   }
   #page .profile .table .profile-picture {
     vertical-align: top;
+    text-align: center;
     display: table-cell;
   }
   #page .profile .table .profile-picture img {
@@ -9641,6 +9642,19 @@ section #sidebar h2 {
   font-weight: 400;
   font-size: 23px;
   margin: 0 0 15px;
+}
+@media (max-width: 991px) {
+  #page.booking-block .profile h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+  #page.booking-block .profile h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+  #page.booking-block .profile .mt-2 {
+    margin-top: 0;
+  }
 }
 #page.booking-block .text-left {
   float: left;
@@ -9678,6 +9692,20 @@ section #sidebar h2 {
 }
 #page.booking-block form .booking-row .currency-block light {
   font-weight: 300;
+}
+#page .search-list .media {
+  margin-top: 0px;
+  margin-bottom: 0;
+  border: none;
+}
+#page .search-list .media .media-object {
+  width: 100%;
+}
+#page .search-list .media .media-footer {
+  background: #FDBF0F;
+  font-weight: 900;
+  padding: 16px;
+  font-size: 17px;
 }
 .media {
   padding: 0;
@@ -10488,6 +10516,15 @@ a.thumbnail:active {
 .booking-block {
   padding-bottom: 0 !important;
 }
+.booking-block .profile-nav > li > a i {
+  top: 2px;
+}
+.booking-block .profile-nav > li > a i.dashboard {
+  background-image: url(/images/search-dashboard.png);
+  width: 24px;
+  height: 24px;
+  background-position-x: 0;
+}
 .table-condensed {
   background-color: #FFFFFF;
 }
@@ -10561,6 +10598,115 @@ a.thumbnail:active {
   color: #FDBF0F;
   background-color: transparent;
   border: none;
+}
+.datetime-group {
+  display: none;
+  position: absolute;
+  padding-right: 15px;
+  z-index: 9999;
+}
+.datetime-group .datetime-inner {
+  position: relative;
+}
+.datetime-group .date-range {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  border: 2px solid #3D3D3D;
+}
+.datetime-group .date-range:nth-child(2) {
+  border-left: none;
+}
+.datetime-group .date-range .date-arrow {
+  width: 36px;
+  height: 15px;
+  background-image: url(/images/search-date-up-arrow.png) !important;
+  background-size: 100% !important;
+  position: absolute;
+  top: -30px;
+  top: -15px;
+  left: 50%;
+  margin-left: -18px;
+  background-position-y: -1px;
+}
+.datetime-group .date-range .date-header {
+  background: #3D3D3D;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 4px;
+  font-weight: 900;
+}
+.datetime-group .date-range .datepicker-inline {
+  width: 100%;
+}
+.datetime-group .date-range .table-condensed {
+  background-color: #FFFFFF;
+  position: relative;
+}
+.datetime-group .date-range .table-condensed .datepicker-switch {
+  width: 100%;
+}
+.datetime-group .date-range .table-condensed > thead > tr > th,
+.datetime-group .date-range .table-condensed > tfoot > tr > th {
+  border-radius: 0px;
+  padding: 10px 5px;
+  font-size: 14px;
+}
+.datetime-group .date-range .table-condensed > thead > tr > th:hover,
+.datetime-group .date-range .table-condensed > tfoot > tr > th:hover,
+.datetime-group .date-range .table-condensed > thead > tr > th.focused,
+.datetime-group .date-range .table-condensed > tfoot > tr > th.focused {
+  background-color: transparent;
+}
+.datetime-group .date-range .table-condensed > thead > tr > th.prev,
+.datetime-group .date-range .table-condensed > tfoot > tr > th.prev {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 14px;
+  top: 10px;
+}
+.datetime-group .date-range .table-condensed > thead > tr > th.next,
+.datetime-group .date-range .table-condensed > tfoot > tr > th.next {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 14px;
+  top: 10px;
+}
+.datetime-group .date-range .table-condensed > tbody > tr td {
+  padding: 5px;
+  font-size: 14px;
+}
+@media (max-width: 991px) {
+  .datetime-group .date-range .table-condensed > thead > tr > th,
+  .datetime-group .date-range .table-condensed > tfoot > tr > th {
+    border-radius: 0px;
+    padding: 10px 2px;
+    font-size: 12px;
+  }
+  .datetime-group .date-range .table-condensed > thead > tr > th:hover,
+  .datetime-group .date-range .table-condensed > tfoot > tr > th:hover,
+  .datetime-group .date-range .table-condensed > thead > tr > th.focused,
+  .datetime-group .date-range .table-condensed > tfoot > tr > th.focused {
+    background-color: transparent;
+  }
+  .datetime-group .date-range .table-condensed > thead > tr > th.prev,
+  .datetime-group .date-range .table-condensed > tfoot > tr > th.prev {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  .datetime-group .date-range .table-condensed > thead > tr > th.next,
+  .datetime-group .date-range .table-condensed > tfoot > tr > th.next {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  .datetime-group .date-range .table-condensed > tbody > tr td {
+    padding: 2px;
+    font-size: 12px;
+  }
 }
 .modal-content .modal-header {
   padding: 10px 15px;

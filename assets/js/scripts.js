@@ -278,11 +278,33 @@ function HeaderNav() {
             navContainer.append(data);
             console.log(data);
         });
+        
+        var url = window.location;
+        
+        console.log("Url::::");
+        console.log(url);
+        console.log("Url::::");
+        
+        $(".navbar-nav li a").each(function () {
+            $(this).parent().removeClass("active");
+            if($(this).attr("href") === url){
+                $(this).parent().addClass("active");
+            }
+        });
     };
 }
 
 function DatePicker() {
     this.init = function () {
+        var toDate = '';
+        var fromDate = '';
+
+        window.onclick = function (event) {
+            if (event.target.id !== "duration") {
+                $(".datetime-group").hide();
+            }
+        };
+
         $('#datepicker').datepicker({
             daysOfWeekDisabled: "5,6",
             daysOfWeekHighlighted: "1,3,4",
@@ -297,6 +319,37 @@ function DatePicker() {
             $("#schedule-modal").modal('show');
 
             (new BookNow).init();
+        });
+
+        $(".datetime-input").click(function () {
+            $(".datetime-group").show();
+        });
+
+        $('.date-range').datepicker({
+            templates: {
+                leftArrow: '&nbsp;',
+                rightArrow: '&nbsp;'
+            },
+            toValue: function (date, format, language) {
+                var d = new Date(date);
+                d.setDate(d.getDate() + 7);
+                return new Date(d);
+            }
+        });
+
+        $('.date-range').datepicker().on("changeDate", function (e) {
+
+//            console.log("Data id: " + $(this).attr("data-id"));
+            var timestamp = parseInt(e.timeStamp / 1000);
+
+            $.get("/local/date/" + timestamp, function (data) {
+                $("#" + $(this).attr("data-id")).val(data.date);
+            });
+            
+            toDate = $("#date-to").val();
+            fromDate = $("#date-from").val();
+            
+            $(".datetime-input").val(fromDate + " - " + toDate);
         });
     };
 }
@@ -313,6 +366,7 @@ function BookNow() {
 }
 
 $(function () {
+    var url = window.location;
 
     (new StickyFooter($('#container'), $('#footer'))).update().bindOnResize();
 

@@ -831,6 +831,8 @@ section{
                 width: 100%;
                 .profile-picture{
                     vertical-align: top;
+                    text-align: center;
+                    padding-top: 15px;
                     img{
                         width: 150px;
                         height: 150px;
@@ -857,6 +859,21 @@ section{
                 font-weight: 400;
                 font-size: 23px;
                 margin: 0 0 15px;
+            }
+
+            @media (max-width: @grid-float-breakpoint-max) {
+                h1{
+                    font-size: 25px;
+                    text-align: center;
+                }
+                h2 {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                .mt-2{
+                    margin-top: 0;
+                }
+                
             }
         }
         .text-left{
@@ -898,6 +915,23 @@ section{
                         font-weight: 300;
                     }
                 }
+            }
+        }
+    }
+    .search-list{
+        .media{
+            margin-top: 0px;
+            margin-bottom: 0;
+            border: none;
+            .media-object {
+                width: 100%;
+            }
+
+            .media-footer{
+                background: @yellow;
+                font-weight: 900;
+                padding: 16px;
+                font-size: 17px;
             }
         }
     }
@@ -1103,6 +1137,7 @@ section{
     -webkit-padding-start: 0px;
     padding-bottom: 0px;
     margin-top: 0px;
+    float: right !important;
     > li{
         display: inline-block;
         float: left;
@@ -1771,6 +1806,21 @@ a.thumbnail:hover, a.thumbnail:active {
 
 .booking-block{
     padding-bottom: 0 !important;
+    .profile-nav{
+        > li{
+            > a{
+                i{
+                    top: 2px;
+                    &.dashboard{
+                        background-image: url(/images/search-dashboard.png);
+                        width: 24px;
+                        height: 24px;
+                        background-position-x: 0;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .table-condensed {
@@ -1840,6 +1890,116 @@ a.thumbnail:hover, a.thumbnail:active {
     }
 }
 
+.datetime-group{
+    display: none;
+    position: absolute;
+    padding-right: 15px;
+    z-index: 9999;
+    .datetime-inner{
+        position: relative;
+    }
+    .date-range{
+        width: 50%;
+        display: inline-block;
+        float: left;
+        border: 2px solid @gray-base;
+        &:nth-child(2){
+            border-left: none;
+        }
+        .date-arrow{
+            width: 36px;
+            height: 15px;
+            background-image: url(/images/search-date-up-arrow.png) !important;
+            background-size: 100% !important;
+            position: absolute;
+            top: -30px;
+            top: -15px;
+            left: 50%;
+            margin-left: -18px;
+            background-position-y: -1px;
+        }
+        .date-header{
+            background: @gray-base;
+            color: @white;
+            text-align: center;
+            padding: 4px;
+            font-weight: 900;
+        }
+        .datepicker-inline {
+            width: 100%;
+        }
+        .table-condensed {
+            .datepicker-switch {
+                width: 100%;
+            }
+            background-color: @white;
+            position: relative;
+            > thead > tr,
+            > tfoot > tr{
+                > th{
+                    border-radius: 0px;
+                    padding: 10px 5px;
+                    font-size: 14px;
+                    &:hover,
+                        &.focused{
+                        background-color: transparent;
+                    }
+                    &.prev{
+                        position: absolute;
+                        width: 24px;
+                        height: 24px;
+                        left: 14px;
+                        top: 10px;
+                    }
+                    &.next{
+                        position: absolute;
+                        width: 24px;
+                        height: 24px;
+                        right: 14px;
+                        top: 10px;
+                    }
+                }
+            }
+            > tbody > tr{
+                td{
+                    padding: 5px;
+                    font-size: 14px;
+                }
+            }
+            @media (max-width: @grid-float-breakpoint-max) {
+                > thead > tr,
+                > tfoot > tr{
+                    > th{
+                        border-radius: 0px;
+                        padding: 10px 2px;
+                        font-size: 12px;
+                        &:hover,
+                            &.focused{
+                            background-color: transparent;
+                        }
+                        &.prev{
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                        }
+                        &.next{
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+                > tbody > tr{
+                    td{
+                        padding: 2px;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Actual modal
 .modal-content {
     .modal-header {
@@ -1873,4 +2033,3 @@ a.thumbnail:hover, a.thumbnail:active {
         }
     }
 }
-

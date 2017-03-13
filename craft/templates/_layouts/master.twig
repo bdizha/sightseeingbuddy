@@ -103,10 +103,12 @@
                                     <div class="same-height hide"></div>
                                 </ul>
                                 <div class="field form-group fields-search-field" id="fields-search-field">
-                                    <div class="input ltr">
-                                        <input class="text form-control nicetext fullwidth" type="text" id="fields-email" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Search ...">
-                                    </div>
-                                    <i class="fa fa-search"></i>
+                                    <form id="search-form" action="/local/search" method="POST">
+                                        <div class="input ltr">
+                                            <input class="text form-control nicetext fullwidth" type="text" id="keyword" name="keyword" value="" data-show-chars-left="" autocomplete="off" placeholder="Search ...">
+                                        </div>
+                                        <i class="fa fa-search"></i>
+                                    </form>
                                 </div>
                             </div>
                         </nav>

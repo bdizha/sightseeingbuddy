@@ -18,7 +18,7 @@
                         {{ str_limit($experience->description) }}
                     </div>
                     <div class="readmore mt-1">
-                        <a href="/local/experience/{{ $experience->id }}" class="btn btn-default">View</a>
+                        <a href="/local/experience/{{ $experience->slug }}" class="btn btn-default">View</a>
                     </div>
                     <div class="readmore mt-1">
                         <a href="/local/info/{{ $experience->id }}/edit" class="btn btn-default">Edit</a>

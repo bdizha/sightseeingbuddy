@@ -2,7 +2,7 @@
 
 @section('content')
 <section id="page" class="booking-block">
-    @include('booking.partials.header')
+    @include('profile.partials.header', ['title' => 'LET\'S CONFIRM YOUR LOCAL EXPERIENCE BOOKING'])
 </section>
 <section id="page" class="gray-block booking-block">
     <div class="container gray-block mt-1">
