@@ -84,14 +84,14 @@ html, body {
 }
 
 #page{
-    a{
-        font-weight: 700;
-    }
     article{
         border-top: 1px solid @gray-base;
         border-bottom: 1px solid @gray-base;
         font-size: 15px;
         margin-top: 60px;
+        a{
+            font-weight: 700;
+        }
     }
 
     .blog-list{
@@ -411,6 +411,11 @@ a{
     }
 }
 
+.form-control {
+    background-color: @white;
+    border-radius: 5px;
+}
+
 form{
     .gray-left-border{
         padding-left: 35px;
@@ -420,7 +425,7 @@ form{
         display: block;
         .form-control{
             background-color: transparent;
-            padding: 20px 15px 6px;
+            padding: 6px 15px;
             height: auto;
             border-radius: 4px !important;
         }
@@ -443,7 +448,7 @@ form{
             font-weight: 300;
         }
         &.control-label{
-            display: block;
+            display: none;
         }
     }
 
@@ -873,7 +878,7 @@ section{
                 .mt-1{
                     margin-top: 0;
                 }
-                
+
             }
         }
         .text-left{
@@ -1275,6 +1280,44 @@ section{
 
 .search-block {
     position: relative;
+    .search-form{
+        display: block;
+        width: 269px;
+        position: absolute;
+        top: -370px;
+        right: 20px;
+
+        .form-group{
+            height: 49px;
+
+            .input-group {
+                width: 100%;
+                position: relative;
+                .form-control{
+                    border: 1px solid transparent;
+                    background: @white;
+                }
+            }
+
+            .input-group-addon{
+                width: 45px;
+                height: 45px;
+                background-size: 100%;
+                border: 1px solid transparent;
+                z-index: 99;
+            }
+
+            #destination .input-group-addon{
+                background-image: url(/images/destination.png);
+            }
+            #guests .input-group-addon{
+                background-image: url(/images/guests.png);
+            }
+            #duration .input-group-addon{
+                background-image: url(/images/duration.png);
+            }
+        }
+    }
     @media (max-width: @grid-float-breakpoint) {
         display: none;
     }
@@ -1421,6 +1464,7 @@ section{
     font-weight: 700;
     font-size: 15px;
     padding: 7px 24px;
+    border-radius: 5px;
     &.btn-lg{
         padding: 10px 16px;
         font-size: 20px;

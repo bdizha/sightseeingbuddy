@@ -43,6 +43,11 @@
                         <a href="#experiences" class="btn btn-primary pull-right">My Experiences</a>
                     </div>
                 </div>
+                <div class="row hide">
+                    <div class="col-sm-12 col-xs-12 mt-1">
+                        Amount made thus far: R4329.51
+                    </div>
+                </div>
             </div>
         </div>
 

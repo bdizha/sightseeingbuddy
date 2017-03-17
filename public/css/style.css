@@ -8984,14 +8984,14 @@ body {
     padding-right: 0;
   }
 }
-#page a {
-  font-weight: 700;
-}
 #page article {
   border-top: 1px solid #3D3D3D;
   border-bottom: 1px solid #3D3D3D;
   font-size: 15px;
   margin-top: 60px;
+}
+#page article a {
+  font-weight: 700;
 }
 #page .blog-list article {
   border: none;
@@ -9251,6 +9251,10 @@ a:hover {
   margin-bottom: 20px;
   padding-top: 0;
 }
+.form-control {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
 form .gray-left-border {
   padding-left: 35px;
 }
@@ -9259,7 +9263,7 @@ form .input-group {
 }
 form .input-group .form-control {
   background-color: transparent;
-  padding: 20px 15px 6px;
+  padding: 6px 15px;
   height: auto;
   border-radius: 4px !important;
 }
@@ -9279,7 +9283,7 @@ form label.control-value {
   font-weight: 300;
 }
 form label.control-label {
-  display: block;
+  display: none;
 }
 form .schedule-item {
   margin-right: 15px;
@@ -10007,6 +10011,40 @@ section #sidebar h2 {
 .search-block {
   position: relative;
 }
+.search-block .search-form {
+  display: block;
+  width: 269px;
+  position: absolute;
+  top: -370px;
+  right: 20px;
+}
+.search-block .search-form .form-group {
+  height: 49px;
+}
+.search-block .search-form .form-group .input-group {
+  width: 100%;
+  position: relative;
+}
+.search-block .search-form .form-group .input-group .form-control {
+  border: 1px solid transparent;
+  background: #FFFFFF;
+}
+.search-block .search-form .form-group .input-group-addon {
+  width: 45px;
+  height: 45px;
+  background-size: 100%;
+  border: 1px solid transparent;
+  z-index: 99;
+}
+.search-block .search-form .form-group #destination .input-group-addon {
+  background-image: url(/images/destination.png);
+}
+.search-block .search-form .form-group #guests .input-group-addon {
+  background-image: url(/images/guests.png);
+}
+.search-block .search-form .form-group #duration .input-group-addon {
+  background-image: url(/images/duration.png);
+}
 @media (max-width: 992px) {
   .search-block {
     display: none;
@@ -10138,6 +10176,7 @@ section #sidebar h2 {
   font-weight: 700;
   font-size: 15px;
   padding: 7px 24px;
+  border-radius: 5px;
 }
 .btn-primary.btn-lg {
   padding: 10px 16px;
