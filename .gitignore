@@ -39,3 +39,6 @@ public/uploads/files/*
 !**/Flow-logo_600x600_white-background.png
 /nbproject/private/nbproject
 nbproject/
+bower_components
+node_modules/
+bower_components/
