@@ -9423,7 +9423,8 @@ section #sidebar h2 {
   margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .steps-block .step,
 .reviews-block .step {
@@ -10013,7 +10014,7 @@ section #sidebar h2 {
 }
 .search-block .search-form {
   display: block;
-  width: 269px;
+  width: 420px;
   position: absolute;
   top: -370px;
   right: 20px;
@@ -10748,6 +10749,9 @@ a.thumbnail:active {
     padding: 2px;
     font-size: 12px;
   }
+}
+.search-block .datetime-group {
+  padding-right: 0px;
 }
 .modal-content .modal-header {
   padding: 10px 15px;
