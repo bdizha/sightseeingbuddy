@@ -99,10 +99,12 @@ class BookingController extends Controller
 
             $signature = md5($pfTempParamString);
 
-            $result = ($_POST['signature'] == $signature);
+            $pfData["signature"] = $signature;
+
+            $result = ($pfData['signature'] == $signature);
 
             $output .= "Security Signature:\n\n"; // DEBUG
-            $output .= "- posted     = " . $_POST['signature'] . "\n"; // DEBUG
+            $output .= "- posted     = " . $pfData['signature'] . "\n"; // DEBUG
             $output .= "- calculated = " . $signature . "\n"; // DEBUG
             $output .= "- result     = " . ($result ? 'SUCCESS' : 'FAILURE') . "\n"; // DEBUG
         }
