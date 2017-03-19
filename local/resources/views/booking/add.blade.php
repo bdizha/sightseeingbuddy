@@ -32,8 +32,8 @@
         <div class="gray-bottom-border mb-1"></div>
         <form method="POST" action="{{ route('payment_confirm') }}">
             <?php $total = $experience->pricing->guests * $experience->pricing->per_person ?>
-            <input type="hidden" name="merchant_id" value="10000100"/>
-            <input type="hidden" name="merchant_key" value="46f0cd694581a"/>
+            <input type="hidden" name="merchant_id" value="11831960"/>
+            <input type="hidden" name="merchant_key" value="edr4alql7t94e"/>
             <input type="hidden" name="return_url" value="{{ route('payment_success') }}"/>
             <input type="hidden" name="cancel_url" value="{{ route('payment_cancel') }}"/>
             <input type="hidden" name="notify_url" value="{{ route('payment_verify') }}"/>
@@ -41,10 +41,9 @@
             <input type="hidden" name="name_last" value="{{ $user->last_name }}"/>
             <input type="hidden" name="email_address" value="{{ $user->email }}"/>
             <input type="hidden" name="m_payment_id" value="{{ $reference }}"/>
-            <input type="hidden" name="amount" value="{{ $total }}"/>
+            <input type="hidden" name="amount" value="R{{ $total }}"/>
             <input type="hidden" name="item_name" value="{{ $experience->teaser }}"/>
             <input type="hidden" name="item_description" value="{{ $experience->teaser }}"/>
-            <input type="hidden" name="signature" value="{{ md5("name_first={$user->first_name}&name_last={user->last_name}&email_address={$user->email}") }}"/>
                 {!! csrf_field() !!}
             <div class='row'>
                 <div class="col-sm-6 col-xs-12">

@@ -82,7 +82,7 @@ class BookingController extends Controller
 
             // Dump the submitted variables and calculate security signature
             foreach ($pfData as $key => $val) {
-                if ($key != 'signature')
+                if ($key != 'signature' && $key != '_token')
                     $pfParamString .= $key . '=' . urlencode($val) . '&';
             }
 
