@@ -114,6 +114,7 @@ class BookingController extends Controller
                 'sandbox.payfast.co.za',
                 'w1w.payfast.co.za',
                 'w2w.payfast.co.za',
+                'staging.keepitlocal.co.za'
             );
 
             $validIps = array();
