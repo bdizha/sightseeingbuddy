@@ -243,14 +243,14 @@ function Vertilize() {
         sameHeight.attr("style", "height: auto;");
 
         sameHeight.each(function () {
-            console.log("data-class");
-            console.log(sameHeight.attr("data-class"));
+            // console.log("data-class");
+            // console.log(sameHeight.attr("data-class"));
 
             var elements = $('[data-class="' + sameHeight.attr("data-class") + '"]');
 
-            console.log("Elements::: start");
-            console.log(elements);
-            console.log("Elements::: end");
+            // console.log("Elements::: start");
+            // console.log(elements);
+            // console.log("Elements::: end");
 
             elements.each(function () {
                 height = Math.max(height, $(this).height());
@@ -268,7 +268,7 @@ function HeaderNav() {
         $.get("/local/auth/nav", function (data) {
             navContainer.children(".top-nav").remove();
             navContainer.append(data);
-            console.log(data);
+            // console.log(data);
         });
 
         var url = $("#url").val();
@@ -296,9 +296,15 @@ function DatePicker() {
             }
         };
 
+        var daysActive = $("#datepicker").attr("data-days-active");
+        var daysInActive = $("#datepicker").attr("data-days-inactive");
+
+        console.log("some data is coming through now");
+        console.log(daysInActive);
+
         $('#datepicker').datepicker({
-            daysOfWeekDisabled: "5,6",
-            daysOfWeekHighlighted: "1,3,4",
+            daysOfWeekDisabled: daysInActive,
+            daysOfWeekHighlighted: daysActive,
             templates: {
                 leftArrow: '&nbsp;',
                 rightArrow: '&nbsp;'
@@ -329,8 +335,6 @@ function DatePicker() {
         });
 
         $('.date-range').datepicker().on("changeDate", function (e) {
-
-//            console.log("Data id: " + $(this).attr("data-id"));
             var timestamp = parseInt(e.timeStamp / 1000);
 
             $.get("/local/date/" + timestamp, function (data) {

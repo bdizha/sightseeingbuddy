@@ -19,7 +19,10 @@ class Booking extends Model
         'amount',
         'status',
         'pricing_id',
-        'schedule_id'
+        'schedule_id',
+        'time',
+        'date',
+        'reference'
     ];
     
     public function user() {

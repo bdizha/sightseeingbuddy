@@ -56,7 +56,7 @@ class LastController extends ExperienceController {
 
         Session::flash('flash_message', 'Experience successfully saved!');
 
-        return redirect(url("/local/experience/" . $experience->id));
+        return redirect(url("/local/experience/" . $experience->slug));
     }
 
     /**

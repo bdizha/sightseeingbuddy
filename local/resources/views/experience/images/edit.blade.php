@@ -1,12 +1,11 @@
-@extends('layouts.step', ['hasJs' => false])
+@extends('layouts.step', ['active' => 'images', 'links' => $links, 'disable' => true, 'excludeJs' => true])
 
-@section('content')
-@include('experience.partials.sidebar', ['active' => 'images', 'links' => $links])
-{!! Form::open([
-'method' => 'PATCH',
-'route' => ['images.update', $experience->id],
-'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
-@include('experience.images.form', ['experience' => $experience, 'gallery' => $gallery]) 
-{!! Form::close() !!}
-@include('partials.upload')
+@section('form')
+    {!! Form::open([
+    'method' => 'PATCH',
+    'route' => ['images.update', $experience->id],
+    'class' => '']) !!}
+    @include('experience.images.form', ['experience' => $experience, 'gallery' => $gallery])
+    {!! Form::close() !!}
+    @include('partials.upload')
 @endsection

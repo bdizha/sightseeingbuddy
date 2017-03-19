@@ -1,10 +1,9 @@
-@extends('layouts.step')
+@extends('layouts.step', ['active' => 'contact', 'links' => $links])
 
-@section('content')
-@include('step.partials.sidebar', ['active' => 'contact', 'links' => $links])
-{!! Form::open([
-'route' => 'contact.store',
-'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
-@include('step.contact.form', ['user' => $user, 'contact' => $contact]) 
-{!! Form::close() !!}
+@section('form')
+    {!! Form::open([
+    'route' => 'contact.store',
+    'class' => '']) !!}
+    @include('step.contact.form', ['user' => $user, 'contact' => $contact])
+    {!! Form::close() !!}
 @endsection

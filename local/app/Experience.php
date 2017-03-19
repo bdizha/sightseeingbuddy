@@ -133,7 +133,7 @@ class Experience extends Model {
         $experience = self::where('user_id', '=', $userId)->first();
 
         if (empty($experience->id)) {
-            $experience = new $this();
+            $experience = new Expe();
         }
 
         return $experience;
@@ -141,11 +141,22 @@ class Experience extends Model {
 
     public function getTimesAttribute() {
 
-        return unserialize($this->schedule->times);
+        $times = [];
+        if(!empty($this->schedule)){
+            $times = unserialize($this->schedule->times);
+        }
+
+        return $times;
     }
 
     public function getDaysAttribute() {
-        return array_keys(unserialize($this->schedule->days));
+
+        $days = [];
+        if(!empty($this->schedule)){
+            $days = unserialize($this->schedule->days);
+        }
+
+        return $days;
     }
 
     public function getExperiencesCountAttribute() {

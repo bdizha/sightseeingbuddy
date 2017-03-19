@@ -8,7 +8,7 @@
                 <div class='text-center'>
                     <div id="cover-image-bin" class="image-bin profile-picture form-group">
                         <div class="bin-item">
-                            <img src="{{ Helper::personImage($introduction->image) }}" />
+                            <img src="{{ Helper::personImage($introduction->image, "gray") }}" />
                             {{ Form::hidden('image', $introduction->image, ['id' => 'image']) }}
                             <i class="fa fa-close bin-close"></i>
                         </div>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class='col-sm-8 col-xs-12'>
-                <div class="gray-left-border mt-1">
+                <div class="gray-left-border">
                     <h1 class="page-title page-title-left">
                         Introduce yourself
                     </h1>

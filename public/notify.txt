@@ -1,0 +1,11 @@
+Posted Variables:
+
+Security Signature:
+
+- posted     = f7df30035bf6904c2f941f74e49076d0
+- calculated = 0bc46a3c4e7c58a3ebcb4fbf0cde29c1
+- result     = FAILURE
+
+
+An error occurred!
+Error = Bad source IP address

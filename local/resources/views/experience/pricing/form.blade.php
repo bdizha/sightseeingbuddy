@@ -70,8 +70,11 @@
                         @foreach(Helper::days() as $key => $day)
                         <div class="schedule-item">
                             <label class="checkbox-inline">
-                                {{ Form::checkbox('days[' . $day . ']', $key, in_array($day, $experience->days)) }}
-                                {{ $day }}
+                                {{ Form::checkbox('days[]', $key, in_array($key, $experience->days), ['id' => "days_" . $key]) }}
+                                <label for="{{ "days_" . $key }}">
+                                    <span></span>
+                                    {{ $day }}
+                                </label>
                             </label>
                         </div>
                         @endforeach
@@ -85,8 +88,11 @@
                         @foreach(Helper::times() as $key => $time)
                         <div class="schedule-item">
                             <label class="checkbox-inline">
-                                {{ Form::checkbox('times[' . $time . ']', $key, in_array($time, $experience->times)) }}
-                                {{ $time }}
+                                {{ Form::checkbox('times[]', $key, in_array($time, $experience->times), ['id' => "times_" . $key]) }}
+                                <label for="{{ "times_" . $key }}">
+                                    <span></span>
+                                    {{ $time }}
+                                </label>
                             </label>
                         </div>
                         @endforeach

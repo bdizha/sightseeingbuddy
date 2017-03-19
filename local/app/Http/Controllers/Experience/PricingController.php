@@ -68,7 +68,7 @@ class PricingController extends ExperienceController {
 
         $schedule = ExperienceSchedule::create([
                     'experience_id' => $input['experience_id'],
-                    'days' => serialize($input['days']),
+                    'days' => serialize(array_values($input['days'])),
                     'times' => serialize($input['times'])
         ]);
 

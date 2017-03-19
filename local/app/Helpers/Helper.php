@@ -37,8 +37,8 @@ class Helper {
             3 => 'Wednesdays',
             4 => 'Thursdays',
             5 => 'Fridays',
-            6 => 'Sutardays',
-            7 => 'Sundays'
+            6 => 'Saturdays',
+            0 => 'Sundays'
         ];
 
         return $days;
@@ -55,10 +55,8 @@ class Helper {
             $midTime = $paddedHour . "h30";
             $times[$midTime] = $midTime;
         }
-        
-        
-        str_limit($midTime);
 
+        str_limit($midTime);
         return $times;
     }
 
@@ -77,9 +75,9 @@ class Helper {
         return $preserved;
     }
 
-    public static function personImage($image) {
+    public static function personImage($image, $color = "yellow") {
         if (empty($image)) {
-            $image = "/images/person-yellow.png";
+            $image = "/images/person-{$color}.png";
         }
 
         return $image;

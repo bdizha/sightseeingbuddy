@@ -14,13 +14,15 @@ use App\ExperienceLanguage;
 use App\Language;
 use App\ExperienceCategory;
 
-class InfoController extends ExperienceController {
+class InfoController extends ExperienceController
+{
 
     protected $next_step = "pricing";
     protected $cur_step = "info";
     protected $prev_step = "last";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -29,17 +31,25 @@ class InfoController extends ExperienceController {
      *
      * @return Response
      */
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $experience = new Experience();
         $user = Auth::user();
 
         $links = $this->getLinks();
 
+        $languages = [];
+        $highlights = [];
+        $activities = [];
+
         return view('experience.info.add', [
             'experience' => $experience,
             'user' => $user,
             'links' => $links,
-            'extras' => $this->getExras()
+            'extras' => $this->getExras(),
+            'languages' => $languages,
+            'highlights' => $highlights,
+            'activities' => $activities,
         ]);
     }
 
@@ -48,7 +58,8 @@ class InfoController extends ExperienceController {
      *
      * @return Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         $user = Auth::user();
         $experience = new Experience();
@@ -62,9 +73,26 @@ class InfoController extends ExperienceController {
      *
      * @return Response
      */
-    public function edit($id, Request $request) {
+    public function edit($id, Request $request)
+    {
         $experience = Experience::where('id', '=', $id)->first();
         $user = Auth::user();
+
+        $languages = [];
+        $highlights = [];
+        $activities = [];
+
+        foreach ($experience->languages as $language) {
+            $languages[] = $language->name;
+        }
+
+        foreach ($experience->highlights as $highlight) {
+            $highlights[] = $highlight->description;
+        }
+
+        foreach ($experience->activities as $activity) {
+            $activities[] = $activity->description;
+        }
 
         $links = $this->getLinks($experience);
 
@@ -72,7 +100,10 @@ class InfoController extends ExperienceController {
             'experience' => $experience,
             'user' => $user,
             'links' => $links,
-            'extras' => $this->getExras()
+            'extras' => $this->getExras(),
+            'languages' => $languages,
+            'highlights' => $highlights,
+            'activities' => $activities,
         ]);
     }
 
@@ -81,12 +112,14 @@ class InfoController extends ExperienceController {
      *
      * @return Response
      */
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
         $experience = Experience::where('id', '=', $id)->first();
         return $this->save($experience, $request);
     }
 
-    private function save($experience, $request) {
+    private function save($experience, $request)
+    {
 
         $fields = [
             'country_id' => 'required|max:255',
@@ -110,10 +143,10 @@ class InfoController extends ExperienceController {
         $input = $request->all();
 
         $city = City::updateOrCreate(
-                        [
-                            'country_id' => $input['country_id'],
-                            "name" => trim($input["city"])
-        ]);
+            [
+                'country_id' => $input['country_id'],
+                "name" => trim($input["city"])
+            ]);
 
         $input["city_id"] = $city->id;
 
@@ -159,10 +192,11 @@ class InfoController extends ExperienceController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $experience = Experience::findOrFail($id);
         $experience->delete();
 

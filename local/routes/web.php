@@ -29,7 +29,8 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('last', 'Experience\LastController');
 
     Route::patch('/upload/image', 'Step\IntroductionController@upload');
-    
+    Route::post('/upload/image', 'Step\IntroductionController@upload');
+
     Route::get('/date/{timestamp}', 'ExperienceController@date');
 
     // profile resources
@@ -44,8 +45,10 @@ Route::group(['prefix' => 'local'], function () {
     // bookings resources
     Route::group(['prefix' => 'booking'], function () {
         Route::get('/create/{id}/{time}/{timestamp}', 'BookingController@create');
-        Route::post('/place', 'BookingController@place')->name("make_payment");
-        Route::get('/receipt/{id}', 'BookingController@receipt')->name("payment_receipt");
+        Route::post('/confirm', 'BookingController@confirm')->name("payment_confirm");
+        Route::get('/success', 'BookingController@success')->name("payment_success");
+        Route::get('/cancel', 'BookingController@cancel')->name("payment_cancel");
+        Route::post('/verify', 'BookingController@verify')->name("payment_verify");
         Route::get('/forex', 'BookingController@forex');
     });
 

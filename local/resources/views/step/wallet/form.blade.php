@@ -6,7 +6,7 @@
             <div class='col-sm-8 col-xs-12'>
                 <div class="gray-left-border mt-1">
                     <h1 class="page-title page-title-left">
-                        Where do you live?
+                        Your payment details
                     </h1>
                     {!! csrf_field() !!}
                     <div class="row form-group {{ $errors->has('bank') ? 'has-error' : '' }}" id="bank">

@@ -5,7 +5,7 @@
 {!! Form::open([
 'method' => 'PATCH',
 'route' => ['introduction.update', $user->id],
-'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
+'class' => '']) !!}
 @include('step.introduction.form', ['user' => $user, 'introduction' => $introduction]) 
 {!! Form::close() !!}
 @include('partials.upload')

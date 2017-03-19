@@ -54,8 +54,7 @@ use AuthenticatesAndRegistersUsers,
                     'email' => 'required|email|max:255|unique:users',
                     'mobile' => 'required|max:255|unique:users',
                     'password' => 'required|min:6|confirmed',
-                    'gender' => 'required',
-                    'type' => 'required',
+                    'gender' => 'required'
         ]);
     }
 

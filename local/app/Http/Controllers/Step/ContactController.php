@@ -85,7 +85,7 @@ class ContactController extends StepController {
         $fields = [
             'email' => 'required|email|max:255',
             'mobile' => 'required|max:255',
-            'telephone' => 'required|max:255'
+            'telephone' => 'max:255'
         ];
 
         $this->validate($request, $fields);

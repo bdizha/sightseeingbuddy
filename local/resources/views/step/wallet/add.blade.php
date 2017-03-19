@@ -1,10 +1,8 @@
-@extends('layouts.step')
+@extends('layouts.step', ['active' => 'wallet', 'links' => $links])
 
-@section('content')
-@include('step.partials.sidebar', ['active' => 'wallet', 'links' => $links])
 {!! Form::open([
 'route' => 'wallet.store',
-'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
+'class' => '']) !!}
 @include('step.wallet.form', ['user' => $user, 'wallet' => $wallet]) 
 {!! Form::close() !!}
 @endsection

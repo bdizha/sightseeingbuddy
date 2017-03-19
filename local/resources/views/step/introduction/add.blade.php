@@ -1,11 +1,10 @@
-@extends('layouts.step')
+@extends('layouts.step', ['active' => 'introduction', 'links' => $links, 'excludeJs' => true])
 
-@section('content')
-@include('step.partials.sidebar', ['active' => 'introduction', 'links' => $links])
-{!! Form::open([
-'route' => 'introduction.store',
-'class' => 'col-sm-8 col-sm-offset-1 same-height']) !!}
-@include('step.introduction.form', ['user' => $user, 'introduction' => $introduction]) 
-{!! Form::close() !!}
-@include('partials.upload')
+@section('form')
+    {!! Form::open([
+    'route' => 'introduction.store',
+    'class' => '']) !!}
+    @include('step.introduction.form', ['user' => $user, 'introduction' => $introduction])
+    {!! Form::close() !!}
+    @include('partials.upload')
 @endsection

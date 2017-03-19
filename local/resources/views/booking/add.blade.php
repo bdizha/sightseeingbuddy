@@ -30,7 +30,22 @@
             </div>
         </div>
         <div class="gray-bottom-border mb-1"></div>
-        <form>
+        <form method="POST" action="{{ route('payment_confirm') }}">
+            <?php $total = $experience->pricing->guests * $experience->pricing->per_person ?>
+            <input type="hidden" name="merchant_id" value="10000100"/>
+            <input type="hidden" name="merchant_key" value="46f0cd694581a"/>
+            <input type="hidden" name="return_url" value="{{ route('payment_success') }}"/>
+            <input type="hidden" name="cancel_url" value="{{ route('payment_cancel') }}"/>
+            <input type="hidden" name="notify_url" value="{{ route('payment_verify') }}"/>
+            <input type="hidden" name="name_first" value="{{ $user->first_name }}"/>
+            <input type="hidden" name="name_last" value="{{ $user->last_name }}"/>
+            <input type="hidden" name="email_address" value="{{ $user->email }}"/>
+            <input type="hidden" name="m_payment_id" value="{{ $reference }}"/>
+            <input type="hidden" name="amount" value="{{ $total }}"/>
+            <input type="hidden" name="item_name" value="{{ $experience->teaser }}"/>
+            <input type="hidden" name="item_description" value="{{ $experience->teaser }}"/>
+            <input type="hidden" name="signature" value="{{ md5("name_first={$user->first_name}&name_last={user->last_name}&email_address={$user->email}") }}"/>
+                {!! csrf_field() !!}
             <div class='row'>
                 <div class="col-sm-6 col-xs-12">
                     <div class="booking-row">
@@ -54,7 +69,7 @@
                                 <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
                             </small>
                         </div>
-                        <button type="submit"" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-yellow mb-1">Make payment</button>
+                        <button type="submit" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-yellow mb-1">Make payment</button>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
@@ -75,7 +90,6 @@
                         <div class='row'>
                             <div class="col-sm-5 col-xs-12">
                                 <h4>Grand total:</h4>
-                                <?php $total = $experience->pricing->guests * $experience->pricing->per_person ?>
                                 <h1>
                                     <span class="currency-name" currency-name="ZAR">R</span><span class="currency-value" currency-value="{{ $total }}">{{ $total }}</span>
                                 </h1>
