@@ -129,7 +129,7 @@ class BookingController extends Controller
             // Remove duplicates
             $validIps = array_unique($validIps);
 
-            if (!in_array($_SERVER['REMOTE_ADDR'], $validIps)) {
+            if ($_SERVER["SERVER_NAME"] != 'staging.keepitlocal.co.za') {
                 $pfError = true;
                 $pfErrMsg = PF_ERR_BAD_SOURCE_IP;
             }
