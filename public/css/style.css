@@ -8988,7 +8988,6 @@ body {
   border-top: 1px solid #3D3D3D;
   border-bottom: 1px solid #3D3D3D;
   font-size: 15px;
-  margin-top: 60px;
 }
 #page article a {
   font-weight: 700;
@@ -9396,9 +9395,8 @@ section #sidebar h2 {
   font-weight: 700;
 }
 #sidebar {
-  padding-top: 20px;
   background: #FFFFFF;
-  margin-top: 60px;
+  margin-top: 75px;
 }
 .article-body:before,
 .article-body:after {

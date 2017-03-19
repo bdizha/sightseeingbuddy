@@ -27,7 +27,7 @@
       ], { ratio: 2/1, mode: 'crop', cropZoom: 1, position: mediaBlock.image.focalPoint, jpegQuality: 80 }) %}
 
 
-    <article class="media media-responsive same-height">
+    <article class="media media-responsive same-height" data-class="article">
       <div class="media-{{ mediaBlock.alignment }} pull-{{ mediaBlock.alignment }}">
         {% if mediaBlock.url %}<a href="{{ mediaBlock.url }}">{% endif %}
           {% if mediaBlock.image %}

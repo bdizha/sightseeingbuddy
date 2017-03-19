@@ -133,48 +133,44 @@ function UIBindings() {
     this.bindMagnificpopup = function () {
         $('.gallery-image').magnificPopup({
             type: 'image',
-            callbacks:
-                    {
-                        markupParse: function (template, values, item)
-                        {
-                            values.description = item.el.data('description');
-                        }
-                    },
+            callbacks: {
+                markupParse: function (template, values, item) {
+                    values.description = item.el.data('description');
+                }
+            },
             gallery: {
                 enabled: true
             },
-            image:
-                    {
-                        headerFit: true,
-                        captionFit: true,
-                        preserveHeaderAndCaptionWidth: false,
-                        markup:
-                                '<div class="mfp-figure">' +
-                                '<figure>' +
-                                '<header class="mfp-header">' +
-                                '<div class="mfp-top-bar">' +
-                                '<div class="mfp-title"></div>' +
-                                '<div class="mfp-close"></div>' +
-                                '<div class="mfp-decoration"></div>' +
-                                '</div>' +
-                                '</header>' +
-                                '<section class="mfp-content-container">' +
-                                '<div class="mfp-img"></div>' +
-                                '</section>' +
-                                '<footer class="mfp-footer">' +
-                                '<figcaption class="mfp-figcaption">' +
-                                '<div class="mfp-bottom-bar-container">' +
-                                '<div class="mfp-bottom-bar">' +
-                                '<div class="mfp-counter"></div>' +
-                                '<div class="mfp-description"></div>' +
-                                '<div class="mfp-decoration"></div>' +
-                                '</div>' +
-                                '</div>' +
-                                '</figcaption>' +
-                                '</footer>' +
-                                '</figure>' +
-                                '</div>',
-                    }
+            image: {
+                headerFit: true,
+                captionFit: true,
+                preserveHeaderAndCaptionWidth: false,
+                markup: '<div class="mfp-figure">' +
+                '<figure>' +
+                '<header class="mfp-header">' +
+                '<div class="mfp-top-bar">' +
+                '<div class="mfp-title"></div>' +
+                '<div class="mfp-close"></div>' +
+                '<div class="mfp-decoration"></div>' +
+                '</div>' +
+                '</header>' +
+                '<section class="mfp-content-container">' +
+                '<div class="mfp-img"></div>' +
+                '</section>' +
+                '<footer class="mfp-footer">' +
+                '<figcaption class="mfp-figcaption">' +
+                '<div class="mfp-bottom-bar-container">' +
+                '<div class="mfp-bottom-bar">' +
+                '<div class="mfp-counter"></div>' +
+                '<div class="mfp-description"></div>' +
+                '<div class="mfp-decoration"></div>' +
+                '</div>' +
+                '</div>' +
+                '</figcaption>' +
+                '</footer>' +
+                '</figure>' +
+                '</div>',
+            }
         });
     };
 
@@ -239,34 +235,30 @@ function Notifications() {
 }
 
 function Vertilize() {
-    var $window = $(window);
-    var sameHeight = $('.same-height');
-
-    var height = 0;
-    var currentHeight = height;
-
-    this.setHeight = function () {
-        sameHeight.each(function () {
-            height = Math.max(height, $(this).height());
-        });
-    };
-
-    this.applyHeight = function () {
-        sameHeight.height(height);
-    };
 
     this.init = function () {
-        this.setHeight();
 
-        if (currentHeight !== height) {
-            this.applyHeight();
-            currentHeight = height;
-        }
+        var height = 0;
+        var sameHeight = $('.same-height');
+        sameHeight.attr("style", "height: auto;");
+
+        sameHeight.each(function () {
+            console.log("data-class");
+            console.log(sameHeight.attr("data-class"));
+
+            var elements = $('[data-class="' + sameHeight.attr("data-class") + '"]');
+
+            console.log("Elements::: start");
+            console.log(elements);
+            console.log("Elements::: end");
+
+            elements.each(function () {
+                height = Math.max(height, $(this).height());
+            });
+
+            elements.height(height);
+        });
     };
-
-    this.init();
-
-//    $window.on('resize', Vertilize());
 }
 
 function HeaderNav() {
@@ -366,9 +358,9 @@ function BookNow() {
 
 function UIModal() {
     this.init = function () {
-        
+
         $(".notice-modal").modal("show");
-        
+
         $(".btn-modal").click(function () {
             $("#" + $(this).attr("modal-id")).modal('show');
             return false;
@@ -377,7 +369,7 @@ function UIModal() {
 }
 
 $(function () {
-    var url = window.location;
+    var $window = $(window);
 
     (new StickyFooter($('#container'), $('#footer'))).update().bindOnResize();
 
@@ -410,4 +402,8 @@ $(function () {
     (new BookNow).init();
 
     (new UIModal).init();
+
+    $window.on('resize', function () {
+        (new Vertilize).init();
+    });
 });
