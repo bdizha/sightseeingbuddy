@@ -41,7 +41,7 @@
             <input type="hidden" name="name_last" value="{{ $user->last_name }}"/>
             <input type="hidden" name="email_address" value="{{ $user->email }}"/>
             <input type="hidden" name="m_payment_id" value="{{ $reference }}"/>
-            <input type="hidden" name="amount" value="R{{ $total }}"/>
+            <input type="hidden" name="amount" value="{{ $total }}"/>
             <input type="hidden" name="item_name" value="{{ $experience->teaser }}"/>
             <input type="hidden" name="item_description" value="{{ $experience->teaser }}"/>
                 {!! csrf_field() !!}
