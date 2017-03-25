@@ -69,20 +69,21 @@ class BookingController extends Controller
         $filename = 'notify.txt'; // DEBUG
         $output = ''; // DEBUG
         $pfParamString = '';
-        $pfHost = (PAYFAST_SERVER == 'LIVE') ?
-            'www.payfast.co.za' : 'sandbox.payfast.co.za';
+        $pfHost = (PAYFAST_SERVER == 'LIVE') ? 'www.payfast.co.za' : 'sandbox.payfast.co.za';
+
+        $pfData = $_POST;
 
         //// Dump the submitted variables and calculate security signature
         if (!$pfError) {
             $output = "Posted Variables:\n\n"; // DEBUG
 
             // Strip any slashes in data
-            foreach ($_POST as $key => $val)
+            foreach ($pfData as $key => $val)
                 $pfData[$key] = stripslashes($val);
 
             // Dump the submitted variables and calculate security signature
             foreach ($pfData as $key => $val) {
-                if ($key != 'signature' && $key != '_token')
+                if ($key != 'signature')
                     $pfParamString .= $key . '=' . urlencode($val) . '&';
             }
 
@@ -91,10 +92,10 @@ class BookingController extends Controller
             $pfTempParamString = $pfParamString;
 
             // If a passphrase has been set in the PayFast Settings, then it needs to be included in the signature string.
-//            $passPhrase = 'keepitlocal'; //You need to get this from a constant or stored in you website
-//            if (!empty($passPhrase)) {
-//                $pfTempParamString .= '&passphrase=' . urlencode($passPhrase);
-//            }
+            $passPhrase = ''; //You need to get this from a constant or stored in you website
+            if (!empty($passPhrase)) {
+                $pfTempParamString .= '&passphrase=' . urlencode($passPhrase);
+            }
             //dd($pfTempParamString);
 
             $signature = md5($pfTempParamString);
@@ -241,7 +242,7 @@ class BookingController extends Controller
             $output .= "\nError = " . $pfErrMsg;
         }
 
-        dd($output);
+        dd([$pfHost, $output]);
 
         //// Write output to file // DEBUG
         file_put_contents($filename, $output); // DEBUG
