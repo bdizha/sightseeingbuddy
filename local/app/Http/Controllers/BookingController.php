@@ -99,7 +99,7 @@ class BookingController extends Controller
 
     public function verify(Request $request)
     {
-        file_put_contents(public_path() . "/" .  "verify.txt", "verify: " . time()); // DEBUG
+        file_put_contents(public_path() . "/" .  "verify.txt", "verify: " . time() . " : " . PAYFAST_SERVER); // DEBUG
 
         // Variable initialization
         $pfError = false;
