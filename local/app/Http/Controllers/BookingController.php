@@ -57,8 +57,6 @@ class BookingController extends Controller
         }
         $data['signature'] = md5($getString);
 
-        dd($data);
-
         return view('booking.add', [
             'experience' => $experience,
             'user' => Auth::user(),
@@ -139,8 +137,6 @@ class BookingController extends Controller
             //dd($pfTempParamString);
 
             $signature = md5($pfTempParamString);
-
-            $pfData["signature"] = $signature;
 
             $result = ($pfData['signature'] == $signature);
 
