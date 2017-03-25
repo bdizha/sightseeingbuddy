@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Experience;
@@ -46,9 +47,26 @@ class BookingController extends Controller
 
         $user = Auth::user();
         $experience = Experience::where('id', '=', $id)->first();
-        $reference = "KIL1490445127"; // "KIL" . time();
+        $pricing = $experience->pricing;
+        $reference = "KIL" . time();
 
-        $total = $experience->pricing->guests * $experience->pricing->per_person;
+        $date = date("Y-m-d", time());
+
+//        echo time() . "<br />";
+//        echo $timestamp;
+//        dd($date);
+
+        $booking = new Booking();
+        $booking->user_id = $user->id;
+        $booking->experience_id = $id;
+        $booking->pricing_id = $pricing->id;
+        $booking->schedule_id = 4;
+        $booking->reference = $reference;
+        $booking->time = $time;
+        $booking->date = $date;
+        $booking->save();
+
+        $total = $pricing->guests * $pricing->per_person;
 
         $data = array(
             // Merchant details
@@ -99,7 +117,7 @@ class BookingController extends Controller
 
     public function verify(Request $request)
     {
-        file_put_contents(public_path() . "/" .  "verify.txt", "verify: " . time() . " : " . PAYFAST_SERVER); // DEBUG
+        file_put_contents(public_path() . "/" . "verify.txt", "verify: " . time() . " : " . PAYFAST_SERVER); // DEBUG
 
         // Variable initialization
         $pfError = false;
@@ -275,10 +293,35 @@ class BookingController extends Controller
         if ($pfError) {
             $output .= "\n\nAn error occurred!";
             $output .= "\nError = " . $pfErrMsg;
+        } else {
+
+            $booking = Booking::where("reference", "=", $pfData[])->first();
+            switch ($pfData['payment_status']) {
+                case 'COMPLETE':
+                    // If complete, update your application, email the buyer and process the transaction as paid
+                    $booking->status = 'processed';
+
+                    // send email here
+                    break;
+                case 'FAILED':
+                    // There was an error, update your application and contact a member of PayFast's support team for further assistance
+                    $booking->status = 'cancelled';
+
+                    // send email here
+                    break;
+                case 'PENDING':
+                    // The transaction is pending, please contact a member of PayFast's support team for further assistance
+                    $booking->status = 'pending';
+                    break;
+                default:
+                    // If unknown status, do nothing (safest course of action)
+                    break;
+            }
+            $booking->save();
         }
 
         //// Write output to file // DEBUG
-        file_put_contents(public_path() . "/" .  $filename, $output); // DEBUG
+        file_put_contents(public_path() . "/" . $filename, $output); // DEBUG
 
         // Notify PayFast that information has been received
         header('HTTP/1.0 200 OK');
@@ -287,14 +330,28 @@ class BookingController extends Controller
 
     public function cancel(Request $request)
     {
-        file_put_contents(public_path() . "/" .  "cancel.txt", "cancel: " . time()); // DEBUG
-        dd("cancel");
+        $user = Auth::user();
+//        $booking = Booking::where('reference', '=', $reference)->first();
+
+        file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . time()); // DEBUG
+        return view('booking.cancel', [
+            'user' => $user,
+            'experience' => Experience::where("id", "=", 3)->first()
+        ]);
+
     }
 
     public function success(Request $request)
     {
-        file_put_contents(public_path() . "/" .  "success.txt", "success: " . time()); // DEBUG
-        dd($_POST);
+        $user = Auth::user();
+//        $booking = Booking::where('reference', '=', $reference)->first();
+
+        file_put_contents(public_path() . "/" . "success.txt", "success: " . time()); // DEBUG
+
+        return view('booking.success', [
+            'user' => $user,
+            'experience' => Experience::where("id", "=", 3)->first()
+        ]);
     }
 
     public function forex()

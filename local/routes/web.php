@@ -39,7 +39,7 @@ Route::group(['prefix' => 'local'], function () {
     // experience resources
     Route::group(['prefix' => 'experience'], function () {
         Route::get('/{slug}', 'ExperienceController@show');
-        Route::get('/{id}/schedule', 'ExperienceController@schedule');
+        Route::get('/{id}/schedule', 'ExperienceController@schedule')->name("experience_schedule");
     });
 
     // bookings resources

@@ -9615,8 +9615,8 @@ section #sidebar h2 {
   display: table-cell;
 }
 #page .profile .profile-picture img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
 }
 #page .profile .profile-info {
@@ -9656,7 +9656,8 @@ section #sidebar h2 {
     vertical-align: top;
     text-align: center;
     padding-top: 15px;
-    display: table-cell;
+    display: block;
+    width: 100%;
   }
   #page .profile .profile-picture img {
     width: 200px;
