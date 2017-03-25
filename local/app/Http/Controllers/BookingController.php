@@ -12,14 +12,41 @@ class BookingController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        /**
+         * Notes:
+         * - All lines with the suffix "// DEBUG" are for debugging purposes and
+         *   can safely be removed from live code.
+         * - Remember to set PAYFAST_SERVER to LIVE for production/live site
+         */
+        // General defines
+        define('PAYFAST_SERVER', 'TEST');
+        // Whether to use "sandbox" test server or live server
+        define('USER_AGENT', 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
+        // User Agent for cURL
+
+        // Messages
+        // Error
+        define('PF_ERR_AMOUNT_MISMATCH', 'Amount mismatch');
+        define('PF_ERR_BAD_SOURCE_IP', 'Bad source IP address');
+        define('PF_ERR_CONNECT_FAILED', 'Failed to connect to PayFast');
+        define('PF_ERR_BAD_ACCESS', 'Bad access of page');
+        define('PF_ERR_INVALID_SIGNATURE', 'Security signature mismatch');
+        define('PF_ERR_CURL_ERROR', 'An error occurred executing cURL');
+        define('PF_ERR_INVALID_DATA', 'The data received is invalid');
+        define('PF_ERR_UKNOWN', 'Unkown error occurred');
+
+        // General
+        define('PF_MSG_OK', 'Payment was successful');
+        define('PF_MSG_FAILED', 'Payment has failed');
     }
 
     public function create($id, $time, $timestamp, Request $request)
     {
+        $this->middleware('auth');
+
         $user = Auth::user();
         $experience = Experience::where('id', '=', $id)->first();
-        $reference = "KIL" . time();
+        $reference = "KIL1490445127"; // "KIL" . time();
 
         $total = $experience->pricing->guests * $experience->pricing->per_person;
 
@@ -57,11 +84,14 @@ class BookingController extends Controller
         }
         $data['signature'] = md5($getString);
 
+        $pfHost = (PAYFAST_SERVER == 'LIVE') ? 'www.payfast.co.za' : 'sandbox.payfast.co.za';
+
         return view('booking.add', [
             'experience' => $experience,
             'user' => Auth::user(),
             'time' => $time,
             'data' => $data,
+            'pfHost' => $pfHost,
             'timestamp' => $timestamp,
             'reference' => $reference
         ]);
@@ -69,34 +99,6 @@ class BookingController extends Controller
 
     public function confirm(Request $request)
     {
-        /**
-         * Notes:
-         * - All lines with the suffix "// DEBUG" are for debugging purposes and
-         *   can safely be removed from live code.
-         * - Remember to set PAYFAST_SERVER to LIVE for production/live site
-         */
-        // General defines
-        define('PAYFAST_SERVER', 'TEST');
-        // Whether to use "sandbox" test server or live server
-        define('USER_AGENT', 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
-        // User Agent for cURL
-
-        // Messages
-        // Error
-        define('PF_ERR_AMOUNT_MISMATCH', 'Amount mismatch');
-        define('PF_ERR_BAD_SOURCE_IP', 'Bad source IP address');
-        define('PF_ERR_CONNECT_FAILED', 'Failed to connect to PayFast');
-        define('PF_ERR_BAD_ACCESS', 'Bad access of page');
-        define('PF_ERR_INVALID_SIGNATURE', 'Security signature mismatch');
-        define('PF_ERR_CURL_ERROR', 'An error occurred executing cURL');
-        define('PF_ERR_INVALID_DATA', 'The data received is invalid');
-        define('PF_ERR_UKNOWN', 'Unkown error occurred');
-
-        // General
-        define('PF_MSG_OK', 'Payment was successful');
-        define('PF_MSG_FAILED', 'Payment has failed');
-
-
         // Notify PayFast that information has been received
         header('HTTP/1.0 200 OK');
         flush();
@@ -152,8 +154,7 @@ class BookingController extends Controller
                 'www.payfast.co.za',
                 'sandbox.payfast.co.za',
                 'w1w.payfast.co.za',
-                'w2w.payfast.co.za',
-                'staging.keepitlocal.co.za'
+                'w2w.payfast.co.za'
             );
 
             $validIps = array();
@@ -278,10 +279,10 @@ class BookingController extends Controller
             $output .= "\nError = " . $pfErrMsg;
         }
 
-        dd([$pfHost, $output]);
+//        dd([$pfHost, $output]);
 
         //// Write output to file // DEBUG
-        file_put_contents($filename, $output); // DEBUG
+        file_put_contents(__DIR__ . "/" . $filename, $output); // DEBUG
     }
 
     public function cancel(Request $request)

@@ -31,7 +31,7 @@
             </div>
             <div class="gray-bottom-border mb-1"></div>
             <?php $total = $experience->pricing->guests * $experience->pricing->per_person ?>
-            <form method="POST" action="{{ route('payment_confirm') }}">
+            <form method="POST" action="https://{{ $pfHost }}/eng/process">
                 @foreach($data as $key => $input)
                     <input type="hidden" name="{{ $key }}" value="{{ $input }}"/>
                 @endforeach
