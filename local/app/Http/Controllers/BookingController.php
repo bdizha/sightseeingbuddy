@@ -282,7 +282,8 @@ class BookingController extends Controller
 //        dd([$pfHost, $output]);
 
         //// Write output to file // DEBUG
-        file_put_contents(__DIR__ . "/" . $filename, $output); // DEBUG
+
+        file_put_contents(public_path() . $filename, $output); // DEBUG
     }
 
     public function cancel(Request $request)

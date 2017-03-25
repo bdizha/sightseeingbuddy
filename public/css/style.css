@@ -9376,6 +9376,7 @@ section #sidebar h2 {
   font-weight: 900;
   font-size: 29px;
   margin: 0;
+  padding-top: 15px;
 }
 @media (max-width: 768px) {
   section {
