@@ -97,11 +97,13 @@ class BookingController extends Controller
         ]);
     }
 
-    public function confirm(Request $request)
+    public function verify(Request $request)
     {
         // Notify PayFast that information has been received
         header('HTTP/1.0 200 OK');
         flush();
+
+        file_put_contents(public_path() . "verify.txt", "verify: " . time()); // DEBUG
 
         // Variable initialization
         $pfError = false;
@@ -288,17 +290,14 @@ class BookingController extends Controller
 
     public function cancel(Request $request)
     {
-
+        file_put_contents(public_path() . "cancel.txt", "cancel: " . time()); // DEBUG
+        dd("cancel");
     }
 
     public function success(Request $request)
     {
-        dd("success");
-    }
-
-    public function verify(Request $request)
-    {
-        dd("verify");
+        file_put_contents(public_path() . "success.txt", "success: " . time()); // DEBUG
+        dd($_POST);
     }
 
     public function forex()
