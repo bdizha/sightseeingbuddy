@@ -103,7 +103,7 @@ class BookingController extends Controller
         header('HTTP/1.0 200 OK');
         flush();
 
-        file_put_contents(public_path() . "verify.txt", "verify: " . time()); // DEBUG
+        file_put_contents(public_path() . "/" .  "verify.txt", "verify: " . time()); // DEBUG
 
         // Variable initialization
         $pfError = false;
@@ -285,18 +285,18 @@ class BookingController extends Controller
 
         //// Write output to file // DEBUG
 
-        file_put_contents(public_path() . $filename, $output); // DEBUG
+        file_put_contents(public_path() . "/" .  $filename, $output); // DEBUG
     }
 
     public function cancel(Request $request)
     {
-        file_put_contents(public_path() . "cancel.txt", "cancel: " . time()); // DEBUG
+        file_put_contents(public_path() . "/" .  "cancel.txt", "cancel: " . time()); // DEBUG
         dd("cancel");
     }
 
     public function success(Request $request)
     {
-        file_put_contents(public_path() . "success.txt", "success: " . time()); // DEBUG
+        file_put_contents(public_path() . "/" .  "success.txt", "success: " . time()); // DEBUG
         dd($_POST);
     }
 
