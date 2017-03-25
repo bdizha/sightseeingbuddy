@@ -99,10 +99,6 @@ class BookingController extends Controller
 
     public function verify(Request $request)
     {
-        // Notify PayFast that information has been received
-        header('HTTP/1.0 200 OK');
-        flush();
-
         file_put_contents(public_path() . "/" .  "verify.txt", "verify: " . time()); // DEBUG
 
         // Variable initialization
@@ -281,11 +277,12 @@ class BookingController extends Controller
             $output .= "\nError = " . $pfErrMsg;
         }
 
-//        dd([$pfHost, $output]);
-
         //// Write output to file // DEBUG
-
         file_put_contents(public_path() . "/" .  $filename, $output); // DEBUG
+
+        // Notify PayFast that information has been received
+        header('HTTP/1.0 200 OK');
+        flush();
     }
 
     public function cancel(Request $request)
