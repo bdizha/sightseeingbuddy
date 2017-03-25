@@ -17,13 +17,53 @@ class BookingController extends Controller
 
     public function create($id, $time, $timestamp, Request $request)
     {
+        $user = Auth::user();
         $experience = Experience::where('id', '=', $id)->first();
         $reference = "KIL" . time();
+
+        $total = $experience->pricing->guests * $experience->pricing->per_person;
+
+        $data = array(
+            // Merchant details
+            'merchant_id' => '10000100',
+            'merchant_key' => '46f0cd694581a',
+            'return_url' => route('payment_success'),
+            'cancel_url' => route('payment_cancel'),
+            'notify_url' => route('payment_verify'),
+            // Buyer details
+            'name_first' => $user->first_name,
+            'name_last' => $user->last_name,
+            'email_address' => $user->email,
+            // Transaction details
+            'm_payment_id' => $reference, // Unique payment ID to pass through to notify_url
+            'amount' => number_format(sprintf("%.2f", $total), 2, '.', ''),  // Amount needs to be in ZAR,if you have a multicurrency system, the conversion needs to place before building this array
+            'item_name' => $experience->teaser,
+            'item_description' => $experience->teaser
+        );
+
+        $pfOutput = "";
+
+        // Create GET string
+        foreach ($data as $key => $val) {
+            if (!empty($val)) {
+                $pfOutput .= $key . '=' . urlencode(trim($val)) . '&';
+            }
+        }
+
+        // Remove last ampersand
+        $getString = substr($pfOutput, 0, -1);
+        if (isset($passPhrase)) {
+            $getString .= '&passphrase=' . urlencode(trim($passPhrase));
+        }
+        $data['signature'] = md5($getString);
+
+        dd($data);
 
         return view('booking.add', [
             'experience' => $experience,
             'user' => Auth::user(),
             'time' => $time,
+            'data' => $data,
             'timestamp' => $timestamp,
             'reference' => $reference
         ]);

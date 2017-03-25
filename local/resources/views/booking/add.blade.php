@@ -31,20 +31,9 @@
             </div>
             <div class="gray-bottom-border mb-1"></div>
             <form method="POST" action="{{ route('payment_confirm') }}">
-                {!! csrf_field() !!}
-                <?php $total = $experience->pricing->guests * $experience->pricing->per_person ?>
-                <input type="hidden" name="merchant_id" value="10000100"/>
-                <input type="hidden" name="merchant_key" value="46f0cd694581a"/>
-                <input type="hidden" name="return_url" value="{{ route('payment_success') }}"/>
-                <input type="hidden" name="cancel_url" value="{{ route('payment_cancel') }}"/>
-                <input type="hidden" name="notify_url" value="{{ route('payment_verify') }}"/>
-                <input type="hidden" name="name_first" value="{{ $user->first_name }}"/>
-                <input type="hidden" name="name_last" value="{{ $user->last_name }}"/>
-                <input type="hidden" name="email_address" value="{{ $user->email }}"/>
-                <input type="hidden" name="m_payment_id" value="{{ $reference }}"/>
-                <input type="hidden" name="amount" value="{{ $total }}"/>
-                <input type="hidden" name="item_name" value="{{ $experience->teaser }}"/>
-                <input type="hidden" name="item_description" value="{{ $experience->teaser }}"/>
+                @foreach($data as $key => $input)
+                    <input type="hidden" name="{{ $key }}" value="{{ $input }}"/>
+                @endforeach
                 <div class='row'>
                     <div class="col-sm-6 col-xs-12">
                         <div class="booking-row">
