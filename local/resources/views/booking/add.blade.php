@@ -116,7 +116,8 @@
                                     <h4>Grand total:</h4>
                                     <h1>
                                         <span class="currency-name" currency-name="ZAR">R</span>
-                                        <span class="currency-value" currency-value="{{ $experience->total }}">{{ $experience->total }}</span>
+                                        <span class="currency-value"
+                                              currency-value="{{ $experience->total }}">{{ $experience->total }}</span>
                                     </h1>
                                 </div>
                                 <div class="col-sm-7 col-xs-12">
@@ -147,8 +148,8 @@
                         </div>
                     </div>
                 </div>
+                @include('booking.partials.confirm')
             </form>
-            @include('booking.partials.confirm')
             @include('booking.partials.message')
         </div>
     </section>
