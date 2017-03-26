@@ -7,7 +7,7 @@
         @endif
         <ul class="profile-nav pull-right">
             <li class="item">
-                <a href="{{ "/dashboard" }}">
+                <a href="{{ "/local/dashboard" }}">
                     <i class="dashboard"></i>
                     <span>Dashboard</span>
                 </a>
