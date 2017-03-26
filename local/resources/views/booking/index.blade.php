@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['url' => '/local/search'])
 
 @section('content')
     <section id="page" class="gray-block">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li class="item">
-                            <a href="{{ "/local/bookings" }}">
+                            <a href="{{ "/bookings" }}">
                                 <i class="bookings"></i>
                                 <span>Bookings</span>
                             </a>
@@ -29,12 +29,13 @@
             <div class="gray-bottom-border mb-1"></div>
             <div class='row'>
                 <div class="col-sm-6 col-xs-12">
-                    @include('profile.partials.stats', ['title' => 'Welcome to your local dashboard'])
+                    @include('profile.partials.stats', ['title' => 'Your booking history'])
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <div class='row mt-1'>
                         <div class="col-sm-12 col-xs-12">
-                            <a href="{{ route('info.create') }}" class="btn btn-lg btn-yellow fullwidth mb-1">CREATE NEW LOCAL EXPERIENCE</a>
+                            <a href="{{ route('info.create') }}" class="btn btn-lg btn-yellow fullwidth mb-1">CREATE NEW
+                                LOCAL EXPERIENCE</a>
                         </div>
                         <div class="col-sm-6 col-xs-6">
                             <a href="{{ route('introduction.edit', ["id" => Auth::user()->id]) }}"
@@ -57,11 +58,35 @@
             <div class="gray-bottom-border mt-1 mb-1"></div>
 
             <h1 id="experiences" class="page-title page-title-center">
-                My experiences offered
+                My bookings
             </h1>
-
-            @include('profile.experience.list', ['experiences' => $user->experiences])
-
-            <div class="clear-both"></div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>#Reference</th>
+                    <th>Date</th>
+                    <th>Host</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($bookings as $booking)
+                    <tr>
+                        <th scope="row">{{ $booking->reference }}</th>
+                        <td>{{ \Carbon\Carbon::parse($booking->date)->format("d/m/Y") }}</td>
+                        <td>{{ $booking->experience->user->first_name }}</td>
+                        <td>R{{ $booking->amount }}</td>
+                        <td>{{ ucfirst($booking->status) }}</td>
+                        <td>
+                            <button class="btn btn-primary btn-modal" modal-id="booking-modal-{{ $booking->id }}">View</button>
+                        </td>
+                    </tr>
+                    @include('booking.partials.history', ['booking' => $booking, 'experience' => $booking->experience, 'user' => $booking->user])
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </section>
 @endsection

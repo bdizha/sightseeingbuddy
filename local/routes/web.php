@@ -42,10 +42,14 @@ Route::group(['prefix' => 'local'], function () {
         Route::get('/{id}/schedule', 'ExperienceController@schedule')->name("experience_schedule");
     });
 
+    Route::get('/dashboard', 'SearchController@index');
+    Route::get('/bookings', 'BookingController@index');
+
     // bookings resources
     Route::group(['prefix' => 'booking'], function () {
         Route::get('/create/{id}/{time}/{timestamp}', 'BookingController@create');
         Route::post('/confirm', 'BookingController@confirm')->name("payment_confirm");
+        Route::post('/times', 'BookingController@times')->name("payment_times");
         Route::get('/success', 'BookingController@success')->name("payment_success");
         Route::get('/cancel', 'BookingController@cancel')->name("payment_cancel");
         Route::post('/verify', 'BookingController@verify')->name("payment_verify");

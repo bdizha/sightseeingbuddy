@@ -268,7 +268,6 @@ function HeaderNav() {
         $.get("/local/auth/nav", function (data) {
             navContainer.children(".top-nav").remove();
             navContainer.append(data);
-            // console.log(data);
         });
 
         var url = $("#url").val();
@@ -312,7 +311,31 @@ function DatePicker() {
         });
 
         $('#datepicker').datepicker().on("changeDate", function (e) {
-            $(".available-times").attr("timestamp", e.timeStamp);
+            var monthYear = $(".datepicker-switch").html();
+            var day = $(".table-condensed td.active").html();
+            var experienceId = $("#experience-id").val();
+            var date = day + " " + monthYear;
+
+            console.log("datepicker switch: " + monthYear);
+            console.log("date: " + day);
+
+            $(".available-times").attr("date", date);
+
+            $(".times-row").hide();
+
+            var data = {
+                "date": date,
+                "experience_id": experienceId
+            };
+
+            $.post("/local/booking/times", data)
+                .done(function (html) {
+                    console.log("times html::::");
+                    console.log(html);
+
+                    $(".times-row").html(html).show();
+                });
+
             $("#schedule-modal").modal('show');
 
             (new BookNow).init();
@@ -367,6 +390,11 @@ function UIModal() {
 
         $(".btn-modal").click(function () {
             $("#" + $(this).attr("modal-id")).modal('show');
+            return false;
+        });
+
+        $(".btn-close").click(function () {
+            $("#" + $(this).attr("modal-id")).modal('hide');
             return false;
         });
     };

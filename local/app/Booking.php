@@ -15,6 +15,7 @@ class Booking extends Model
      */
     protected $fillable = [
         'user_id',
+        "local_id".
         'experience_id',
         'amount',
         'status',
@@ -27,6 +28,10 @@ class Booking extends Model
     
     public function user() {
         return $this->hasOne('App\User', 'id', 'user_id');
+    }
+
+    public function local() {
+        return $this->hasOne('App\User', 'id', 'local_id');
     }
 
     public function experience() {

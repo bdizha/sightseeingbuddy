@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-
+        <input type="hidden" value="{{ $experience->id }}" id="experience-id"/>
         @include('experience.partials.availability')
     </section>
 @endsection

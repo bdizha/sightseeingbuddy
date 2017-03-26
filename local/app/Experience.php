@@ -163,4 +163,8 @@ class Experience extends Model {
         return $this->experiences->count();
     }
 
+    public function getTotalAttribute() {
+        return $this->pricing->guests * $this->pricing->per_person;
+    }
+
 }

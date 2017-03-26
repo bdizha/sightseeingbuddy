@@ -9,13 +9,13 @@
                     </a>
                 </li>
                 <li class="item">
-                    <a href="{{ "/bookings" }}">
+                    <a href="{{ "/local/bookings" }}">
                         <i class="bookings"></i>
                         <span>Bookings</span>
                     </a>
                 </li>
                 <li class="item">
-                    <a href="/local/profile/{{ $user->id }}">
+                    <a href="/local/profile/{{ $user->username }}">
                         <img src="/images/person-66.png"/>
                     </a>
                 </li>

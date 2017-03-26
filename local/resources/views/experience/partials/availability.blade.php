@@ -21,23 +21,9 @@
                         <div class="col-sm-8 col-xs-8">
                         </div>
                     </div>
-                    <?php $key = 0 ?>
-                    @foreach($experience->times as $time)
-                    <div class='row schedule-item {{ fmod($key, 2) ? 'even' : 'odd' }}'>
-                        <div class="col-sm-2 col-xs-2">
-                            <label>
-                                {{ $time }}
-                            </label>
-                        </div>
-                        <div class="col-sm-3 col-xs-3">
-                            {{ fmod($key, 2) ? 'Yes' : 'No' }}
-                        </div>
-                        <div class="col-sm-7 col-xs-7">
-                            <a href="/local/booking/create/{{ $experience->id }}/{{ $time }}" class="btn btn-yellow pull-right book-now">Book now</a>
-                        </div>
+                    <div class="times-row">
+                        @include('booking.partials.times', ['bookedTimes' => []])
                     </div>
-                    <?php $key++ ?>
-                    @endforeach
                 </div>
             </div>
         </div>

@@ -41,6 +41,51 @@ class BookingController extends Controller
         define('PF_MSG_FAILED', 'Payment has failed');
     }
 
+    public function times(Request $request)
+    {
+        $input = $request->all();
+        $experienceId = $input["experience_id"];
+        $date = $input["date"];
+
+        $experience = Experience::where('id', '=', $experienceId)->first();
+
+        $bookings = Booking::where("experience_id", "=", $experienceId)
+            ->where("date", "=", $date)->get();
+
+        $bookedTimes = [];
+        foreach ($bookings as $booking) {
+            $bookedTimes[] = $booking->times;
+        }
+
+        $html = view('booking.partials.times', [
+            'bookedTimes' => $bookedTimes,
+            'experience' => $experience,
+            'timestamp' => strtotime($date)
+        ])->render();
+
+        echo $html;
+        exit();
+    }
+
+    public function index(Request $request)
+    {
+        $this->middleware('auth');
+
+        $user = Auth::user();
+        $bookingsQuery = Booking::orderBy("date", "DESC");
+
+        if ($user->type == "guest") {
+            $bookingsQuery->where("user_id", "=", $user->id);
+        } else {
+            $bookingsQuery->where("local_id", "=", $user->id);
+        }
+
+        return view('booking.index', [
+            'bookings' => $bookingsQuery->get(),
+            'user' => $user
+        ]);
+    }
+
     public function create($id, $time, $timestamp, Request $request)
     {
         $this->middleware('auth');
@@ -50,23 +95,20 @@ class BookingController extends Controller
         $pricing = $experience->pricing;
         $reference = "KIL" . time();
 
-        $date = date("Y-m-d", time());
-
-//        echo time() . "<br />";
-//        echo $timestamp;
-//        dd($date);
+        $date = date("Y-m-d", $timestamp);
 
         $booking = new Booking();
         $booking->user_id = $user->id;
+        $booking->local_id = $experience->user->id;
         $booking->experience_id = $id;
+        $booking->amount = $experience->total;
         $booking->pricing_id = $pricing->id;
         $booking->schedule_id = 4;
         $booking->reference = $reference;
+        $booking->special_requests = serialize([]);
         $booking->time = $time;
         $booking->date = $date;
         $booking->save();
-
-        $total = $pricing->guests * $pricing->per_person;
 
         $data = array(
             // Merchant details
@@ -81,7 +123,7 @@ class BookingController extends Controller
             'email_address' => $user->email,
             // Transaction details
             'm_payment_id' => $reference, // Unique payment ID to pass through to notify_url
-            'amount' => number_format(sprintf("%.2f", $total), 2, '.', ''),  // Amount needs to be in ZAR,if you have a multicurrency system, the conversion needs to place before building this array
+            'amount' => number_format(sprintf("%.2f", $experience->total), 2, '.', ''),  // Amount needs to be in ZAR,if you have a multicurrency system, the conversion needs to place before building this array
             'item_name' => $experience->teaser,
             'item_description' => $experience->teaser
         );
@@ -104,13 +146,15 @@ class BookingController extends Controller
 
         $pfHost = (PAYFAST_SERVER == 'LIVE') ? 'www.payfast.co.za' : 'sandbox.payfast.co.za';
 
+        $date = Carbon::createFromTimestamp($timestamp)->format("d M Y");
+
         return view('booking.add', [
             'experience' => $experience,
             'user' => Auth::user(),
             'time' => $time,
             'data' => $data,
             'pfHost' => $pfHost,
-            'timestamp' => $timestamp,
+            'date' => $date,
             'reference' => $reference
         ]);
     }

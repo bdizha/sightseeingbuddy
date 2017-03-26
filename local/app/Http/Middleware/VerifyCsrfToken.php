@@ -14,7 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         'local/search',
-        'local/booking/confirm'
+        'local/booking/confirm',
+        'local/booking/times'
     ];
 
 }

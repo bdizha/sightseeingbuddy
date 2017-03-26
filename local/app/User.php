@@ -5,9 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cviebrock\EloquentSluggable\Sluggable;
-use App\Experience;
+use App\Booking;
 
-class User extends Authenticatable {
+class User extends Authenticatable
+{
 
     use Notifiable,
         Sluggable;
@@ -30,7 +31,8 @@ class User extends Authenticatable {
      *
      * @return array
      */
-    public function sluggable() {
+    public function sluggable()
+    {
         return [
             'username' => [
                 'source' => ['first_name', 'last_name']
@@ -41,14 +43,16 @@ class User extends Authenticatable {
     /**
      * Get the experiences.
      */
-    public function experiences() {
+    public function experiences()
+    {
         return $this->hasMany('App\Experience');
     }
 
     /**
      * Get the introduction.
      */
-    public function introduction() {
+    public function introduction()
+    {
         return $this->hasOne('App\Introduction');
     }
 
@@ -61,12 +65,20 @@ class User extends Authenticatable {
         'password', 'remember_token',
     ];
 
-    public function getExperiencesCountAttribute() {
+    public function getExperiencesCountAttribute()
+    {
         return $this->experiences->count();
     }
 
-    public function getBookingsCountAttribute() {
+    public function getBookingsCountAttribute()
+    {
         return Experience::has("bookings")->where("user_id", "=", $this->id)->count();
+    }
+
+    public function getTotalRevenueAttribute()
+    {
+        return Booking::where("local_id", "=", $this->id)
+            ->sum('amount');
     }
 
 }

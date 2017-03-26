@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="profile-picture col-sm-4 col-xs-12">
+    <div class="profile-picture img-1 col-sm-4 col-xs-12">
         <img src="{{ Helper::personImage($user->introduction->image) }}" />
     </div>
     <div class="profile-info col-sm-8 col-xs-12">

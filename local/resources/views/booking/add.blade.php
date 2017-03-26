@@ -4,33 +4,66 @@
     <section id="page" class="booking-block">
         @include('profile.partials.header', ['title' => 'LET\'S CONFIRM YOUR LOCAL EXPERIENCE BOOKING'])
     </section>
-    <section id="page" class="gray-block booking-block">
-        <div class="container gray-block mt-1">
+    <section class="white-block">
+        <div class="container mt-1">
             <div class='row'>
                 <div class="col-sm-12 col-xs-12">
                     <ul class="profile-nav pull-right">
                         <li class="item">
-                            <a href="{{ "/dashboard" }}">
+                            <a href="{{ "/local/dashboard" }}">
                                 <i class="dashboard"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li class="item">
-                            <a href="{{ "/bookings" }}">
+                            <a href="{{ "/local/bookings" }}">
                                 <i class="bookings"></i>
                                 <span>Bookings</span>
                             </a>
                         </li>
                         <li class="item">
-                            <a href="/local/profile/{{ $user->id }}">
-                                <img src="/images/person-66.png"/>
+                            <a href="/local/profile/{{ $user->username }}">
+                                <img src="/images/person_white.png"/>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="gray-bottom-border mb-1"></div>
-            <?php $total = $experience->pricing->guests * $experience->pricing->per_person ?>
+            <div class='row mt-2'>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="booking-row">
+                        <button type="button" modal-id="message-modal" class="btn btn-modal btn-lg btn-yellow mb-1">
+                            Message for other special requests
+                        </button>
+                    </div>
+                    <div class="booking-row text-bold">
+                        {{ $time }}, {{ $date }}
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="mb-1">
+                        @foreach(range(1, 4) as $value)
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="row">
+                                    <label class="checkbox-inline">
+                                        {{ Form::checkbox("special_request[]", null, false, ['id' => "special_request_" . $value]) }}
+                                        <label for="{{ "special_request_" . $value }}">
+                                            <span></span>
+                                            Special request {{ $value }}
+                                        </label>
+                                    </label>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="page" class="gray-block booking-block">
+        <div class="container pt-1">
+
             <form method="POST" action="https://{{ $pfHost }}/eng/process">
                 @foreach($data as $key => $input)
                     <input type="hidden" name="{{ $key }}" value="{{ $input }}"/>
@@ -65,7 +98,7 @@
                     </div>
                     <div class="col-sm-6 col-xs-12">
                         <div class="booking-row">
-                            <h3>Experience heading</h3>
+                            <h3>{{ $experience->teaser }}</h3>
                             <h4>Host:</h4>
                             <h3>{{ $experience->user->email }}</h3>
                         </div>
@@ -82,8 +115,8 @@
                                 <div class="col-sm-5 col-xs-12">
                                     <h4>Grand total:</h4>
                                     <h1>
-                                        <span class="currency-name" currency-name="ZAR">R</span><span
-                                                class="currency-value" currency-value="{{ $total }}">{{ $total }}</span>
+                                        <span class="currency-name" currency-name="ZAR">R</span>
+                                        <span class="currency-value" currency-value="{{ $experience->total }}">{{ $experience->total }}</span>
                                     </h1>
                                 </div>
                                 <div class="col-sm-7 col-xs-12">
@@ -114,8 +147,9 @@
                         </div>
                     </div>
                 </div>
-                @include('booking.partials.confirm')
             </form>
+            @include('booking.partials.confirm')
+            @include('booking.partials.message')
         </div>
     </section>
 @endsection
