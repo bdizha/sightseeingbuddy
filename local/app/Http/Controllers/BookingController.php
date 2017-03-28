@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Experience;
 use Carbon\Carbon;
+use App\Events\PaymentFailure;
+use App\Events\PaymentSuccess;
 
 class BookingController extends Controller
 {
@@ -345,11 +347,15 @@ class BookingController extends Controller
                     // If complete, update your application, email the buyer and process the transaction as paid
                     $booking->status = 'processed';
 
+                    event(new PaymentSuccess($booking));
+
                     // send email here
                     break;
                 case 'FAILED':
                     // There was an error, update your application and contact a member of PayFast's support team for further assistance
                     $booking->status = 'cancelled';
+
+                    event(new PaymentFailure($booking));
 
                     // send email here
                     break;
@@ -388,7 +394,9 @@ class BookingController extends Controller
     public function success(Request $request)
     {
         $user = Auth::user();
-//        $booking = Booking::where('reference', '=', $reference)->first();
+        $booking = Booking::first();
+
+        event(new PaymentSuccess($booking));
 
         file_put_contents(public_path() . "/" . "success.txt", "success: " . time()); // DEBUG
 

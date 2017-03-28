@@ -13,9 +13,27 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        'App\Events\Registration' => [
+            'App\Listeners\SendRegistration@handle'
         ],
+        'App\Events\PaymentSuccess' => [
+            'App\Listeners\SendPaymentSuccess@handle'
+        ],
+        'App\Events\PaymentFailure' => [
+            'App\Listeners\SendPaymentFailure@handle'
+        ],
+        'App\Events\GuestWelcome' => [
+            'App\Listeners\SendGuestWelcome@handle'
+        ],
+        'App\Events\LocalWelcome' => [
+            'App\Listeners\SendLocalWelcome@handle'
+        ],
+        'App\Events\LocalVerify' => [
+            'App\Listeners\SendLocalVerify@handle'
+        ],
+        'App\Events\LocalResult' => [
+            'App\Listeners\SendLocalResult@handle'
+        ]
     ];
 
     /**

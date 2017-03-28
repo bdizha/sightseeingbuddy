@@ -19,7 +19,7 @@
         <div class="container">
             {% set hasArrows = false %}
             {% set panelType = 'perks' %}
-            <h2 class="text-center section-title"> {{ entry.body.type('text').first().text }}</h2>
+            <h2 class="text-center section-title"> {{ entry.body.type('text').offsetGet(1).text }}</h2>
             {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(2).panel.first(), hasArrows, panelType) }}
 
             <div class="text-center">
@@ -30,7 +30,7 @@
     <section id='steps-items'>
         <div class="container pb-3 white-bottom-border">
             {% set hasArrows = false %}
-            <h2 class="text-center section-title"> {{ entry.body.type('text').first().text }}</h2>
+            <h2 class="text-center section-title"> {{ entry.body.type('text').offsetGet(2).text }}</h2>
             {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(3).panel.first(), hasArrows) }}
             <div class="text-center">
                 <a href="/pages/finding-a-local" class="btn btn-primary btn-lg">Create Your Local Experience</a>
