@@ -26,11 +26,12 @@ class SendPaymentCancel
      */
     public function handle(PaymentCancel $event)
     {
+        $booking = $event->booking;
         $data = [
-            'user' => $event->user,
-            'user' => $event->booking,
-            'from' => 'jobs@jobeet.xyz',
-            'subject' => 'Welcome to Jobeet!'
+            'booking' => $booking,
+            'user' => $booking->user,
+            'from' => 'info@keepitlocal.co.za',
+            'subject' => 'Welcome to our community'
         ];
 
         try {

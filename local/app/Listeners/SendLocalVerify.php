@@ -28,12 +28,12 @@ class SendLocalVerify
     {
         $data = [
             'user' => $event->user,
-            'subject' => 'Welcome to Jobeet!'
+            'subject' => 'Welcome to our community'
         ];
 
         try {
 
-            $this->mailer->send('email.welcome', $data, function ($message) use ($data) {
+            $this->mailer->send('email.admin.welcome', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
                     ->cc('bdizha@gmail.com', 'Batanayi Matuku')
                     ->subject($data['subject']);

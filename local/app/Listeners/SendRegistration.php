@@ -28,8 +28,8 @@ class SendRegistration
     {
         $data = [
             'user' => $event->user,
-            'from' => 'jobs@jobeet.xyz',
-            'subject' => 'Welcome to Jobeet!'
+            'from' => 'info@keepitlocal.co.za',
+            'subject' => 'Welcome to our community'
         ];
 
         try {

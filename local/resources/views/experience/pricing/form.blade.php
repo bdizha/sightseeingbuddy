@@ -8,13 +8,26 @@
                 {!! csrf_field() !!}
                 {{ Form::hidden('experience_id', $pricing->experience_id) }}
                 <p>
-                    Lorem ipsum dolor sit amet, vis saperet delectus eu, id vel recusabo facilisis. Graece tibique periculis
-                    eu cum, at fabulas omittam nec, et vis vitae tantas quaerendum. Pri inani platonem at, vix eu scaevola
-                    officiis luptatum. Iusto putent consequat mel ut, dicit nonumes definitiones qui ad.
+                    Add your price per person. Do your sums and account for ALL your expenses including and applicable
+                    to your experience. Keep it fair, contact us if you’re not sure.
+                </p>
+
+                <p>Here are a few examples:</p>
+                <ul>
+                    <li>Your rate per hour/day</li>
+                    <li>Food &amp; beverages</li>
+                    <li>Transport fees</li>
+                    <li>Equipment</li>
+                    <li>Entrance fees</li>
+                </ul>
+                <p>
+                    *Keep it Local reserves the right to apply fair pricing. We’re travel gurus and give suggestions if your price is too low or too high.
+                <p>
+                </p>
+                    Keep it Local adds an average of 30% to your price. The price displayed on your experience is the total price, including our fees and commissions. You will get the exact amount you’ve quoted.
                 </p>
                 <p>
-                    Ius in possim hendrerit, libris electram eos ei. Inani graece vel ei, ipsum melius no mea. Ea usu ullum
-                    alterum. Vim ut bonorum efficiantur philosophia
+                    See example below:
                 </p>
                 <div class="gray-bottom-border mt-1 mb-1"></div>
                 <h1 class="page-title page-title-left">
@@ -23,7 +36,7 @@
                 <div class="row form-group {{ $errors->has('guests') ? 'has-error' : '' }}" id="guests">
                     <div class="col-sm-5 col-xs-6">
                         @if ($errors->has('guests'))
-                        <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
+                            <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
                         @endif
                         {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'placeholder' => 'Maximum number of guests*']) }}
                     </div>
@@ -68,15 +81,15 @@
                 <div class='row'>
                     <div class="col-sm-12 col-xs-12">
                         @foreach(Helper::days() as $key => $day)
-                        <div class="schedule-item">
-                            <label class="checkbox-inline">
-                                {{ Form::checkbox('days[]', $key, in_array($key, $experience->days), ['id' => "days_" . $key]) }}
-                                <label for="{{ "days_" . $key }}">
-                                    <span></span>
-                                    {{ $day }}
+                            <div class="schedule-item">
+                                <label class="checkbox-inline">
+                                    {{ Form::checkbox('days[]', $key, in_array($key, $experience->days), ['id' => "days_" . $key]) }}
+                                    <label for="{{ "days_" . $key }}">
+                                        <span></span>
+                                        {{ $day }}
+                                    </label>
                                 </label>
-                            </label>
-                        </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -86,25 +99,26 @@
                 <div class='row'>
                     <div class="col-sm-12 col-xs-12">
                         @foreach(Helper::times() as $key => $time)
-                        <div class="schedule-item">
-                            <label class="checkbox-inline">
-                                {{ Form::checkbox('times[]', $key, in_array($time, $experience->times), ['id' => "times_" . $key]) }}
-                                <label for="{{ "times_" . $key }}">
-                                    <span></span>
-                                    {{ $time }}
+                            <div class="schedule-item">
+                                <label class="checkbox-inline">
+                                    {{ Form::checkbox('times[]', $key, in_array($time, $experience->times), ['id' => "times_" . $key]) }}
+                                    <label for="{{ "times_" . $key }}">
+                                        <span></span>
+                                        {{ $time }}
+                                    </label>
                                 </label>
-                            </label>
-                        </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
                 <div class='row mt-2'>
                     <div class="col-sm-12 col-xs-12">
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Save" />
-                            <a href="{{ route('info.edit', ["id" => $experience->id]) }}" class="btn btn-primary pull-right">Back</a>
+                            <input type="submit" class="btn btn-primary" value="Save"/>
+                            <a href="{{ route('info.edit', ["id" => $experience->id]) }}"
+                               class="btn btn-primary pull-right">Back</a>
                             <span class='inline pull-right'>&nbsp;&nbsp;</span>
-                            <input type="submit" class="btn btn-primary pull-right" value="Next" />
+                            <input type="submit" class="btn btn-primary pull-right" value="Next"/>
                         </div>
                     </div>
                 </div>

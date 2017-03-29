@@ -28,13 +28,13 @@ class SendLocalWelcome
     {
         $data = [
             'user' => $event->user,
-            'from' => 'jobs@jobeet.xyz',
-            'subject' => 'Welcome to Jobeet!'
+            'from' => 'info@keepitlocal.co.za',
+            'subject' => 'Welcome to our community'
         ];
 
         try {
 
-            $this->mailer->send('email.welcome', $data, function ($message) use ($data) {
+            $this->mailer->send('email.local.welcome', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
                     ->cc('bdizha@gmail.com', 'Batanayi Matuku')
                     ->subject($data['subject']);

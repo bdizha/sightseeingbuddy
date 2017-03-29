@@ -7,16 +7,10 @@
                 </h1>
                 {!! csrf_field() !!}
                 <p>
-                    Lorem ipsum dolor sit amet, vis saperet delectus eu, id vel recusabo facilisis. Graece tibique
-                    periculis
-                    eu cum, at fabulas omittam nec, et vis vitae tantas quaerendum. Pri inani platonem at, vix eu
-                    scaevola
-                    officiis luptatum. Iusto putent consequat mel ut, dicit nonumes definitiones qui ad.
+                    Did you forget to tell us about The Big Five roaming around in your backyard? Your mouth-watering menu? Your guests won’t be happy! Go back and change it if you’re not 100% satisfied.
                 </p>
                 <p>
-                    Ius in possim hendrerit, libris electram eos ei. Inani graece vel ei, ipsum melius no mea. Ea usu
-                    ullum
-                    alterum. Vim ut bonorum efficiantur philosophia
+                    We guarantee a safe and worry-free experience. Our team will contact you within the next 3 days to verify your profile and experience submitted.
                 </p>
             </div>
             <div class='col-xs-12'>

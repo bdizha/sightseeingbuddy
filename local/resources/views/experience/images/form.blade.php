@@ -8,13 +8,11 @@
                 {!! csrf_field() !!}
                 {{ Form::hidden('experience_id', $experience->id) }}
                 <p>
-                    Lorem ipsum dolor sit amet, vis saperet delectus eu, id vel recusabo facilisis. Graece tibique periculis
-                    eu cum, at fabulas omittam nec, et vis vitae tantas quaerendum. Pri inani platonem at, vix eu scaevola
-                    officiis luptatum. Iusto putent consequat mel ut, dicit nonumes definitiones qui ad.
+                    Upload a cover photo size to be supplied by Sergio. This is where you want to impress and entice your audience, make sure it sums up your experience. The cover photo will be displayed in the
+                    search results when guests are still undecided, make them choose you!
                 </p>
                 <p>
-                    Ius in possim hendrerit, libris electram eos ei. Inani graece vel ei, ipsum melius no mea. Ea usu ullum
-                    alterum. Vim ut bonorum efficiantur philosophia
+                    Upload 1 -3 gallery photos. This will be displayed in your local gallery.
                 </p>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <tr>
-    <td style="font-size:13px;line-height:20px;color:#666666;padding-bottom:10px">
-        Hello, {{ $name }} :)
+    <td style="line-height:20px;padding-bottom:10px">
+        Dear, {{ $name }} :)
     </td>
 </tr>

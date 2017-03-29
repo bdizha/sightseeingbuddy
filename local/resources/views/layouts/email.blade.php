@@ -7,11 +7,11 @@
 
         * {
             font-family: 'Roboto', sans-serif;
-            color: #525252;
+            color: #3D3D3D;
         }
 
         a {
-            color: #0288d1
+            color: #3D3D3D
         }
     </style>
 </head>
@@ -19,13 +19,14 @@
 <table id="background-table" border="0" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
     <tr>
+    <tr>
         <td align="center" style="padding: 5px 5px 40px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0"
-                   style=" background: #f9f9f9;margin: 0px;padding: 20px;">
+                   style=" background: #FFFFFF;margin: 0px;padding: 20px;">
                 <tbody>
                 <tr>
                     <td align="center" height="40"
-                        style="background:#0288d1;margin:0;height:70px;border-top-right-radius: 2px;border-top-left-radius: 2px;background-color: #f2f2f2;background-image: -webkit-linear-gradient(top, #1976D2 0%,#0288d1 100%);background-image: -moz-linear-gradient(top, #1976D2 0%,#0288d1 100%);background-image: -o-linear-gradient(top, #1976D2 0%,#0288d1 100%);background-image: linear-gradient(top, #1976D2 0%,#0288d1 100%);"
+                        style="background:#FFF;margin:0;height:70px;border-top-right-radius: 2px;border-top-left-radius: 2px;"
                         valign="middle">
                         <a href="{{ url('/') }}">
                             <span>
@@ -35,8 +36,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #dddddd; font-family:Helvetica,Arial,sans-serif; font-size:16px; padding:40px 60px;color: #525252;">
+                    <td style="border:1px solid #dddddd; font-family:Helvetica,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #3D3D3D;">
                         @yield('content')
+                        @include('email.partials.signature')
                     </td>
                 </tr>
                 <tr>

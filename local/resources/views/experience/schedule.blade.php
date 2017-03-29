@@ -18,15 +18,20 @@
                          data-days-active="{{ implode(",", $experience->days) }}"></div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <h3>This is bold copy</h3>
-                    <div class="media-summary">
-                        <p>Lorem ipsum dolor sit amet, vis saperet delectus eu, id vel recusabo facilisis.
-                            Graece tibique periculis eu cum, at fabulas omittam nec, et vis vitae tantas
-                            quaerendum. Pri inani platonem at, vix eu scaevola officiis luptatum. Iusto putent
-                            consequat mel ut, dicit nonumes definitiones qui ad.</p>
-                        <p>Ius in possim hendrerit, libris electram eos ei. Inani graece vel ei, ipsum melius no
-                            mea. Ea usu ullum alterum. Vim ut bonorum efficiantur philosophia.</p>
-                    </div>
+                    @if(Auth::guest() || Auth::user()->id != $experience->user->id)
+                        <h3>Confirm your dates</h3>
+                        <div class="media-summary">
+                            <p>We’d hate to see you set your heart on an experience only to find out afterwards that your selected host is unavailable.</p>
+                            <p>Check when your host is available and not available on this convenient calendar.</p>
+                        </div>
+                    @else
+                        <h3>Manage your time</h3>
+                        <div class="media-summary">
+                            <p>Our easy to use monthly calendar shows and highlights your availability. You can see when
+                                your experience is booked for. We’ll also keep you updated by email when a booking’s
+                                been made.</p>
+                        </div>
+                    @endif
                     <h2>Legend</h2>
                     <div class="legend">
                         <icon class="available"></icon>

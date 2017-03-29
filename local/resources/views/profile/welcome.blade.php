@@ -1,4 +1,4 @@
-@extends('layouts.step', ['heading' => $user->first_name . ', welcome to Jobeet!', 'link' => ''])
+@extends('layouts.step', ['heading' => $user->first_name . ', Welcome to our community', 'link' => ''])
 
 @section('content')
 <div class="jobPost">

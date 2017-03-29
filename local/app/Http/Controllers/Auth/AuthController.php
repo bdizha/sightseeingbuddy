@@ -74,7 +74,7 @@ use AuthenticatesAndRegistersUsers,
 
         event(new UserHasRegistered($user));
 
-        Session::flash('flash_message', 'Welcome to Jobeet!');
+        Session::flash('flash_message', 'Welcome to our community');
 
         return $user;
     }
