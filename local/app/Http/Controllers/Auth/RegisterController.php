@@ -103,7 +103,7 @@ class RegisterController extends AuthController
 
         if($user->type == "local"){
             event(new LocalWelcome($user));
-            event(new LocalVerify($user));
+//            event(new LocalVerify($user));
         }
         else{
             event(new GuestWelcome($user));
