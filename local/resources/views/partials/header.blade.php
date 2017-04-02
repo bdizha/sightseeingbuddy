@@ -67,7 +67,7 @@
                             item
                             item-level-1
                             ">
-                            <a href="/pages/contact-us" >
+                            <a href="/local/contact-us/create" >
                                 Contact
                             </a>
                         </li>
@@ -85,8 +85,4 @@
         </div>
     </div>
 </header>
-
-<div id="notifications-wrapper" class="container">
-    <div id="notifications">
-    </div>
-</div>
+@include('partials.notice', [])

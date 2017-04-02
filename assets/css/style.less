@@ -271,6 +271,10 @@ input[type="radio"] {
   margin-top: @line-height-computed * 3px;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .mb-1 {
   margin-bottom: @line-height-computed * 1;
 }
@@ -296,7 +300,7 @@ input[type="radio"] {
 }
 
 .pl-1 {
-  padding-left: @line-height-computed * 1px;
+  padding-left: 15px;
 }
 
 .pl-2 {
@@ -305,6 +309,10 @@ input[type="radio"] {
 
 .pl-3 {
   padding-left: @line-height-computed * 3px;
+}
+
+.pt-0 {
+  padding-top: 0px;
 }
 
 .pt-1 {
@@ -319,8 +327,16 @@ input[type="radio"] {
   padding-top: @line-height-computed * 3px;
 }
 
+.pb-0 {
+  padding-bottom: 0px;
+}
+
 .pb-3 {
   padding-bottom: @line-height-computed * 3px;
+}
+
+.row-max-1{
+  max-width: 550px;
 }
 
 .align-right {
@@ -337,6 +353,13 @@ input[type="radio"] {
     padding-right: 0;
     float: none;
   }
+}
+
+.alert-success {
+  background-color: #d6e9c6;
+  border-color: #d6e9c6;
+  color: #308800;
+  padding: 15px;
 }
 
 .white-bottom-border {
@@ -908,6 +931,7 @@ section {
         font-weight: 400;
         font-size: 23px;
         margin: 0 0 15px;
+        text-transform: uppercase;
       }
 
       @media (max-width: @grid-float-breakpoint-max) {
@@ -1362,31 +1386,34 @@ section {
   position: relative;
   .search-form {
     display: block;
-    width: 420px;
+    width: 350px;
     position: absolute;
     top: -370px;
     right: 20px;
-
     .form-group {
-      height: 49px;
-
+      height: 61px;
+      position: relative;
       .input-group {
-        width: 100%;
-        position: relative;
+        background: @white;
+        padding-left: 65px;
+        border-radius: 5px;
+        height: 61px;
         .form-control {
           border: 1px solid transparent;
           background: @white;
+          height: 61px;
+          font-size: 25px;
+          padding: 6px 15px;
+        }
+        .input-group-addon {
+          width: 45px;
+          height: 45px;
+          background-size: 100%;
+          border: 1px solid transparent;
+          z-index: 99;
+          top: 8px;
         }
       }
-
-      .input-group-addon {
-        width: 45px;
-        height: 45px;
-        background-size: 100%;
-        border: 1px solid transparent;
-        z-index: 99;
-      }
-
       #destination .input-group-addon {
         background-image: url(/images/destination.png);
       }
@@ -1942,10 +1969,17 @@ a.thumbnail:hover, a.thumbnail:active {
   .profile-nav {
     > li {
       > a {
+        padding: 2px 0px 2px 28px;
+        margin-left: 10px;
         i {
-          top: 2px;
+          top: 0px;
           &.dashboard {
             background-image: url(/images/search-dashboard.png);
+            width: 24px;
+            height: 24px;
+            background-position-x: 0;
+          }
+          &.bookings {
             width: 24px;
             height: 24px;
             background-position-x: 0;

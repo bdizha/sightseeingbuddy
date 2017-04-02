@@ -5,23 +5,27 @@ namespace App\Listeners;
 use App\Events\PaymentCancel;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Contracts\Mail\Mailer;
 
 class SendPaymentCancel
 {
+
+    protected $mailer;
+
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Mailer $mailer)
     {
-        //
+        $this->mailer = $mailer;
     }
 
     /**
      * Handle the event.
      *
-     * @param  PaymentCancel  $event
+     * @param  PaymentCancel $event
      * @return void
      */
     public function handle(PaymentCancel $event)

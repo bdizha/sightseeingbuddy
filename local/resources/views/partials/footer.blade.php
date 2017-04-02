@@ -1,4 +1,3 @@
-@include('partials.notice')
 <input type="hidden" id="url" value="@if(!empty($url)){{ $url }}@else{{ "/local/search" }}@endif"/>
 <footer id="footer">
     <div class="container">
@@ -16,7 +15,9 @@
                 <h2>Sign up to our newsletter</h2>
                 <div class="field form-group" id="fields-email-field">
                     <div class="input ltr">
-                        <input class="text form-control nicetext fullwidth" type="text" id="fields-email" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Please enter your email address...">
+                        <input class="text form-control nicetext fullwidth" type="text" id="fields-email"
+                               name="fields[email]" value="" data-show-chars-left="" autocomplete="off"
+                               placeholder="Please enter your email address...">
                     </div>
                 </div>
             </div>
@@ -25,144 +26,73 @@
                     <div class="col-xs-6">
                         <h2>Information</h2>
                         <ul class="nav nav-stacked nav-pills">
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/pages/about-keep-it-local" >
+                                <a href="/pages/about-keep-it-local">
                                     About Keep it Local
                                 </a>
-
                             </li>
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/pages/how-it-works" >
+                                <a href="/pages/how-it-works">
                                     How it works
                                 </a>
-
                             </li>
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/pages/becoming-a-local" >
+                                <a href="/pages/becoming-a-local">
                                     Becoming a local
                                 </a>
-
                             </li>
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/pages/finding-a-local" >
+                                <a href="/pages/finding-a-local">
                                     Finding a local
                                 </a>
-
                             </li>
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/pages/booking-advice" >
+                                <a href="/pages/booking-advice">
                                     Booking advice
                                 </a>
-
                             </li>
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/blog" >
+                                <a href="/blog">
                                     Blog
                                 </a>
-
                             </li>
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/gallery" >
+                                <a href="/gallery">
                                     Gallery
                                 </a>
-
                             </li>
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
-
-
-
                                 ">
-                                <a href="/pages/faq" >
+                                <a href="/pages/faq">
                                     FAQ
                                 </a>
 
                             </li>
 
 
-
-
-
                             <li class="
                                 item
                                 item-level-1
@@ -170,7 +100,7 @@
 
 
                                 ">
-                                <a href="/pages/privacy-policy" >
+                                <a href="/pages/privacy-policy">
                                     Privacy policy
                                 </a>
 
@@ -184,11 +114,6 @@
                         <ul class="nav nav-stacked nav-pills">
 
 
-
-
-
-
-
                             <li class="
                                 item
                                 item-level-1
@@ -196,16 +121,13 @@
 
 
                                 ">
-                                <a href="/pages/terms-conditions" >
+                                <a href="/pages/terms-conditions">
                                     Terms &amp; conditions
                                 </a>
 
                             </li>
 
 
-
-
-
                             <li class="
                                 item
                                 item-level-1
@@ -213,16 +135,13 @@
 
 
                                 ">
-                                <a href="/pages/payments-pricing" >
+                                <a href="/pages/payments-pricing">
                                     Payments &amp; pricing
                                 </a>
 
                             </li>
 
 
-
-
-
                             <li class="
                                 item
                                 item-level-1
@@ -230,16 +149,13 @@
 
 
                                 ">
-                                <a href="/pages/cancellation-refunds" >
+                                <a href="/pages/cancellation-refunds">
                                     Cancellation &amp; refunds
                                 </a>
 
                             </li>
 
 
-
-
-
                             <li class="
                                 item
                                 item-level-1
@@ -247,16 +163,13 @@
 
 
                                 ">
-                                <a href="/pages/security" >
+                                <a href="/pages/security">
                                     Security
                                 </a>
 
                             </li>
 
 
-
-
-
                             <li class="
                                 item
                                 item-level-1
@@ -264,7 +177,7 @@
 
 
                                 ">
-                                <a href="/pages/reviews-ratings" >
+                                <a href="/pages/reviews-ratings">
                                     Reviews &amp; ratings
                                 </a>
 

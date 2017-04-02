@@ -27,6 +27,7 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('pricing', 'Experience\PricingController');
     Route::resource('images', 'Experience\ImagesController');
     Route::resource('last', 'Experience\LastController');
+    Route::resource('contact-us', 'ContactController');
 
     Route::patch('/upload/image', 'Step\IntroductionController@upload');
     Route::post('/upload/image', 'Step\IntroductionController@upload');

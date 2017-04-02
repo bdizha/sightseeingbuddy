@@ -33,7 +33,7 @@
                             <label class="control-label" for="inputError1">{{ $errors->first('first_name') }}</label>
                         @endif
                         <input class="form-control fullwidth" type="text" id="fields-first-name" name="first_name"
-                               value="{{ old('first_name') }}" data-show-chars-left="" autocomplete="off"
+                               value="{{ old('first_name') }}" autocomplete="off"
                                placeholder="Your first name*">
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                             <label class="control-label" for="inputError1">{{ $errors->first('last_name') }}</label>
                         @endif
                         <input class="form-control fullwidth" type="text" id="fields-last-name" name="last_name"
-                               value="{{ old('last_name') }}" data-show-chars-left="" autocomplete="off"
+                               value="{{ old('last_name') }}" autocomplete="off"
                                placeholder="Your last name*">
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             <label class="control-label" for="inputError1">{{ $errors->first('email') }}</label>
                         @endif
                         <input class="form-control fullwidth" type="text" id="fields-email" name="email"
-                               value="{{ old('email') }}" data-show-chars-left="" autocomplete="off"
+                               value="{{ old('email') }}" autocomplete="off"
                                placeholder="Your email address*">
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                             <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
                         @endif
                         <input class="form-control fullwidth" type="password" id="fields-password" name="password"
-                               value="" data-show-chars-left="" autocomplete="off" placeholder="Your password*">
+                               value="" autocomplete="off" placeholder="Your password*">
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}"
@@ -76,7 +76,7 @@
                                    for="inputError1">{{ $errors->first('password_confirmation') }}</label>
                         @endif
                         <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
-                               name="password_confirmation" value="" data-show-chars-left="" autocomplete="off"
+                               name="password_confirmation" value="" autocomplete="off"
                                placeholder="Confirm password*">
                     </div>
                 </div>

@@ -5,23 +5,26 @@ namespace App\Listeners;
 use App\Events\GuestWelcome;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Contracts\Mail\Mailer;
 
 class SendGuestWelcome
 {
+    protected $mailer;
+
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Mailer $mailer)
     {
-        //
+        $this->mailer = $mailer;
     }
 
     /**
      * Handle the event.
      *
-     * @param  GuestWelcome  $event
+     * @param  GuestWelcome $event
      * @return void
      */
     public function handle(GuestWelcome $event)
@@ -40,7 +43,7 @@ class SendGuestWelcome
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
-
+            dd($e);
         }
     }
 }

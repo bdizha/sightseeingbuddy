@@ -9157,6 +9157,9 @@ input[type="radio"] {
 .mt-3 {
   margin-top: 75px;
 }
+.mb-0 {
+  margin-bottom: 0px;
+}
 .mb-1 {
   margin-bottom: 25px;
 }
@@ -9176,13 +9179,16 @@ input[type="radio"] {
   margin-left: 75px;
 }
 .pl-1 {
-  padding-left: 25px;
+  padding-left: 15px;
 }
 .pl-2 {
   padding-left: 50px;
 }
 .pl-3 {
   padding-left: 75px;
+}
+.pt-0 {
+  padding-top: 0px;
 }
 .pt-1 {
   padding-top: 25px;
@@ -9193,8 +9199,14 @@ input[type="radio"] {
 .pt-3 {
   padding-top: 75px;
 }
+.pb-0 {
+  padding-bottom: 0px;
+}
 .pb-3 {
   padding-bottom: 75px;
+}
+.row-max-1 {
+  max-width: 550px;
 }
 .align-right {
   float: right;
@@ -9209,6 +9221,12 @@ input[type="radio"] {
     padding-right: 0;
     float: none;
   }
+}
+.alert-success {
+  background-color: #d6e9c6;
+  border-color: #d6e9c6;
+  color: #308800;
+  padding: 15px;
 }
 .white-bottom-border {
   border-bottom: 1px solid #FFFFFF;
@@ -9695,6 +9713,7 @@ section #sidebar h2 {
   font-weight: 400;
   font-size: 23px;
   margin: 0 0 15px;
+  text-transform: uppercase;
 }
 @media (max-width: 991px) {
   #page.booking-block .profile h1 {
@@ -10081,28 +10100,35 @@ section #sidebar h2 {
 }
 .search-block .search-form {
   display: block;
-  width: 420px;
+  width: 350px;
   position: absolute;
   top: -370px;
   right: 20px;
 }
 .search-block .search-form .form-group {
-  height: 49px;
+  height: 61px;
+  position: relative;
 }
 .search-block .search-form .form-group .input-group {
-  width: 100%;
-  position: relative;
+  background: #FFFFFF;
+  padding-left: 65px;
+  border-radius: 5px;
+  height: 61px;
 }
 .search-block .search-form .form-group .input-group .form-control {
   border: 1px solid transparent;
   background: #FFFFFF;
+  height: 61px;
+  font-size: 25px;
+  padding: 6px 15px;
 }
-.search-block .search-form .form-group .input-group-addon {
+.search-block .search-form .form-group .input-group .input-group-addon {
   width: 45px;
   height: 45px;
   background-size: 100%;
   border: 1px solid transparent;
   z-index: 99;
+  top: 8px;
 }
 .search-block .search-form .form-group #destination .input-group-addon {
   background-image: url(/images/destination.png);
@@ -10626,11 +10652,20 @@ a.thumbnail:active {
 .booking-block {
   padding-bottom: 0 !important;
 }
+.booking-block .profile-nav > li > a {
+  padding: 2px 0px 2px 28px;
+  margin-left: 10px;
+}
 .booking-block .profile-nav > li > a i {
-  top: 2px;
+  top: 0px;
 }
 .booking-block .profile-nav > li > a i.dashboard {
   background-image: url(/images/search-dashboard.png);
+  width: 24px;
+  height: 24px;
+  background-position-x: 0;
+}
+.booking-block .profile-nav > li > a i.bookings {
   width: 24px;
   height: 24px;
   background-position-x: 0;

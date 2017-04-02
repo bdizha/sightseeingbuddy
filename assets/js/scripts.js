@@ -438,4 +438,8 @@ $(function () {
     $window.on('resize', function () {
         (new Vertilize).init();
     });
+
+    setTimeout(function () {
+        $('#notifications-wrapper').hide();
+    }, 5000);
 });

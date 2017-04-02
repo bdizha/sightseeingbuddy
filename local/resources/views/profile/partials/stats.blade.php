@@ -1,3 +1,7 @@
+<?php if(!$user->introduction): ?>
+    <?php $user->introduction = new \App\Introduction(); ?>
+<?php endif ?>
+
 <div class="row">
     <div class="profile-picture img-1 col-sm-4 col-xs-12">
         <img src="{{ Helper::personImage($user->introduction->image) }}" />

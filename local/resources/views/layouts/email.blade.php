@@ -4,29 +4,27 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900';
-
         * {
             font-family: 'Roboto', sans-serif;
             color: #3D3D3D;
         }
-
         a {
             color: #3D3D3D
         }
     </style>
 </head>
-<body style="background: #FFFFFF;margin: 0;">
+<body style="background: #f9f9f9;margin: 0;">
 <table id="background-table" border="0" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
     <tr>
     <tr>
         <td align="center" style="padding: 5px 5px 40px;">
             <table align="center" border="0" cellpadding="0" cellspacing="0"
-                   style=" background: #FFFFFF;margin: 0px;padding: 20px;">
+                   style=" background: #f9f9f9;margin: 0px;padding: 20px;">
                 <tbody>
                 <tr>
                     <td align="center" height="40"
-                        style="background:#FFF;margin:0;height:70px;border-top-right-radius: 2px;border-top-left-radius: 2px;"
+                        style="margin:0;height:70px;border-top-right-radius: 2px;border-top-left-radius: 2px;"
                         valign="middle">
                         <a href="{{ url('/') }}">
                             <span>
@@ -36,7 +34,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #dddddd; font-family:Helvetica,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #3D3D3D;">
+                    <td style="border:1px solid #dddddd; font-family:Helvetica,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #3D3D3D;background: #FFFFFF;">
                         @yield('content')
                         @include('email.partials.signature')
                     </td>
