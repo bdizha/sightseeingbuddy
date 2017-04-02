@@ -25,21 +25,22 @@ class SendLocalVerify
     /**
      * Handle the event.
      *
-     * @param  LocalVerify  $event
+     * @param  LocalVerify $event
      * @return void
      */
     public function handle(LocalVerify $event)
     {
         $data = [
             'user' => $event->user,
-            'subject' => 'Welcome to our community'
+            'subject' => 'Keep it Local: New local verification request',
+            'email' => env('VERIFY_EMAIL'),
+            'name' => env('VERIFY_NAME')
         ];
 
         try {
 
-            $this->mailer->send('email.admin.welcome', $data, function ($message) use ($data) {
-                $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc('bdizha@gmail.com', 'Batanayi Matuku')
+            $this->mailer->send('email.admin.verify', $data, function ($message) use ($data) {
+                $message->to($data['email'], $data['name'])
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

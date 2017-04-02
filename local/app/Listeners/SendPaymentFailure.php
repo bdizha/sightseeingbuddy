@@ -7,7 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Contracts\Mail\Mailer;
 
-class SendPaymentCancel
+class SendPaymentFailure
 {
 
     protected $mailer;
@@ -34,15 +34,14 @@ class SendPaymentCancel
         $data = [
             'booking' => $booking,
             'user' => $booking->user,
-            'from' => 'info@keepitlocal.co.za',
-            'subject' => 'Welcome to our community'
+            'from' => env('MAIL_FROM'),
+            'subject' => 'Keep it Local: Payment failure'
         ];
 
         try {
 
-            $this->mailer->send('email.welcome', $data, function ($message) use ($data) {
+            $this->mailer->send('email.guest.payment.failure', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc('bdizha@gmail.com', 'Batanayi Matuku')
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

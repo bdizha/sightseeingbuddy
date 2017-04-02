@@ -25,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\GuestWelcome' => [
             'App\Listeners\SendGuestWelcome@handle'
         ],
+        'App\Events\GuestVerify' => [
+            'App\Listeners\SendGuestVerify@handle'
+        ],
         'App\Events\LocalWelcome' => [
             'App\Listeners\SendLocalWelcome@handle'
         ],

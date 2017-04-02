@@ -2,16 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\PaymentCancel;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Events\GuestVerify;
 use Illuminate\Contracts\Mail\Mailer;
 
-class SendRegistration
+class SendGuestVerify
 {
-
-    protected $mailer;
-
     /**
      * Create the event listener.
      *
@@ -25,26 +20,25 @@ class SendRegistration
     /**
      * Handle the event.
      *
-     * @param  PaymentCancel $event
+     * @param  GuestVerify $event
      * @return void
      */
-    public function handle(PaymentCancel $event)
+    public function handle(GuestVerify $event)
     {
         $data = [
             'user' => $event->user,
-            'from' => 'info@keepitlocal.co.za',
-            'subject' => 'Welcome to our community'
+            'from' => env("EMAIL_FROM"),
+            'subject' => 'Keep it Local: Please confirm your email'
         ];
 
         try {
 
-            $this->mailer->send('email.welcome', $data, function ($message) use ($data) {
+            $this->mailer->send('email.guest.verify', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc('bdizha@gmail.com', 'Batanayi Matuku')
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
-
+            dd($e);
         }
     }
 }

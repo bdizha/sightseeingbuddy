@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Events\GuestWelcome;
-use App\Events\LocalVerify;
+use App\Events\GuestVerify;
 use App\Events\LocalWelcome;
 use App\User;
 use App\Http\Controllers\AuthController;
@@ -106,7 +105,10 @@ class RegisterController extends AuthController
 //            event(new LocalVerify($user));
         }
         else{
-            event(new GuestWelcome($user));
+            $user->verify_token = md5($user->email);
+            $user->save();
+
+            event(new GuestVerify($user));
         }
         return $user;
     }

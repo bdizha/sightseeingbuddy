@@ -441,5 +441,5 @@ $(function () {
 
     setTimeout(function () {
         $('#notifications-wrapper').hide();
-    }, 5000);
+    }, 200000);
 });

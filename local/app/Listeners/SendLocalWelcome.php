@@ -32,7 +32,7 @@ class SendLocalWelcome
     {
         $data = [
             'user' => $event->user,
-            'from' => 'info@keepitlocal.co.za',
+            'from' => env("EMAIL_FROM"),
             'subject' => 'Welcome to our community'
         ];
 
@@ -40,7 +40,6 @@ class SendLocalWelcome
 
             $this->mailer->send('email.local.welcome', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc('bdizha@gmail.com', 'Batanayi Matuku')
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\GuestWelcome;
-use App\Events\LocalVerify;
 use App\Events\LocalWelcome;
 use App\User;
+
+use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Session;
 
@@ -43,72 +43,33 @@ class VerifyController extends AuthController
         $this->middleware('guest');
     }
 
+
     /**
      * Show the application registration form.
      *
      * @return \Illuminate\Http\Response
      */
-    public function showRegistrationForm()
+    public function email(Request $request)
     {
-        $types = [
-            'guest' => 'Guest',
-            'local' => 'Local'
-        ];
+        $token = $request->get("verify_token");
+        $user = User::where("verify_token", "=", $token)->first();
 
-        $links = $this->getLinks();
-        return view('auth.register', [
-            'links' => $links,
-            'types' => $types
-        ]);
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'type' => 'required',
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        if ($data['type'] == 'local') {
-            $this->redirectTo = '/local/introduction/create';
+        if(empty($user->id)){
+            Session::flash('flash_message', "An error has occurred! Please try and login again!");
+            return redirect("/local/dashboard");
+        }
+        if ($user->is_verified) {
+            Session::flash('flash_message', 'Oops! It appears you\'ve clicked on an expired link');
+            return redirect("/local/dashboard");
         }
 
-        Session::flash('flash_message', 'Welcome to Keep it local!');
+        $user->is_verified = true;
+        $user->save();
 
-        $user = User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'type' => $data['type'],
-        ]);
+        event(new GuestWelcome($user));
 
-        if($user->type == "local"){
-            event(new LocalWelcome($user));
-            event(new LocalVerify($user));
-        }
-        else{
-            event(new GuestWelcome($user));
-        }
-        return $user;
+        Session::flash('flash_message', 'Thanks for verifying your email! Please login with your credentials.');
+        return redirect("/local/login");
     }
 
 }

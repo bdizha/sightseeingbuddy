@@ -18,6 +18,8 @@ Route::group(['prefix' => 'local'], function () {
 
     Route::auth();
 
+    Route::get('/local/auth/{verify_token}', 'Auth\VerifyController@email')->name("auth_verify");
+
     Route::resource('contact', 'Step\ContactController');
     Route::resource('introduction', 'Step\IntroductionController');
     Route::resource('location', 'Step\LocationController');
