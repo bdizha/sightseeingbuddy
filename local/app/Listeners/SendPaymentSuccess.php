@@ -32,6 +32,9 @@ class SendPaymentSuccess
         $data = [
             'booking' => $booking,
             'user' => $booking->user,
+            'experience' => $booking->experience,
+            'pricing' => $booking->experience->pricing,
+            'local' => $booking->experience->local,
             'from' => env('MAIL_FROM'),
             'subject' => 'Keep it Local: Successful payment'
         ];
@@ -43,7 +46,7 @@ class SendPaymentSuccess
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
-
+            dd($e);
         }
     }
 }
