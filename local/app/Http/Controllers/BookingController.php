@@ -92,8 +92,6 @@ class BookingController extends Controller
 
     public function create($id, $time, $timestamp, Request $request)
     {
-        $this->middleware('auth');
-
         $user = Auth::user();
         $experience = Experience::where('id', '=', $id)->first();
         $pricing = $experience->pricing;
@@ -118,8 +116,8 @@ class BookingController extends Controller
             // Merchant details
             'merchant_id' => '10000100',
             'merchant_key' => '46f0cd694581a',
-            'return_url' => route('payment_success'),
-            'cancel_url' => route('payment_cancel'),
+            'return_url' => route('payment_success') . "?reference=" . $booking->reference,
+            'cancel_url' => route('payment_cancel') . "?reference=" . $booking->reference,
             'notify_url' => route('payment_verify'),
             // Buyer details
             'name_first' => $user->first_name,
@@ -152,6 +150,10 @@ class BookingController extends Controller
 
         $date = Carbon::createFromTimestamp($timestamp)->format("d M Y");
 
+
+        $request->session()->set('reference', $booking->reference);
+
+
         return view('booking.add', [
             'experience' => $experience,
             'user' => Auth::user(),
@@ -165,13 +167,13 @@ class BookingController extends Controller
 
     public function verify(Request $request)
     {
-        file_put_contents(public_path() . "/" . "verify.txt", "verify: " . time() . " : " . PAYFAST_SERVER); // DEBUG
+        file_put_contents(public_path() . "/" . "verify.txt", "verify: " . time() . " : " . PAYFAST_SERVER);
 
         // Variable initialization
         $pfError = false;
         $pfErrMsg = '';
-        $filename = 'notify.txt'; // DEBUG
-        $output = ''; // DEBUG
+        $filename = 'notify.txt';
+        $output = '';
         $pfParamString = '';
         $pfHost = (PAYFAST_SERVER == 'LIVE') ? 'www.payfast.co.za' : 'sandbox.payfast.co.za';
 
@@ -179,7 +181,7 @@ class BookingController extends Controller
 
         //// Dump the submitted variables and calculate security signature
         if (!$pfError) {
-            $output = "Posted Variables:\n\n"; // DEBUG
+            $output = "Posted Variables:\n\n";
 
             // Strip any slashes in data
             foreach ($pfData as $key => $val)
@@ -206,10 +208,10 @@ class BookingController extends Controller
 
             $result = ($pfData['signature'] == $signature);
 
-            $output .= "Security Signature:\n\n"; // DEBUG
-            $output .= "- posted     = " . $pfData['signature'] . "\n"; // DEBUG
-            $output .= "- calculated = " . $signature . "\n"; // DEBUG
-            $output .= "- result     = " . ($result ? 'SUCCESS' : 'FAILURE') . "\n"; // DEBUG
+            $output .= "Security Signature:\n\n";
+            $output .= "- posted     = " . $pfData['signature'] . "\n";
+            $output .= "- calculated = " . $signature . "\n";
+            $output .= "- result     = " . ($result ? 'SUCCESS' : 'FAILURE') . "\n";
         }
 
         //// Verify source IP
@@ -243,7 +245,7 @@ class BookingController extends Controller
         if (!$pfError) {
             // Use cURL (If it's available)
             if (function_exists('curl_init')) {
-                $output .= "\n\nUsing cURL\n\n"; // DEBUG
+                $output .= "\n\nUsing cURL\n\n";
 
                 // Create default cURL object
                 $ch = curl_init();
@@ -274,7 +276,7 @@ class BookingController extends Controller
                 }
             } // Use fsockopen
             else {
-                $output .= "\n\nUsing fsockopen\n\n"; // DEBUG
+                $output .= "\n\nUsing fsockopen\n\n";
 
                 // Construct Header
                 $header = "POST /eng/query/validate HTTP/1.0\r\n";
@@ -313,10 +315,10 @@ class BookingController extends Controller
             // Parse the returned data
             $lines = explode("\n", $res);
 
-            $output .= "\n\nValidate response from server:\n\n"; // DEBUG
+            $output .= "\n\nValidate response from server:\n\n";
 
             foreach ($lines as $line) // DEBUG
-                $output .= $line . "\n"; // DEBUG
+                $output .= $line . "\n";
         }
 
         //// Interpret the response from server
@@ -324,7 +326,7 @@ class BookingController extends Controller
             // Get the response from PayFast (VALID or INVALID)
             $result = trim($lines[0]);
 
-            $output .= "\nResult = " . $result; // DEBUG
+            $output .= "\nResult = " . $result;
 
             // If the transaction was valid
             if (strcmp($result, 'VALID') == 0) {
@@ -373,7 +375,7 @@ class BookingController extends Controller
         }
 
         //// Write output to file // DEBUG
-        file_put_contents(public_path() . "/" . $filename, $output); // DEBUG
+        file_put_contents(public_path() . "/" . $filename, $output);
 
         // Notify PayFast that information has been received
         header('HTTP/1.0 200 OK');
@@ -382,10 +384,19 @@ class BookingController extends Controller
 
     public function cancel(Request $request)
     {
-        $user = Auth::user();
-//        $booking = Booking::where('reference', '=', $reference)->first();
+        $reference = $request->get('reference');
 
-        file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . time()); // DEBUG
+        if (empty($reference)) {
+            file_put_contents(public_path() . "/" . "error.txt", "Error: " . time());
+        }
+
+        $user = Auth::user();
+        $booking = Booking::where('reference', '=', $reference)->first();
+
+        event(new PaymentFailure($booking));
+
+        file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . time());
+        
         return view('booking.cancel', [
             'user' => $user,
             'experience' => Experience::where("id", "=", 3)->first()
@@ -395,12 +406,18 @@ class BookingController extends Controller
 
     public function success(Request $request)
     {
+        $reference = $request->get('reference');
+
+        if (empty($reference)) {
+            file_put_contents(public_path() . "/" . "success.txt", "Error: " . time());
+        }
+
         $user = Auth::user();
-        $booking = Booking::first();
+        $booking = Booking::where("reference", "=", $reference)->first();
 
         event(new PaymentSuccess($booking));
 
-        file_put_contents(public_path() . "/" . "success.txt", "success: " . time()); // DEBUG
+        file_put_contents(public_path() . "/" . "success.txt", "success: " . time());
 
         return view('booking.success', [
             'user' => $user,

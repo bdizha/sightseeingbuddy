@@ -40,7 +40,7 @@ class EmailController extends Controller {
         $input = $request->all();
         $email->fill($input)->save();
 
-        Session::flash('flash_message', 'Nofications successfully updated!');
+        Session::flash('flash_message', 'Notifications successfully updated!');
         return redirect()->to("/" . $user->username);
     }
 
