@@ -85,7 +85,7 @@
                         <input type="submit" class="btn btn-yellow" value="Sign Up & Find a Local"/>
                     </div>
                     <div class="col-sm-4 col-xs-6">
-                        <a href="{{ route('login') }}">Already have an account?</a>
+                        <a href="{{ route('login') }}" class="btn-height">Already have an account?</a>
                     </div>
                 </div>
             </form>

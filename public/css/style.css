@@ -10095,6 +10095,9 @@ section #sidebar h2 {
   border-color: #3D3D3D;
   border-width: 3px;
 }
+.btn-height {
+  line-height: 40px;
+}
 .search-block {
   position: relative;
 }

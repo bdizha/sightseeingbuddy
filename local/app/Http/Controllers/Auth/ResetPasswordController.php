@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends AuthController
 {
@@ -25,7 +26,7 @@ class ResetPasswordController extends AuthController
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/local/dashboard';
 
     /**
      * Create a new controller instance.

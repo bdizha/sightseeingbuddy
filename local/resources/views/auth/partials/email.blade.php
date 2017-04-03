@@ -4,6 +4,11 @@
             <h1 class="page-title page-title-left">
                 Reset Password
             </h1>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <p>Enter the email address used to register with to be sent an email containing instructions on resetting your password</p>
             <form id="sign-in" method="POST" class="form" action="{{ url('/local/password/email') }}">
                 {!! csrf_field() !!}
@@ -17,10 +22,10 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4 col-xs-6">
-                        <input type="submit" class="btn btn-yellow" value="Logn In & Find a Local" />
+                        <input type="submit" class="btn btn-yellow" value="Log In & Find a Local" />
                     </div>
                     <div class="col-sm-4 col-xs-6">
-                        <a href="{{ url('/login') }}">Sign In</a>
+                        <a href="{{ url('/login') }}" class="btn-height">Sign In</a>
                     </div>
                 </div>
             </form>

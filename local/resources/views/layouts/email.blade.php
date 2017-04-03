@@ -1,7 +1,8 @@
 <html>
 <head>
     <title>{{ $senderName or '' }}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
         @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900';
         * {
@@ -34,7 +35,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #dddddd; font-family:Helvetica,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #3D3D3D;background: #FFFFFF;">
+                    <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #3D3D3D;background: #FFFFFF;">
                         @yield('content')
                         @include('email.partials.signature')
                     </td>

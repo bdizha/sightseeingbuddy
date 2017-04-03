@@ -35,4 +35,15 @@ class ForgotPasswordController extends AuthController
         $links = $this->getLinks();
         return view('auth.passwords.email', ['links' => $links]);
     }
+
+    /**
+     * Get the response for a successful password reset link.
+     *
+     * @param  string $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendResetLinkResponse($response)
+    {
+        return back()->with('status', trans($response));
+    }
 }

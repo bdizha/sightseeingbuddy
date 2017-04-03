@@ -5,4 +5,7 @@
             {{ Session::get('flash_message') }}
         </div>
     </div>
+@else
+    <input type="hidden" id="notifications-wrapper"/>
+    <input type="hidden" id="notifications"/>
 @endif

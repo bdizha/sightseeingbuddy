@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Events\GuestWelcome;
 use App\Events\LocalWelcome;
 use App\User;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use Illuminate\Foundation\Auth\RegistersUsers;

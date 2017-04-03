@@ -4,6 +4,7 @@ RewriteEngine On
 RewriteRule ^(.+)\.\d{10}\.(js|css|png|jpg|gif)$ /$1.$2 [L]
 
 RewriteRule  ^login /local/login [R=301,L]
+RewriteRule  ^password/reset/(.+) /local/password/reset/$1 [R=301,L]
 
 # Send would-be 404 requests to Craft
 RewriteCond %{REQUEST_FILENAME} !-f
