@@ -11,7 +11,7 @@
         @include('email.partials.content', ['text' => "<b>Number of guests</b>: " . $pricing->guests])
         @include('email.partials.content', ['text' => "<b>Special request</b>: " . implode(",", unserialize($booking->special_requests))])
         @include('email.partials.content', ['text' => "If there’s anything you’d like to add, please contact (Host name):"])
-        @include('email.partials.button', ['url' => '/profile/' . $booking->local->username, 'text' => 'Link to go to host profile'])
+        @include('email.partials.button', ['url' => '/local/profile/' . $booking->local->username, 'text' => 'Visit your host\'s profile'])
         @include('email.partials.content', ['text' => "Enjoy your experience,"])
         </tbody>
     </table>
