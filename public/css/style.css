@@ -10163,11 +10163,19 @@ section #sidebar h2 {
 .pos-rel-block {
   position: relative;
 }
-.pos-rel-block .home-btn-block {
-  display: block;
-  position: absolute;
-  top: -340px;
-  right: 20px;
+@media (min-width: 992px) {
+  .pos-rel-block .home-btn-block {
+    display: block;
+    position: absolute;
+    top: -340px;
+    right: 20px;
+  }
+}
+@media (max-width: 992px) {
+  .pos-rel-block {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+  }
 }
 #footer {
   background: #FDBF0F;
@@ -10577,8 +10585,9 @@ a.thumbnail:active {
     line-height: 24px;
   }
   .carousel-caption .container h1 {
-    font-size: 48px;
-    line-height: 48px;
+    font-size: 34px;
+    line-height: 36px;
+    margin-top: 0;
   }
   .carousel-indicators {
     bottom: 20px;
