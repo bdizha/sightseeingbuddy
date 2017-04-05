@@ -93,11 +93,11 @@ class WalletController extends StepController {
 
         $wallet->fill($input)->save();
 
-        Session::flash('flash_message', 'Wallet successfully saved!');
+        Session::flash('flash_message', 'Your payment details have been successfully saved!');
 
         $user = Auth::user();
 
-        return redirect(route("{$this->next_step}.edit", ["id" => $user->id]));
+        return redirect(url("/local/profile/" . $user->username));
     }
 
     /**

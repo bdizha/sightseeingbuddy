@@ -9,39 +9,7 @@
                         How do we contact you?
                     </h1>
                     {!! csrf_field() !!}
-                    <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}" id="email">
-                        <div class="col-xs-12">
-                            @if ($errors->has('email'))
-                            <label class="control-label" for="email">{{ $errors->first('email') }}</label>
-                            @endif
-                            <div class="input-group">
-                                <label class="control-label" for="email">Email</label>
-                                {{ Form::text('email', $contact->email, ['class' => 'form-control fullwidth', 'placeholder' => 'Your email address*']) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group {{ $errors->has('mobile') ? 'has-error' : '' }}" id="mobile">
-                        <div class="col-xs-12">
-                            @if ($errors->has('mobile'))
-                            <label class="control-label" for="mobile">{{ $errors->first('mobile') }}</label>
-                            @endif
-                            <div class="input-group">
-                                <label class="control-label" for="mobile">Mobile</label>
-                                {{ Form::text('mobile', $contact->mobile, ['class' => 'form-control fullwidth', 'placeholder' => 'Your mobile number*']) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group {{ $errors->has('telephone') ? 'has-error' : '' }}" id="telephone">
-                        <div class="col-xs-12">
-                            @if ($errors->has('telephone'))
-                            <label class="control-label" for="telephone">{{ $errors->first('telephone') }}</label>
-                            @endif
-                            <div class="input-group">
-                                <label class="control-label" for="telephone">Telephone</label>
-                                {{ Form::text('telephone', $contact->telephone, ['class' => 'form-control fullwidth', 'placeholder' => 'Your home telephone number*']) }}
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row form-group">
                         <div class="col-xs-12">
                             <p>

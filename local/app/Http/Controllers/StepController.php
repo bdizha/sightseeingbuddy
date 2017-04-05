@@ -23,10 +23,6 @@ class StepController extends Controller {
             'wallet' => [
                 'label' => 'Payment Details',
                 'route' => route("wallet.{$action}", $parameters)
-            ],
-            'contact' => [
-                'label' => 'Contact Information',
-                'route' => route("contact.{$action}", $parameters)
             ]
         ];
 

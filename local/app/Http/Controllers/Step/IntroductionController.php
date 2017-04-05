@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\StepController;
 use Session;
 use App\Introduction;
+use App\Contact;
 use App\Images\UploadHandler;
 
 class IntroductionController extends StepController {
@@ -26,6 +27,7 @@ class IntroductionController extends StepController {
      */
     public function create(Request $request) {
         $introduction = new Introduction();
+        $contact = new Contact();
         $user = Auth::user();
 
         $links = $this->getLinks($user);
@@ -33,6 +35,7 @@ class IntroductionController extends StepController {
         return view('step.introduction.add', [
             'introduction' => $introduction,
             'user' => $user,
+            'contact' => $contact,
             'links' => $links
         ]);
     }
@@ -47,8 +50,10 @@ class IntroductionController extends StepController {
         $user = Auth::user();
         $introduction = new Introduction();
         $introduction->user_id = $user->id;
+        $contact = new Contact();
+        $contact->user_id = $user->id;
 
-        return $this->save($introduction, $request);
+        return $this->save($introduction, $contact, $request);
     }
 
     /**
@@ -59,11 +64,13 @@ class IntroductionController extends StepController {
     public function edit($id, Request $request) {
         $user = Auth::user();
         $introduction = Introduction::findOrNew($user->id);
+        $contact = Contact::firstOrNew(['user_id' => $user->id]);
 
         $links = $this->getLinks($user);
 
         return view('step.introduction.edit', [
             'introduction' => $introduction,
+            'contact' => $contact,
             'user' => $user,
             'links' => $links
         ]);
@@ -77,16 +84,20 @@ class IntroductionController extends StepController {
     public function update($id, Request $request) {
         $user = Auth::user();
         $introduction = Introduction::findOrNew($user->id);
-        return $this->save($introduction, $request);
+        $contact = Contact::firstOrNew(['user_id' => $user->id]);
+        return $this->save($introduction, $contact, $request);
     }
 
-    private function save($introduction, $request) {
+    private function save($introduction, $contact, $request) {
 
         $fields = [
             'first_name' => 'required',
             'last_name' => 'required',
             'image' => 'required',
             'id_number' => 'required',
+            'email' => 'required|email|max:255',
+            'mobile' => 'required|max:255',
+            'telephone' => 'max:255',
             'reason' => 'required',
             'description' => 'required'
         ];
@@ -105,6 +116,8 @@ class IntroductionController extends StepController {
         $user->fill($userInput)->save();
 
         $introduction->fill($input)->save();
+
+        $contact->fill($input)->save();
 
         Session::flash('flash_message', 'Introduction successfully saved!');
 
