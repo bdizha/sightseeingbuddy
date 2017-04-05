@@ -29,7 +29,7 @@
                             valign="middle">
                             <a href="{{ url('/') }}">
                                 <span>
-                                    <img border="0" height="33" src="{{ url('/images/logo.svg') }}">
+                                    <img border="0" height="33" src="{{ url('/images/logo.png') }}">
                                 </span>
                             </a>
                         </td>
