@@ -27,19 +27,35 @@
         @include('profile.partials.stats', ['title' => $title])
     </div>
     <div class="col-sm-6 col-xs-12">
-        <div class='row mt-1'>
-            <div class="col-sm-12 col-xs-12">
-                <a href="{{ route('info.create') }}" class="btn btn-lg btn-yellow fullwidth mb-1">CREATE NEW
-                    LOCAL EXPERIENCE</a>
+        @if(!empty($_GET['verify']) || $_GET['verify'] == "yes")
+            <div class='row mt-1'>
+                <div class="col-sm-6 col-xs-6">
+                    <a href="{{ url('/local/profile/' . $user->username . "?verify=true") }}"
+                       class="btn btn-yellow fullwidth">Verify profile
+                    </a>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <a href="{{ url('/local/profile/' . $user->username . "?verify=false") }}"
+                       class="btn btn-primary fullwidth">Decline profile
+                    </a>
+                </div>
             </div>
-            <div class="col-sm-6 col-xs-6">
-                <a href="{{ route('introduction.edit', ["id" => Auth::user()->id]) }}"
-                   class="btn btn-primary fullwidth">Edit Profile</a>
+        @else
+            <div class='row mt-1'>
+                <div class="col-sm-12 col-xs-12">
+                    <a href="{{ route('info.create') }}" class="btn btn-lg btn-yellow fullwidth mb-1">
+                        CREATE NEW LOCAL EXPERIENCE
+                    </a>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <a href="{{ route('introduction.edit', ["id" => Auth::user()->id]) }}"
+                       class="btn btn-primary fullwidth">Edit Profile</a>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <a href="#experiences" class="btn btn-primary pull-right fullwidth">My Experiences</a>
+                </div>
             </div>
-            <div class="col-sm-6 col-xs-6">
-                <a href="#experiences" class="btn btn-primary pull-right fullwidth">My Experiences</a>
-            </div>
-        </div>
+        @endif
         @if($user->id == Auth::user()->id)
             <div class="row">
                 <div class="col-sm-12 col-xs-12 mt-1 text-bold">

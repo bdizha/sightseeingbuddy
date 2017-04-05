@@ -1,7 +1,4 @@
-@extends('layouts.email', ['heading'])
-@section('heading')
-    @include('email.partials.heading', ['text' => 'New Contact'])
-@endsection
+@extends('layouts.email')
 @section('content')
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
         <tbody>

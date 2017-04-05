@@ -1,14 +1,16 @@
 <div class="carousel">
-  <!-- Wrapper for slides -->
-<div data-slick-carousel-default class="carousel-inner">
-  {% for slide in entry.slideshow %}
-      <div class="item {{ loop.first ? "active" : "" }}">
-         <img src="{{ slide.image.first().getUrl({height:720, quality:80}) }}" alt="{{ slide.image.first().Title }}" class="img-responsive">
-         <a href="{{ slide.linkUrl }}">
-            <div class="carousel-caption">
-              <p class="caption-bg"></p>
+    <!-- Wrapper for slides -->
+    <div data-slick-carousel-default class="carousel-inner">
+        {% for slide in entry.slideshow %}
+            <div class="item {{ loop.first ? "active" : "" }}">
+                <img src="{{ slide.image.first().getUrl({height:720, quality:80}) }}"
+                     alt="{{ slide.image.first().Title }}" class="img-responsive">
+                <a href="{{ slide.linkUrl }}">
+                    <div class="carousel-caption">
+                        <p class="caption-bg"></p>
+                    </div>
+                </a>
             </div>
-          </a>
-      </div>
-  {% endfor %}
+        {% endfor %}
+    </div>
 </div>

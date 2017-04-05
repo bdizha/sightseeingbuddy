@@ -10103,12 +10103,14 @@ section #sidebar h2 {
 .search-block {
   position: relative;
 }
-.search-block .search-form {
-  display: block;
-  width: 356px;
-  position: absolute;
-  bottom: 169px;
-  right: 20px;
+@media (min-width: 992px) {
+  .search-block .search-form {
+    display: block;
+    width: 356px;
+    position: absolute;
+    top: -540px;
+    right: 20px;
+  }
 }
 .search-block .datetime-group .date-range .table-condensed > thead > tr > th,
 .search-block .datetime-group .date-range .table-condensed > tfoot > tr > th {
@@ -10555,7 +10557,7 @@ a.thumbnail:active {
   width: 100%;
 }
 .carousel-caption .container h1 {
-  width: 72%;
+  width: 65%;
   font-weight: 900;
   font-size: 110px;
   text-transform: uppercase;
@@ -10575,7 +10577,8 @@ a.thumbnail:active {
     line-height: 24px;
   }
   .carousel-caption .container h1 {
-    font-size: 40px;
+    font-size: 48px;
+    line-height: 48px;
   }
   .carousel-indicators {
     bottom: 20px;

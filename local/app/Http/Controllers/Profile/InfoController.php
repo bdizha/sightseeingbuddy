@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Session;
 
 class InfoController extends Controller {
 
@@ -13,6 +14,22 @@ class InfoController extends Controller {
 
     public function show($username) {
         $user = User::where('username', '=', $username)->first();
+
+        if(!empty($_GET["verify"])){
+            $verify = $_GET['verify'];
+
+            if($verify == "true"){
+                Session::flash('flash_message', 'You\'ve successfully verified this profile!');
+                $user->is_verified = true;
+            }
+
+            if($verify === "false"){
+                Session::flash('flash_message', 'You\'ve successfully declined this profile!');
+                $user->is_verified = false;
+            }
+
+            $user->save();
+        }
 
         if ($user) {
             return view('profile.dashboard', ['user' => $user]);
