@@ -10123,7 +10123,7 @@ section #sidebar h2 {
   font-size: 13px;
 }
 @media (max-width: 992px) {
-  .search-block .btn-default.btn-lg {
+  .search-xs .btn-default.btn-lg {
     border-color: #FFFFFF;
     color: #FFFFFF;
   }
