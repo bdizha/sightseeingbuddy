@@ -101,7 +101,9 @@ function UIBindings() {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
-            fade: true
+            fade: true,
+            autoplay: true,
+            autoplaySpeed: 3000
         });
 
         $('[data-slick-carousel-three]').slick({
@@ -109,7 +111,9 @@ function UIBindings() {
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1,
-            adaptiveHeight: false
+            adaptiveHeight: false,
+            autoplay: true,
+            autoplaySpeed: 3000
         });
 
         $('[data-toggle="slick-nav"]').on('click', function (e) {

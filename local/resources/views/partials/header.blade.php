@@ -26,7 +26,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img src="/uploads/files/_AUTOx52_crop_center-center/Keep-It-Local-Website-AssetsAsset-1.png" alt="Keep It Local" style="height: 52px">
+                        <img src="/cpresources/transforms/63?x=gdGXHQ18N" alt="Keep It Local" style="height: 52px">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="primaryNav">
