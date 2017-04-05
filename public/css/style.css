@@ -10172,7 +10172,7 @@ section #sidebar h2 {
   }
 }
 @media (max-width: 992px) {
-  .pos-rel-block {
+  .pos-rel-block .home-btn-block a.btn {
     border-color: #FFFFFF;
     color: #FFFFFF;
   }
@@ -10588,6 +10588,7 @@ a.thumbnail:active {
     font-size: 34px;
     line-height: 36px;
     margin-top: 0;
+    padding-top: 0;
   }
   .carousel-indicators {
     bottom: 20px;

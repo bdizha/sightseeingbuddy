@@ -1463,8 +1463,12 @@ section {
     }
   }
   @media (max-width: @grid-float-breakpoint) {
-    border-color: @white;
-    color: @white;
+    .home-btn-block {
+      a.btn {
+        border-color: @white;
+        color: @white;
+      }
+    }
   }
 }
 
@@ -1907,6 +1911,7 @@ a.thumbnail:hover, a.thumbnail:active {
         font-size: 34px;
         line-height: 36px;
         margin-top: 0;
+        padding-top: 0;
       }
     }
   }
