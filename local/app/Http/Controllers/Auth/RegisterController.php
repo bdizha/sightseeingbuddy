@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\GuestVerify;
 use App\Events\LocalWelcome;
+use App\Http\Requests\Request;
 use App\User;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Validator;
@@ -55,9 +56,11 @@ class RegisterController extends AuthController
         ];
 
         $links = $this->getLinks();
+
         return view('auth.register', [
             'links' => $links,
-            'types' => $types
+            'types' => $types,
+            'currentType' => empty($_GET["type"]) ? "" : "local"
         ]);
     }
 

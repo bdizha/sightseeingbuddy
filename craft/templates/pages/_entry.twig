@@ -16,7 +16,7 @@
             {%- include "_includes/sidebar.twig" -%}
             <div class="col-sm-8 col-sm-offset-1 mt-3">
                 <div class="row">
-                    <article class="article">
+                    <article class="article same-height" data-class="column">
                         <h1 class="page-title page-title-left">{{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}</h1>
                         {{ templateMacros.renderBody(entry.body, guestEntry) }}
                     </article>

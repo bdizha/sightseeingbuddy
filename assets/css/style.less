@@ -335,7 +335,7 @@ input[type="radio"] {
   padding-bottom: @line-height-computed * 3px;
 }
 
-.row-max-1{
+.row-max-1 {
   max-width: 550px;
 }
 
@@ -542,7 +542,7 @@ section {
     margin: 40px 0;
   }
   h3 {
-    font-size: 23px;
+    font-size: 25px;
   }
   h4 {
     font-size: 15px;
@@ -591,7 +591,7 @@ section {
 }
 
 .article {
-  padding-bottom: @padding-large-vertical;
+  margin-bottom: @padding-large-vertical;
 
   .article-title {
     &:extend(.page-title);
@@ -1344,18 +1344,20 @@ section {
       height: 51px;
       padding-left: 65px;
       text-transform: lowercase;
+      font-size: 25px;
+      height: 76px;
     }
     position: relative;
   }
 
   .input-group-addon {
-    width: 44px;
-    height: 44px;
+    width: 60px;
+    height: 60px;
     background-size: 100%;
     border: 1px solid transparent;
     position: absolute;
     left: 10px;
-    top: 3px;
+    top: 10px;
   }
 
   #destination .input-group-addon {
@@ -1382,7 +1384,7 @@ section {
   }
 }
 
-.btn-height{
+.btn-height {
   line-height: 40px;
 }
 
@@ -1431,6 +1433,16 @@ section {
   }
   @media (max-width: @grid-float-breakpoint) {
     display: none;
+  }
+}
+
+.pos-rel-block {
+  position: relative;
+  .home-btn-block {
+    display: block;
+    position: absolute;
+    top: -340px;
+    right: 20px;
   }
 }
 
@@ -1558,6 +1570,7 @@ section {
   border-color: @btn-default-color;
   font-weight: 700;
   text-transform: uppercase;
+  border-radius: 5px;
   &:hover {
     background: transparent;
   }
@@ -1567,6 +1580,8 @@ section {
     color: @gray-base;
     font-weight: 900;
     border-color: transparent;
+    padding: 20px;
+    font-size: 24px;
   }
 }
 
@@ -1577,14 +1592,19 @@ section {
   padding: 7px 24px;
   border-radius: 5px;
   &.btn-lg {
-    padding: 10px 16px;
-    font-size: 20px;
+    padding: 20px;
+    font-size: 25px;
     line-height: 1.3333333;
     border-radius: 6px;
     color: @gray-base;
     background-color: transparent;
     border-color: @gray-base;
     border-width: 3px;
+    font-weight: 900;
+    &.btn-white {
+      border-color: @white;
+      color: @white;
+    }
   }
 }
 
@@ -1836,11 +1856,15 @@ a.thumbnail:hover, a.thumbnail:active {
   text-align: left;
   width: 100%;
   .container {
-    font-weight: 900;
-    font-size: 92px;
-    text-transform: uppercase;
-    padding: 40px 20px 20px;
-    line-height: 94px;
+    h1 {
+      width: 72%;
+      font-weight: 900;
+      font-size: 110px;
+      text-transform: uppercase;
+      padding: 40px 20px 20px;
+      line-height: 94px;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, .7);
+    }
   }
 }
 
@@ -1857,6 +1881,9 @@ a.thumbnail:hover, a.thumbnail:active {
       text-transform: uppercase;
       padding: 20px;
       line-height: 24px;
+      h1 {
+        font-size: 40px;
+      }
     }
   }
 

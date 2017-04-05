@@ -24,14 +24,14 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-6 col-xs-12">
-                        <input type="submit" class="btn btn-yellow" value="Logn In & Find a Local" />
+                        <input type="submit" class="btn btn-yellow" value="Logn In" />
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 col-xs-6">
+                    <div class="col-sm-6 col-xs-6">
                         <a href="{{ route('register') }}">Don't have an account?</a>
                     </div>
-                    <div class="col-sm-4 col-xs-6">
+                    <div class="col-sm-6 col-xs-6">
                         <a href="{{ url('/local/password/reset') }}">Forgot password?</a>
                     </div>
                 </div>

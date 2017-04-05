@@ -16,7 +16,7 @@
                             <label class="control-label" for="type_local">I'm a:</label>
                             @foreach($types as $key => $type)
                                 <label class="checkbox-inline">
-                                    {{ Form::radio('type', $key, old('type') == $key, ['id' => "type_" . $key]) }}
+                                    {{ Form::radio('type', $key, in_array($key, [old('type'), $currentType]), ['id' => "type_" . $key]) }}
                                     <label for="{{ "type_" . $key }}">
                                         <span></span>
                                         {{ $type  }}
@@ -81,10 +81,10 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 col-xs-6">
-                        <input type="submit" class="btn btn-yellow" value="Sign Up & Find a Local"/>
+                    <div class="col-sm-6 col-xs-12">
+                        <input type="submit" class="btn btn-yellow" value="Sign Up & @if($currentType == 'local') Become a local @else Find a Local @endif "/>
                     </div>
-                    <div class="col-sm-4 col-xs-6">
+                    <div class="col-sm-6 col-xs-12">
                         <a href="{{ route('login') }}" class="btn-height">Already have an account?</a>
                     </div>
                 </div>

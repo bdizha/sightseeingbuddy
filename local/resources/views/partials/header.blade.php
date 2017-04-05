@@ -51,7 +51,7 @@
                             item
                             item-level-1
                             ">
-                            <a href="/pages/becoming-a-local" >
+                            <a href="/become-a-local" >
                                 Become a Local
                             </a>
                         </li>
