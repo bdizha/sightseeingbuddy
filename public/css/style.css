@@ -10108,7 +10108,7 @@ section #sidebar h2 {
     display: block;
     width: 356px;
     position: absolute;
-    top: -540px;
+    top: -440px;
     right: 20px;
   }
 }
@@ -10324,6 +10324,11 @@ section #sidebar h2 {
   border-color: #3D3D3D;
   border-width: 3px;
   font-weight: 900;
+}
+@media (max-width: 992px) {
+  .btn-primary.btn-lg {
+    font-size: 20px;
+  }
 }
 .btn-primary.btn-lg.btn-white {
   border-color: #FFFFFF;
