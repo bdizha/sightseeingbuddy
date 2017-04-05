@@ -27,7 +27,7 @@
         @include('profile.partials.stats', ['title' => $title])
     </div>
     <div class="col-sm-6 col-xs-12">
-        @if(!empty($_GET['verify']) || $_GET['verify'] == "yes")
+        @if(!empty($_GET['verify']) && $_GET['verify'] == "yes")
             <div class='row mt-1'>
                 <div class="col-sm-6 col-xs-6">
                     <a href="{{ url('/local/profile/' . $user->username . "?verify=true") }}"
