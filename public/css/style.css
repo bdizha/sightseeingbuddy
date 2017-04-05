@@ -10121,6 +10121,12 @@ section #sidebar h2 {
   padding: 5px;
   font-size: 13px;
 }
+@media (max-width: 992px) {
+  .search-block .btn-default.btn-lg {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+  }
+}
 .search-form .form-group {
   height: 76px;
   position: relative;
