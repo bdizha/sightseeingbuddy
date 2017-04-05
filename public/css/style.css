@@ -10108,8 +10108,9 @@ section #sidebar h2 {
     display: block;
     width: 356px;
     position: absolute;
-    top: -440px;
+    top: 90px;
     right: 20px;
+    z-index: 99;
   }
 }
 .search-block .datetime-group .date-range .table-condensed > thead > tr > th,

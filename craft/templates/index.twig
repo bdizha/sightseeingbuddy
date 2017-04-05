@@ -3,59 +3,14 @@
 
 {% block content %}
 
+    <div class="container search-block hidden-xs">
+        {%- include "_includes/search.twig" -%}
+    </div>
+
     {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
 
-    <div class="container search-block">
-        <form method="POST" action="/local/search" accept-charset="UTF-8" class="search-form">
-            <div class="form-group" id="destination">
-                <div class="input-group">
-                    <div class="input-group-addon"></div>
-                    <input class="text form-control input-lg fullwidth" type="text" id="destination" name="destination"
-                           value="" placeholder="Your destination">
-                </div>
-            </div>
-            <div class="form-group" id="guests">
-                <div class="input-group">
-                    <div class="input-group-addon"></div>
-                    <select class="form-control fullwidth" name="guests">
-                        <option selected="selected" value="">Amount of guests</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group" id="duration">
-                <div class="input-group">
-                    <div class="input-group-addon"></div>
-                    <input class="text form-control input-lg fullwidth datetime-input" type="text" id="duration"
-                           name="duration" value=" - " placeholder="Length of stay">
-                </div>
-            </div>
-            <div class="datetime-group">
-                <div class="datetime-inner">
-                    <div class="date-range" data-id="date-from">
-                        <input type="hidden" name="date_from" id="date-from" value=""/>
-                        <div class="date-arrow"></div>
-                        <div class="date-header">From</div>
-                        <div id="from-date" class="datepicker"></div>
-                    </div>
-                    <div class="date-range" data-id="date-to">
-                        <input type="hidden" name="date_to" id="date-to" value=""/>
-                        <div class="date-header">To</div>
-                        <div id="to-date" class="datepicker"></div>
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-default btn-lg btn-block">Find a Host</button>
-        </form>
+    <div class="container hidden-lg hidden-md hidden-sm">
+        {%- include "_includes/search.twig" -%}
     </div>
 
     <section id='trust-items'>
