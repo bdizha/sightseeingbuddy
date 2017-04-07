@@ -1,4 +1,4 @@
-  <div class="carousel mb-1 hidden-xs">
+  <div class="carousel mb-1 hidden-xs hidden-sm">
     <!-- Wrapper for slides -->
     <div data-slick-carousel-default class="carousel-inner">
       {% set entry = entry.slideshow.with(["slide:image"]) %}
@@ -28,6 +28,36 @@
         </div>
       {% endfor %}
     </div>
+  </div>
+
+  <div class="carousel mb-1 hidden-lg hidden-sm hidden-xs">
+      <!-- Wrapper for slides 222 -->
+      <div data-slick-carousel-default class="carousel-inner">
+
+          {% for slide in entry.slideshow %}
+              {% set image = slide.image[0] ?? null %}
+
+              {% set transformedImage = craft.imager.transformImage(image, [
+              { width: 600},
+              { width: 400}
+              ], {
+              ratio: 16/7,
+              mode: 'crop',
+              cropZoom: 1,
+              position: image.focalPoint,
+              jpegQuality: 100
+              }) %}
+
+              <div class="item {{ loop.first ? "active" : "" }}">
+                  <img src="{{ craft.imager.base64Pixel(16,7) }}" sizes="100vw" srcset="{{ craft.imager.srcset(transformedImage) }}">
+                  <div class="carousel-caption">
+                      <div class="container">
+                          <h1>{{ slide.summary | raw }}</h1>
+                      </div>
+                  </div>
+              </div>    
+          {% endfor %}
+      </div>
   </div>
 
   <div class="carousel mb-1 hidden-lg hidden-md hidden-sm">
