@@ -10390,9 +10390,17 @@ section #sidebar h2 {
   width: 100%;
 }
 .article-sharing {
-  min-height: 28px;
   text-align: left;
-  margin-bottom: 36px;
+  margin-bottom: 0;
+}
+.article-sharing .fa-lg {
+  font-size: 100%;
+  line-height: 38px;
+  vertical-align: middle;
+}
+.article-sharing .share-btn:hover {
+  background: #FDBF0F;
+  color: #3D3D3D;
 }
 .share-btn {
   display: inline-block;

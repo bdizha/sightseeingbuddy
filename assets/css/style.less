@@ -1707,10 +1707,19 @@ section {
 
 // share
 .article-sharing {
-  min-height: 28px;
   text-align: left;
-  margin-bottom: @font-size-h1;
-
+  margin-bottom: 0;
+  .fa-lg {
+    font-size: 100%;
+    line-height: 38px;
+    vertical-align: middle;
+  }
+  .share-btn {
+    &:hover {
+      background: @yellow;
+      color: @gray-base;
+    }
+  }
 }
 
 .share-btn {
