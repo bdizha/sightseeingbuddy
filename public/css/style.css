@@ -10110,7 +10110,7 @@ section #sidebar h2 {
     display: block;
     width: 356px;
     position: absolute;
-    top: 90px;
+    top: 65px;
     right: 20px;
     z-index: 99;
   }
@@ -10169,19 +10169,16 @@ section #sidebar h2 {
 .search-form .form-group #duration .input-group-addon {
   background-image: url(/images/duration.png);
 }
-.pos-rel-block {
-  position: relative;
-}
 @media (min-width: 992px) {
-  .pos-rel-block .home-btn-block {
+  .home-btn-block {
     display: block;
     position: absolute;
-    top: -340px;
+    top: 80px;
     right: 20px;
   }
 }
 @media (max-width: 992px) {
-  .pos-rel-block .home-btn-block a.btn {
+  .home-btn-block a.btn {
     border-color: #FFFFFF;
     color: #FFFFFF;
   }

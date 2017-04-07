@@ -1397,7 +1397,7 @@ section {
       display: block;
       width: 356px;
       position: absolute;
-      top: 90px;
+      top: 65px;
       right: 20px;
       z-index: 99;
     }
@@ -1414,8 +1414,8 @@ section {
 }
 
 @media (max-width: @grid-float-breakpoint) {
-  .search-xs{
-    .btn-default.btn-lg{
+  .search-xs {
+    .btn-default.btn-lg {
       border-color: @white;
       color: @white;
     }
@@ -1439,7 +1439,7 @@ section {
         font-size: 21px;
         padding: 6px 15px;
         &:hover,
-        &:focus{
+        &:focus {
           box-shadow: none;
         }
       }
@@ -1464,22 +1464,20 @@ section {
   }
 }
 
-.pos-rel-block {
-  position: relative;
-  @media (min-width: @grid-float-breakpoint) {
-    .home-btn-block {
-      display: block;
-      position: absolute;
-      top: -340px;
-      right: 20px;
-    }
+@media (min-width: @grid-float-breakpoint) {
+  .home-btn-block {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 20px;
   }
-  @media (max-width: @grid-float-breakpoint) {
-    .home-btn-block {
-      a.btn {
-        border-color: @white;
-        color: @white;
-      }
+}
+
+@media (max-width: @grid-float-breakpoint) {
+  .home-btn-block {
+    a.btn {
+      border-color: @white;
+      color: @white;
     }
   }
 }

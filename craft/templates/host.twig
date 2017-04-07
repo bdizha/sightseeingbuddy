@@ -2,7 +2,20 @@
 
 {% block content %}
 
-    {{  templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
+
+    <div class="container hidden-xs">
+        <div class="home-btn-block">
+            <a href="/local/register?type=local" class="btn btn-default btn-lg btn-block">Become a local</a>
+        </div>
+    </div>
+
+    {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
+
+    <div class="container hidden-lg hidden-md hidden-sm">
+        <div class="home-btn-block">
+            <a href="/local/register?type=local" class="btn btn-default btn-lg btn-block">Become a local</a>
+        </div>
+    </div>
 
     <section id='trust-items'>
         <div class="container pos-rel-block">
@@ -11,7 +24,7 @@
             </div>
             {% set hasArrows = false %}
             <h2 class="text-center section-title"> {{ entry.body.type('text').first().text }}</h2>
-            {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(1).panel.first(), hasArrows) }}
+            {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(1).panel.first(), hasArrows) }}
             <div class="text-center">
                 <a href="/local/register?type=local" class="btn btn-primary btn-lg btn-white">Become a local</a>
             </div>
@@ -23,7 +36,7 @@
             {% set hasArrows = false %}
             {% set panelType = 'perks' %}
             <h2 class="text-center section-title"> {{ entry.body.type('text').offsetGet(1).text }}</h2>
-            {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(2).panel.first(), hasArrows, panelType) }}
+            {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(2).panel.first(), hasArrows, panelType) }}
 
             <div class="text-center">
                 <a href="/local/register?type=local" class="btn btn-primary btn-lg">Become a Local</a>
@@ -35,9 +48,11 @@
         <div class="container pb-3 white-bottom-border">
             {% set hasArrows = false %}
             <h2 class="text-center section-title"> {{ entry.body.type('text').offsetGet(2).text }}</h2>
-            {{  templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(3).panel.first(), hasArrows) }}
+            {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(3).panel.first(), hasArrows) }}
             <div class="text-center">
-                <a href="/local/register?type=local" class="btn btn-primary btn-lg btn-white">Create Your Local Experience</a>
+                <a href="/local/register?type=local" class="btn btn-primary btn-lg btn-white">
+                    Create Your Local Experience
+                </a>
             </div>
         </div>
     </section>
