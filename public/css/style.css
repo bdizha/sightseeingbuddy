@@ -10169,12 +10169,16 @@ section #sidebar h2 {
 .search-form .form-group #duration .input-group-addon {
   background-image: url(/images/duration.png);
 }
+.relative-container {
+  position: relative;
+}
 @media (min-width: 992px) {
-  .home-btn-block {
+  .relative-container .home-btn-block {
     display: block;
     position: absolute;
-    top: 80px;
+    top: 100px;
     right: 20px;
+    z-index: 9999;
   }
 }
 @media (max-width: 992px) {

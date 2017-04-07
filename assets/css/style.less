@@ -1464,12 +1464,16 @@ section {
   }
 }
 
-@media (min-width: @grid-float-breakpoint) {
-  .home-btn-block {
-    display: block;
-    position: absolute;
-    top: 80px;
-    right: 20px;
+.relative-container {
+  position: relative;
+  @media (min-width: @grid-float-breakpoint) {
+    .home-btn-block {
+      display: block;
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      z-index: 9999;
+    }
   }
 }
 
