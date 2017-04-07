@@ -42,6 +42,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row form-group">
+                        <div class="col-xs-12">
+                            <p>
+                                By creating an account, you confirm that you've read and accept our
+                                <a href="/pages/terms-conditions" target="_blank">Terms & Conditions</a> &
+                                <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>.
+                            </p>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <a href="{{ route('location.edit', ['id' => $user->id]) }}" class="btn btn-primary">Back</a>
                         <input type="submit" class="btn btn-primary pull-right" value="Next" />

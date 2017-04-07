@@ -4,14 +4,14 @@
             <div class="col-md-3 col-sm-3 col-xs-6 col-xs-6-full">
                 <article class="media media-responsive same-height" data-class="experience">
                     <div class="media-top pull-top">
-                        <a href="/local/experience/{{ $experience->id }}">
+                        <a href="/local/experience/{{ $experience->slug }}">
                             <img class="media-object" src="{{ $experience->cover_image }}"
                                  alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
                         </a>
                     </div>
                     <div class="media-body">
                         <h2 class="media-heading">
-                            <a href="/local/experience/{{ $experience->id }}">
+                            <a href="/local/experience/{{ $experience->slug }}">
                                 {{ str_limit($experience->teaser, 35) }}
                             </a>
                         </h2>
