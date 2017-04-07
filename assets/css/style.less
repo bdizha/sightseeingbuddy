@@ -725,7 +725,7 @@ section {
       font-size: 28px;
       margin-top: 20px;
       margin-bottom: 40px;
-      padding-top: 4px;
+      padding-top: 0px;
     }
     &.page-title-center {
       text-align: center;
@@ -733,12 +733,27 @@ section {
       font-size: 32px;
       margin-top: 20px;
       margin-bottom: 40px;
-      padding-top: 4px;
+      padding-top: 0px;
     }
     p {
       margin: 0 0 5px;
     }
+  }
 
+  article{
+    .page-title {
+      &.page-title-left {
+        margin-bottom: 20px;
+      }
+    }
+    @media (max-width: @grid-float-breakpoint) {
+      &.ml-2{
+        margin-left: 0px;
+      }
+      &.mt-3 {
+        margin-top: 15px;
+      }
+    }
   }
 }
 

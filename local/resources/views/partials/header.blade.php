@@ -60,7 +60,7 @@
                             item-level-1
                             ">
                             <a href="/local/search" >
-                                Find a Host
+                                Find a Local
                             </a>
                         </li>
                         <li class="

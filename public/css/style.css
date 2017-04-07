@@ -9550,7 +9550,7 @@ section #sidebar h2 {
   font-size: 28px;
   margin-top: 20px;
   margin-bottom: 40px;
-  padding-top: 4px;
+  padding-top: 0px;
 }
 #page .page-title.page-title-center {
   text-align: center;
@@ -9558,10 +9558,21 @@ section #sidebar h2 {
   font-size: 32px;
   margin-top: 20px;
   margin-bottom: 40px;
-  padding-top: 4px;
+  padding-top: 0px;
 }
 #page .page-title p {
   margin: 0 0 5px;
+}
+#page article .page-title.page-title-left {
+  margin-bottom: 20px;
+}
+@media (max-width: 992px) {
+  #page article.ml-2 {
+    margin-left: 0px;
+  }
+  #page article.mt-3 {
+    margin-top: 15px;
+  }
 }
 .perks-block figure {
   width: 50px;
