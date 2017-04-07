@@ -28,7 +28,7 @@
                 <img class="media-object" src="{{ $experience->cover_image }}" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
             </div>
             <div class="col-sm-6 col-xs-12">
-                <div class="gray-bottom-border mt-1"></div>
+                <div class="gray-bottom-border mt-1 mb-1"></div>
                 <div class="exp-item">
                     <h3>
                         Offered languages       

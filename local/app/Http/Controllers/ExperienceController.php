@@ -6,9 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Experience;
 use Carbon\Carbon;
 
-class ExperienceController extends Controller {
+class ExperienceController extends Controller
+{
 
-    public function show($slug) {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ["show", "date"]]);
+    }
+
+    public function show($slug)
+    {
         $experience = Experience::where('slug', '=', $slug)->first();
 
         $user = $experience->user;
@@ -18,8 +26,9 @@ class ExperienceController extends Controller {
             'extras' => $this->getExras()
         ]);
     }
-    
-    public function schedule($id) {
+
+    public function schedule($id)
+    {
         $experience = Experience::where('id', '=', $id)->first();
 
         $user = $experience->user;
@@ -28,13 +37,15 @@ class ExperienceController extends Controller {
             'user' => $user
         ]);
     }
-    
-    public function date($timestamp) {
-        $date = Carbon::createFromTimestamp($timestamp);        
+
+    public function date($timestamp)
+    {
+        $date = Carbon::createFromTimestamp($timestamp);
         die(json_encode(['date' => $date->format("d/m/Y")]));
     }
 
-    public function getLinks($experience = null) {
+    public function getLinks($experience = null)
+    {
 
         $action = empty($experience) ? "create" : "edit";
         $parameters = empty($experience) ? [] : ["id" => $experience->id];
@@ -61,7 +72,8 @@ class ExperienceController extends Controller {
         return $links;
     }
 
-    public function getExras() {
+    public function getExras()
+    {
         $extras = [
             [
                 'label' => 'Pickup',

@@ -39,7 +39,7 @@
                     @endif
                 </div>
                 <div class="col-sm-6 col-xs-6">
-                    <a href="/local/experience/{{ $experience->id }}/schedule" class="btn btn-primary fullwidth">Information</a>
+                    <a href="/local/experience/{{ $experience->slug }}" class="btn btn-primary fullwidth">Information</a>
                 </div>
                 <div class="col-sm-6 col-xs-6">
                     <a href="#experiences" class="btn btn-primary fullwidth pull-right">My Experiences</a>

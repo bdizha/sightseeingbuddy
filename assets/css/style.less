@@ -105,7 +105,7 @@ html, body {
   .experience-block {
     font-size: 15px;
     h3 {
-      font-size: 26px;
+      font-size: 21px;
       font-weight: 900;
       margin-top: 0;
       margin-bottom: 15px;
@@ -190,8 +190,8 @@ html, body {
   input[type="checkbox"] + label icon,
   input[type="radio"] + label icon {
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
     margin: -2px 10px 0 0;
     vertical-align: middle;
     background-repeat: no-repeat;
@@ -1186,6 +1186,7 @@ section {
     display: inline-block;
     margin-top: 10px;
     > a {
+      outline: none;
       font-weight: 900;
       text-transform: uppercase;
       i {
@@ -1224,7 +1225,8 @@ section {
         color: @yellow;
         background-color: transparent;
         text-decoration: none;
-        &:hover {
+        &:hover,
+        &:focus{
           color: @yellow;
           background-color: transparent;
           text-decoration: none;
@@ -1298,9 +1300,11 @@ section {
     -webkit-padding-start: 0;
     > li {
       > a {
+        outline: none;
         text-decoration: none;
         padding: 2px 0px;
-        &:hover {
+        &:hover,
+        &:focus{
           color: @gray-base;
           background-color: transparent !important;
           text-decoration: none;
@@ -1311,7 +1315,8 @@ section {
           color: @gray-base;
           background-color: transparent;
           text-decoration: none;
-          &:hover {
+          &:hover,
+          &:focus{
             color: @gray-base;
             background-color: transparent;
             text-decoration: none;
@@ -1635,7 +1640,7 @@ section {
     color: @gray-base;
     font-weight: 900;
     border-color: transparent;
-    padding: 10px 15px;
+    padding: 8px 15px;
     font-size: 24px;
   }
 }
@@ -1647,8 +1652,8 @@ section {
   padding: 7px 24px;
   border-radius: 5px;
   &.btn-lg {
-    padding: 10px 15px;
-    font-size: 25px;
+    padding: 8px 15px;
+    font-size: 24px;
     line-height: 1.3333333;
     border-radius: 6px;
     color: @gray-base;

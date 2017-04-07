@@ -1,6 +1,8 @@
 <div class="carousel slick-carousel-three">
-    <div class="carousel-caption">
-        {{ $experience->teaser }}
+    <div class="container relative-container">
+        <div class="carousel-caption">
+            {{ $experience->teaser }}
+        </div>
     </div>
     <!-- Wrapper for slides -->
     <div data-slick-carousel-three class="carousel-inner">
