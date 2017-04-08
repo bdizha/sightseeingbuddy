@@ -9527,6 +9527,13 @@ section #sidebar h2 {
     height: 100px;
   }
 }
+#trust-items .step {
+  padding: 0 40px;
+}
+#trust-items .step:nth-child(1) .step-arrow,
+#trust-items .step:nth-child(2) .step-arrow {
+  display: none;
+}
 #page .steps-block figure {
   width: 100px;
   height: 100px;
