@@ -10206,7 +10206,7 @@ section #sidebar h2 {
   .relative-container .home-btn-block {
     display: block;
     position: absolute;
-    top: 100px;
+    top: 70px;
     right: 20px;
     z-index: 9999;
   }
