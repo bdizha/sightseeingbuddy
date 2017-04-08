@@ -8949,6 +8949,15 @@ body {
   background: #FDBF0F;
   color: #3D3D3D;
 }
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
 #container {
   min-height: 100%;
 }
@@ -10018,6 +10027,9 @@ section #sidebar h2 {
   text-align: left;
   padding: 10px;
 }
+.site-footer .socials-block {
+  margin-top: 25px;
+}
 .site-footer .nav-stacked {
   list-style: none;
   -webkit-margin-before: 0;
@@ -10233,7 +10245,7 @@ section #sidebar h2 {
 @media (min-width: 992px) {
   .navbar-default .fields-search-field {
     position: absolute;
-    right: 15px;
+    right: 30px;
     top: 5px;
   }
 }
@@ -10307,6 +10319,14 @@ section #sidebar h2 {
   border-radius: 0;
   color: #ffffff;
   box-shadow: none;
+}
+#fields-email {
+  width: 316px;
+}
+@media (max-width: 992px) {
+  #fields-email {
+    width: 279px;
+  }
 }
 .btn-default {
   border-width: 2px;
@@ -10607,7 +10627,7 @@ a.thumbnail:active {
   font-weight: 900;
   font-size: 70px;
   text-transform: uppercase;
-  padding: 40px 20px 20px;
+  padding: 20px 20px 20px;
   line-height: 70px;
 }
 .inline {

@@ -22,6 +22,11 @@ html, body {
   color: @gray-base;
 }
 
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
 #container {
   min-height: 100%;
 }
@@ -740,16 +745,17 @@ section {
     }
   }
 
-  article{
+  article {
     .page-title {
       &.page-title-left {
         margin-bottom: 20px;
       }
     }
     @media (max-width: @grid-float-breakpoint) {
-      &.ml-2{
+      &.ml-2 {
         margin-left: 0px;
       }
+
       &.mt-3 {
         margin-top: 15px;
       }
@@ -1226,7 +1232,7 @@ section {
         background-color: transparent;
         text-decoration: none;
         &:hover,
-        &:focus{
+        &:focus {
           color: @yellow;
           background-color: transparent;
           text-decoration: none;
@@ -1291,6 +1297,10 @@ section {
   text-align: left;
   padding: 10px;
 
+  .socials-block {
+    margin-top: 25px;
+  }
+
   .nav-stacked {
     list-style: none;
     -webkit-margin-before: 0;
@@ -1304,7 +1314,7 @@ section {
         text-decoration: none;
         padding: 2px 0px;
         &:hover,
-        &:focus{
+        &:focus {
           color: @gray-base;
           background-color: transparent !important;
           text-decoration: none;
@@ -1316,7 +1326,7 @@ section {
           background-color: transparent;
           text-decoration: none;
           &:hover,
-          &:focus{
+          &:focus {
             color: @gray-base;
             background-color: transparent;
             text-decoration: none;
@@ -1537,7 +1547,7 @@ section {
     position: relative;
     @media (min-width: @grid-float-breakpoint) {
       position: absolute;
-      right: 15px;
+      right: 30px;
       top: 5px;
     }
     .form-control {
@@ -1620,6 +1630,13 @@ section {
     border-radius: 0;
     color: @gray-lighter;
     box-shadow: none;
+  }
+}
+
+#fields-email {
+  width: 316px;
+  @media (max-width: @grid-float-breakpoint) {
+    width: 279px;
   }
 }
 
@@ -1933,7 +1950,7 @@ a.thumbnail:hover, a.thumbnail:active {
       font-weight: 900;
       font-size: 70px;
       text-transform: uppercase;
-      padding: 40px 20px 20px;
+      padding: 20px 20px 20px;
       line-height: 70px;
     }
   }
