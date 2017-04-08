@@ -238,6 +238,8 @@ function Notifications() {
     };
 }
 
+var globalHeight = 0;
+
 function Vertilize() {
 
     this.init = function () {
@@ -261,6 +263,15 @@ function Vertilize() {
             });
 
             elements.height(height);
+        });
+
+        sameHeight.each(function () {
+            $(this).find("img").bind('load', function () {
+                console.log("re drawing blocks");
+                setTimeout(function () {
+                    (new Vertilize).init();
+                }, 3000);
+            });
         });
     };
 }
