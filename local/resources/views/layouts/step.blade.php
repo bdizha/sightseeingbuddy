@@ -12,7 +12,7 @@
         <section class="gray-block" id="page">
             <div class="container vertilize">
                 @include('step.partials.sidebar', ['active' => $active, 'links' => $links])
-                <div class="col-sm-8 col-sm-offset-1 same-height mt-3" data-class="step">
+                <div class="col-sm-8 col-sm-offset-1 same-height mt-3" data-mh="step">
                     @yield('form')
                 </div>
             </div>

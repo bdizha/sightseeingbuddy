@@ -243,36 +243,14 @@ var globalHeight = 0;
 function Vertilize() {
 
     this.init = function () {
+        var options = {
+            byRow: true,
+            property: 'height',
+            target: null,
+            remove: false
+        };
 
-        var height = 0;
-        var sameHeight = $('.same-height');
-        sameHeight.attr("style", "height: auto;");
-
-        sameHeight.each(function () {
-            // console.log("data-class");
-            // console.log(sameHeight.attr("data-class"));
-
-            var elements = $('[data-class="' + sameHeight.attr("data-class") + '"]');
-
-            // console.log("Elements::: start");
-            // console.log(elements);
-            // console.log("Elements::: end");
-
-            elements.each(function () {
-                height = Math.max(height, $(this).height());
-            });
-
-            elements.height(height);
-        });
-
-        sameHeight.each(function () {
-            $(this).find("img").bind('load', function () {
-                console.log("re drawing blocks");
-                setTimeout(function () {
-                    (new Vertilize).init();
-                }, 3000);
-            });
-        });
+        $('.same-height').matchHeight(options);
     };
 }
 

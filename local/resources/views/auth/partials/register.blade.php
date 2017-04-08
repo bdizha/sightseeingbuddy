@@ -1,4 +1,4 @@
-<div class="col-sm-8 col-sm-offset-1 same-height mt-3" data-class="column">
+<div class="col-sm-8 col-sm-offset-1 same-height mt-3" data-mh="column">
     <div class="row">
         <article class="article">
             <h1 class="page-title page-title-left">

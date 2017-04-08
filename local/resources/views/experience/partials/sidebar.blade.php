@@ -1,4 +1,4 @@
-<aside id="sidebar" class="col-sm-3 local-left same-height" data-class="edit">
+<aside id="sidebar" class="col-sm-3 local-left same-height" data-mh="edit">
     <ul class="nav nav-stacked nav-pills">
         <?php $counter = 0 ?>
         @foreach($links as $key => $link)

@@ -38,6 +38,7 @@
   },
   "engines": {},
   "dependencies": {
+    "jquery-match-height": "^0.7.2",
     "roboto-fontface": "^0.7.0"
   }
 }

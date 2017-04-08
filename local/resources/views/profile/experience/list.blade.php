@@ -2,7 +2,7 @@
     <div class="row vertilize">
         @foreach($experiences as $experience)
             <div class="col-md-3 col-sm-3 col-xs-6 col-xs-6-full">
-                <article class="media media-responsive same-height" data-class="experience">
+                <article class="media media-responsive same-height" data-mh="experience">
                     <div class="media-top pull-top">
                         <a href="/local/experience/{{ $experience->slug }}">
                             <img class="media-object" src="{{ $experience->cover_image }}"
