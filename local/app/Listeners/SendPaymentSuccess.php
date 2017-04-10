@@ -43,6 +43,7 @@ class SendPaymentSuccess
 
             $this->mailer->send('email.guest.payment.success', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
+                    ->cc(env("ADMIN_EMAIL"), env("ADMIN_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
