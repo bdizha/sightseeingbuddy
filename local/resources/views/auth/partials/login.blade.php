@@ -29,10 +29,10 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-6 col-xs-6">
-                        <a href="{{ route('register') }}">Don't have an account?</a>
+                        <a href="{{ route('register') }}" class="btn-height">Don't have an account?</a>
                     </div>
                     <div class="col-sm-6 col-xs-6">
-                        <a href="{{ url('/local/password/reset') }}">Forgot password?</a>
+                        <a href="{{ url('/local/password/reset') }}" class="btn-height">Forgot password?</a>
                     </div>
                 </div>
             </form>

@@ -15,31 +15,34 @@
 
                 {%- include "_includes/sidebar.twig" -%}
 
-                <div class="col-sm-8 col-sm-offset-1 mt-3">
-                    <div class="container-fluid">
-                        <div class="row articles-block">
-                            <div class="blogs-header mb-1">
-                                <h3 class="inline">Blog Posts</h3>
-                                <div class="inline pull-right">
-                                    <div class="field form-group" id="fields-fullName-field">
-                                        <div class="input ltr">
-                                            <input class="text form-control nicetext fullwidth" type="text"
-                                                   id="fields-fullName" name="fields[email]" value=""
-                                                   data-show-chars-left="" autocomplete="off"
-                                                   placeholder="Search blog posts...">
+                <div class="col-sm-8 col-sm-offset-1 mt-3 same-height gray-bottom-border gray-top-border"
+                     data-mh="column">
+                    <div class="row">
+                        <div class="container-fluid">
+                            <div class="row articles-block">
+                                <div class="blogs-header mb-1">
+                                    <h3 class="inline">Blog Posts</h3>
+                                    <div class="inline pull-right">
+                                        <div class="field form-group" id="fields-fullName-field">
+                                            <div class="input ltr">
+                                                <input class="text form-control nicetext fullwidth" type="text"
+                                                       id="fields-fullName" name="fields[email]" value=""
+                                                       data-show-chars-left="" autocomplete="off"
+                                                       placeholder="Search blog posts...">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="blog-list text-align-center">
-                                {% paginate craft.entries.section('blog').with(["featureImage"]).limit(12) as paging, entries %}
+                                <div class="blog-list text-align-center">
+                                    {% paginate craft.entries.section('blog').with(["featureImage"]).limit(12) as paging, entries %}
 
-                                {%- include "blog/_list.twig" -%}
+                                    {%- include "blog/_list.twig" -%}
 
-                                {% if paging.totalPages > 1 %}
-                                    {{ templateMacros.renderPagination(paging) }}
-                                {% endif %}
+                                    {% if paging.totalPages > 1 %}
+                                        {{ templateMacros.renderPagination(paging) }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>

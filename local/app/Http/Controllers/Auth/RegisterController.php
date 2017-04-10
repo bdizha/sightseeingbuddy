@@ -61,7 +61,7 @@ class RegisterController extends AuthController
         return view('auth.register', [
             'links' => $links,
             'types' => $types,
-            'currentType' => empty($_GET["type"]) ? "" : "local"
+            'currentType' => empty($_GET["type"]) ? "guest" : $_GET["type"]
         ]);
     }
 

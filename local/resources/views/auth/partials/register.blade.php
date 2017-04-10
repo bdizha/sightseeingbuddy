@@ -6,26 +6,7 @@
             </h1>
             <form id="sign-in" method="POST" class="form" action="{{ route('register') }}">
                 {!! csrf_field() !!}
-                <div class="row form-group {{ $errors->has('type') ? 'has-error' : '' }}"
-                     id="fields-last-name-field">
-                    <div class="col-sm-6 col-xs-12">
-                        @if ($errors->has('type'))
-                            <label class="control-label" for="inputError1">{{ $errors->first('type') }}</label>
-                        @endif
-                        <div>
-                            <label class="control-label" for="type_local">I'm a:</label>
-                            @foreach($types as $key => $type)
-                                <label class="checkbox-inline">
-                                    {{ Form::radio('type', $key, in_array($key, [old('type'), $currentType]), ['id' => "type_" . $key]) }}
-                                    <label for="{{ "type_" . $key }}">
-                                        <span></span>
-                                        {{ $type  }}
-                                    </label>
-                                </label>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+                <input type="hidden" name="type" value="{{ $currentType }}">
                 <div class="row form-group {{ $errors->has('first_name') ? 'has-error' : '' }}"
                      id="fields-first-name-field">
                     <div class="col-sm-6 col-xs-12">
@@ -53,7 +34,7 @@
                         @if ($errors->has('email'))
                             <label class="control-label" for="inputError1">{{ $errors->first('email') }}</label>
                         @endif
-                        <input class="form-control fullwidth" type="text" id="fields-email" name="email"
+                        <input class="form-control fullwidth" type="text" name="email"
                                value="{{ old('email') }}" autocomplete="off"
                                placeholder="Your email address*">
                     </div>

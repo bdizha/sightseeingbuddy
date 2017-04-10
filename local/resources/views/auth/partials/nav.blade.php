@@ -1,7 +1,7 @@
 <ul class="nav navbar-right top-nav">
     @if (Auth::guest())
         <li><a class="text-uppercase" href="{{ route('login') }}">Login</a></li>
-        <li><a class="text-uppercase text-bold" href="{{ route('register') }}">Sign Up</a></li>
+        <li><a class="text-uppercase text-bold" href="{{ route('register') }}?type=guest">Sign Up</a></li>
     @else
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

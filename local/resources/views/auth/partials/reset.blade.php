@@ -40,7 +40,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4 col-xs-6">
-                        <input type="submit" class="btn btn-yellow" value="Reset Password" />
+                        <input type="submit" class="btn btn-yellow btn-height" value="Reset Password" />
                     </div>
                 </div>
             </form>

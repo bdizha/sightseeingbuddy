@@ -9074,10 +9074,6 @@ h3,
 #page .experience-block .legend icon.not-available {
   background-color: #3D3D3D;
 }
-.articles-block {
-  border-top: 1px solid #3D3D3D;
-  border-bottom: 1px solid #3D3D3D;
-}
 .articles-block .blogs-header .form-group {
   margin-top: 15px;
   margin-bottom: 0px;
@@ -9250,6 +9246,9 @@ input[type="radio"] {
 .gray-bottom-border {
   border-bottom: 1px solid #3D3D3D;
 }
+.gray-top-border {
+  border-top: 1px solid #3D3D3D;
+}
 .clear-both {
   clear: both;
 }
@@ -9308,7 +9307,7 @@ a:hover {
   padding-top: 0;
 }
 .form-control {
-  background-color: #FFFFFF;
+  background-color: transparent;
   border-radius: 5px;
 }
 form .gray-left-border {
@@ -9321,7 +9320,7 @@ form .input-group .control-label {
   display: none;
 }
 form .input-group .form-control {
-  background-color: #FFFFFF;
+  background-color: transparent;
   padding: 6px 15px;
   height: auto;
   border-radius: 4px !important;
@@ -9433,6 +9432,9 @@ section #sidebar h2 {
 .article {
   margin-bottom: 10px;
 }
+.article .article-body .carousel {
+  display: none;
+}
 .article .article-meta {
   position: relative;
 }
@@ -9440,8 +9442,8 @@ section #sidebar h2 {
   position: absolute;
   left: 0;
   top: 0;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   background-size: 100%;
 }
 .article .article-byline {
@@ -9449,7 +9451,8 @@ section #sidebar h2 {
   position: relative;
   text-align: left;
   margin-bottom: 36px;
-  line-height: 48px;
+  line-height: 56px;
+  margin-top: 15px;
 }
 .article h2 {
   margin-top: 1em;
@@ -9527,11 +9530,14 @@ section #sidebar h2 {
     height: 100px;
   }
 }
-#trust-items .step {
+#trust-items .step,
+#steps-items .step {
   padding: 0 40px;
 }
 #trust-items .step:nth-child(1) .step-arrow,
-#trust-items .step:nth-child(2) .step-arrow {
+#steps-items .step:nth-child(1) .step-arrow,
+#trust-items .step:nth-child(2) .step-arrow,
+#steps-items .step:nth-child(2) .step-arrow {
   display: none;
 }
 #page .steps-block figure {
@@ -9826,6 +9832,10 @@ section #sidebar h2 {
 }
 .media .media-body {
   padding: 15px;
+  padding-bottom: 0;
+}
+.media .media-body .readmore {
+  padding-top: 15px;
 }
 .media .media-right,
 .media .media > .pull-right {
@@ -10135,6 +10145,7 @@ section #sidebar h2 {
 }
 .btn-height {
   line-height: 40px;
+  text-transform: uppercase;
 }
 .search-block {
   position: relative;
@@ -10213,7 +10224,7 @@ section #sidebar h2 {
   .relative-container .home-btn-block {
     display: block;
     position: absolute;
-    top: 70px;
+    top: 216px;
     right: 20px;
     z-index: 9999;
   }
@@ -10388,6 +10399,16 @@ section #sidebar h2 {
 .btn-primary.btn-lg.btn-white {
   border-color: #FFFFFF;
   color: #FFFFFF;
+}
+.btn-tertiary {
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 7px 24px;
+  border-radius: 5px;
+  background-color: transparent;
+  border-color: #3D3D3D;
+  border-width: 3px;
+  font-weight: 900;
 }
 .btn-yellow {
   color: #3D3D3D;
