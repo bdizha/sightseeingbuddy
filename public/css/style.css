@@ -9208,6 +9208,9 @@ input[type="radio"] {
 .pb-0 {
   padding-bottom: 0px;
 }
+.pb-1 {
+  padding-bottom: 25px;
+}
 .pb-3 {
   padding-bottom: 75px;
 }
@@ -9573,7 +9576,7 @@ section #sidebar h2 {
   text-align: left;
   font-weight: 900;
   font-size: 28px;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 40px;
   padding-top: 0px;
 }
