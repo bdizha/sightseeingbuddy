@@ -46,7 +46,7 @@
                 </span>
             </div>
             <div class="col-sm-4 col-xs-4">
-                <i class="profile-verified"></i>
+                <i class="profile-{{ $user->is_verified ? "verified" : "declined" }}"></i>
             </div>
         </div>
     </div>

@@ -668,12 +668,12 @@ section {
     &:nth-child(2) {
       .step-arrow {
         display: none;
-        background: url(/images/gray_right_arrow.png);
+        background: url(/images/right_arrow.svg);
         width: 100px;
-        height: 100px;
+        height: 109px;
         position: absolute;
         right: -45px;
-        top: 86px;
+        top: 80px;
         margin-top: -50px;
         background-size: 100%;
         @media (min-width: @grid-float-breakpoint) {
@@ -694,6 +694,15 @@ section {
     figure {
       width: 100px;
       height: 100px;
+    }
+  }
+}
+
+#booking-advice{
+  .steps-block{
+    figure {
+      border-radius: 0;
+      background-size: contain;
     }
   }
 }
@@ -724,9 +733,9 @@ section {
       &:nth-child(2) {
         .step-arrow {
           width: 60px;
-          height: 60px;
+          height: 65px;
           right: -34px;
-          top: 69px;
+          top: 62px;
           margin-top: -50px;
         }
       }
@@ -783,6 +792,14 @@ section {
       }
     }
   }
+}
+
+.page-image {
+  width: 100%;
+}
+
+.page-half-image {
+  width: 50%;
 }
 
 .perks-block {
@@ -902,22 +919,27 @@ section {
     }
     .profile-label,
     .profile-value {
-      margin-bottom: 5px;
       display: block;
       font-weight: 900;
-      font-size: 14px;
+      font-size: 17px;
       text-align: left;
+      line-height: 30px;
     }
-    .profile-verified {
-      background-image: url(/images/not-verified.png);
+    .profile-verified,
+    .profile-declined{
       width: 30px;
       height: 30px;
       background-size: 100%;
-      background-position-x: 4px;
       display: inline-block;
       position: absolute;
-      left: 0;
-      top: -2px;
+      left: 5px;
+      top: 0px;
+    }
+    .profile-verified{
+      background-image: url(/images/verified.svg);
+    }
+    .profile-declined{
+      background-image: url(/images/not-verified.svg);
     }
     @media (max-width: @grid-float-breakpoint) {
       h1 {
@@ -1080,9 +1102,9 @@ section {
   border-radius: 0;
   .media-body {
     padding: @panel-body-padding;
-    padding-bottom: 0;
+    padding-bottom: 10px;
     .readmore{
-      padding-top: 15px;
+      padding-top: 25px;
     }
   }
   .media-right,
@@ -1107,7 +1129,7 @@ section {
 
   .media-heading {
     margin-bottom: 15px;
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 900;
     a {
       &:hover {
@@ -1115,10 +1137,10 @@ section {
       }
     }
     @media (max-width: @screen-sm) {
-      font-size: 21px;
+      font-size: 23px;
     }
     @media (max-width: @screen-xs) {
-      font-size: 19px;
+      font-size: 21px;
     }
   }
 

@@ -9499,12 +9499,12 @@ section #sidebar h2 {
 .steps-block .step:nth-child(2) .step-arrow,
 .reviews-block .step:nth-child(2) .step-arrow {
   display: none;
-  background: url(/images/gray_right_arrow.png);
+  background: url(/images/right_arrow.svg);
   width: 100px;
-  height: 100px;
+  height: 109px;
   position: absolute;
   right: -45px;
-  top: 86px;
+  top: 80px;
   margin-top: -50px;
   background-size: 100%;
 }
@@ -9530,6 +9530,10 @@ section #sidebar h2 {
     height: 100px;
   }
 }
+#booking-advice .steps-block figure {
+  border-radius: 0;
+  background-size: contain;
+}
 #trust-items .step,
 #steps-items .step {
   padding: 0 40px;
@@ -9550,9 +9554,9 @@ section #sidebar h2 {
 #page .steps-block .step:nth-child(1) .step-arrow,
 #page .steps-block .step:nth-child(2) .step-arrow {
   width: 60px;
-  height: 60px;
+  height: 65px;
   right: -34px;
-  top: 69px;
+  top: 62px;
   margin-top: -50px;
 }
 #page .profile-picture img {
@@ -9594,6 +9598,12 @@ section #sidebar h2 {
   #page article.mt-3 {
     margin-top: 15px;
   }
+}
+.page-image {
+  width: 100%;
+}
+.page-half-image {
+  width: 50%;
 }
 .perks-block figure {
   width: 50px;
@@ -9683,22 +9693,27 @@ section #sidebar h2 {
 }
 #page .profile .profile-label,
 #page .profile .profile-value {
-  margin-bottom: 5px;
   display: block;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 17px;
   text-align: left;
+  line-height: 30px;
 }
-#page .profile .profile-verified {
-  background-image: url(/images/not-verified.png);
+#page .profile .profile-verified,
+#page .profile .profile-declined {
   width: 30px;
   height: 30px;
   background-size: 100%;
-  background-position-x: 4px;
   display: inline-block;
   position: absolute;
-  left: 0;
-  top: -2px;
+  left: 5px;
+  top: 0px;
+}
+#page .profile .profile-verified {
+  background-image: url(/images/verified.svg);
+}
+#page .profile .profile-declined {
+  background-image: url(/images/not-verified.svg);
 }
 @media (max-width: 992px) {
   #page .profile h1 {
@@ -9832,10 +9847,10 @@ section #sidebar h2 {
 }
 .media .media-body {
   padding: 15px;
-  padding-bottom: 0;
+  padding-bottom: 10px;
 }
 .media .media-body .readmore {
-  padding-top: 15px;
+  padding-top: 25px;
 }
 .media .media-right,
 .media .media > .pull-right {
@@ -9856,7 +9871,7 @@ section #sidebar h2 {
 }
 .media .media-heading {
   margin-bottom: 15px;
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 900;
 }
 .media .media-heading a:hover {
@@ -9864,12 +9879,12 @@ section #sidebar h2 {
 }
 @media (max-width: 768px) {
   .media .media-heading {
-    font-size: 21px;
+    font-size: 23px;
   }
 }
 @media (max-width: 400px) {
   .media .media-heading {
-    font-size: 19px;
+    font-size: 21px;
   }
 }
 .media .media-summary p:last-child {
