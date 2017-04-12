@@ -9503,11 +9503,11 @@ section #sidebar h2 {
 .reviews-block .step:nth-child(2) .step-arrow {
   display: none;
   background: url(/images/right_arrow.svg);
-  width: 100px;
-  height: 108px;
+  width: 79px;
+  height: 85px;
   position: absolute;
-  right: -45px;
-  top: 80px;
+  right: -40px;
+  top: 90px;
   margin-top: -50px;
   background-size: 100%;
 }
