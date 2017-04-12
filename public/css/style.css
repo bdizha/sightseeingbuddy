@@ -11114,5 +11114,9 @@ a.thumbnail:active {
 .modal-content .modal-body .available-times:first-child {
   padding-top: 0;
 }
+.navbar-brand > img {
+  display: block;
+  margin-top: 5px;
+}
 
 /*# sourceMappingURL=style.css.map */
