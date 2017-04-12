@@ -606,8 +606,8 @@ section {
 .article {
   margin-bottom: @padding-large-vertical;
 
-  .article-body{
-    .carousel{
+  .article-body {
+    .carousel {
       display: none;
     }
   }
@@ -702,8 +702,8 @@ section {
   }
 }
 
-#booking-advice{
-  .steps-block{
+#booking-advice {
+  .steps-block {
     figure {
       border-radius: 0;
       background-size: contain;
@@ -712,7 +712,7 @@ section {
 }
 
 #trust-items,
-#steps-items{
+#steps-items {
   .step {
     padding: 0 40px;
     &:nth-child(1),
@@ -930,7 +930,7 @@ section {
       line-height: 30px;
     }
     .profile-verified,
-    .profile-declined{
+    .profile-declined {
       width: 30px;
       height: 30px;
       background-size: 100%;
@@ -939,10 +939,10 @@ section {
       left: 5px;
       top: 0px;
     }
-    .profile-verified{
+    .profile-verified {
       background-image: url(/images/verified.svg);
     }
-    .profile-declined{
+    .profile-declined {
       background-image: url(/images/not-verified.svg);
     }
     @media (max-width: @grid-float-breakpoint) {
@@ -1107,7 +1107,7 @@ section {
   .media-body {
     padding: @panel-body-padding;
     padding-bottom: 10px;
-    .readmore{
+    .readmore {
       padding-top: 25px;
     }
   }
@@ -1753,7 +1753,7 @@ section {
   }
 }
 
-.btn-tertiary{
+.btn-tertiary {
   text-transform: uppercase;
   font-size: 15px;
   padding: 7px 24px;
@@ -1823,14 +1823,33 @@ section {
   text-align: left;
   margin-bottom: 0;
   .fa-lg {
-    font-size: 100%;
-    line-height: 38px;
     vertical-align: middle;
+    width: 140px;
+    height: 37px;
+    margin-right: 10px;
+    &.fa-facebook{
+      background: url("/images/share_fb.jpg");
+      background-size: 100%;
+    }
+    &.fa-twitter{
+      background: url("/images/share_twitter.jpg");
+      background-size: 100%;
+    }
   }
   .share-btn {
+    width: 140px;
+    border: none !important;
     &:hover {
-      background: @yellow;
-      color: @gray-base;
+      background: transparent;
+      color: transparent;
+    }
+    .fa-facebook-f:before,
+    .fa-facebook:before,
+    .fa-twitter:before {
+      content: "";
+    }
+    &:last-child{
+      display: none;
     }
   }
 }

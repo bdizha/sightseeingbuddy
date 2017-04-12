@@ -10484,13 +10484,34 @@ section #sidebar h2 {
   margin-bottom: 0;
 }
 .article-sharing .fa-lg {
-  font-size: 100%;
-  line-height: 38px;
   vertical-align: middle;
+  width: 140px;
+  height: 37px;
+  margin-right: 10px;
+}
+.article-sharing .fa-lg.fa-facebook {
+  background: url("/images/share_fb.jpg");
+  background-size: 100%;
+}
+.article-sharing .fa-lg.fa-twitter {
+  background: url("/images/share_twitter.jpg");
+  background-size: 100%;
+}
+.article-sharing .share-btn {
+  width: 140px;
+  border: none !important;
 }
 .article-sharing .share-btn:hover {
-  background: #FDBF0F;
-  color: #3D3D3D;
+  background: transparent;
+  color: transparent;
+}
+.article-sharing .share-btn .fa-facebook-f:before,
+.article-sharing .share-btn .fa-facebook:before,
+.article-sharing .share-btn .fa-twitter:before {
+  content: "";
+}
+.article-sharing .share-btn:last-child {
+  display: none;
 }
 .share-btn {
   display: inline-block;

@@ -34,10 +34,8 @@
                         &nbsp;
                     </div>
                     <div class="article-byline">
-                        {{ entry.postDate.format(craft.config.dateFormat) }}
-                        {% if entry.byline %}
-                            &mdash; {{ entry.byline }} | {{ "Keep It Local" }}
-                        {% endif %}
+                        {{ entry.postDate.format(craft.config.dateFormat) }} |
+                        {{ "Guest blogger" }} | {{ "Keep It Local" }}
                     </div>
                 </div>
 
