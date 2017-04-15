@@ -6,27 +6,53 @@
         {% for slide in entry.slideshow %}
             {% set image = slide.image[0] ?? null %}
 
-            {% set transformedImage = craft.imager.transformImage(image, [
-            { width: 1600 },
-            { width: 1200 },
-            { width: 800 }
-            ], {
-            ratio: 16/5,
-            mode: 'crop',
-            cropZoom: 1,
-            position: image.focalPoint,
-            jpegQuality: 100
-            }) %}
+            {% if craft.request.firstSegment() == 'blog' %}
+                {% set transformedImage = craft.imager.transformImage(image, [
+                { width: 1600 },
+                { width: 1200 },
+                { width: 800 }
+                ], {
+                ratio: 16/7.5,
+                mode: 'crop',
+                cropZoom: 1,
+                position: image.focalPoint,
+                jpegQuality: 100
+                }) %}
 
-            <div class="item {{ loop.first ? "active" : "" }}">
-                <img src="{{ craft.imager.base64Pixel(16,5) }}" sizes="100vw"
-                     srcset="{{ craft.imager.srcset(transformedImage) }}">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <h1>{{ slide.summary | raw }}</h1>
+                <div class="item {{ loop.first ? "active" : "" }}">
+                    <img src="{{ craft.imager.base64Pixel(16,7.5) }}" sizes="100vw"
+                         srcset="{{ craft.imager.srcset(transformedImage) }}">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1>{{ slide.summary | raw }}</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% else %}
+
+                {% set transformedImage = craft.imager.transformImage(image, [
+                { width: 1600 },
+                { width: 1200 },
+                { width: 800 }
+                ], {
+                ratio: 16/5,
+                mode: 'crop',
+                cropZoom: 1,
+                position: image.focalPoint,
+                jpegQuality: 100
+                }) %}
+
+                <div class="item {{ loop.first ? "active" : "" }}">
+                    <img src="{{ craft.imager.base64Pixel(16,5) }}" sizes="100vw"
+                         srcset="{{ craft.imager.srcset(transformedImage) }}">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <h1>{{ slide.summary | raw }}</h1>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
         {% endfor %}
     </div>
 </div>
@@ -42,7 +68,7 @@
             { width: 600},
             { width: 400}
             ], {
-            ratio: 16/7,
+            ratio: 16/8,
             mode: 'crop',
             cropZoom: 1,
             position: image.focalPoint,
@@ -50,7 +76,7 @@
             }) %}
 
             <div class="item {{ loop.first ? "active" : "" }}">
-                <img src="{{ craft.imager.base64Pixel(16,7) }}" sizes="100vw"
+                <img src="{{ craft.imager.base64Pixel(16,8) }}" sizes="100vw"
                      srcset="{{ craft.imager.srcset(transformedImage) }}">
                 <div class="carousel-caption">
                     <div class="container">

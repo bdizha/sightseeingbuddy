@@ -9465,6 +9465,13 @@ section #sidebar h2 {
   margin-bottom: 36px;
   line-height: 56px;
   margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+@media (max-width: 992px) {
+  .article .article-byline {
+    font-size: 14px;
+  }
 }
 .article h2 {
   margin-top: 1em;
@@ -10182,7 +10189,7 @@ section #sidebar h2 {
     display: block;
     width: 356px;
     position: absolute;
-    top: 65px;
+    top: 175px;
     right: 20px;
     z-index: 99;
   }
@@ -10537,6 +10544,15 @@ section #sidebar h2 {
 .article-sharing .share-btn:last-child {
   display: none;
 }
+@media (max-width: 992px) {
+  .article-sharing .fa-lg {
+    width: 113px;
+    height: 30px;
+  }
+  .article-sharing .share-btn {
+    width: 113px;
+  }
+}
 .panel {
   background-color: transparent;
   border: 1px solid transparent;
@@ -10737,7 +10753,7 @@ a.thumbnail:active {
   left: 0px;
   right: auto;
   bottom: 0;
-  top: 0;
+  top: 151px;
   z-index: 10;
   text-align: left;
   width: 100%;
@@ -10755,6 +10771,9 @@ a.thumbnail:active {
   display: inline-block;
 }
 @media (max-width: 991px) {
+  .carousel-caption {
+    top: 51px;
+  }
   .carousel-caption .container {
     font-weight: 900;
     font-size: 28px;
@@ -10765,7 +10784,7 @@ a.thumbnail:active {
   .carousel-caption .container h1 {
     font-size: 42px;
     line-height: 42px;
-    margin-top: 35px;
+    margin-top: 0;
     padding-top: 0;
     width: 100%;
   }
