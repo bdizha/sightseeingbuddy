@@ -13,12 +13,10 @@
                     <a class="share-btn"><i class="fa fa-skype"></i></a>
                 </div>
                 <h2>Sign up to our newsletter</h2>
-                <div class="field form-group" id="fields-email-field">
-                    <div class="input ltr">
-                        <input class="text form-control nicetext fullwidth" type="text" id="fields-email"
-                               name="fields[email]" value="" data-show-chars-left="" autocomplete="off"
-                               placeholder="Please enter your email address...">
-                    </div>
+                <div class="form-group">
+                    <input class="text form-control fullwidth" type="text" id="newsletter-email"
+                           name="newsletter-email" value="" required autocomplete="off"
+                           placeholder="Please enter your email address...">
                 </div>
             </div>
             <div class="col-md-8">
@@ -201,6 +199,10 @@
         </div>
         <div class="col-sm-12 mb-1 mt-1">
             &copy; 2017 Keep It Local
+            <span class="pull-right">
+                Powered by
+                <a class="text-white" href="http://www.interseed.co.za" target="_blank">Interseed</a>
+            </span>
         </div>
     </div>
 </footer>

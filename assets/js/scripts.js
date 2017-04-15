@@ -251,6 +251,19 @@ function Vertilize() {
         };
 
         $('.same-height').matchHeight(options);
+
+        if($(window).width() >= 992) {
+            var indexSlider = $(".carousel-inner").first();
+            var carouselCaption = $(".carousel-caption");
+            var btnBlock = $(".home-btn-block");
+            var searchForm = 250;
+
+            console.log("Index slicer height: " + indexSlider.height());
+
+            $(".search-form").css({top: ((indexSlider.height() - searchForm) / 2) + "px"});
+            carouselCaption.css({top: (((indexSlider.height() - searchForm) / 2) - 24) + "px"});
+            btnBlock.css({top: (((indexSlider.height() - searchForm) / 2) + 200) + "px"});
+        }
     };
 }
 

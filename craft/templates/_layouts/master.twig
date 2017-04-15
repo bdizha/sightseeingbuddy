@@ -2,181 +2,194 @@
 {% import '_macros/templateMacros' as templateMacros %}
 {% set guestEntry = (guestEntry is defined) ? guestEntry : false %}
 <html lang="{{ craft.i18n.getCurrentLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,200italic,300italic,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/vendors.{{ craft.bust.filetime('css/vendors.css') }}.css">
-        <link rel="stylesheet" href="/css/style.{{ craft.bust.filetime('css/style.css') }}.css">
-        {% block head %}
-            {# Default meta if "head" block is not defined #}
-            {{ templateMacros.renderMeta({}) }}
-        {% endblock %}
-        {% for profile in siteGlobals.siteSocialProfiles if profile.platform == "google" %}
-            <link rel="author" href="{{ profile.profileUrl }}">
-        {% endfor %}
-        {% for field in socialPlatforms.getFieldLayout().getFields() %}
-            {% set handle = socialPlatforms[field.getField().handle] %}
-            {% if handle %}
-                <meta name="{{ field.getField().handle }}" content="{{ socialPlatforms[field.getField().handle] }}" id="{{ field.getField().handle }}">
-            {% endif %}
-        {% endfor %}
-        <script>
-            window.socialPlatforms = {{ {
-      twitter: socialPlatforms.twitterHandle,
-      facebook: socialPlatforms.facebookHandle,
-      youtube: socialPlatforms.youtubeHandle,
-      google: socialPlatforms.googleHandle,
-      pinterest: socialPlatforms.pinterestHandle,
-    }|json_encode|raw
-            }};
-        </script>
-        {% if not siteGlobals.siteWebmasterTag %}
-            {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
-            <script>console.{{ serverity }}("Please insert your Google Webmaster HTML Tag")</script>
-        {% else %}
-            {{ siteGlobals.siteWebmasterTag|raw }}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,200italic,300italic,400italic,600,600italic,700,700italic"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/vendors.{{ craft.bust.filetime('css/vendors.css') }}.css">
+    <link rel="stylesheet" href="/css/style.{{ craft.bust.filetime('css/style.css') }}.css">
+    {% block head %}
+        {# Default meta if "head" block is not defined #}
+        {{ templateMacros.renderMeta({}) }}
+    {% endblock %}
+    {% for profile in siteGlobals.siteSocialProfiles if profile.platform == "google" %}
+        <link rel="author" href="{{ profile.profileUrl }}">
+    {% endfor %}
+    {% for field in socialPlatforms.getFieldLayout().getFields() %}
+        {% set handle = socialPlatforms[field.getField().handle] %}
+        {% if handle %}
+            <meta name="{{ field.getField().handle }}" content="{{ socialPlatforms[field.getField().handle] }}"
+                  id="{{ field.getField().handle }}">
         {% endif %}
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries  -->
-        <!--[if lt IE 9]>
-        <script type="text/javascript" src="/js/html5shiv.min.js"></script>
-        <script type="text/javascript" src="/js/respond.min.js"></script>
-        <![endif]-->
-        {% include "_layouts/_partials/favicons" %}
-    </head>
-    <body>
-        {% if not siteGlobals.siteGoogleTagManagerId %}
-            {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
-            <script>console.{{ serverity }}("Please insert your Google Tag Manager Container ID")</script>
-        {% else %}
-            <!-- Google Tag Manager -->
-            <noscript><iframe src="//www.googletagmanager.com/ns.html?id={{ siteGlobals.siteGoogleTagManagerId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <script>(function (w, d, s, l, i) {
-                            w[l] = w[l] || [];
-                            w[l].push({'gtm.start':
-                                        new Date().getTime(), event: 'gtm.js'});
-                            var f = d.getElementsByTagName(s)[0],
-                                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-                            j.async = true;
-                            j.src =
-                                    '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-                            f.parentNode.insertBefore(j, f);
-                        })(window, document, 'script', 'dataLayer', '{{ siteGlobals.siteGoogleTagManagerId }}');</script>
-            <!-- End Google Tag Manager -->
-        {% endif %}
-        {{ siteGlobals.siteHeaderScriptTags|raw }}
-        <div id="container">
-            <header id="header" class="site-header">
-                <div class="top-yellow-bg">
-                    <div class="container">
-                        <div class="inline">
-                            <a href="mailto:info@keepitlocal.co.za">
-                                <i class="fa fa-envelope-o"></i>
-                                <span>info@keepitlocal.co.za</span>
-                            </a>
-                            <span class="hidden-xs">
+    {% endfor %}
+    <script>
+        window.socialPlatforms = {{ {
+            twitter: socialPlatforms.twitterHandle,
+            facebook: socialPlatforms.facebookHandle,
+            youtube: socialPlatforms.youtubeHandle,
+            google: socialPlatforms.googleHandle,
+            pinterest: socialPlatforms.pinterestHandle,
+        }|json_encode|raw }};
+    </script>
+    {% if not siteGlobals.siteWebmasterTag %}
+        {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
+        <script>console.{{ serverity }}("Please insert your Google Webmaster HTML Tag")</script>
+    {% else %}
+        {{ siteGlobals.siteWebmasterTag|raw }}
+    {% endif %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries  -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="/js/respond.min.js"></script>
+    <![endif]-->
+    {% include "_layouts/_partials/favicons" %}
+</head>
+<body>
+{% if not siteGlobals.siteGoogleTagManagerId %}
+    {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
+    <script>console.{{ serverity }}("Please insert your Google Tag Manager Container ID")</script>
+{% else %}
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id={{ siteGlobals.siteGoogleTagManagerId }}" height="0"
+                width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', '{{ siteGlobals.siteGoogleTagManagerId }}');</script>
+    <!-- End Google Tag Manager -->
+{% endif %}
+{{ siteGlobals.siteHeaderScriptTags|raw }}
+<div id="container">
+    <header id="header" class="site-header">
+        <div class="top-yellow-bg">
+            <div class="container">
+                <div class="inline">
+                    <a href="mailto:info@keepitlocal.co.za">
+                        <i class="fa fa-envelope-o"></i>
+                        <span>info@keepitlocal.co.za</span>
+                    </a>
+                    <span class="hidden-xs">
                                 <i class="fa fa-link"></i>
                                 <span>082 987 1234</span>
                             </span>
-                        </div>
-                    </div>
                 </div>
-                <div class="clear-both"></div>
-                <div class="container">
-                    <div class="row">
-                        <nav class="navbar navbar-default">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primaryNav" aria-expanded="false">
-                                    <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="{{ siteUrl }}">
-                                    <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}" style="height: 52px">
-                                </a>
-                            </div>
-                            <div class="collapse navbar-collapse" id="primaryNav">
-                                <ul class="nav navbar-nav">
-                                    {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
-                                </ul>
-                                <div class="field form-group fields-search-field" id="fields-search-field">
-                                    <form id="search-form" action="/local/search" method="POST">
-                                        <div class="input ltr">
-                                            <input class="text form-control nicetext fullwidth" type="text" id="keyword" name="keyword" value="" data-show-chars-left="" autocomplete="off" placeholder="Search ...">
-                                        </div>
-                                        <i class="fa fa-search"></i>
-                                    </form>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </header>
-
-            <div id="notifications-wrapper" class="container">
-                <div id="notifications">
-                    {% for type, message in craft.session.flashes %}
-                        <div class="notification {{ type }}">
-                            <a href="#" class="pull-right" data-toggle="remove">&times;</a>
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <main id="content" role="main">
-            {% block content %}{% endblock %}
-        </main>
-    </div>
-    <footer id="footer">
-        <div class="container">
-            <div class="row site-footer">
-                <div class="col-md-4">
-                    <h2>Connect with us</h2>
-                    <div class="socials-block">
-                        <a class="share-btn"><i class="fa fa-facebook"></i></a>
-                        <a class="share-btn"><i class="fa fa-twitter"></i></a>
-                        <a class="share-btn"><i class="fa fa-instagram"></i></a>
-                        <a class="share-btn"><i class="fa fa-google-plus"></i></a>
-                        <a class="share-btn"><i class="fa fa-youtube"></i></a>
-                        <a class="share-btn"><i class="fa fa-skype"></i></a>
-                    </div>
-                    <h2>Sign up to our newsletter</h2>
-                    <div class="field form-group" id="fields-email-field">
-                        <div class="input ltr">
-                            <input class="text form-control nicetext fullwidth" type="text" id="fields-email" name="fields[email]" value="" data-show-chars-left="" autocomplete="off" placeholder="Please enter your email address...">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <h2>Information</h2>
-                            <ul class="nav nav-stacked nav-pills">
-                                {% set navItems = craft.entries.section('sidebar').search('group:"letsStart"') %}
-                                {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
-                            </ul>
-                        </div>
-                        <div class="col-xs-6">
-                            <h2>Other</h2>
-                            <ul class="nav nav-stacked nav-pills">
-                                {% set navItems = craft.entries.section('sidebar').search('group:"other"') %}
-                                {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 mb-1 mt-1">
-                &copy; {{ now.year }} {{ siteName }}
             </div>
         </div>
-    </footer>
-    {% include "_layouts/_partials/siteData" %}
-    <script src="/js/vendors.{{ craft.bust.filetime('js/vendors.js') }}.js"></script>
-    <script src="/js/scripts.{{ craft.bust.filetime('js/scripts.js') }}.js"></script>
-    {{ siteGlobals.siteFooterScriptTags|raw }}
+        <div class="clear-both"></div>
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#primaryNav" aria-expanded="false">
+                            <span class="sr-only">{{ 'Toggle navigation' |t }}</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ siteUrl }}">
+                            <img src="{{ siteGlobals.siteLogo.first().getUrl({height: 26 * 2}) }}" alt="{{ siteName }}"
+                                 style="height: 52px">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="primaryNav">
+                        <ul class="nav navbar-nav">
+                            {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
+                        </ul>
+                        <div class="field form-group fields-search-field" id="fields-search-field">
+                            <form id="search-form" action="/local/search" method="POST">
+                                <div class="input ltr">
+                                    <input class="text form-control nicetext fullwidth" type="text" id="keyword"
+                                           name="keyword" value="" data-show-chars-left="" autocomplete="off"
+                                           placeholder="Search ...">
+                                </div>
+                                <i class="fa fa-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="notifications-wrapper" class="container">
+        <div id="notifications">
+            {% for type, message in craft.session.flashes %}
+                <div class="notification {{ type }}">
+                    <a href="#" class="pull-right" data-toggle="remove">&times;</a>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <main id="content" role="main">
+        {% block content %}{% endblock %}
+    </main>
+</div>
+<footer id="footer">
+    <div class="container">
+        <div class="row site-footer">
+            <div class="col-md-4">
+                <h2>Connect with us</h2>
+                <div class="socials-block">
+                    <a class="share-btn"><i class="fa fa-facebook"></i></a>
+                    <a class="share-btn"><i class="fa fa-twitter"></i></a>
+                    <a class="share-btn"><i class="fa fa-instagram"></i></a>
+                    <a class="share-btn"><i class="fa fa-google-plus"></i></a>
+                    <a class="share-btn"><i class="fa fa-youtube"></i></a>
+                    <a class="share-btn"><i class="fa fa-skype"></i></a>
+                </div>
+                <h2>Sign up to our newsletter</h2>
+                <div class="form-group">
+                    <input class="text form-control fullwidth" type="text" id="newsletter-email"
+                           name="newsletter-email" value="" required autocomplete="off"
+                           placeholder="Please enter your email address...">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h2>Information</h2>
+                        <ul class="nav nav-stacked nav-pills">
+                            {% set navItems = craft.entries.section('sidebar').search('group:"letsStart"') %}
+                            {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
+                        </ul>
+                    </div>
+                    <div class="col-xs-6">
+                        <h2>Other</h2>
+                        <ul class="nav nav-stacked nav-pills">
+                            {% set navItems = craft.entries.section('sidebar').search('group:"other"') %}
+                            {{ templateMacros.renderNav(navItems, currentMenuNode|default(null), {dropdown: false}) }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 mb-1 mt-1">
+            &copy; {{ now.year }} {{ siteName }}
+            <span class="pull-right">
+                Powered by
+                <a class="text-white" href="http://www.interseed.co.za" target="_blank">Interseed</a>
+            </span>
+        </div>
+    </div>
+</footer>
+{% include "_layouts/_partials/siteData" %}
+<script src="/js/vendors.{{ craft.bust.filetime('js/vendors.js') }}.js"></script>
+<script src="/js/scripts.{{ craft.bust.filetime('js/scripts.js') }}.js"></script>
+{{ siteGlobals.siteFooterScriptTags|raw }}
 </body>
 </html>

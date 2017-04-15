@@ -4174,7 +4174,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 88px;
+  min-height: 90px;
   margin-bottom: 0;
   border: 1px solid transparent;
 }
@@ -4283,7 +4283,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 13px 15px;
   font-size: 20px;
   line-height: 25px;
-  height: 88px;
+  height: 90px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -4303,8 +4303,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: right;
   margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 27px;
-  margin-bottom: 27px;
+  margin-top: 28px;
+  margin-bottom: 28px;
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
@@ -4377,8 +4377,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 24.5px;
-  margin-bottom: 24.5px;
+  margin-top: 25.5px;
+  margin-bottom: 25.5px;
 }
 @media (min-width: 768px) {
   .navbar-form .form-group {
@@ -4462,20 +4462,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-left-radius: 0;
 }
 .navbar-btn {
-  margin-top: 24.5px;
-  margin-bottom: 24.5px;
+  margin-top: 25.5px;
+  margin-bottom: 25.5px;
 }
 .navbar-btn.btn-sm {
-  margin-top: 28.5px;
-  margin-bottom: 28.5px;
+  margin-top: 29.5px;
+  margin-bottom: 29.5px;
 }
 .navbar-btn.btn-xs {
-  margin-top: 33px;
-  margin-bottom: 33px;
+  margin-top: 34px;
+  margin-bottom: 34px;
 }
 .navbar-text {
-  margin-top: 31.5px;
-  margin-bottom: 31.5px;
+  margin-top: 32.5px;
+  margin-bottom: 32.5px;
 }
 @media (min-width: 992px) {
   .navbar-text {
@@ -9187,6 +9187,11 @@ input[type="radio"] {
 .pl-1 {
   padding-left: 15px;
 }
+@media (max-width: 992px) {
+  .pl-1 {
+    padding-left: 0px;
+  }
+}
 .pl-2 {
   padding-left: 50px;
 }
@@ -9386,9 +9391,13 @@ form .form-group .btn-add {
 section {
   padding-bottom: 40px;
 }
+section h1 {
+  font-weight: 900;
+  font-size: 36px;
+}
 section h2 {
   font-weight: 500;
-  font-size: 29px;
+  font-size: 30px;
   margin: 40px 0;
 }
 section h3 {
@@ -9413,11 +9422,11 @@ section #sidebar h2 {
     padding-bottom: 30px;
   }
   section h2 {
-    font-size: 26px;
-    margin: 30px 0;
+    font-size: 28px;
+    margin: 40px 0;
   }
   section h3 {
-    font-size: 19px;
+    font-size: 21px;
   }
 }
 @media (max-width: 400px) {
@@ -10153,7 +10162,6 @@ section #sidebar h2 {
 }
 .search-form .btn-block {
   border-radius: 6px;
-  margin-bottom: 15px;
 }
 .search-form .btn-primary.btn-lg {
   color: #FFFFFF;
@@ -10164,6 +10172,7 @@ section #sidebar h2 {
 .btn-height {
   line-height: 40px;
   text-transform: uppercase;
+  font-size: 15px;
 }
 .search-block {
   position: relative;
@@ -10192,8 +10201,14 @@ section #sidebar h2 {
 }
 @media (max-width: 992px) {
   .search-xs .btn-default.btn-lg {
-    border-color: #FFFFFF;
+    border-color: #3D3D3D;
+    color: #3D3D3D;
+  }
+  .search-xs .btn-default.btn-lg:hover,
+  .search-xs .btn-default.btn-lg:focus {
     color: #FFFFFF;
+    background-color: #3D3D3D;
+    border-color: #3D3D3D;
   }
 }
 .search-form .form-group {
@@ -10242,7 +10257,6 @@ section #sidebar h2 {
   .relative-container .home-btn-block {
     display: block;
     position: absolute;
-    top: 216px;
     right: 20px;
     z-index: 9999;
   }
@@ -10319,7 +10333,7 @@ section #sidebar h2 {
 }
 .navbar-nav > li > a {
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 900;
   border-radius: 3px;
   padding: 2px 10px;
@@ -10359,11 +10373,12 @@ section #sidebar h2 {
   color: #ffffff;
   box-shadow: none;
 }
-#fields-email {
+#newsletter-email {
   width: 316px;
+  background-color: #FFFFFF;
 }
 @media (max-width: 992px) {
-  #fields-email {
+  #newsletter-email {
     width: 283px;
   }
 }
@@ -10380,8 +10395,11 @@ section #sidebar h2 {
   text-transform: uppercase;
   border-radius: 5px;
 }
-.btn-default:hover {
-  background: transparent;
+.btn-default:hover,
+.btn-default:focus {
+  color: #FFFFFF;
+  background-color: #3D3D3D;
+  border-color: #3D3D3D;
 }
 .btn-default.btn-lg {
   background: #FDBF0F;
@@ -10417,6 +10435,12 @@ section #sidebar h2 {
 .btn-primary.btn-lg.btn-white {
   border-color: #FFFFFF;
   color: #FFFFFF;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #FFFFFF;
+  background-color: #3D3D3D;
+  border-color: #3D3D3D;
 }
 .btn-tertiary {
   text-transform: uppercase;
@@ -10512,6 +10536,26 @@ section #sidebar h2 {
 }
 .article-sharing .share-btn:last-child {
   display: none;
+}
+.panel {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  box-shadow: none;
+}
+.panel > .panel-heading {
+  color: #3D3D3D;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-weight: 900;
+  font-size: 28px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  padding: 0px;
+}
+.panel > .panel-body {
+  padding: 15px 0px;
 }
 .share-btn {
   display: inline-block;
@@ -10703,8 +10747,9 @@ a.thumbnail:active {
   font-weight: 900;
   font-size: 70px;
   text-transform: uppercase;
-  padding: 20px 20px 20px;
+  padding: 0 20px 20px;
   line-height: 70px;
+  margin-top: 0;
 }
 .inline {
   display: inline-block;
@@ -10718,9 +10763,9 @@ a.thumbnail:active {
     line-height: 24px;
   }
   .carousel-caption .container h1 {
-    font-size: 30px;
-    line-height: 30px;
-    margin-top: 0;
+    font-size: 42px;
+    line-height: 42px;
+    margin-top: 35px;
     padding-top: 0;
     width: 100%;
   }

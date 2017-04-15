@@ -75,7 +75,7 @@
                     <div class="field form-group fields-search-field" id="fields-search-field">
                         <form id="search-form" action="/local/search" method="POST">
                             <div class="input ltr">
-                                <input class="text form-control nicetext fullwidth" type="text" id="keyword" name="keyword" value="" data-show-chars-left="" autocomplete="off" placeholder="Search ...">
+                                <input class="text form-control nicetext fullwidth" type="text" id="keyword" name="keyword" value=""  autocomplete="off" placeholder="Search ...">
                             </div>
                             <i class="fa fa-search"></i>
                         </form>

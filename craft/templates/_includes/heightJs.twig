@@ -1,0 +1,11 @@
+<script type="text/javascript">
+    $(document).ready(function (){
+        var indexSlider = $(".carousel-inner").first();
+        var carouselCaption = $(".carousel-caption");
+        var searchForm = 250;
+
+        $(".search-form").css({top: ((indexSlider.height() - searchForm) / 2) + "px"});
+        carouselCaption.css({top: (((indexSlider.height() - searchForm) / 2) - 24) + "px"});
+        $(".home-btn-block").css({bottom: (((indexSlider.height() - searchForm) / 2)) + "px"});
+    });
+</script>

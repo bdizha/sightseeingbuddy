@@ -306,6 +306,9 @@ input[type="radio"] {
 
 .pl-1 {
   padding-left: 15px;
+  @media (max-width: @grid-float-breakpoint) {
+    padding-left: 0px;
+  }
 }
 
 .pl-2 {
@@ -549,9 +552,13 @@ form {
 }
 
 section {
+  h1 {
+    font-weight: 900;
+    font-size: 36px;
+  }
   h2 {
     font-weight: 500;
-    font-size: 29px;
+    font-size: 30px;
     margin: 40px 0;
   }
   h3 {
@@ -578,12 +585,12 @@ section {
 
   @media (max-width: @screen-sm) {
     h2 {
-      font-size: 26px;
-      margin: 30px 0;
+      font-size: 28px;
+      margin: 40px 0;
     }
 
     h3 {
-      font-size: 19px;
+      font-size: 21px;
     }
 
     padding-bottom: 30px;
@@ -1456,7 +1463,6 @@ section {
 
   .btn-block {
     border-radius: 6px;
-    margin-bottom: 15px;
   }
   .btn-primary {
     &.btn-lg {
@@ -1471,6 +1477,7 @@ section {
 .btn-height {
   line-height: 40px;
   text-transform: uppercase;
+  font-size: 15px;
 }
 
 .search-block {
@@ -1502,8 +1509,14 @@ section {
 @media (max-width: @grid-float-breakpoint) {
   .search-xs {
     .btn-default.btn-lg {
-      border-color: @white;
-      color: @white;
+      border-color: @gray-base;
+      color: @gray-base;
+      &:hover,
+      &:focus {
+        color: @white;
+        background-color: @gray-base;
+        border-color: @gray-base;
+      }
     }
   }
 }
@@ -1556,7 +1569,6 @@ section {
     .home-btn-block {
       display: block;
       position: absolute;
-      top: 216px;
       right: 20px;
       z-index: 9999;
     }
@@ -1636,7 +1648,7 @@ section {
   > li {
     > a {
       text-transform: uppercase;
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 900;
       border-radius: 3px;
       padding: 2px 10px;
@@ -1689,8 +1701,9 @@ section {
   }
 }
 
-#fields-email {
+#newsletter-email {
   width: 316px;
+  background-color: @white;
   @media (max-width: @grid-float-breakpoint) {
     width: 283px;
   }
@@ -1713,10 +1726,12 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 5px;
-  &:hover {
-    background: transparent;
+  &:hover,
+  &:focus {
+    color: @white;
+    background-color: @gray-base;
+    border-color: @gray-base;
   }
-
   &.btn-lg {
     background: @yellow;
     color: @gray-base;
@@ -1750,6 +1765,12 @@ section {
       border-color: @white;
       color: @white;
     }
+  }
+  &:hover,
+  &:focus {
+    color: @white;
+    background-color: @gray-base;
+    border-color: @gray-base;
   }
 }
 
@@ -1827,11 +1848,11 @@ section {
     width: 140px;
     height: 37px;
     margin-right: 10px;
-    &.fa-facebook{
+    &.fa-facebook {
       background: url("/images/share_fb.jpg");
       background-size: 100%;
     }
-    &.fa-twitter{
+    &.fa-twitter {
       background: url("/images/share_twitter.jpg");
       background-size: 100%;
     }
@@ -1848,9 +1869,31 @@ section {
     .fa-twitter:before {
       content: "";
     }
-    &:last-child{
+    &:last-child {
       display: none;
     }
+  }
+}
+
+.panel {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  > .panel-heading {
+    color: @gray-base;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    font-weight: 900;
+    font-size: 28px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    padding: 0px;
+  }
+  > .panel-body {
+    padding: 15px 0px;
+
   }
 }
 
@@ -2045,8 +2088,9 @@ a.thumbnail:hover, a.thumbnail:active {
       font-weight: 900;
       font-size: 70px;
       text-transform: uppercase;
-      padding: 20px 20px 20px;
+      padding: 0 20px 20px;
       line-height: 70px;
+      margin-top: 0;
     }
   }
 }
@@ -2065,9 +2109,9 @@ a.thumbnail:hover, a.thumbnail:active {
       padding: 20px;
       line-height: 24px;
       h1 {
-        font-size: 30px;
-        line-height: 30px;
-        margin-top: 0;
+        font-size: 42px;
+        line-height: 42px;
+        margin-top: 35px;
         padding-top: 0;
         width: 100%;
       }
