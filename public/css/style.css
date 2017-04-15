@@ -9178,6 +9178,11 @@ input[type="radio"] {
 .ml-1 {
   margin-left: 25px;
 }
+@media (max-width: 991px) {
+  .ml-1 {
+    margin-left: 0px;
+  }
+}
 .ml-2 {
   margin-left: 50px;
 }
@@ -10772,7 +10777,7 @@ a.thumbnail:active {
 }
 @media (max-width: 991px) {
   .carousel-caption {
-    top: 51px;
+    top: 35px;
   }
   .carousel-caption .container {
     font-weight: 900;
@@ -10782,8 +10787,8 @@ a.thumbnail:active {
     line-height: 24px;
   }
   .carousel-caption .container h1 {
-    font-size: 42px;
-    line-height: 42px;
+    font-size: 28px;
+    line-height: 28px;
     margin-top: 0;
     padding-top: 0;
     width: 100%;

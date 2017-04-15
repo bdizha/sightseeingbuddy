@@ -294,6 +294,9 @@ input[type="radio"] {
 
 .ml-1 {
   margin-left: @line-height-computed * 1px;
+  @media (max-width: @grid-float-breakpoint-max) {
+    margin-left: 0px;
+  }
 }
 
 .ml-2 {
@@ -2117,7 +2120,7 @@ a.thumbnail:hover, a.thumbnail:active {
 // Scale up controls for tablets and up
 @media (max-width: @grid-float-breakpoint-max) {
   .carousel-caption {
-    top: 51px;
+    top: 35px;
     .container {
       font-weight: 900;
       font-size: 28px;
@@ -2125,8 +2128,8 @@ a.thumbnail:hover, a.thumbnail:active {
       padding: 20px;
       line-height: 24px;
       h1 {
-        font-size: 42px;
-        line-height: 42px;
+        font-size: 28px;
+        line-height: 28px;
         margin-top: 0;
         padding-top: 0;
         width: 100%;
