@@ -84,5 +84,7 @@
             </nav>
         </div>
     </div>
+
+    <input type="hidden" id="current_url" name="current_url" value="{{ Request::path() }}" />
 </header>
 @include('partials.notice', [])

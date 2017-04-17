@@ -8872,14 +8872,37 @@ textarea.parsley-error {
   background: #FFFFFF;
 }
 [data-slick-carousel-default] .slick-prev,
-[data-slick-carousel-three] .slick-prev {
-  left: 10px;
+[data-slick-carousel-three] .slick-prev,
+[data-slick-carousel-default] .slick-next,
+[data-slick-carousel-three] .slick-next {
   z-index: 99;
+  height: 43px;
+  width: 40px;
+  background-size: 100%;
+}
+[data-slick-carousel-default] .slick-prev:before,
+[data-slick-carousel-three] .slick-prev:before,
+[data-slick-carousel-default] .slick-next:before,
+[data-slick-carousel-three] .slick-next:before {
+  content: '';
+}
+@media (max-width: 991px) {
+  [data-slick-carousel-default] .slick-prev,
+  [data-slick-carousel-three] .slick-prev,
+  [data-slick-carousel-default] .slick-next,
+  [data-slick-carousel-three] .slick-next {
+    display: none;
+  }
+}
+[data-slick-carousel-default] .slick-prev,
+[data-slick-carousel-three] .slick-prev {
+  left: 25px;
+  background-image: url(/images/left_white_arrow.png);
 }
 [data-slick-carousel-default] .slick-next,
 [data-slick-carousel-three] .slick-next {
-  right: 10px;
-  z-index: 99;
+  right: 25px;
+  background-image: url(/images/right_white_arrow.png);
 }
 [data-slick-carousel-default] .slick-slide img,
 [data-slick-carousel-three] .slick-slide img {
@@ -8891,6 +8914,10 @@ textarea.parsley-error {
 #reviews [data-slick-carousel-default] .slick-dots li.slick-active button,
 #reviews [data-slick-carousel-default] .slick-dots li:hover button {
   background: #3D3D3D;
+}
+#reviews [data-slick-carousel-default] .slick-prev,
+#reviews [data-slick-carousel-default] .slick-next {
+  display: none !important;
 }
 .slick-carousel-three {
   position: relative;
@@ -10763,12 +10790,21 @@ a.thumbnail:active {
   text-align: left;
   width: 100%;
 }
+.carousel-caption .container {
+  position: relative;
+}
+.carousel-caption .container .btn-default {
+  position: absolute;
+  right: 15px;
+  bottom: 0px;
+}
 .carousel-caption .container h1 {
   width: 58%;
   font-weight: 900;
   font-size: 70px;
   text-transform: uppercase;
-  padding: 0 20px 20px;
+  padding: 0 20px 0px;
+  margin: 0;
   line-height: 70px;
   margin-top: 0;
 }

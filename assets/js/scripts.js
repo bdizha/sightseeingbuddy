@@ -100,7 +100,7 @@ function UIBindings() {
             dots: true,
             slidesToShow: 1,
             slidesToScroll: 1,
-            arrows: false,
+            arrows: true,
             fade: true,
             autoplay: true,
             autoplaySpeed: 3000
@@ -128,7 +128,7 @@ function UIBindings() {
             var shareHandler = new ShareHandler($(this));
             shareHandler.appendFacebook();
             shareHandler.appendTwitter();
-            shareHandler.appendGoogle();
+            //shareHandler.appendGoogle();
             //shareHandler.appendLinkedIn();
             //shareHandler.appendPinterest();
         });
@@ -238,8 +238,6 @@ function Notifications() {
     };
 }
 
-var globalHeight = 0;
-
 function Vertilize() {
 
     this.init = function () {
@@ -252,19 +250,40 @@ function Vertilize() {
 
         $('.same-height').matchHeight(options);
 
-        if($(window).width() >= 992) {
+    };
+}
+
+
+var resolvedCaption = false;
+function HomeBanners() {
+
+    this.init = function () {
+        // get the current url from the body
+        var currentUrl = $("#current_url").val();
+
+        if ($(window).width() >= 992 && (currentUrl == "blog" || currentUrl == "" || currentUrl == "become-a-local")) {
             var indexSlider = $(".carousel-inner").first();
             var carouselCaption = $(".carousel-caption");
             var btnBlock = $(".home-btn-block");
             var searchForm = 250;
+
+            if (indexSlider > 100) {
+                resolvedCaption = true;
+            }
 
             console.log("Index slicer height: " + indexSlider.height());
 
             $(".search-form").css({top: ((indexSlider.height() - searchForm) / 2) + "px"});
             carouselCaption.css({top: (((indexSlider.height() - searchForm) / 2) - 24) + "px"});
             btnBlock.css({top: (((indexSlider.height() - searchForm) / 2) + 200) + "px"});
+
+            if (resolvedCaption == false) {
+                setTimeout(function () {
+                    (new HomeBanners).init();
+                }, 3000);
+            }
         }
-    };
+    }
 }
 
 function HeaderNav() {
@@ -440,6 +459,8 @@ $(function () {
     (new BookNow).init();
 
     (new UIModal).init();
+
+    (new HomeBanners).init();
 
     $window.on('resize', function () {
         (new Vertilize).init();

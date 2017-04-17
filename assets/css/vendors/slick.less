@@ -30,13 +30,27 @@
             }
         }
     }
-    .slick-prev {
-        left: 10px;
+    .slick-prev,
+    .slick-next{
         z-index: 99;
+        height: 43px;
+        width: 40px;
+        background-size: 100%;
+        &:before{
+            content: '';
+        }
+        @media (max-width: (@grid-float-breakpoint-max)) {
+            display: none;
+        }
+
+    }
+    .slick-prev {
+        left: 25px;
+        background-image: url(/images/left_white_arrow.png);
     }
     .slick-next {
-        right: 10px;
-        z-index: 99;
+        right: 25px;
+        background-image: url(/images/right_white_arrow.png);
     }
 
     .slick-slide {
@@ -60,6 +74,10 @@
                     }
                 }
             }
+        }
+        .slick-prev,
+        .slick-next{
+            display: none !important;
         }
     }
 }
