@@ -261,6 +261,9 @@ function HomeBanners() {
         // get the current url from the body
         var currentUrl = $("#current_url").val();
 
+        console.log("current url: " + currentUrl);
+        console.log("window width: " + $(window).width());
+
         if ($(window).width() >= 600 && (currentUrl == "blog" || currentUrl == "" || currentUrl == "become-a-local")) {
             var indexSlider = $(".carousel-inner").first();
             var carouselCaption = $(".carousel-caption");
