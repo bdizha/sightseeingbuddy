@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\GuestVerify;
-use App\Events\LocalWelcome;
-use App\Events\LocalVerify;
 use App\Http\Requests\Request;
 use App\User;
 use App\Http\Controllers\AuthController;
@@ -104,16 +102,10 @@ class RegisterController extends AuthController
             'type' => $data['type'],
         ]);
 
-        if($user->type == "local"){
-            event(new LocalWelcome($user));
-            event(new LocalVerify($user));
-        }
-        else{
-            $user->verify_token = md5($user->email);
-            $user->save();
+        $user->verify_token = md5($user->email);
+        $user->save();
 
-            event(new GuestVerify($user));
-        }
+        event(new GuestVerify($user));
         return $user;
     }
 

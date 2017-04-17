@@ -1,14 +1,15 @@
-<div class="row">
-    <article class="article">
-        <div class='row'>
-            <div class='col-xs-12'>
-                <h1 class="page-title page-title-left">
-                    Your local experience you'd like to offer
-                </h1>
+<div class='row'>
+    <div class='col-xs-12 mb-1 pl-0'>
+        <div class="panel panel-default">
+            <div class="panel-heading mt-0">
+                Your local experience you'd like to offer
+            </div>
+            <div class="panel-body">
                 {!! csrf_field() !!}
                 <div class='row'>
                     <div class="col-sm-5 col-xs-12">
-                        <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}" id="country_id">
+                        <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}"
+                             id="country_id">
                             <div class="col-xs-12">
                                 @if ($errors->has('country_id'))
                                     <label class="control-label"
@@ -16,18 +17,20 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="country">Your Country</label>
-                                    {{ Form::select('country_id', \App\Country::getList(), $experience->country_id, ['class' => 'form-control fullwidth', 'placeholder' => 'Your country*']) }}
+                                    {{ Form::select('country_id', \App\Country::getList(), $experience->country_id, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Your country*']) }}
                                 </div>
                             </div>
                         </div>
-                        <div class="row form-group {{ $errors->has('city') ? 'has-error' : '' }}" id="experience">
+                        <div class="row form-group {{ $errors->has('city') ? 'has-error' : '' }}"
+                             id="experience">
                             <div class="col-xs-12">
                                 @if ($errors->has('city'))
-                                    <label class="control-label" for="experience">{{ $errors->first('city') }}</label>
+                                    <label class="control-label"
+                                           for="experience">{{ $errors->first('city') }}</label>
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="city">Your city</label>
-                                    {{ Form::text('city', $experience->city_name, ['class' => 'form-control fullwidth', 'placeholder' => 'Your city*']) }}
+                                    {{ Form::text('city', $experience->city_name, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Your city*']) }}
                                 </div>
                             </div>
                         </div>
@@ -40,7 +43,7 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="street_address">Street address</label>
-                                    {{ Form::text('street_address', $experience->street_address, ['class' => 'form-control fullwidth', 'placeholder' => 'Meeting point street address*']) }}
+                                    {{ Form::text('street_address', $experience->street_address, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Meeting point street address*']) }}
                                 </div>
                             </div>
                         </div>
@@ -53,11 +56,12 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="postal_code">Postal code</label>
-                                    {{ Form::text('postal_code', $experience->postal_code, ['class' => 'form-control fullwidth', 'placeholder' => 'Postal code*']) }}
+                                    {{ Form::text('postal_code', $experience->postal_code, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Postal code*']) }}
                                 </div>
                             </div>
                         </div>
-                        <div class="row form-group {{ $errors->has('languages') ? 'has-error' : '' }}" id="languages">
+                        <div class="row form-group {{ $errors->has('languages') ? 'has-error' : '' }}"
+                             id="languages">
                             <div class="col-sm-12 col-xs-12">
                                 <div class="gray-bottom-border"></div>
                                 <div class="line-items language-items">
@@ -66,7 +70,8 @@
                                         <div class="line-item" id="language-{{ $key + 1}}">
                                             <label>{{ $language }}</label>
                                             <input type="hidden" value="{{ $language }}" name="languages[]">
-                                            <i class="fa fa-close line-close" data-id="language-{{ $key + 1}}"></i>
+                                            <i class="fa fa-close line-close"
+                                               data-id="language-{{ $key + 1}}"></i>
                                         </div>
                                     @endforeach
                                 </div>
@@ -78,7 +83,7 @@
                             <div class="col-sm-9 col-xs-9">
                                 <div class="input-group">
                                     <label class="control-label" for="activity">Offered languages</label>
-                                    {{ Form::text('language', old('language'), ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Offered languages*', "data-id" => "languages"]) }}
+                                    {{ Form::text('language', old('language'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Offered languages*', "data-id" => "languages"]) }}
                                 </div>
                             </div>
                             <div class="col-sm-3 col-xs-3">
@@ -89,7 +94,8 @@
                     </div>
                     <div class="col-sm-7 col-xs-12">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52973.7501198164!2d18.47359695747957!3d-33.91901849430067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c6704f82b65%3A0x78920bf352a0d24f!2sKenilworth%2C+Cape+Town%2C+7708!5e0!3m2!1sen!2sza!4v1488221127609"
-                                width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                width="400" height="300" frameborder="0" style="border:0"
+                                allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -97,14 +103,16 @@
         <div class="gray-bottom-border mt-1 mb-1"></div>
         <div class='row'>
             <div class="col-sm-5 col-xs-12">
-                <div class="row form-group {{ $errors->has('category_id') ? 'has-error' : '' }}" id="category_id">
+                <div class="row form-group {{ $errors->has('category_id') ? 'has-error' : '' }}"
+                     id="category_id">
                     <div class="col-xs-12">
                         @if ($errors->has('category_id'))
-                            <label class="control-label" for="category_id">{{ $errors->first('category_id') }}</label>
+                            <label class="control-label"
+                                   for="category_id">{{ $errors->first('category_id') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="Category">Experience category</label>
-                            {{ Form::select('category_id', \App\ExperienceCategory::getList(), $experience->category_id, ['class' => 'form-control fullwidth', 'placeholder' => 'Experience category*']) }}
+                            {{ Form::select('category_id', \App\ExperienceCategory::getList(), $experience->category_id, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Experience category*']) }}
                         </div>
                     </div>
                 </div>
@@ -112,11 +120,12 @@
                      id="sub_category_id">
                     <div class="col-xs-12">
                         @if ($errors->has('sub_category'))
-                            <label class="control-label" for="sub_category">{{ $errors->first('sub_category') }}</label>
+                            <label class="control-label"
+                                   for="sub_category">{{ $errors->first('sub_category') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="sub_category">Experience sub category</label>
-                            {{ Form::text('sub_category', $experience->sub_category, ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Experience sub category*', 'data-id' => 'category_id']) }}
+                            {{ Form::text('sub_category', $experience->sub_category, ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Experience sub category*', 'data-id' => 'category_id']) }}
                         </div>
                     </div>
                 </div>
@@ -127,20 +136,22 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="teaser">Experience teaser title</label>
-                            {{ Form::text('teaser', $experience->teaser, ['class' => 'form-control fullwidth', 'placeholder' => 'Experience teaser title*']) }}
+                            {{ Form::text('teaser', $experience->teaser, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Experience teaser title*']) }}
                         </div>
                     </div>
                 </div>
             </div>
             <div class='col-sm-7 col-xs-12'>
-                <div class="row form-group {{ $errors->has('description') ? 'has-error' : '' }}" id="description">
+                <div class="row form-group {{ $errors->has('description') ? 'has-error' : '' }}"
+                     id="description">
                     <div class="col-xs-12">
                         @if ($errors->has('description'))
-                            <label class="control-label" for="description">{{ $errors->first('description') }}</label>
+                            <label class="control-label"
+                                   for="description">{{ $errors->first('description') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="country">Your experience description</label>
-                            {{ Form::textarea('description', $experience->description, ['rows' => 5, 'class' => 'form-control fullwidth', 'placeholder' => 'Detailed description of your experience*']) }}
+                            {{ Form::textarea('description', $experience->description, ['rows' => 5, 'class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Detailed description of your experience*']) }}
                         </div>
                     </div>
                 </div>
@@ -163,17 +174,19 @@
                             @endforeach
                         </div>
                         @if ($errors->has('highlights'))
-                            <label class="control-label" for="highlight">{{ $errors->first('highlights') }}</label>
+                            <label class="control-label"
+                                   for="highlight">{{ $errors->first('highlights') }}</label>
                         @endif
                     </div>
                     <div class="col-sm-9 col-xs-9">
                         <div class="input-group">
                             <label class="control-label" for="activity">Experience highlights</label>
-                            {{ Form::text('highlight', old('highlight'), ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Experience highlights*', "data-id" => "highlight"]) }}
+                            {{ Form::text('highlight', old('highlight'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Experience highlights*', "data-id" => "highlight"]) }}
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-3">
-                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="highlight"
+                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0"
+                               field="highlight"
                                plural="highlights" value="Add"/>
                     </div>
                 </div>
@@ -184,7 +197,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="duration">Duration</label>
-                            {{ Form::text('duration', $experience->duration, ['class' => 'form-control fullwidth', 'placeholder' => 'Duration*']) }}
+                            {{ Form::text('duration', $experience->duration, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Duration*']) }}
                         </div>
                     </div>
                     <div class="col-sm-5 col-xs-5  pull-right">
@@ -193,7 +206,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="units">Units</label>
-                            {{ Form::select('units', ['hours' => 'Hours', 'days' => 'Days'], $experience->units, ['class' => 'form-control fullwidth', 'placeholder' => 'Units*']) }}
+                            {{ Form::select('units', ['hours' => 'Hours', 'days' => 'Days'], $experience->units, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Units*']) }}
                         </div>
                     </div>
                 </div>
@@ -211,17 +224,19 @@
                             @endforeach
                         </div>
                         @if ($errors->has('activities'))
-                            <label class="control-label" for="activity">{{ $errors->first('activities') }}</label>
+                            <label class="control-label"
+                                   for="activity">{{ $errors->first('activities') }}</label>
                         @endif
                     </div>
                     <div class="col-sm-9 col-xs-9">
                         <div class="input-group">
                             <label class="control-label" for="activity">Experience activities</label>
-                            {{ Form::text('activity', old('activity'), ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Extra activities*', "data-id" => "activity"]) }}
+                            {{ Form::text('activity', old('activity'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Extra activities*', "data-id" => "activity"]) }}
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-3">
-                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0" field="activity"
+                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0"
+                               field="activity"
                                plural="activities" value="Add"/>
                     </div>
                 </div>
@@ -234,7 +249,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="activity">Transportation mode</label>
-                            {{ Form::text('transportation_mode', $experience->transportation_mode, ['class' => 'form-control fullwidth', 'placeholder' => 'Transportation mode*']) }}
+                            {{ Form::text('transportation_mode', $experience->transportation_mode, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Transportation mode*']) }}
                         </div>
                     </div>
                 </div>
@@ -272,5 +287,5 @@
                 </div>
             </div>
         </div>
-    </article>
+    </div>
 </div>

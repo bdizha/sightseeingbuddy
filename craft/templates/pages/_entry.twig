@@ -14,40 +14,45 @@
     <section class="gray-block" id="page">
         <div class="container" id="{{ entry.slug }}">
             {%- include "_includes/sidebar.twig" -%}
-            <div class="col-sm-8 col-sm-offset-1 mt-3">
+            <div class="col-sm-8 col-sm-offset-1 gray-bottom-border gray-top-border same-height mt-3 mb-1"
+                 data-mh="page">
                 <div class="row">
-                    <article class="article same-height pb-1" data-mh="page">
-                        <h3 class="page-title page-title-left">{{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}</h3>
-                        {{ templateMacros.renderBody(entry.body, guestEntry) }}
-                    </article>
-
-                    {% if entry.slug == "security" %}
-                        <div class="col-xs-12">
-                            <div class="row">
-                                <div class="col-sm-12 col-xs-12 text-center">
-                                    <img src="/images/security.jpg" alt="" class="page-image"/>
-                                </div>
-                            </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {{ entry.displayTitle|raw }}{{ templateMacros.renderEditButton(entry) }}
                         </div>
-                    {% elseif entry.slug == "reviews-ratings" %}
-                        <div class="col-xs-12">
-                            <div class="row">
-                                <div class="col-sm-12 col-xs-12 text-center">
-                                    <img src="/images/reviews-1.jpg" alt="" class="page-half-image">
+                        <div class="panel-body">
+                            {{ templateMacros.renderBody(entry.body, guestEntry) }}
+                            {% if entry.slug == "security" %}
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12 text-center">
+                                            <img src="/images/security.jpg" alt="" class="page-image"/>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    {% elseif entry.slug == "finding-a-local" %}
-                        <div class="col-xs-12">
-                            <div class="row mt-2">
-                                <div class="col-sm-12 col-xs-12 text-center">
-                                    <a href="/local/search" class="btn btn-default btn-lg">Find a local</a>
+                            {% elseif entry.slug == "reviews-ratings" %}
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12 text-center">
+                                            <img src="/images/reviews-1.jpg" alt="" class="page-half-image">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            {% elseif entry.slug == "finding-a-local" %}
+                                <div class="col-xs-12">
+                                    <div class="row mt-2">
+                                        <div class="col-sm-12 col-xs-12 text-center">
+                                            <a href="/local/search" class="btn btn-default btn-lg">Find a local</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
-                    {% endif %}
+                    </div>
                 </div>
             </div>
+        </div>
     </section>
 
 {% endblock %}

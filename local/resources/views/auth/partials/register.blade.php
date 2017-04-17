@@ -5,7 +5,7 @@
             <div class="panel-body">
                 <form id="sign-in" method="POST" class="form" action="{{ route('register') }}">
                     {!! csrf_field() !!}
-                    <input type="hidden" name="type" value="{{ $currentType }}">
+                    <input type="hidden" name="type" value="guest">
                     <div class="row form-group {{ $errors->has('first_name') ? 'has-error' : '' }}"
                          id="fields-first-name-field">
                         <div class="col-sm-8 col-xs-12">

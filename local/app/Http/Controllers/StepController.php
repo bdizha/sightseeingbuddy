@@ -17,11 +17,11 @@ class StepController extends Controller {
                 'route' => route("introduction.{$action}", $parameters)
             ],
             'location' => [
-                'label' => 'Your Locations',
+                'label' => 'Your location',
                 'route' => route("location.{$action}", $parameters)
             ],
             'wallet' => [
-                'label' => 'Payment Details',
+                'label' => 'Payment details',
                 'route' => route("wallet.{$action}", $parameters)
             ]
         ];

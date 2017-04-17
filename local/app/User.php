@@ -25,7 +25,13 @@ class User extends Authenticatable
         'email',
         'password',
         'verify_token',
-        'is_verified',
+        'gender',
+        'mobile',
+        'telephone',
+        'id_number',
+        'reason',
+        'description',
+        'image'
     ];
 
     /**
@@ -48,14 +54,6 @@ class User extends Authenticatable
     public function experiences()
     {
         return $this->hasMany('App\Experience');
-    }
-
-    /**
-     * Get the introduction.
-     */
-    public function introduction()
-    {
-        return $this->hasOne('App\Introduction');
     }
 
     /**

@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Step;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\StepController;
+use App\Events\LocalWelcome;
+use App\Events\LocalVerify;
 use Session;
-use App\Introduction;
-use App\Contact;
 use App\Images\UploadHandler;
+use App\User;
 
 class IntroductionController extends StepController {
 
@@ -17,7 +18,7 @@ class IntroductionController extends StepController {
     protected $prev_step = null;
 
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ["create", "store", "upload"]]);
     }
 
     /**
@@ -26,16 +27,12 @@ class IntroductionController extends StepController {
      * @return Response
      */
     public function create(Request $request) {
-        $introduction = new Introduction();
-        $contact = new Contact();
-        $user = Auth::user();
+        $user = new User();
 
         $links = $this->getLinks($user);
 
         return view('step.introduction.add', [
-            'introduction' => $introduction,
             'user' => $user,
-            'contact' => $contact,
             'links' => $links
         ]);
     }
@@ -46,14 +43,7 @@ class IntroductionController extends StepController {
      * @return Response
      */
     public function store(Request $request) {
-
-        $user = Auth::user();
-        $introduction = new Introduction();
-        $introduction->user_id = $user->id;
-        $contact = new Contact();
-        $contact->user_id = $user->id;
-
-        return $this->save($introduction, $contact, $request);
+        return $this->save(new User(), true, $request);
     }
 
     /**
@@ -62,15 +52,11 @@ class IntroductionController extends StepController {
      * @return Response
      */
     public function edit($id, Request $request) {
-        $user = Auth::user();
-        $introduction = Introduction::findOrNew($user->id);
-        $contact = Contact::firstOrNew(['user_id' => $user->id]);
+        $user = User::find($id);
 
         $links = $this->getLinks($user);
 
         return view('step.introduction.edit', [
-            'introduction' => $introduction,
-            'contact' => $contact,
             'user' => $user,
             'links' => $links
         ]);
@@ -82,20 +68,21 @@ class IntroductionController extends StepController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $user = Auth::user();
-        $introduction = Introduction::findOrNew($user->id);
-        $contact = Contact::firstOrNew(['user_id' => $user->id]);
-        return $this->save($introduction, $contact, $request);
+        $user = User::find($id);
+        return $this->save($user, false, $request);
     }
 
-    private function save($introduction, $contact, $request) {
+    private function save($user, $notifyUser, $request) {
 
         $fields = [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
             'image' => 'required',
+            'type' => 'required',
+            'gender' => 'required',
             'id_number' => 'required',
-            'email' => 'required|email|max:255',
             'mobile' => 'required|max:255',
             'telephone' => 'max:255',
             'reason' => 'required',
@@ -105,41 +92,24 @@ class IntroductionController extends StepController {
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $userInput = [
-            'first_name' => $input['first_name'],
-            'last_name' => $input['last_name']
-        ];
+        $input['password'] = bcrypt($input['password']);
 
-        unset($input['first_name'], $input['last_name']);
+        $user->fill($input)->save();
 
-        $user = Auth::user();
-        $user->fill($userInput)->save();
-
-        $introduction->fill($input)->save();
-
-        $contact->fill($input)->save();
+        if($notifyUser) {
+            event(new LocalWelcome($user));
+            event(new LocalVerify($user));
+        }
 
         Session::flash('flash_message', 'Introduction successfully saved!');
+
+        Auth::guard()->login($user);
 
         return redirect(route("{$this->next_step}.edit", ["id" => $user->id]));
     }
 
     public function upload(Request $request) {
         new UploadHandler();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id) {
-        $introduction = Introduction::findOrFail($id);
-        $introduction->delete();
-
-        Session::flash('flash_message', 'Introduction successfully deleted!');
-        return redirect(route("{$this->cur_step}.create"));
     }
 
 }

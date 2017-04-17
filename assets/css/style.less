@@ -264,6 +264,10 @@ input[type="radio"] {
   font-weight: 700;
 }
 
+.mt-0 {
+  margin-top: 0 !important;
+}
+
 .mt-1 {
   margin-top: @line-height-computed * 1px;
 }
@@ -277,7 +281,7 @@ input[type="radio"] {
 }
 
 .mb-0 {
-  margin-bottom: 0px;
+  margin-bottom: 0 !important;
 }
 
 .mb-1 {
@@ -307,6 +311,10 @@ input[type="radio"] {
   margin-left: @line-height-computed * 3px;
 }
 
+.pl-0 {
+  padding-left: 0 !important;
+}
+
 .pl-1 {
   padding-left: 15px;
   @media (max-width: @grid-float-breakpoint) {
@@ -323,7 +331,7 @@ input[type="radio"] {
 }
 
 .pt-0 {
-  padding-top: 0px;
+  padding-top: 0 !important;
 }
 
 .pt-1 {
@@ -339,7 +347,7 @@ input[type="radio"] {
 }
 
 .pb-0 {
-  padding-bottom: 0px;
+  padding-bottom: 0px !important;
 }
 
 .pb-1 {
@@ -1551,6 +1559,7 @@ section {
         }
       }
       .input-group-addon {
+        background: transparent;
         width: 40px;
         height: 40px;
         background-size: 100%;
@@ -1619,12 +1628,12 @@ section {
 }
 
 .navbar-default {
-  .fields-search-field {
+  .search-field {
     position: relative;
     @media (min-width: @grid-float-breakpoint) {
       position: absolute;
       right: 30px;
-      top: 5px;
+      top: 15px;
     }
     .form-control {
       font-size: 14px;
@@ -1673,7 +1682,7 @@ section {
 
   // Uncollapse the nav
   @media (min-width: @grid-float-breakpoint) {
-    margin: 44px 0 0;
+    margin: 55px 0 0;
     float: right;
     > li {
       margin-bottom: 0px;
@@ -1906,12 +1915,28 @@ section {
     font-weight: 900;
     font-size: 28px;
     margin-top: 25px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 0px;
   }
   > .panel-body {
     padding: 15px 0px;
+    h2 {
+      font-weight: 900;
+      font-size: 24px;
+      margin: 40px 0 20px;
+      &:first-child{
+        margin-top: 0px;
+      }
+    }
 
+  }
+}
+
+.introduction-form {
+  .panel {
+    > .panel-heading {
+      margin-top: 0px;
+    }
   }
 }
 
@@ -2102,7 +2127,7 @@ a.thumbnail:hover, a.thumbnail:active {
   width: 100%;
   .container {
     position: relative;
-    .btn-default{
+    .btn-default {
       position: absolute;
       right: 15px;
       bottom: 0px;
@@ -2499,6 +2524,10 @@ a.thumbnail:hover, a.thumbnail:active {
   }
 }
 
+.step-form-left{
+  padding-left: 0;
+}
+
 // Actual modal
 .modal-content {
   .modal-header {
@@ -2535,5 +2564,5 @@ a.thumbnail:hover, a.thumbnail:active {
 
 .navbar-brand > img {
   display: block;
-  margin-top: 5px;
+  margin-top: 15px;
 }

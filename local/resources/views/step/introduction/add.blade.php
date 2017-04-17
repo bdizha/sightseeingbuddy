@@ -1,10 +1,9 @@
-@extends('layouts.step', ['active' => 'introduction', 'links' => $links, 'excludeJs' => true])
+@extends('layouts.step', ['active' => 'introduction', 'links' => $links])
 
 @section('form')
     {!! Form::open([
     'route' => 'introduction.store',
     'class' => '']) !!}
-    @include('step.introduction.form', ['user' => $user, 'introduction' => $introduction])
+    @include('step.introduction.form', ['user' => $user])
     {!! Form::close() !!}
-    @include('partials.upload')
 @endsection

@@ -1,10 +1,10 @@
-<div class="row">
-    <article class="article">
-        <div class='row'>
-            <div class='col-xs-12'>
-                <h1 class="page-title page-title-left">
-                    Pricing
-                </h1>
+<div class='row'>
+    <div class='col-xs-12'>
+        <div class="panel panel-default">
+            <div class="panel-heading mt-0">
+                Pricing
+            </div>
+            <div class="panel-body">
                 {!! csrf_field() !!}
                 {{ Form::hidden('experience_id', $pricing->experience_id) }}
                 <p>
@@ -21,10 +21,12 @@
                     <li>Entrance fees</li>
                 </ul>
                 <p>
-                    *Keep it Local reserves the right to apply fair pricing. We’re travel gurus and give suggestions if your price is too low or too high.
+                    *Keep it Local reserves the right to apply fair pricing. We’re travel gurus and give suggestions if
+                    your price is too low or too high.
                 <p>
                 </p>
-                    Keep it Local adds an average of 30% to your price. The price displayed on your experience is the total price, including our fees and commissions. You will get the exact amount you’ve quoted.
+                Keep it Local adds an average of 30% to your price. The price displayed on your experience is the total
+                price, including our fees and commissions. You will get the exact amount you’ve quoted.
                 </p>
                 <p>
                     See example below:
@@ -38,7 +40,7 @@
                         @if ($errors->has('guests'))
                             <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
                         @endif
-                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'placeholder' => 'Maximum number of guests*']) }}
+                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Maximum number of guests*']) }}
                     </div>
                 </div>
                 <div class='row'>
@@ -50,7 +52,7 @@
                             </div>
                             <div class="col-sm-4 col-xs-4">
                                 <label class="control-label">Price per person</label>
-                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth', 'placeholder' => 'R0.00']) }}
+                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'R0.00']) }}
                             </div>
                             <div class="col-sm-4 col-xs-4">
                                 <label class="control-label">You'll receive</label>
@@ -124,5 +126,5 @@
                 </div>
             </div>
         </div>
-    </article>
+    </div>
 </div>

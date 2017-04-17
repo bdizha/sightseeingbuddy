@@ -93,25 +93,11 @@ class WalletController extends StepController {
 
         $wallet->fill($input)->save();
 
-        Session::flash('flash_message', 'Your payment details have been successfully saved!');
+        Session::flash('flash_message', 'Your profile has been successfully saved!');
 
         $user = Auth::user();
 
         return redirect(url("/local/profile/" . $user->username));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id) {
-        $wallet = Wallet::findOrFail($id);
-        $wallet->delete();
-
-        Session::flash('flash_message', 'Wallet successfully deleted!');
-        return redirect(route("{$this->cur_step}.create"));
     }
 
 }

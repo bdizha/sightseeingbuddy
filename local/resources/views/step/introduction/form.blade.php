@@ -1,15 +1,13 @@
-<div class="row">
-    <article class="article">
-        <div class='row'>
-            <div class='col-sm-4 col-xs-12 step-form-left'>
-                <h1 class="page-title page-title-left">
-                    Create a profile
-                </h1>
+<div class='row introduction-form'>
+    <div class='col-sm-4 col-xs-12 step-form-left'>
+        <div class="panel panel-default">
+            <div class="panel-heading">Create a profile</div>
+            <div class="panel-body">
                 <div class='text-center'>
                     <div id="cover-image-bin" class="image-bin profile-picture form-group">
                         <div class="bin-item">
-                            <img src="{{ Helper::personImage($introduction->image, "gray") }}"/>
-                            {{ Form::hidden('image', $introduction->image, ['id' => 'image']) }}
+                            <img src="{{ Helper::personImage($user->image, "gray") }}"/>
+                            {{ Form::hidden('image', $user->image, ['id' => 'image']) }}
                             <i class="fa fa-close bin-close"></i>
                         </div>
                     </div>
@@ -28,7 +26,8 @@
                         <div class="progress-bar progress-bar-success"></div>
                     </div>
 
-                    <div class="form-group text-center {{ $errors->has('image') ? 'has-error' : '' }}" id="person-image"
+                    <div class="form-group text-center {{ $errors->has('image') ? 'has-error' : '' }}"
+                         id="person-image"
                     ">
                     @if ($errors->has('image'))
                         <label class="control-label" for="fileupload">{{ $errors->first('image') }}</label>
@@ -40,43 +39,24 @@
                 <div class="row form-group {{ $errors->has('first_name') ? 'has-error' : '' }}" id="first-name">
                     <div class="col-xs-12">
                         @if ($errors->has('first_name'))
-                            <label class="control-label" for="first_name">{{ $errors->first('first_name') }}</label>
+                            <label class="control-label"
+                                   for="first_name">{{ $errors->first('first_name') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="mobile">First name</label>
-                            {{ Form::text('first_name', $user->first_name, ['class' => 'form-control fullwidth', 'placeholder' => 'Your first name*']) }}
+                            {{ Form::text('first_name', $user->first_name, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'Your first name*']) }}
                         </div>
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('last_name') ? 'has-error' : '' }}" id="last-name">
                     <div class="col-xs-12">
                         @if ($errors->has('last_name'))
-                            <label class="control-label" for="last_name">{{ $errors->first('last_name') }}</label>
+                            <label class="control-label"
+                                   for="last_name">{{ $errors->first('last_name') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="mobile">Last name</label>
-                            {{ Form::text('last_name', $user->last_name, ['class' => 'form-control fullwidth', 'placeholder' => 'Your last name*']) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class='col-sm-8 col-xs-12'>
-            <div class="gray-left-border">
-                <h1 class="page-title page-title-left">
-                    Introduce yourself
-                </h1>
-                {!! csrf_field() !!}
-                {{ Form::hidden('user_id', $user->id) }}
-
-                <div class="row form-group {{ $errors->has('id_number') ? 'has-error' : '' }}" id="email">
-                    <div class="col-xs-12">
-                        @if ($errors->has('id_number'))
-                            <label class="control-label" for="id_number">{{ $errors->first('id_number') }}</label>
-                        @endif
-                        <div class="input-group">
-                            <label class="control-label" for="mobile">ID Number</label>
-                            {{ Form::text('id_number', $introduction->id_number, ['class' => 'form-control fullwidth', 'placeholder' => 'Your RSA ID number*']) }}
+                            {{ Form::text('last_name', $user->last_name, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'Your last name*']) }}
                         </div>
                     </div>
                 </div>
@@ -87,7 +67,66 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="email">Email</label>
-                            {{ Form::text('email', $contact->email, ['class' => 'form-control fullwidth', 'placeholder' => 'Your email address*']) }}
+                            {{ Form::text('email', $user->email, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'Your email address*']) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}"
+                     id="fields-password-field">
+                    <div class="col-xs-12">
+                        @if ($errors->has('password'))
+                            <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
+                        @endif
+                        <input class="form-control fullwidth" type="password" id="fields-password" name="password"
+                               value="" autocomplete="off" required placeholder="Your password*">
+                    </div>
+                </div>
+                <div class="row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}"
+                     id="fields-password-confirmation-field">
+                    <div class="col-xs-12">
+                        @if ($errors->has('password_confirmation'))
+                            <label class="control-label"
+                                   for="inputError1">{{ $errors->first('password_confirmation') }}</label>
+                        @endif
+                        <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
+                               name="password_confirmation" value="" autocomplete="off"
+                               required placeholder="Confirm password*">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='col-sm-8 col-xs-12'>
+    <div class="gray-left-border">
+        <div class="panel panel-default">
+            <div class="panel-heading">Introduce yourself</div>
+            <div class="panel-body">
+                {!! csrf_field() !!}
+                {{ Form::hidden('user_id', $user->id) }}
+                <input type="hidden" name="type" value="local">
+
+                <div class="row form-group {{ $errors->has('gender') ? 'has-error' : '' }}">
+                    <div class="col-xs-12">
+                        @if ($errors->has('gender'))
+                            <label class="control-label"
+                                   for="gender">{{ $errors->first('gender') }}</label>
+                        @endif
+                        <div class="input-group">
+                            <label class="control-label" for="mobile">Gender</label>
+                            {!! Form::select('gender', ['male' => 'Male', 'female' => 'Female'], $user->gender, array('class'=>'form-control fullwidth', 'required' => true, 'placeholder' => 'Your Gender*')) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group {{ $errors->has('id_number') ? 'has-error' : '' }}" id="email">
+                    <div class="col-xs-12">
+                        @if ($errors->has('id_number'))
+                            <label class="control-label"
+                                   for="id_number">{{ $errors->first('id_number') }}</label>
+                        @endif
+                        <div class="input-group">
+                            <label class="control-label" for="mobile">ID Number</label>
+                            {{ Form::text('id_number', $user->id_number, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'Your RSA ID number*']) }}
                         </div>
                     </div>
                 </div>
@@ -98,18 +137,19 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="mobile">Mobile</label>
-                            {{ Form::text('mobile', $contact->mobile, ['class' => 'form-control fullwidth', 'placeholder' => 'Your mobile number*']) }}
+                            {{ Form::text('mobile', $user->mobile, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'Your mobile number*']) }}
                         </div>
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('telephone') ? 'has-error' : '' }}" id="telephone">
                     <div class="col-xs-12">
                         @if ($errors->has('telephone'))
-                            <label class="control-label" for="telephone">{{ $errors->first('telephone') }}</label>
+                            <label class="control-label"
+                                   for="telephone">{{ $errors->first('telephone') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="telephone">Telephone</label>
-                            {{ Form::text('telephone', $contact->telephone, ['class' => 'form-control fullwidth', 'placeholder' => 'Your home telephone number*']) }}
+                            {{ Form::text('telephone', $user->telephone, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'Your home telephone number*']) }}
                         </div>
                     </div>
                 </div>
@@ -120,7 +160,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="mobile">Reason</label>
-                            {{ Form::text('reason', $introduction->reason, ['class' => 'form-control fullwidth', 'placeholder' => 'Tell us why you’re a local with a difference*']) }}
+                            {{ Form::text('reason', $user->reason, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'Tell us why you’re a local with a difference*']) }}
                         </div>
                     </div>
                 </div>
@@ -128,11 +168,12 @@
                      id="password-confirmation">
                     <div class="col-xs-12">
                         @if ($errors->has('description'))
-                            <label class="control-label" for="description">{{ $errors->first('description') }}</label>
+                            <label class="control-label"
+                                   for="description">{{ $errors->first('description') }}</label>
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="mobile">Description</label>
-                            {{ Form::textarea('description', $introduction->description, ['class' => 'form-control fullwidth', 'placeholder' => 'More detailed description of yourself']) }}
+                            {{ Form::textarea('description', $user->description, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'More detailed description of yourself']) }}
                         </div>
                     </div>
                 </div>
@@ -141,6 +182,5 @@
                 </div>
             </div>
         </div>
-</div>
-</article>
+    </div>
 </div>

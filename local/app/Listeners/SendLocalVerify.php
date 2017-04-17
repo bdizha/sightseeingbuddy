@@ -37,8 +37,21 @@ class SendLocalVerify
             'name' => env('VERIFY_NAME')
         ];
 
-        try {
+        $user = $data['user'];
 
+        $data['details'] = [
+            'First name' => $user->first_name,
+            'Last name' => $user->first_name,
+            'Email' => $user->email,
+            'Gender' => $user->gender,
+            'Mobile' => $user->mobile,
+            'Telephone' => $user->telephone,
+            'Id number' => $user->id_number,
+            'Reason' => $user->reason,
+            'Description' => $user->description
+        ];
+
+        try {
             $this->mailer->send('email.admin.verify', $data, function ($message) use ($data) {
                 $message->to($data['email'], $data['name'])
                     ->cc(env("ADMIN_EMAIL"), env("ADMIN_NAME"))

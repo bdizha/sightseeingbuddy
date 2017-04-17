@@ -5,7 +5,6 @@
     'method' => 'PATCH',
     'route' => ['introduction.update', $user->id],
     'class' => '']) !!}
-    @include('step.introduction.form', ['user' => $user, 'introduction' => $introduction])
+    @include('step.introduction.form', ['user' => $user])
     {!! Form::close() !!}
-    @include('partials.upload')
 @endsection

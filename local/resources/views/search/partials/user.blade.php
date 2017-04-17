@@ -1,5 +1,5 @@
 <div class="table">
     <div class="profile-picture">
-        <img src="{{ Helper::personImage($user->introduction->image) }}" />
+        <img src="{{ Helper::personImage($user->image) }}" />
     </div>
 </div>
