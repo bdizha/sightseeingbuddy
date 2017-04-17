@@ -9358,7 +9358,14 @@ a:hover {
 }
 .form-control {
   background-color: transparent;
-  border-radius: 5px;
+  border-radius: 10px !important;
+  font-size: 18px;
+}
+select.form-control {
+  color: #aeaeae;
+}
+select.form-control:focus {
+  color: #3D3D3D;
 }
 form .gray-left-border {
   padding-left: 35px;
@@ -9373,7 +9380,6 @@ form .input-group .form-control {
   background-color: transparent;
   padding: 6px 15px;
   height: auto;
-  border-radius: 4px !important;
 }
 form .input-group .control-label {
   font-size: 10px;

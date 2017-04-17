@@ -31,6 +31,7 @@ class User extends Authenticatable
         'id_number',
         'reason',
         'description',
+        'country_id',
         'image'
     ];
 

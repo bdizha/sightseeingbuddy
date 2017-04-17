@@ -476,7 +476,17 @@ a {
 
 .form-control {
   background-color: transparent;
-  border-radius: 5px;
+  border-radius: 10px !important;
+  font-size: 18px;
+}
+
+select{
+  &.form-control{
+    color: @gray-lighter;
+    &:focus{
+      color: @gray-base;
+    }
+  }
 }
 
 form {
@@ -493,7 +503,6 @@ form {
       background-color: transparent;
       padding: 6px 15px;
       height: auto;
-      border-radius: 4px !important;
     }
     .control-label {
       font-size: 10px;

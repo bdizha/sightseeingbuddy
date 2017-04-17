@@ -8,7 +8,7 @@
                 <div class="panel-body">
                     {!! csrf_field() !!}
                     {{ Form::hidden('user_id', $user->id) }}
-                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}" id="first-name">
+                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}" >
                         <div class="col-xs-12">
                             @if ($errors->has('country_id'))
                                 <label class="control-label"
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row form-group {{ $errors->has('city_id') ? 'has-error' : '' }}" id="last-name">
+                    <div class="row form-group {{ $errors->has('city_id') ? 'has-error' : '' }}">
                         <div class="col-xs-12">
                             @if ($errors->has('city_id'))
                                 <label class="control-label" for="city_id">{{ $errors->first('city_id') }}</label>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row form-group {{ $errors->has('street_address') ? 'has-error' : '' }}" id="email">
+                    <div class="row form-group {{ $errors->has('street_address') ? 'has-error' : '' }}">
                         <div class="col-xs-12">
                             @if ($errors->has('street_address'))
                                 <label class="control-label"
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row form-group {{ $errors->has('postal_code') ? 'has-error' : '' }}" id="password">
+                    <div class="row form-group {{ $errors->has('postal_code') ? 'has-error' : '' }}">
                         <div class="col-xs-12">
                             @if ($errors->has('postal_code'))
                                 <label class="control-label"

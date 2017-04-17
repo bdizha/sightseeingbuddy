@@ -39,6 +39,18 @@
                                    required placeholder="Your email address*">
                         </div>
                     </div>
+                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}" >
+                        <div class="col-sm-8 col-xs-12">
+                            @if ($errors->has('country_id'))
+                                <label class="control-label"
+                                       for="country_id">{{ $errors->first('country_id') }}</label>
+                            @endif
+                            <div class="input-group">
+                                <label class="control-label" for="country">Country</label>
+                                {{ Form::select('country_id', \App\Country::getFullList(), old('country_id'), ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Your country*']) }}
+                            </div>
+                        </div>
+                    </div>
                     <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}"
                          id="fields-password-field">
                         <div class="col-sm-8 col-xs-12">
@@ -59,6 +71,15 @@
                             <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
                                    name="password_confirmation" value="" autocomplete="off"
                                    required placeholder="Confirm password*">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-8 col-xs-12">
+                            <small>
+                                By creating an account, you confirm that you've read and accept our
+                                <a href="/pages/terms-conditions" class="text-bold" target="_blank">Terms & Conditions</a> and
+                                <a href="/pages/privacy-policy" class="text-bold" target="_blank">Privacy Policy</a>
+                            </small>
                         </div>
                     </div>
                     <div class="row form-group">

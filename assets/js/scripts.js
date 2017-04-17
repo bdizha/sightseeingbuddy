@@ -253,6 +253,19 @@ function Vertilize() {
     };
 }
 
+function SelectColor() {
+    this.init = function () {
+        $("select").change(function () {
+            if ($(this).val() != "") {
+                $(this).css({color: "#3d3d3d"});
+            }
+            else {
+                $(this).css({color: "#aeaeae"});
+            }
+        });
+    };
+}
+
 
 var resolvedCaption = false;
 function HomeBanners() {
@@ -270,17 +283,29 @@ function HomeBanners() {
             var btnBlock = $(".home-btn-block");
             var searchForm = 250;
 
-            if (indexSlider > 100) {
-                resolvedCaption = true;
-            }
-
-            if (indexSlider - searchForm > 0) {
+            if ($(window).width() >= 1340 && $(window).width() <= 1366) {
 
                 console.log("Index slicer height: " + indexSlider.height());
 
-                $(".search-form").css({top: ((indexSlider.height() - searchForm) / 2) + "px"});
-                carouselCaption.css({top: (((indexSlider.height() - searchForm) / 2) - 24) + "px"});
-                btnBlock.css({top: (((indexSlider.height() - searchForm) / 2) + 200) + "px"});
+                $(".search-form").css({top: ((426 - searchForm) / 2) + "px"});
+                carouselCaption.css({top: (((426 - searchForm) / 2) - 24) + "px"});
+                btnBlock.css({top: (((426 - searchForm) / 2) + 200) + "px"});
+
+            } else {
+
+                if (indexSlider > 100) {
+                    resolvedCaption = true;
+                }
+
+                if (indexSlider - searchForm > 0) {
+
+                    console.log("Index slicer height: " + indexSlider.height());
+
+                    $(".search-form").css({top: ((indexSlider.height() - searchForm) / 2) + "px"});
+                    carouselCaption.css({top: (((indexSlider.height() - searchForm) / 2) - 24) + "px"});
+                    btnBlock.css({top: (((indexSlider.height() - searchForm) / 2) + 200) + "px"});
+                }
+
             }
 
             if (resolvedCaption == false) {
@@ -523,6 +548,8 @@ $(function () {
     (new FileUpload).init();
 
     (new HomeBanners).init();
+
+    (new SelectColor).init();
 
     $window.on('resize', function () {
         (new Vertilize).init();

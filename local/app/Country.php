@@ -23,4 +23,10 @@ class Country extends Model {
                         ->pluck("name", "id");
     }
 
+    public static function getFullList() {
+        return self::orderBy("name", "ASC")
+            ->orderBy('name', "ASC")
+            ->pluck("name", "id");
+    }
+
 }
