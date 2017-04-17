@@ -39,18 +39,8 @@
         &:before{
             content: '';
         }
-        @media (max-width: (@grid-float-breakpoint-max)) {
-            display: none !important;
-        }
+        display: none
 
-    }
-    .slick-prev {
-        left: 25px;
-        background-image: url(/images/left_white_arrow.png);
-    }
-    .slick-next {
-        right: 25px;
-        background-image: url(/images/right_white_arrow.png);
     }
 
     .slick-slide {
@@ -62,6 +52,24 @@
 .carousel {
     position: relative;
     width: 100%;
+}
+
+#page{
+    [data-slick-carousel-default],
+    [data-slick-carousel-three]{
+        .slick-prev,
+        .slick-next{
+           display: block !important;
+        }
+        .slick-prev {
+            left: 25px;
+            background-image: url(/images/left_white_arrow.png);
+        }
+        .slick-next {
+            right: 25px;
+            background-image: url(/images/right_white_arrow.png);
+        }
+    }
 }
 
 #reviews{
