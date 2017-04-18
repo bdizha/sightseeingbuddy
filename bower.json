@@ -30,11 +30,11 @@
     "respond": "respond-minmax#^1.4.2",
     "picturefill": "^3.0.2",
     "roboto-fontface": "^0.7.0",
-    "bootstrap-datepicker": "^1.6.4",
     "raphael": "^2.2.7",
     "moment": "^2.17.1",
     "matchHeight": "^0.7.2",
     "jquery-ui": "^1.12.1",
+    "bootstrap-datepicker": "^1.6.4",
     "blueimp-file-upload": "^9.18.0"
   },
   "devDependencies": {

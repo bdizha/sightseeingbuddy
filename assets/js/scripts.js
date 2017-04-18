@@ -285,7 +285,8 @@ function HomeBanners() {
 
             if ($(window).width() >= 1340 && $(window).width() <= 1366) {
 
-                console.log("Index slicer height: " + indexSlider.height());
+                // console.log("Index slicer height: " + indexSlider.height());
+                resolvedCaption = true;
 
                 $(".search-form").css({top: ((426 - searchForm) / 2) + "px"});
                 carouselCaption.css({top: (((426 - searchForm) / 2) - 24) + "px"});
@@ -299,7 +300,7 @@ function HomeBanners() {
 
                 if (indexSlider - searchForm > 0) {
 
-                    console.log("Index slicer height: " + indexSlider.height());
+                    // console.log("Index slicer height: " + indexSlider.height());
 
                     $(".search-form").css({top: ((indexSlider.height() - searchForm) / 2) + "px"});
                     carouselCaption.css({top: (((indexSlider.height() - searchForm) / 2) - 24) + "px"});
