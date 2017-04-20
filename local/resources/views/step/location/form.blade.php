@@ -1,14 +1,12 @@
 <div class='row'>
-    <div class='col-sm-4 col-xs-12 step-form-left'>
-    </div>
     <div class='col-sm-8 col-xs-12'>
-        <div class="gray-left-border">
+        <div class='row'>
             <div class="panel panel-default">
                 <div class="panel-heading">Where do you live?</div>
                 <div class="panel-body">
                     {!! csrf_field() !!}
                     {{ Form::hidden('user_id', $user->id) }}
-                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}" >
+                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
                         <div class="col-xs-12">
                             @if ($errors->has('country_id'))
                                 <label class="control-label"

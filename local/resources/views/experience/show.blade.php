@@ -7,9 +7,9 @@
     
     @include('experience.partials.carousel')
 
-    <div class="container experience-block gray-block mt-1" id='experience-info'>
+    <div class="container profile experience-block gray-block mt-1" id='experience-info'>
 
-        <h1 id="experiences" class="page-title page-title-center">
+        <h1 id="experiences">
             Local experience information
         </h1>
 

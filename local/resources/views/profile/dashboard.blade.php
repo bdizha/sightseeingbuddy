@@ -4,9 +4,9 @@
     <section id="page" class="gray-block">
         <div class="container profile">
 
-            @include('profile.partials.local', ['title' => 'Welcome to your local dashboard'])
+            @include('profile.partials.local', ['title' => 'Welcome to your local dashboard!'])
 
-            <h1 id="experiences" class="page-title page-title-center">
+            <h1 id="experiences">
                 My experiences offered
             </h1>
 

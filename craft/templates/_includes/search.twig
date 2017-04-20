@@ -46,5 +46,13 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-default btn-lg btn-block">Find a Local</button>
+    {% if craft.request.firstSegment() == 'become-a-local' %}
+        <a href="/local/introduction/create" class="btn btn-default btn-block btn-lg">
+            Become a local
+        </a>
+    {% elseif craft.request.firstSegment() == '' %}
+        <button type="submit" class="btn btn-default btn-lg btn-block">
+            Find a Local
+        </button>
+    {% endif %}
 </form>

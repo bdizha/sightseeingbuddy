@@ -3,10 +3,6 @@
 
 {% block content %}
 
-    <div class="container search-block hidden-xs">
-        {%- include "_includes/search.twig" -%}
-    </div>
-
     <div class="index-slider">
         {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
     </div>

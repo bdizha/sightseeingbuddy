@@ -480,10 +480,10 @@ a {
   font-size: 18px;
 }
 
-select{
-  &.form-control{
+select {
+  &.form-control {
     color: @gray-lighter;
-    &:focus{
+    &:focus {
       color: @gray-base;
     }
   }
@@ -502,7 +502,6 @@ form {
     .form-control {
       background-color: transparent;
       padding: 6px 15px;
-      height: auto;
     }
     .control-label {
       font-size: 10px;
@@ -556,6 +555,11 @@ form {
     border-radius: 4px;
     margin-bottom: 5px;
     line-height: 25px;
+    &:hover,
+    &:focus {
+      color: @white;
+      background-color: @yellow;
+    }
     &:first-child {
       margin-top: 15px;
     }
@@ -922,9 +926,12 @@ section {
 #page {
   .profile {
     h1 {
-      font-size: 22px;
-      font-weight: 300;
-      margin-top: 15px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 32px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      padding: 0 19px;
     }
     h2 {
       font-weight: 900;
@@ -934,24 +941,26 @@ section {
     .profile-picture {
       vertical-align: top;
       text-align: center;
+      padding-top: 15px;
       img {
         width: 200px;
         height: 200px;
         border-radius: 50%;
       }
       display: table-cell;
-      &.img-1 {
-        img {
-          width: 150px;
-          height: 150px;
-        }
-      }
     }
     .profile-info {
       vertical-align: top;
       display: table-cell;
       padding-left: 15px;
       text-align: left;
+      h1{
+        font-size: 22px;
+        font-weight: 300;
+        margin: 15px 0 0;
+        padding: 0 0 15px;
+        text-align: left;
+      }
     }
     .profile-label,
     .profile-value {
@@ -1261,9 +1270,9 @@ section {
   }
 }
 
-a{
+.nav > li > a {
   &:hover,
-  &:focus{
+  &:focus {
     background-color: transparent !important;
   }
 }
@@ -1404,11 +1413,13 @@ a{
         outline: none;
         text-decoration: none;
         padding: 2px 0px;
+        border-bottom: 1px solid @yellow;
         &:hover,
         &:focus {
           color: @gray-base;
           background-color: transparent !important;
           text-decoration: none;
+          border-bottom: 1px solid @white;
         }
       }
       &.active {
@@ -1416,6 +1427,7 @@ a{
           color: @gray-base;
           background-color: transparent;
           text-decoration: none;
+          border-bottom: 1px solid @white;
           &:hover,
           &:focus {
             color: @gray-base;
@@ -1495,6 +1507,12 @@ a{
 
   .btn-block {
     border-radius: 6px;
+    height: 84px;
+    &.btn-lg {
+      height: 84px;
+      font-size: 28px;
+      line-height: 68px;
+    }
   }
   .btn-primary {
     &.btn-lg {
@@ -1502,8 +1520,18 @@ a{
       background-color: @gray-base;
       border-color: @gray-base;
       border-width: 3px;
+      &:hover,
+      &:focus {
+        color: @white;
+        background-color: @yellow;
+        border-color: @yellow;
+      }
     }
   }
+}
+
+.btn {
+  outline: none;
 }
 
 .btn-height {
@@ -1514,13 +1542,11 @@ a{
 
 .search-block {
   position: relative;
+  display: inline-block;
   @media (min-width: @grid-float-breakpoint) {
     .search-form {
       display: block;
       width: 356px;
-      position: absolute;
-      top: 175px;
-      right: 20px;
       z-index: 99;
     }
   }
@@ -1538,36 +1564,21 @@ a{
   }
 }
 
-@media (max-width: @grid-float-breakpoint) {
-  .search-xs {
-    .btn-default.btn-lg {
-      border-color: @gray-base;
-      color: @gray-base;
-      &:hover,
-      &:focus {
-        color: @white;
-        background-color: @gray-base;
-        border-color: @gray-base;
-      }
-    }
-  }
-}
-
 .search-form {
   .form-group {
-    height: 51px;
+    height: 84px;
     position: relative;
     .input-group {
       background: @white;
       padding-left: 65px;
       border-radius: 5px;
       border: 1px solid @gray-base;;
-      height: 53px;
+      height: 86px;
       .form-control {
         border: 1px solid transparent;
         background: @white;
-        height: 51px;
-        font-size: 21px;
+        height: 74px;
+        font-size: 30px;
         padding: 6px 15px;
         &:hover,
         &:focus {
@@ -1576,12 +1587,12 @@ a{
       }
       .input-group-addon {
         background: transparent;
-        width: 40px;
-        height: 40px;
+        width: 52px;
+        height: 52px;
         background-size: 100%;
         border: 1px solid transparent;
         z-index: 99;
-        top: 5px;
+        top: 16px;
       }
     }
     #destination .input-group-addon {
@@ -1593,6 +1604,12 @@ a{
     #duration .input-group-addon {
       background-image: url(/images/duration.png);
     }
+  }
+}
+
+.page-become-a-local {
+  .form-group {
+    visibility: hidden;
   }
 }
 
@@ -1776,6 +1793,12 @@ a{
     border-color: transparent;
     padding: 8px 15px;
     font-size: 24px;
+    &:hover,
+    &:focus {
+      color: @white;
+      background-color: @gray-base;
+      border-color: @gray-base;
+    }
   }
 }
 
@@ -1785,6 +1808,12 @@ a{
   font-size: 15px;
   padding: 7px 24px;
   border-radius: 5px;
+  &:hover,
+  &:focus {
+    color: @gray-base;
+    background-color: @yellow;
+    border-color: @yellow;
+  }
   &.btn-lg {
     padding: 8px 15px;
     font-size: 24px;
@@ -1802,12 +1831,12 @@ a{
       border-color: @white;
       color: @white;
     }
-  }
-  &:hover,
-  &:focus {
-    color: @white;
-    background-color: @gray-base;
-    border-color: @gray-base;
+    &:hover,
+    &:focus {
+      color: @white;
+      background-color: @gray-base;
+      border-color: @gray-base;
+    }
   }
 }
 
@@ -1841,6 +1870,12 @@ a{
     color: @gray-base;
     border-color: @yellow;
     border-width: 3px;
+    &:hover,
+    &:focus {
+      color: @white;
+      background-color: @gray-base;
+      border-color: @gray-base;
+    }
   }
 }
 
@@ -1944,7 +1979,7 @@ a{
       font-weight: 900;
       font-size: 24px;
       margin: 40px 0 20px;
-      &:first-child{
+      &:first-child {
         margin-top: 0px;
       }
     }
@@ -1952,7 +1987,7 @@ a{
   }
 }
 
-.introduction-form {
+form {
   .panel {
     > .panel-heading {
       margin-top: 0px;
@@ -2141,26 +2176,39 @@ a.thumbnail:hover, a.thumbnail:active {
   left: 0px;
   right: auto;
   bottom: 0;
-  top: 151px;
+  top: 0;
   z-index: 10;
   text-align: left;
   width: 100%;
   .container {
-    position: relative;
-    .btn-default {
-      position: absolute;
-      right: 15px;
-      bottom: 0px;
-    }
-    h1 {
-      width: 58%;
-      font-weight: 900;
-      font-size: 70px;
-      text-transform: uppercase;
-      padding: 0 20px 0px;
-      margin: 0;
-      line-height: 70px;
-      margin-top: 0;
+    height: 100%;
+    .table-block {
+      display: table;
+      width: 100%;
+      position: relative;
+      height: 100%;
+      .left-cell {
+        height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        padding-right: 70px;
+        h1 {
+          font-weight: 900;
+          font-size: 103px;
+          text-transform: uppercase;
+          padding: 0 20px 0px;
+          margin: 0;
+          line-height: 103px;
+          margin-top: 0;
+        }
+      }
+      .right-cell {
+        height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        width: 356px;
+      }
     }
   }
 }
@@ -2544,7 +2592,7 @@ a.thumbnail:hover, a.thumbnail:active {
   }
 }
 
-.step-form-left{
+.step-form-left {
   padding-left: 0;
 }
 

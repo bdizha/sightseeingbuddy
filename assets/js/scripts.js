@@ -102,7 +102,7 @@ function UIBindings() {
             slidesToScroll: 1,
             arrows: true,
             fade: true,
-            autoplay: true,
+            autoplay: false,
             autoplaySpeed: 3000
         });
 
@@ -548,7 +548,7 @@ $(function () {
 
     (new FileUpload).init();
 
-    (new HomeBanners).init();
+    // (new HomeBanners).init();
 
     (new SelectColor).init();
 

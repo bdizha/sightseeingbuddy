@@ -1,10 +1,10 @@
 <?php if(!$user): ?>
-    <?php $user = new \App\Introduction(); ?>
+    <?php $user = new \App\User(); ?>
 <?php endif ?>
 
 <div class="row">
     <div class="profile-picture img-1 col-sm-4 col-xs-12">
-        <img src="{{ Helper::personImage($user->image) }}" />
+        <img src="{{ Helper::personImage($user->image, 'gray') }}" />
     </div>
     <div class="profile-info col-sm-8 col-xs-12">
         <h1>{{ str_limit($title) }}</h1>

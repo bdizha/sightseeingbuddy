@@ -46,7 +46,7 @@
     <![endif]-->
     {% include "_layouts/_partials/favicons" %}
 </head>
-<body>
+<body class="page-{{ craft.request.firstSegment() }}">
 {% if not siteGlobals.siteGoogleTagManagerId %}
     {% set serverity = craft.config.devMode ? 'warn' : 'error' %}
     <script>console.{{ serverity }}("Please insert your Google Tag Manager Container ID")</script>

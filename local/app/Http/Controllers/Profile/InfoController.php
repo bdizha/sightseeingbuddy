@@ -9,7 +9,7 @@ use Session;
 class InfoController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => 'nav']);
+        $this->middleware('auth', ['except' => ['nav', 'show']]);
     }
 
     public function show($username) {

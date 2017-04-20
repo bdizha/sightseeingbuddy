@@ -1,8 +1,6 @@
 <div class='row'>
-    <div class='col-sm-4 col-xs-12 step-form-left'>
-    </div>
     <div class='col-sm-8 col-xs-12'>
-        <div class="gray-left-border">
+        <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">Your payment details</div>
                 <div class="panel-body">

@@ -77,7 +77,7 @@ class IntroductionController extends StepController {
         $fields = [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
             'password' => 'required|min:6|confirmed',
             'image' => 'required',
             'type' => 'required',
@@ -88,6 +88,10 @@ class IntroductionController extends StepController {
             'reason' => 'required',
             'description' => 'required'
         ];
+
+        if(!empty($user->id)){
+            unset($fields['password']);
+        }
 
         $this->validate($request, $fields);
         $input = $request->all();
