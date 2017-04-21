@@ -10250,8 +10250,9 @@ section #sidebar h2 {
 }
 .search-form .btn-block.btn-lg {
   height: 68px;
-  font-size: 28px;
+  font-size: 21px;
   line-height: 68px;
+  padding: 0px 15px;
 }
 .search-form .btn-primary.btn-lg {
   color: #FFFFFF;
