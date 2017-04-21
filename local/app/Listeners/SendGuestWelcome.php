@@ -37,7 +37,7 @@ class SendGuestWelcome
 
             $this->mailer->send('email.guest.welcome', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc(env("ADMIN_EMAIL"), env("ADMIN_NAME"))
+                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

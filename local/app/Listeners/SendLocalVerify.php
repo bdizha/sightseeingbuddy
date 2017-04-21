@@ -53,8 +53,8 @@ class SendLocalVerify
 
         try {
             $this->mailer->send('email.admin.verify', $data, function ($message) use ($data) {
-                $message->to($data['email'], $data['name'])
-                    ->cc(env("ADMIN_EMAIL"), env("ADMIN_NAME"))
+                $message->to(env("ADMIN_EMAIL"), env("ADMIN_NAME"))
+                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
