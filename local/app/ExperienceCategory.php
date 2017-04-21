@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExperienceCategory extends Model {
+class ExperienceCategory extends Model
+{
 
     protected $table = 'experience_categories';
 
@@ -18,9 +19,11 @@ class ExperienceCategory extends Model {
         'level'
     ];
 
-    public static function getList() {
-        return self::orderBy("name", "ASC")
-                        ->pluck("name", "id");
+    public static function getList($level = 'main')
+    {
+        return self::where('level', '=', $level)
+            ->orderBy("name", "ASC")
+            ->pluck("name", "id");
     }
 
 }

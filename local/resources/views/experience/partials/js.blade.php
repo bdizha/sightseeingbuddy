@@ -18,6 +18,10 @@
             var fieldItems = $("." + field + "-items");
             var count = fieldItems.length + 1;
 
+            if(count > 1) {
+                fieldElm.removeAttr('required');
+            }
+
             console.log("value: " + value);
             console.log("count: " + count);
             console.log(fieldItems.html());
@@ -30,6 +34,8 @@
 
             fieldItems.append(html);
 
+            (new Vertilize).init();
+
             $(".line-close").click(lineClose);
         };
 
@@ -41,8 +47,6 @@
 
                 var $this = $(this);
                 $("#" + $this.attr("data-id") + " .btn-add").click();
-
-                console.log($this.attr("data-id") + ">>>> data id");
                 return false;
             }
         });
@@ -50,6 +54,7 @@
         var lineClose = function () {
             var dataId = $(this).attr("data-id");
             $("#" + dataId).remove();
+            (new Vertilize).init();
             return false;
         };
 

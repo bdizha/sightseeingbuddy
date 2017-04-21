@@ -24,10 +24,10 @@
     </div>
     <div class="gray-bottom-border mb-1"></div>
     <div class='row mb-1'>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-7 col-xs-12">
             @include('profile.partials.stats', ['title' => $experience->teaser])
         </div>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-5 col-xs-12">
             <div class='row'>
                 <div class="col-sm-12 col-xs-12">
                     @if(Auth::guest() OR $experience->user->id != Auth::user()->id)

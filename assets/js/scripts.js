@@ -466,13 +466,13 @@ function FileUpload() {
 
         var removeBin = function () {
             imageBin = $(this).parent().remove();
+            (new Vertilize).init();
         };
 
         $('.fileupload').fileupload({
             url: url,
             dataType: 'json',
             done: function (e, data) {
-                console.log(imageBin);
 
                 $.each(data.result.files, function (index, file) {
                     $('.profile-picture img').attr('src', "/files/" + file.name);
@@ -491,6 +491,7 @@ function FileUpload() {
                     }
                     $('.bin-close').click(removeBin);
                 });
+                (new Vertilize).init();
             },
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);

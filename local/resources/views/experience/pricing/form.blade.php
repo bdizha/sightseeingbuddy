@@ -44,23 +44,23 @@
                     </div>
                 </div>
                 <div class='row'>
-                    <div class="col-sm-7 col-xs-12">
+                    <div class="col-sm-8 col-xs-12">
                         <div class="row">
                             <div class="col-sm-4 col-xs-4">
                                 <label class="control-label">Booking for</label>
                                 <label class="control-value">1 person</label>
                             </div>
-                            <div class="col-sm-4 col-xs-4">
+                            <div class="col-sm-5 col-xs-5">
                                 <label class="control-label">Price per person</label>
                                 {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'R0.00']) }}
                             </div>
-                            <div class="col-sm-4 col-xs-4">
+                            <div class="col-sm-3 col-xs-3">
                                 <label class="control-label">You'll receive</label>
                                 <label class="control-value">R00.00</label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5 col-xs-12">
+                    <div class="col-sm-4 col-xs-12">
                         <div class="row">
                             <div class="col-sm-6 col-xs-6">
                                 <label class="control-label">Keep it Local fee</label>

@@ -80,15 +80,15 @@
                                            for="language">{{ $errors->first('languages') }}</label>
                                 @endif
                             </div>
-                            <div class="col-sm-9 col-xs-9">
+                            <div class="col-sm-12 col-xs-12">
                                 <div class="input-group">
                                     <label class="control-label" for="activity">Offered languages</label>
-                                    {{ Form::text('language', old('language'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Offered languages*', "data-id" => "languages"]) }}
+                                    <div class="input-add">
+                                        {{ Form::text('language', old('language'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Offered languages*', "data-id" => "languages"]) }}
+                                        <input type="button" class="btn btn-yellow btn-add" count="0"
+                                               field="language" plural="languages" value="Add"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-3 col-xs-3">
-                                <input type="button" class="btn btn-yellow pull-right btn-add" count="0"
-                                       field="language" plural="languages" value="Add"/>
                             </div>
                         </div>
                     </div>
@@ -112,20 +112,20 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="Category">Experience category</label>
-                            {{ Form::select('category_id', \App\ExperienceCategory::getList(), $experience->category_id, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Experience category*']) }}
+                            {{ Form::select('category_id', \App\ExperienceCategory::getList('main'), $experience->category_id, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Experience category*']) }}
                         </div>
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('sub_category_id') ? 'has-error' : '' }}"
                      id="sub_category_id">
                     <div class="col-xs-12">
-                        @if ($errors->has('sub_category'))
+                        @if ($errors->has('sub_category_id'))
                             <label class="control-label"
-                                   for="sub_category">{{ $errors->first('sub_category') }}</label>
+                                   for="sub_category">{{ $errors->first('sub_category_id') }}</label>
                         @endif
                         <div class="input-group">
-                            <label class="control-label" for="sub_category">Experience sub category</label>
-                            {{ Form::text('sub_category', $experience->sub_category, ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Experience sub category*', 'data-id' => 'category_id']) }}
+                            <label class="control-label" for="sub_category_id">Experience sub category</label>
+                            {{ Form::select('sub_category_id', \App\ExperienceCategory::getList('sub'), $experience->sub_category_id, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Experience sub category*']) }}
                         </div>
                     </div>
                 </div>
@@ -178,16 +178,16 @@
                                    for="highlight">{{ $errors->first('highlights') }}</label>
                         @endif
                     </div>
-                    <div class="col-sm-9 col-xs-9">
-                        <div class="input-group">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="input-group ">
                             <label class="control-label" for="activity">Experience highlights</label>
-                            {{ Form::text('highlight', old('highlight'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Experience highlights*', "data-id" => "highlight"]) }}
+                            <div class="input-add">
+                                {{ Form::text('highlight', old('highlight'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Experience highlights*', "data-id" => "highlight"]) }}
+                                <input type="button" class="btn btn-yellow btn-add" count="0"
+                                       field="highlight"
+                                       plural="highlights" value="Add"/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-3">
-                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0"
-                               field="highlight"
-                               plural="highlights" value="Add"/>
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('duration') ? 'has-error' : '' }}" id="duration">
@@ -228,28 +228,15 @@
                                    for="activity">{{ $errors->first('activities') }}</label>
                         @endif
                     </div>
-                    <div class="col-sm-9 col-xs-9">
+                    <div class="col-sm-12 col-xs-12">
                         <div class="input-group">
                             <label class="control-label" for="activity">Experience activities</label>
-                            {{ Form::text('activity', old('activity'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Extra activities*', "data-id" => "activity"]) }}
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-3">
-                        <input type="button" class="btn btn-yellow pull-right btn-add" count="0"
-                               field="activity"
-                               plural="activities" value="Add"/>
-                    </div>
-                </div>
-                <div class="row form-group {{ $errors->has('transportation_mode') ? 'has-error' : '' }}"
-                     id="transportation_mode">
-                    <div class="col-xs-12">
-                        @if ($errors->has('transportation_mode'))
-                            <label class="control-label"
-                                   for="transportation_mode">{{ $errors->first('transportation_mode') }}</label>
-                        @endif
-                        <div class="input-group">
-                            <label class="control-label" for="activity">Transportation mode</label>
-                            {{ Form::text('transportation_mode', $experience->transportation_mode, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Transportation mode*']) }}
+                            <div class="input-add">
+                                {{ Form::text('activity', old('activity'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Extra activities*', "data-id" => "activity"]) }}
+                                <input type="button" class="btn btn-yellow btn-add" count="0"
+                                       field="activity"
+                                       plural="activities" value="Add"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -281,7 +268,6 @@
             <div class="col-sm-12 col-xs-12">
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Save"/>
-                    <a href="{{ route('wallet.create') }}" class="btn btn-primary pull-right">Back</a>
                     <span class='inline pull-right'>&nbsp;&nbsp;</span>
                     <input type="submit" class="btn btn-primary pull-right" value="Next"/>
                 </div>

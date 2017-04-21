@@ -127,12 +127,11 @@ class InfoController extends ExperienceController
             'street_address' => 'required|max:255',
             'postal_code' => 'required|max:255',
             'languages' => 'required',
-            'activities' => 'required',
             'highlights' => 'required',
             'duration' => 'required',
             'units' => 'required',
             'category_id' => 'required|max:255',
-            'sub_category' => 'required|max:255',
+            'sub_category_id' => 'required|max:255',
             'description' => 'required|max:10000',
             'extra_pickup' => 'required|max:1',
             'extra_food' => 'required|max:1',
@@ -150,13 +149,6 @@ class InfoController extends ExperienceController
 
         $input["city_id"] = $city->id;
 
-        $categoryArray = [
-            "level" => "sub",
-            "name" => trim($input["sub_category"])
-        ];
-        $subCategory = ExperienceCategory::updateOrCreate($categoryArray);
-
-        $input["sub_category_id"] = $subCategory->id;
         $experience->fill($input)->save();
 
         // set languages
@@ -176,12 +168,14 @@ class InfoController extends ExperienceController
             ]);
         }
 
-        // set activities
-        foreach ($input['activities'] as $activity) {
-            ExperienceActivity::updateOrCreate([
-                'description' => $activity,
-                'experience_id' => $experience->id
-            ]);
+        if(!empty($input['activities'])) {
+            // set activities
+            foreach ($input['activities'] as $activity) {
+                ExperienceActivity::updateOrCreate([
+                    'description' => $activity,
+                    'experience_id' => $experience->id
+                ]);
+            }
         }
 
         Session::flash('flash_message', 'Experience successfully saved!');

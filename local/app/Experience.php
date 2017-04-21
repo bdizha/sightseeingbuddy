@@ -31,8 +31,7 @@ class Experience extends Model {
         'extra_food',
         'extra_misc',
         'description',
-        'cover_image',
-        'transportation_mode'
+        'cover_image'
     ];
     
     /**

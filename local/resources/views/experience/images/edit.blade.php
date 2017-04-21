@@ -1,4 +1,4 @@
-@extends('layouts.step', ['active' => 'images', 'links' => $links, 'disable' => true, 'excludeJs' => true])
+@extends('layouts.step', ['active' => 'images', 'links' => $links, 'disable' => true])
 
 @section('form')
     {!! Form::open([
@@ -7,5 +7,4 @@
     'class' => '']) !!}
     @include('experience.images.form', ['experience' => $experience, 'gallery' => $gallery])
     {!! Form::close() !!}
-    @include('partials.upload')
 @endsection

@@ -535,9 +535,22 @@ form {
   }
 
   .form-group {
-    .btn-add {
-      padding: 6px;
-      border-radius: 5px;
+    .input-add{
+      position: relative;
+      .btn-add {
+        padding: 6px;
+        border-radius: 10px;
+        position: absolute;
+        right: 1px;
+        bottom: 1px;
+        top: 1px;
+        height: 37px;
+        z-index: 999;
+        outline: none;
+      }
+      .form-control{
+        padding-right: 55px;
+      }
     }
   }
 }
@@ -1038,6 +1051,9 @@ section {
         font-size: 75px;
         font-weight: 900;
         text-transform: uppercase;
+        text-align: left;
+        padding: 0;
+        margin: 15px 0;
       }
       h2 {
         font-weight: 400;

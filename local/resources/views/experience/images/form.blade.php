@@ -1,25 +1,28 @@
 <div class="row">
-    <div class='col-xs-12'>
-        <div class="panel panel-default">
-            <div class="panel-heading mt-0">
-                Add your images
-            </div>
-            <div class="panel-body">
-                {!! csrf_field() !!}
-                {{ Form::hidden('experience_id', $experience->id) }}
-                <p>
-                    Upload a cover photo size to be supplied by Sergio. This is where you want to impress and
-                    entice your audience, make sure it sums up your experience. The cover photo will be
-                    displayed in the
-                    search results when guests are still undecided, make them choose you!
-                </p>
-                <p>
-                    Upload 1 - 3 gallery photos. This will be displayed in your local gallery.
-                </p>
+    <div class='col-xs-12 ml-0'>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading mt-0">
+                    Add your images
+                </div>
+                <div class="panel-body">
+                    {!! csrf_field() !!}
+                    {{ Form::hidden('experience_id', $experience->id) }}
+                    <p>
+                        Upload a cover photo size to be supplied by Sergio. This is where you want to impress and
+                        entice your audience, make sure it sums up your experience. The cover photo will be
+                        displayed in the
+                        search results when guests are still undecided, make them choose you!
+                    </p>
+                    <p>
+                        Upload 1 - 3 gallery photos. This will be displayed in your local gallery.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="mt-3 text-center">
     <div class='row'>
@@ -76,14 +79,16 @@
     </div>
 </div>
 
-<div class='row'>
+<div class='row mb-1'>
     <div class="col-sm-12 col-xs-12">
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Save"/>
-            <a href="{{ route('pricing.edit', ["id" => $experience->id]) }}"
-               class="btn btn-primary pull-right">Back</a>
-            <span class='inline pull-right'>&nbsp;&nbsp;</span>
-            <input type="submit" class="btn btn-primary pull-right" value="Next"/>
+        <div class="row">
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Save"/>
+                <a href="{{ route('pricing.edit', ["id" => $experience->id]) }}"
+                   class="btn btn-primary pull-right">Back</a>
+                <span class='inline pull-right'>&nbsp;&nbsp;</span>
+                <input type="submit" class="btn btn-primary pull-right" value="Next"/>
+            </div>
         </div>
     </div>
 </div>

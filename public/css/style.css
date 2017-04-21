@@ -8896,18 +8896,14 @@ textarea.parsley-error {
   width: 100%;
 }
 #page [data-slick-carousel-default] .slick-prev,
-#page [data-slick-carousel-three] .slick-prev,
-#page [data-slick-carousel-default] .slick-next,
-#page [data-slick-carousel-three] .slick-next {
+#page [data-slick-carousel-default] .slick-next {
   display: block !important;
 }
-#page [data-slick-carousel-default] .slick-prev,
-#page [data-slick-carousel-three] .slick-prev {
+#page [data-slick-carousel-default] .slick-prev {
   left: 25px;
   background-image: url(/images/left_white_arrow.png);
 }
-#page [data-slick-carousel-default] .slick-next,
-#page [data-slick-carousel-three] .slick-next {
+#page [data-slick-carousel-default] .slick-next {
   right: 25px;
   background-image: url(/images/right_white_arrow.png);
 }
@@ -9403,9 +9399,22 @@ form small {
   display: inline-block;
   margin-top: 15px;
 }
-form .form-group .btn-add {
+form .form-group .input-add {
+  position: relative;
+}
+form .form-group .input-add .btn-add {
   padding: 6px;
-  border-radius: 5px;
+  border-radius: 10px;
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  top: 1px;
+  height: 37px;
+  z-index: 999;
+  outline: none;
+}
+form .form-group .input-add .form-control {
+  padding-right: 55px;
 }
 .line-items {
   margin-bottom: 15px;
@@ -9834,6 +9843,9 @@ section #sidebar h2 {
   font-size: 75px;
   font-weight: 900;
   text-transform: uppercase;
+  text-align: left;
+  padding: 0;
+  margin: 15px 0;
 }
 #page.booking-block .profile h2 {
   font-weight: 400;
