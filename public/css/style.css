@@ -6300,7 +6300,7 @@ button.close {
   font-size: 20px;
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: none;
 }
 .carousel-control.left {
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
@@ -6396,7 +6396,7 @@ button.close {
   padding-bottom: 20px;
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: none;
 }
 .carousel-caption .btn {
   text-shadow: none;
@@ -8839,9 +8839,17 @@ textarea.parsley-error {
 .parsley-errors-list.filled {
   opacity: 1;
 }
+[data-slick-carousel-default],
+[data-slick-carousel-three] {
+  overflow: visible;
+}
 [data-slick-carousel-default].slick-slider,
 [data-slick-carousel-three].slick-slider {
   margin-bottom: 0;
+}
+[data-slick-carousel-default] .slick-list,
+[data-slick-carousel-three] .slick-list {
+  overflow: visible;
 }
 [data-slick-carousel-default] .slick-dots,
 [data-slick-carousel-three] .slick-dots {
@@ -8917,6 +8925,14 @@ textarea.parsley-error {
 #reviews [data-slick-carousel-default] .slick-prev,
 #reviews [data-slick-carousel-default] .slick-next {
   display: none !important;
+}
+.page-blog [data-slick-carousel-default],
+.page-blog [data-slick-carousel-three] {
+  overflow: hidden;
+}
+.page-blog [data-slick-carousel-default] .slick-list,
+.page-blog [data-slick-carousel-three] .slick-list {
+  overflow: hidden;
 }
 .slick-carousel-three {
   position: relative;
@@ -9119,11 +9135,14 @@ h3,
 .search-item .checkbox-inline {
   padding-left: 0;
 }
+.search-item .checkbox-inline label {
+  font-size: 16px;
+}
 .search-item input[type="checkbox"] + label icon,
 .search-item input[type="radio"] + label icon {
   display: inline-block;
-  width: 44px;
-  height: 44px;
+  width: 58px;
+  height: 58px;
   margin: -2px 10px 0 0;
   vertical-align: middle;
   background-repeat: no-repeat;
@@ -10224,7 +10243,6 @@ section #sidebar h2 {
   padding-left: 65px;
   text-transform: lowercase;
   font-size: 25px;
-  height: 76px;
 }
 .search-form .input-group-addon {
   width: 60px;
@@ -10246,12 +10264,12 @@ section #sidebar h2 {
 }
 .search-form .btn-block {
   border-radius: 6px;
-  height: 84px;
+  height: 54px;
 }
 .search-form .btn-block.btn-lg {
-  height: 68px;
-  font-size: 21px;
-  line-height: 68px;
+  height: 58px;
+  font-size: 16px;
+  line-height: 58px;
   padding: 0px 15px;
 }
 .search-form .btn-primary.btn-lg {
@@ -10281,14 +10299,18 @@ section #sidebar h2 {
 @media (min-width: 992px) {
   .search-block .search-form {
     display: block;
-    width: 356px;
+    width: 270px;
     z-index: 99;
   }
+}
+.search-block .search-form .form-group .input-group .form-control {
+  font-size: 16px;
 }
 .search-block .datetime-group .date-range .table-condensed > thead > tr > th,
 .search-block .datetime-group .date-range .table-condensed > tfoot > tr > th {
   padding: 7px 2px;
   font-size: 12px;
+  color: #3D3D3D;
 }
 .search-block .datetime-group .date-range .table-condensed > tbody > tr td {
   padding: 2px 5px;
@@ -10296,23 +10318,24 @@ section #sidebar h2 {
   width: 21px;
   height: 21px;
   font-weight: 500;
+  color: #3D3D3D;
 }
 .search-form .form-group {
-  height: 68px;
+  height: 58px;
   position: relative;
 }
 .search-form .form-group .input-group {
   background: #FFFFFF;
-  padding-left: 65px;
+  padding-left: 45px;
   border-radius: 5px;
   border: 1px solid #3D3D3D;
-  height: 70px;
+  height: 60px;
 }
 .search-form .form-group .input-group .form-control {
   border: 1px solid transparent;
   background: #FFFFFF;
   height: 58px;
-  font-size: 24px;
+  font-size: 21px;
   padding: 6px 15px;
 }
 .search-form .form-group .input-group .form-control:hover,
@@ -10321,12 +10344,12 @@ section #sidebar h2 {
 }
 .search-form .form-group .input-group .input-group-addon {
   background: transparent;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background-size: 100%;
   border: 1px solid transparent;
   z-index: 99;
-  top: 16px;
+  top: 10px;
 }
 .search-form .form-group #destination .input-group-addon {
   background-image: url(/images/destination.png);
@@ -10496,6 +10519,7 @@ section #sidebar h2 {
   color: #FFFFFF;
   background-color: #3D3D3D;
   border-color: #3D3D3D;
+  outline: none;
 }
 .btn-default.btn-lg {
   background: #FDBF0F;
@@ -10523,6 +10547,7 @@ section #sidebar h2 {
   color: #3D3D3D;
   background-color: #FDBF0F;
   border-color: #FDBF0F;
+  outline: none;
 }
 .btn-primary.btn-lg {
   padding: 8px 15px;

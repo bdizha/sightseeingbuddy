@@ -67,8 +67,12 @@
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-12">
-                    <button type="submit" class="btn btn-default btn-lg btn-block">Go</button>
-                    <a href="/local/search?all=true" class="btn btn-primary btn-lg btn-block">BROWSE ALL</a>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default btn-lg btn-block">Go</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="/local/search?all=true" class="btn btn-primary btn-lg btn-block">BROWSE ALL</a>
+                    </div>
                     <!--<a href="#" class="btn btn-primary btn-lg btn-block" id="advanced-search">ADVANCED SEARCH</a>-->
                 </div>
             </div>
