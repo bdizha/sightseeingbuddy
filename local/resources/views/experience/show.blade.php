@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="gray-block">
+<section id="page" class="gray-block">
    
     @include('experience.partials.header')
 
