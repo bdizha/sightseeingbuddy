@@ -4,10 +4,10 @@
 <section id="page" class="gray-block">
    
     @include('experience.partials.header')
-    
-    @include('experience.partials.carousel')
 
     <div class="container profile experience-block gray-block mt-1" id='experience-info'>
+
+        @include('experience.partials.carousel')
 
         <h1 id="experiences">
             Local experience information
