@@ -8,7 +8,7 @@
                     <div class="container">
                         <div class="table-block">
                             <div class="left-cell">
-                                {{ str_limit($experience->teaser, 300) }}
+                                <h1>{{ str_limit($experience->teaser, 300) }}</h1>
                             </div>
                         </div>
                     </div>
