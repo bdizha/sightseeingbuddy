@@ -8915,15 +8915,20 @@ textarea.parsley-error {
   right: 25px;
   background-image: url(/images/right_white_arrow.png);
 }
-#reviews [data-slick-carousel-default] .slick-dots li button {
+#reviews [data-slick-carousel-default] .slick-dots li button,
+.experience-block [data-slick-carousel-default] .slick-dots li button {
   border: 1px solid #3D3D3D;
 }
 #reviews [data-slick-carousel-default] .slick-dots li.slick-active button,
-#reviews [data-slick-carousel-default] .slick-dots li:hover button {
+.experience-block [data-slick-carousel-default] .slick-dots li.slick-active button,
+#reviews [data-slick-carousel-default] .slick-dots li:hover button,
+.experience-block [data-slick-carousel-default] .slick-dots li:hover button {
   background: #3D3D3D;
 }
 #reviews [data-slick-carousel-default] .slick-prev,
-#reviews [data-slick-carousel-default] .slick-next {
+.experience-block [data-slick-carousel-default] .slick-prev,
+#reviews [data-slick-carousel-default] .slick-next,
+.experience-block [data-slick-carousel-default] .slick-next {
   display: none !important;
 }
 .page-blog [data-slick-carousel-default],
