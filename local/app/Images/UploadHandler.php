@@ -524,7 +524,7 @@ class UploadHandler {
             $name .= "." . $nameParts[count($nameParts) - 1];
         }
         
-        return $name;
+        return $name . "_" . time();
     }
 
     protected function get_file_name($file_path, $name, $size, $type, $error, $index, $content_range) {
