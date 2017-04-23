@@ -8977,6 +8977,7 @@ textarea.parsley-error {
 }
 .slick-carousel-three .slick-slide img {
   max-width: none;
+  width: 100%;
 }
 @media (max-width: 1191px) {
   .slick-carousel-three .slick-slide img {

@@ -102,16 +102,17 @@ function UIBindings() {
             slidesToScroll: 1,
             arrows: true,
             fade: true,
-            autoplay: false,
+            autoplay: true,
+            adaptiveHeight: true,
             autoplaySpeed: 3000
         });
 
         $('[data-slick-carousel-three]').slick({
             dots: true,
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 1,
             slidesToScroll: 1,
-            adaptiveHeight: false,
+            adaptiveHeight: true,
             autoplay: true,
             autoplaySpeed: 3000
         });
