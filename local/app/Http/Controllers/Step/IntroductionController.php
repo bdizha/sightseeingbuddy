@@ -103,7 +103,7 @@ class IntroductionController extends StepController {
 
         $imGix = str_replace("/files/", "", urlencode($input['image']));
         $params = array("w" => 200, "h" => 200);
-        $user->image = $builder->createURL($imGix, $params);
+        $input['image'] = $builder->createURL($imGix, $params);
 
         $user->fill($input)->save();
 
