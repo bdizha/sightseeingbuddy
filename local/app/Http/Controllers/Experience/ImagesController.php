@@ -91,7 +91,7 @@ class ImagesController extends ExperienceController
             else{
                 ExperienceGallery::create([
                     'experience_id' => $experienceId,
-                    'image' => $$image
+                    'image' => $image
                 ]);
             }
         }
