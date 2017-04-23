@@ -76,7 +76,6 @@ class IntroductionController extends StepController {
     private function save($user, $notifyUser, $request) {
 
         $builder = new UrlBuilder("keepitlocal.imgix.net");
-        $builder->setSignKey("arQnS85SyXJAFH8r");
 
         $fields = [
             'first_name' => 'required|max:255',
