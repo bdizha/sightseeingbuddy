@@ -47,6 +47,8 @@ class ImagesController extends ExperienceController {
     }
 
     private function save($experienceId, $request) {
+        $builder = new UrlBuilder("keepitlocal.imgix.net");
+        $builder->setSignKey("arQnS85SyXJAFH8r");
 
         $fields = [
             'image' => 'required|max:255',
@@ -56,22 +58,22 @@ class ImagesController extends ExperienceController {
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $experience = Experience::find($experienceId);
-        $experience->cover_image = $input['image'];
-        $experience->save();
-
-        $builder = new UrlBuilder("keepitlocal.imgix.net");
-        $builder->setSignKey("arQnS85SyXJAFH8r");
+        $imGix = str_replace("/files/", "", $input['image']);
         $params = array("w" => 550, "h" => 320);
-        echo $builder->createURL("4dab14ce2a0c4656ee8b922bce308a0c.jpg", $params);
-        die();
+
+        $experience = Experience::find($experienceId);
+        $experience->cover_image = $builder->createURL($imGix, $params);
+        $experience->save();
 
         ExperienceGallery::where("experience_id", "=", $experienceId)->delete();
 
         foreach ($input['images'] as $image) {
+            $imGix = str_replace("/files/", "", $image);
+            $params = array("w" => 1200, "h" => 400);
+
             ExperienceGallery::create([
                 'experience_id' => $experienceId,
-                'image' => $image
+                'image' => $builder->createURL($imGix, $params)
             ]);
         }
 
