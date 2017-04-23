@@ -68,6 +68,8 @@ class ImagesController extends ExperienceController {
         ExperienceGallery::where("experience_id", "=", $experienceId)->delete();
 
         foreach ($input['images'] as $image) {
+
+            $builder->setSignKey("arQnS85SyXJAFH8r");
             $imGix = str_replace("/files/", "", $image);
             $params = array("w" => 1200, "h" => 400);
 
