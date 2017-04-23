@@ -60,7 +60,7 @@ class ImagesController extends ExperienceController {
         $experience->cover_image = $input['image'];
         $experience->save();
 
-        $builder = new UrlBuilder("keeptilocal.imgix.net");
+        $builder = new UrlBuilder("keepitlocal.imgix.net");
         $builder->setSignKey("arQnS85SyXJAFH8r");
         $params = array("w" => 550, "h" => 320);
         echo $builder->createURL("4dab14ce2a0c4656ee8b922bce308a0c.jpg", $params);
