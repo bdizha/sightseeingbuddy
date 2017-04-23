@@ -63,11 +63,11 @@ class ImagesController extends ExperienceController
         $this->validate($request, $fields);
         $input = $request->all();
 
+        $experience = Experience::find($experienceId);
+
         if (strpos($input['image'], 'imgix') === false) {
             $imGix = str_replace("/files/", "", urlencode($input['image']));
             $params = array("w" => 550, "h" => 320, 'crop' => 'entropy', 'fit' => 'crop');
-
-            $experience = Experience::find($experienceId);
             $experience->cover_image = $builder->createURL($imGix, $params);
         }
         $experience->save();
