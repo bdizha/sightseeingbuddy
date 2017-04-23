@@ -8903,15 +8903,15 @@ textarea.parsley-error {
   position: relative;
   width: 100%;
 }
-#page [data-slick-carousel-default] .slick-prev,
-#page [data-slick-carousel-default] .slick-next {
+.page-blog [data-slick-carousel-default] .slick-prev,
+.page-blog [data-slick-carousel-default] .slick-next {
   display: block !important;
 }
-#page [data-slick-carousel-default] .slick-prev {
+.page-blog [data-slick-carousel-default] .slick-prev {
   left: 25px;
   background-image: url(/images/left_white_arrow.png);
 }
-#page [data-slick-carousel-default] .slick-next {
+.page-blog [data-slick-carousel-default] .slick-next {
   right: 25px;
   background-image: url(/images/right_white_arrow.png);
 }
