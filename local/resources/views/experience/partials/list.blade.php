@@ -9,7 +9,7 @@
                     </a>                
                 </div>
                 <div class="media-footer">
-                    {{ str_limit($experience->teaser, 28) }} 
+                    {{ str_limit($experience->teaser, 35) }}
                     <span class="hidden-xs">
                         | R{{ $experience->pricing->per_person }} |
                         {{ $experience->duration }}

@@ -53,7 +53,6 @@ class ImagesController extends ExperienceController
     private function save($experienceId, $request)
     {
         $builder = new UrlBuilder("keepitlocal.imgix.net");
-        $builder->setSignKey("arQnS85SyXJAFH8r");
 
         $fields = [
             'image' => 'required|max:255',
@@ -81,7 +80,7 @@ class ImagesController extends ExperienceController
                 $builder = new UrlBuilder("keepitlocal.imgix.net");
                 $builder->setSignKey("arQnS85SyXJAFH8r");
                 $imageName = str_replace("/files/", "", $image);
-                $params = array("w" => 1200, "h" => 400);
+                $params = array("w" => 1600, "h" => 400);
 
                 ExperienceGallery::create([
                     'experience_id' => $experienceId,
