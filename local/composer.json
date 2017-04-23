@@ -7,7 +7,9 @@
     "require": {
         "php": ">=5.6.4",
         "doctrine/dbal": "^2.5",
-        "laravel/framework": "5.3.*"
+        "laravel/framework": "5.3.*",
+        "league/glide-laravel": "^1.0",
+        "imgix/imgix-php": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

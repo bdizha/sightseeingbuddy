@@ -16,6 +16,21 @@ Route::group(['prefix' => 'local'], function () {
         return view('welcome');
     });
 
+    Route::get('img/{path}', function (League\Glide\Server $server, $path) {
+
+        $params = ['fit' => 'crop'];
+
+        if(!empty($_GET['w'])){
+            $params['w'] = $_GET['w'];
+        }
+
+        if(!empty($_GET['h'])){
+            $params['h'] = $_GET['h'];
+        }
+
+        $server->outputImage($path, $params);
+    });
+
     Route::auth();
 
     Route::get('/local/auth/{verify_token}', 'Auth\VerifyController@email')->name("auth_verify");

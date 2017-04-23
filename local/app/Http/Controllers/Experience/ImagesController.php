@@ -7,6 +7,7 @@ use App\Http\Controllers\ExperienceController;
 use Session;
 use App\ExperienceGallery;
 use App\Experience;
+use Imgix\UrlBuilder;
 
 class ImagesController extends ExperienceController {
 
@@ -58,6 +59,12 @@ class ImagesController extends ExperienceController {
         $experience = Experience::find($experienceId);
         $experience->cover_image = $input['image'];
         $experience->save();
+
+        $builder = new UrlBuilder("keeptilocal.imgix.net");
+//        $builder->setSignKey("test1234");
+        $params = array("w" => 550, "h" => 320);
+        echo $builder->createURL("4dab14ce2a0c4656ee8b922bce308a0c.jpg", $params);
+        die();
 
         ExperienceGallery::where("experience_id", "=", $experienceId)->delete();
 

@@ -84,7 +84,11 @@
                                 <div class="input-group">
                                     <label class="control-label" for="activity">Offered languages</label>
                                     <div class="input-add">
-                                        {{ Form::text('language', old('language'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Offered languages*', "data-id" => "languages"]) }}
+                                        <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Offered languages*', "data-id" => "languages"] ?>
+                                        @if (empty($languages))
+                                                <?php $params['required'] = true ?>
+                                        @endif
+                                        {{ Form::text('language', old('language'), $params) }}
                                         <input type="button" class="btn btn-yellow btn-add" count="0"
                                                field="language" plural="languages" value="Add"/>
                                     </div>
@@ -182,7 +186,11 @@
                         <div class="input-group ">
                             <label class="control-label" for="activity">Experience highlights</label>
                             <div class="input-add">
-                                {{ Form::text('highlight', old('highlight'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Experience highlights*', "data-id" => "highlight"]) }}
+                                <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Experience highlights*', "data-id" => "highlight"] ?>
+                                @if (empty($highlights))
+                                    <?php $params['required'] = true ?>
+                                @endif
+                                {{ Form::text('highlight', old('highlight'), $params) }}
                                 <input type="button" class="btn btn-yellow btn-add" count="0"
                                        field="highlight"
                                        plural="highlights" value="Add"/>
@@ -232,7 +240,8 @@
                         <div class="input-group">
                             <label class="control-label" for="activity">Experience activities</label>
                             <div class="input-add">
-                                {{ Form::text('activity', old('activity'), ['class' => 'form-control fullwidth btn-input','required' => true, 'placeholder' => 'Extra activities*', "data-id" => "activity"]) }}
+                                <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Extra activities*', "data-id" => "activity"] ?>
+                                {{ Form::text('activity', old('activity'), $params) }}
                                 <input type="button" class="btn btn-yellow btn-add" count="0"
                                        field="activity"
                                        plural="activities" value="Add"/>

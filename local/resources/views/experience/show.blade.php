@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </article>
-                <img class="media-object" src="{{ $experience->cover_image }}" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
+                <img class="media-object" src="/local/img/{{ urlencode(str_replace("/files/", "", $experience->cover_image)) }}?w=555&h=350" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
             </div>
             <div class="col-sm-6 col-xs-12">
                 <div class="gray-bottom-border mt-1 mb-1"></div>
