@@ -6,7 +6,11 @@
                      class="img-responsive">
                 <div class="carousel-caption">
                     <div class="container">
-                        {{ str_limit($experience->teaser, 300) }}
+                        <div class="table-block">
+                            <div class="left-cell">
+                                {{ str_limit($experience->teaser, 300) }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
