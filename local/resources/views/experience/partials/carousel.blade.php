@@ -1,15 +1,15 @@
-<div class="carousel slick-carousel-three">
-    <div class="container relative-container">
-        <div class="carousel-caption">
-            {{ $experience->teaser }}
-        </div>
-    </div>
-    <!-- Wrapper for slides -->
-    <div data-slick-carousel-three class="carousel-inner">
+<div class="carousel slick-carousel-default">
+    <div data-slick-carousel-default class="carousel-inner">
         @foreach($experience->gallery as $key => $image)
-        <div class="item">
-            <img src="{{ $image->image }}" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}" class="img-responsive">
-        </div>
+            <div class="item">
+                <img src="{{ $image->image }}" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}"
+                     class="img-responsive">
+                <div class="carousel-caption">
+                    <div class="container">
+                        {{ str_limit($experience->teaser, 300) }}
+                    </div>
+                </div>
+            </div>
         @endforeach
     </div>
 </div>

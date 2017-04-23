@@ -8927,11 +8927,11 @@ textarea.parsley-error {
   display: none !important;
 }
 .page-blog [data-slick-carousel-default],
-.page-blog [data-slick-carousel-three] {
+.experience-block [data-slick-carousel-default] {
   overflow: hidden;
 }
 .page-blog [data-slick-carousel-default] .slick-list,
-.page-blog [data-slick-carousel-three] .slick-list {
+.experience-block [data-slick-carousel-default] .slick-list {
   overflow: hidden;
 }
 .slick-carousel-three {
