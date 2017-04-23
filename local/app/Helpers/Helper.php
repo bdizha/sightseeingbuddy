@@ -55,8 +55,6 @@ class Helper {
             $midTime = $paddedHour . "h30";
             $times[$midTime] = $midTime;
         }
-
-        str_limit($midTime);
         return $times;
     }
 

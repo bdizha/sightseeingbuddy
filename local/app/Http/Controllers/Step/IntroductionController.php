@@ -10,6 +10,7 @@ use App\Events\LocalVerify;
 use Session;
 use App\Images\UploadHandler;
 use App\User;
+use Imgix\UrlBuilder;
 
 class IntroductionController extends StepController {
 
@@ -74,6 +75,9 @@ class IntroductionController extends StepController {
 
     private function save($user, $notifyUser, $request) {
 
+        $builder = new UrlBuilder("keepitlocal.imgix.net");
+        $builder->setSignKey("arQnS85SyXJAFH8r");
+
         $fields = [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -97,6 +101,10 @@ class IntroductionController extends StepController {
         $input = $request->all();
 
         $input['password'] = bcrypt($input['password']);
+
+        $imGix = str_replace("/files/", "", urlencode($input['image']));
+        $params = array("w" => 200, "h" => 200);
+        $user->image = $builder->createURL($imGix, $params);
 
         $user->fill($input)->save();
 
