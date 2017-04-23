@@ -103,7 +103,7 @@ class IntroductionController extends StepController {
 
         if (strpos($input['image'], 'imgix') === false) {
             $imGix = str_replace("/files/", "", $input['image']);
-            $params = array("w" => 200, "h" => 200);
+            $params = array("w" => 200, "h" => 200, 'fit' => 'crop');
             $input['image'] = $builder->createURL($imGix, $params);
         }
 

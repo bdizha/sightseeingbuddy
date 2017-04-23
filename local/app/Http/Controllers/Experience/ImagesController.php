@@ -66,7 +66,7 @@ class ImagesController extends ExperienceController
 
         if (strpos($input['image'], 'imgix') === false) {
             $imGix = str_replace("/files/", "", $input['image']);
-            $params = array("w" => 550, "h" => 320);
+            $params = array("w" => 550, "h" => 320, 'fit' => 'crop');
             $experience->cover_image = $builder->createURL($imGix, $params);
         }
         $experience->save();
@@ -78,9 +78,8 @@ class ImagesController extends ExperienceController
             if (strpos($input['image'], 'imgix') === false) {
 
                 $builder = new UrlBuilder("keepitlocal.imgix.net");
-                $builder->setSignKey("arQnS85SyXJAFH8r");
                 $imageName = str_replace("/files/", "", $image);
-                $params = array("w" => 1600, "h" => 400);
+                $params = array("w" => 900, "h" => 300, 'fit' => 'crop');
 
                 ExperienceGallery::create([
                     'experience_id' => $experienceId,
