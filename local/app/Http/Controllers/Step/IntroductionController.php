@@ -101,9 +101,12 @@ class IntroductionController extends StepController {
 
         $input['password'] = bcrypt($input['password']);
 
-        $imGix = str_replace("/files/", "", urlencode($input['image']));
+        $imGix = str_replace("/files/", "", $input['image']);
         $params = array("w" => 200, "h" => 200);
-        $input['image'] = $builder->createURL($imGix, $params);
+        $input['image'] = $builder->createURL(urlencode($imGix), $params);
+
+
+
 
         $user->fill($input)->save();
 
