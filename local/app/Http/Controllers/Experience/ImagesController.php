@@ -68,7 +68,7 @@ class ImagesController extends ExperienceController
         if (strpos($input['image'], 'imgix') === false) {
             $imGix = str_replace("/files/", "", $input['image']);
             $params = array("w" => 550, "h" => 320);
-            $experience->cover_image = $builder->createURL(urlencode($imGix), $params);
+            $experience->cover_image = $builder->createURL($imGix, $params);
         }
         $experience->save();
 
@@ -91,7 +91,7 @@ class ImagesController extends ExperienceController
             else{
                 ExperienceGallery::create([
                     'experience_id' => $experienceId,
-                    'image' => urlencode($image)
+                    'image' => $image
                 ]);
             }
         }
