@@ -26,11 +26,12 @@ class PricingController extends ExperienceController {
      * @return Response
      */
     public function edit($id, Request $request) {
-
-        $pricing = Pricing::findOrNew($id);
         $user = Auth::user();
-        $links = $this->getLinks($pricing);
         $experience = Experience::where('id', '=', $id)->first();
+        $links = $this->getLinks($experience);
+
+        $pricing = $experience->pricing ? $experience->pricing : new Pricing();
+        $pricing->experience_id = $experience->id;
 
         return view('experience.pricing.edit', [
             'pricing' => $pricing,
