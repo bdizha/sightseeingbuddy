@@ -5,9 +5,10 @@
    
     @include('experience.partials.header')
 
-    <div class="container profile experience-block gray-block mt-1" id='experience-info'>
-
+    <div class="container-fluid experience-block">
         @include('experience.partials.carousel')
+    </div>
+    <div class="container profile experience-block gray-block mt-1" id='experience-info'>
 
         <h1 id="experiences">
             Local experience information

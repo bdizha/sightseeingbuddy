@@ -79,7 +79,7 @@ class ImagesController extends ExperienceController
 
                 $builder = new UrlBuilder("keepitlocal.imgix.net");
                 $imageName = str_replace("/files/", "", $image);
-                $params = array("w" => 900, "h" => 300, 'fit' => 'crop');
+                $params = array("w" => 1600, "h" => 300, 'fit' => 'crop');
 
                 ExperienceGallery::create([
                     'experience_id' => $experienceId,

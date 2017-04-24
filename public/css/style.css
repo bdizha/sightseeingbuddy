@@ -8917,13 +8917,13 @@ textarea.parsley-error {
 }
 #reviews [data-slick-carousel-default] .slick-dots li button,
 .experience-block [data-slick-carousel-default] .slick-dots li button {
-  border: 1px solid #3D3D3D;
+  border: 1px solid #FFFFFF;
 }
 #reviews [data-slick-carousel-default] .slick-dots li.slick-active button,
 .experience-block [data-slick-carousel-default] .slick-dots li.slick-active button,
 #reviews [data-slick-carousel-default] .slick-dots li:hover button,
 .experience-block [data-slick-carousel-default] .slick-dots li:hover button {
-  background: #3D3D3D;
+  background: #FFFFFF;
 }
 #reviews [data-slick-carousel-default] .slick-prev,
 .experience-block [data-slick-carousel-default] .slick-prev,
@@ -9756,6 +9756,20 @@ section #sidebar h2 {
 }
 .profiles-block h3 {
   font-size: 21px;
+}
+.experience-block .carousel-caption .container .table-block .left-cell {
+  text-align: center;
+  padding-right: 0px;
+}
+.experience-block .carousel-caption .container .table-block .left-cell h1 {
+  font-weight: 900;
+  font-size: 45px;
+  text-transform: uppercase;
+}
+@media (max-width: 992px) {
+  .experience-block .carousel-caption .container .table-block .left-cell h1 {
+    font-size: 24px;
+  }
 }
 #page .profile h1 {
   text-align: center;

@@ -23,7 +23,7 @@
         <div class='row mb-2'>
             <div class="col-sm-12 col-xs-12">
                 <div class="text-left mb-1">
-                    <a target="_blank" href="/local/experience/{{ $experience->id }}" class="btn btn-yellow">PREVIEW
+                    <a target="_blank" href="/local/experience/{{ $experience->slug }}" class="btn btn-yellow">PREVIEW
                         MY LOCAL EXPERIENCE</a>
                 </div>
                 <div class="form-group {{ $errors->has('terms') ? 'has-error' : '' }}" id="terms">
