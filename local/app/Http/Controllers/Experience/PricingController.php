@@ -47,11 +47,11 @@ class PricingController extends ExperienceController {
      * @return Response
      */
     public function update($id, Request $request) {
-        $pricing = Pricing::findOrNew($id);
-        return $this->save($pricing, $request);
+        $experience = Experience::where('id', '=', $id)->first();
+        return $this->save($experience, $request);
     }
 
-    private function save($pricing, $request) {
+    private function save($experience, $request) {
 
         $fields = [
             'guests' => 'required|max:255',
@@ -63,18 +63,20 @@ class PricingController extends ExperienceController {
         $this->validate($request, $fields);
         $input = $request->all();
 
+        $pricing = $experience->pricing ? $experience->pricing : new Pricing();
+        $input['experience_id'] = $experience->id;
+
         $pricing->fill($input)->save();
 
         $schedule = ExperienceSchedule::where("experience_id", "=", $input["experience_id"])->first();
-        if(!empty($schedule->id)) {
-            $schedule->delete();
+        if(empty($schedule->id)) {
+            $schedule = New ExperienceSchedule();
         }
 
-        $schedule = ExperienceSchedule::create([
-                    'experience_id' => $input['experience_id'],
-                    'days' => serialize(array_values($input['days'])),
-                    'times' => serialize($input['times'])
-        ]);
+        $schedule['experience_id'] = $input['experience_id'];
+        $schedule['days'] = serialize(array_values($input['days']));
+        $schedule['times'] = serialize($input['times']);
+        $schedule->save();
 
         Session::flash('flash_message', 'Pricing successfully saved!');
 
