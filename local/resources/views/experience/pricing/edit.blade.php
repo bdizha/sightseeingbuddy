@@ -3,7 +3,7 @@
 @section('form')
     {!! Form::open([
     'method' => 'PATCH',
-    'route' => ['pricing.update', $user->id],
+    'route' => ['pricing.update', $pricing->id],
     'class' => '']) !!}
     @include('experience.pricing.form', ['user' => $user, 'pricing' => $pricing])
     {!! Form::close() !!}
