@@ -64,7 +64,10 @@ class PricingController extends ExperienceController {
 
         $pricing->fill($input)->save();
 
-        ExperienceSchedule::where("experience_id", "=", $input["experience_id"])->delete();
+        $schedule = ExperienceSchedule::where("experience_id", "=", $input["experience_id"])->first();
+        if(!empty($schedule->id)) {
+            $schedule->delete();
+        }
 
         $schedule = ExperienceSchedule::create([
                     'experience_id' => $input['experience_id'],
