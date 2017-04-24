@@ -519,8 +519,6 @@ class UploadHandler {
         if (count($nameParts) > 0) {
             $name = str_slug($nameParts[0]);
         }
-
-        $name = $name . "_" . time();
         
         if (count($nameParts) > 1) {
             $name .= "." . $nameParts[count($nameParts) - 1];
