@@ -78,14 +78,7 @@
                     </div>
                     <div class="col-sm-6 col-xs-6">
                         {{ $experience->duration }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6 col-xs-6">
-                        <label>{{ "Transportation mode:" }}</label>
-                    </div>
-                    <div class="col-sm-6 col-xs-6">
-                        {{ $experience->transportation_mode }}
+                        {{ $experience->units }}
                     </div>
                 </div>
                 <div class="row">
