@@ -40,7 +40,7 @@
                         @if ($errors->has('guests'))
                             <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
                         @endif
-                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Maximum number of guests*']) }}
+                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'id' => 'guests','required' => true, 'placeholder' => 'Maximum number of guests*']) }}
                     </div>
                 </div>
                 <div class='row'>
@@ -48,15 +48,15 @@
                         <div class="row">
                             <div class="col-sm-4 col-xs-4">
                                 <label class="control-label">Booking for</label>
-                                <label class="control-value">1 person</label>
+                                <label class="control-value" id="pricing_persons" data-pricing-persons="{{ $pricing->guests ? $pricing->guests : 0 }}">{{ $pricing->guests ? $pricing->guests : 0 }} person</label>
                             </div>
                             <div class="col-sm-5 col-xs-5">
                                 <label class="control-label">Price per person</label>
-                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'R0.00']) }}
+                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth', 'id' => 'per_person', 'required' => true, 'placeholder' => 'R0.00', 'onkeypress' => "return isNumber(event)"]) }}
                             </div>
                             <div class="col-sm-3 col-xs-3">
                                 <label class="control-label">You'll receive</label>
-                                <label class="control-value">R00.00</label>
+                                <label class="control-value" id="pricing_local_fee">R00.00</label>
                             </div>
                         </div>
                     </div>
@@ -64,11 +64,11 @@
                         <div class="row">
                             <div class="col-sm-6 col-xs-6">
                                 <label class="control-label">Keep it Local fee</label>
-                                <label class="control-value">R0.00</label>
+                                <label class="control-value" id="pricing_commission">R0.00</label>
                             </div>
                             <div class="col-sm-6 col-xs-6">
                                 <label class="control-label">Total price</label>
-                                <label class="control-value">R00.00</label>
+                                <label class="control-value" id="pricing_total">R00.00</label>
                             </div>
                         </div>
                     </div>

@@ -9,23 +9,13 @@
                     </a>                
                 </div>
                 <div class="media-footer">
-                    {{ str_limit($experience->teaser, 35) }}
+                    {{ str_limit($experience->teaser, 29) }}
                     <span class="hidden-xs">
-                        | R{{ $experience->pricing->per_person }} |
+                        | {{ $experience->pricing->per_person }} |
                         {{ $experience->duration }}
+                        {{ $experience->units }}
                     </span>
-                    <a class="pull-right hidden-xs" href="/local/experience/{{ $experience->slug }}">            
-                        View
-                    </a>  
-                    <div class="hidden-md hidden-lg hidden-sm mt-1">
-                        <div class="pull-left">
-                            R{{ $experience->pricing->per_person }} |
-                            {{ $experience->duration }}
-                        </div>
-                        <div class="pull-right">
-                            <a href="/local/experience/{{ $experience->slug }}" class="btn btn-default">View</a>
-                        </div>
-                    </div>
+                    <a href="/local/experience/{{ $experience->slug }}" class="btn btn-default pull-right">View</a>
                     <div class="clear-both"></div>
                 </div>
             </article>

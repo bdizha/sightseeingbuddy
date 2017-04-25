@@ -10,12 +10,12 @@
                         </a>
                     </div>
                     <div class="media-body">
-                        <h2 class="media-heading">
+                        <h2 class="media-heading same-height" data-mh="experience-media-heading">
                             <a href="/local/experience/{{ $experience->slug }}">
                                 {{ str_limit($experience->teaser, 35) }}
                             </a>
                         </h2>
-                        <div class="media-summary">
+                        <div class="media-summary same-height" data-mh="experience-media-summary">
                             {{ str_limit($experience->description) }}
                         </div>
                         <div class="readmore mt-1">

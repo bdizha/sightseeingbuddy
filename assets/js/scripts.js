@@ -251,11 +251,84 @@ function Vertilize() {
 
         $('.same-height').matchHeight(options);
 
+        $('[data-mh="experience-media-summary"]').matchHeight(options);
+
+
+    };
+}
+
+function setHeightFor(selector) {
+    var $columns = $(selector);
+    var maxHeight = Math.max.apply(Math, $columns.map(function () {
+        return $(this).height();
+    }).get());
+
+    $columns.height(maxHeight);
+}
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+
+    if($("select#guests").val().length > 0) {
+        (new setPricing).init();
+    }
+    return true;
+}
+
+function setGuest() {
+    this.init = function () {
+        $("select#guests").change(function () {
+            console.log("setting new guests: " + $(this).val());
+            $("#pricing_persons").attr("data-pricing-persons", $(this).val());
+            $("#pricing_persons").html($(this).val() + " person(s)");
+
+            (new setPricing).init();
+        });
+    };
+}
+
+function setPricing() {
+    var rate = 0.2;
+    this.init = function () {
+
+        if($("#pricing_persons").length > 0) {
+            console.log("setting new pricings");
+            var persons = $("#pricing_persons").attr("data-pricing-persons");
+            var perPerson = $("#per_person").val().replace("R", "");
+            var pricingTotal = parseFloat(perPerson) * parseFloat(persons);
+            var pricingCommission = pricingTotal * rate;
+            var pricingLocalFee = pricingTotal - pricingCommission;
+
+            if (perPerson >= 10) {
+                $('#pricing_total').html("R" + pricingTotal.toFixed(2));
+                $('#pricing_commission').html("R" + pricingCommission.toFixed(2));
+                $('#pricing_local_fee').html("R" + pricingLocalFee.toFixed(2));
+                $("#per_person").val('R' + perPerson);
+
+                console.log("pricingTotal: " + pricingTotal.toFixed(2));
+                console.log("pricingCommission: " + pricingCommission.toFixed(2));
+                console.log("pricingLocalFee: " + pricingLocalFee.toFixed(2));
+            }
+        }
     };
 }
 
 function SelectColor() {
     this.init = function () {
+
+        $("select").each(function () {
+            if ($(this).val() != "") {
+                $(this).css({color: "#3d3d3d"});
+            }
+            else {
+                $(this).css({color: "#aeaeae"});
+            }
+        });
+
         $("select").change(function () {
             if ($(this).val() != "") {
                 $(this).css({color: "#3d3d3d"});
@@ -550,12 +623,22 @@ $(function () {
 
     (new FileUpload).init();
 
+    (new setPricing).init();
+
+    (new setGuest).init();
+
     // (new HomeBanners).init();
 
     (new SelectColor).init();
 
+    setHeightFor('.media-heading.same-height');
+    setHeightFor('.media-media-summary.same-height');
+
     $window.on('resize', function () {
         (new Vertilize).init();
+
+        setHeightFor('.media-heading.same-height');
+        setHeightFor('.media-media-summary.same-height');
     });
 
     setTimeout(function () {

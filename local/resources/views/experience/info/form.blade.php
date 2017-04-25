@@ -205,7 +205,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="duration">Duration</label>
-                            {{ Form::text('duration', $experience->duration, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Duration*']) }}
+                            {{ Form::select('duration', Helper::guests(), $experience->duration, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Duration*']) }}
                         </div>
                     </div>
                     <div class="col-sm-5 col-xs-5  pull-right">

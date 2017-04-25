@@ -44,7 +44,7 @@ h1, .h1, h2, .h2, h3, .h3 {
   padding-bottom: 15px;
 }
 
-@media (max-width: @screen-xs) {
+@media (max-width: (@grid-float-breakpoint - 400)){
   .col-xs-6-full {
     width: 100% !important;
   }
@@ -101,7 +101,8 @@ h1, .h1, h2, .h2, h3, .h3 {
       margin-top: 15px;
     }
     .media-object {
-      max-width: 400px;
+      max-width: 550px;
+      width: 100%;
     }
   }
   .experience-block {
@@ -971,6 +972,11 @@ section {
       font-weight: 900;
       font-size: 25px;
       margin: 0 0 15px;
+      &.media-heading{
+        font-size: 23px;
+        margin: 0 0 15px;
+        line-height: 23px;
+      }
     }
     .profile-picture {
       vertical-align: top;
@@ -987,7 +993,9 @@ section {
       vertical-align: top;
       display: table-cell;
       padding-left: 15px;
-      text-align: left;
+      @media (min-width: @grid-float-breakpoint) {
+        text-align: left;
+      }
       h1 {
         font-size: 22px;
         font-weight: 300;
@@ -1027,7 +1035,8 @@ section {
       }
 
       h2 {
-        font-size: 23px;
+        font-size: 21px;
+        line-height: 21px;
       }
 
       .profile-picture {
@@ -1145,7 +1154,7 @@ section {
   .search-list {
     .media {
       margin-top: 0px;
-      margin-bottom: 0;
+      margin-bottom: 15px;
       border: none;
       .media-object {
         width: 100%;
@@ -1155,7 +1164,11 @@ section {
         background: @yellow;
         font-weight: 900;
         padding: 16px;
-        font-size: 17px;
+        font-size: 18px;
+        line-height: 40px;
+        @media (max-width: @grid-float-breakpoint) {
+          font-size: 16px;
+        }
       }
     }
   }
@@ -1186,7 +1199,9 @@ section {
     padding: @panel-body-padding;
     padding-bottom: 10px;
     .readmore {
-      padding-top: 25px;
+      .btn{
+        min-width: 80px;
+      }
     }
   }
   .media-right,

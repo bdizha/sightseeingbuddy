@@ -9014,7 +9014,7 @@ h3,
   background: #FFFFFF;
   padding-bottom: 15px;
 }
-@media (max-width: 400px) {
+@media (max-width: 592px) {
   .col-xs-6-full {
     width: 100% !important;
   }
@@ -9063,7 +9063,8 @@ h3,
   margin-top: 15px;
 }
 #page .blog-list .media-object {
-  max-width: 400px;
+  max-width: 550px;
+  width: 100%;
 }
 #page .experience-block {
   font-size: 15px;
@@ -9784,6 +9785,11 @@ section #sidebar h2 {
   font-size: 25px;
   margin: 0 0 15px;
 }
+#page .profile h2.media-heading {
+  font-size: 23px;
+  margin: 0 0 15px;
+  line-height: 23px;
+}
 #page .profile .profile-picture {
   vertical-align: top;
   text-align: center;
@@ -9799,7 +9805,11 @@ section #sidebar h2 {
   vertical-align: top;
   display: table-cell;
   padding-left: 15px;
-  text-align: left;
+}
+@media (min-width: 992px) {
+  #page .profile .profile-info {
+    text-align: left;
+  }
 }
 #page .profile .profile-info h1 {
   font-size: 22px;
@@ -9838,7 +9848,8 @@ section #sidebar h2 {
     text-align: center;
   }
   #page .profile h2 {
-    font-size: 23px;
+    font-size: 21px;
+    line-height: 21px;
   }
   #page .profile .profile-picture {
     vertical-align: top;
@@ -9936,7 +9947,7 @@ section #sidebar h2 {
 }
 #page .search-list .media {
   margin-top: 0px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   border: none;
 }
 #page .search-list .media .media-object {
@@ -9946,7 +9957,13 @@ section #sidebar h2 {
   background: #FDBF0F;
   font-weight: 900;
   padding: 16px;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 40px;
+}
+@media (max-width: 992px) {
+  #page .search-list .media .media-footer {
+    font-size: 16px;
+  }
 }
 .booking-row h3 {
   margin-top: 0;
@@ -9969,8 +9986,8 @@ section #sidebar h2 {
   padding: 15px;
   padding-bottom: 10px;
 }
-.media .media-body .readmore {
-  padding-top: 25px;
+.media .media-body .readmore .btn {
+  min-width: 80px;
 }
 .media .media-right,
 .media .media > .pull-right {
