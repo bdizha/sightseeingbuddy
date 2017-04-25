@@ -351,11 +351,12 @@ function HomeBanners() {
             });
 
             if (parseFloat(indexSlider.attr("data-height")) != sliderHeight) {
-                indexSlider.attr("data-height", sliderHeight);
-                setTimeout(function () {
-                    (new HomeBanners).init();
-                }, 2000);
+
             }
+            indexSlider.attr("data-height", sliderHeight);
+            setTimeout(function () {
+                (new HomeBanners).init();
+            }, 3000);
         }
     }
 }
