@@ -3,8 +3,14 @@
 
 {% block content %}
 
-    <div class="index-slider">
+    <div class="index-slider" data-height="0">
         {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
+    </div>
+
+    <div class="container hidden-xs" style="position: relative">
+        <div class="search-block" id="search-block">
+            {%- include "_includes/search.twig" -%}
+        </div>
     </div>
 
     <div class="container search-xs hidden-lg hidden-md hidden-sm">

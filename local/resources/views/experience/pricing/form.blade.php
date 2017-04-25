@@ -4,7 +4,7 @@
             <div class="panel-heading mt-0">
                 Pricing
             </div>
-            <div class="panel-body">
+            <div class="panel-body mb-0">
                 {!! csrf_field() !!}
                 {{ Form::hidden('experience_id', $pricing->experience_id) }}
                 <p>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-sm-5 col-xs-5">
                                 <label class="control-label">Price per person</label>
-                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth', 'id' => 'per_person', 'required' => true, 'placeholder' => 'R0.00', 'onkeypress' => "return isNumber(event)"]) }}
+                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth', 'id' => 'per_person', 'required' => true, 'placeholder' => 'R0.00', 'onkeyup' => '(new setPricing).init();', 'onkeypress' => "return isNumber(event)"]) }}
                             </div>
                             <div class="col-sm-3 col-xs-3">
                                 <label class="control-label">You'll receive</label>
@@ -115,11 +115,10 @@
                 </div>
                 <div class='row mt-2'>
                     <div class="col-sm-12 col-xs-12">
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Save"/>
+                        <div class="row">
+                            <input type="submit" class="btn btn-primary hide" value="Save"/>
                             <a href="{{ route('info.edit', ["id" => $experience->id]) }}"
-                               class="btn btn-primary pull-right">Back</a>
-                            <span class='inline pull-right'>&nbsp;&nbsp;</span>
+                               class="btn btn-primary">Back</a>
                             <input type="submit" class="btn btn-primary pull-right" value="Next"/>
                         </div>
                     </div>

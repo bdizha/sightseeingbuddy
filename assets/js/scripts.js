@@ -250,10 +250,6 @@ function Vertilize() {
         };
 
         $('.same-height').matchHeight(options);
-
-        $('[data-mh="experience-media-summary"]').matchHeight(options);
-
-
     };
 }
 
@@ -271,10 +267,6 @@ function isNumber(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
         return false;
-    }
-
-    if($("select#guests").val().length > 0) {
-        (new setPricing).init();
     }
     return true;
 }
@@ -295,7 +287,7 @@ function setPricing() {
     var rate = 0.2;
     this.init = function () {
 
-        if($("#pricing_persons").length > 0) {
+        if ($("#per_person").length > 0 && $("#pricing_persons").length > 0) {
             console.log("setting new pricings");
             var persons = $("#pricing_persons").attr("data-pricing-persons");
             var perPerson = $("#per_person").val().replace("R", "");
@@ -303,16 +295,14 @@ function setPricing() {
             var pricingCommission = pricingTotal * rate;
             var pricingLocalFee = pricingTotal - pricingCommission;
 
-            if (perPerson >= 10) {
-                $('#pricing_total').html("R" + pricingTotal.toFixed(2));
-                $('#pricing_commission').html("R" + pricingCommission.toFixed(2));
-                $('#pricing_local_fee').html("R" + pricingLocalFee.toFixed(2));
-                $("#per_person").val('R' + perPerson);
+            $('#pricing_total').html("R" + pricingTotal.toFixed(2));
+            $('#pricing_commission').html("R" + pricingCommission.toFixed(2));
+            $('#pricing_local_fee').html("R" + pricingLocalFee.toFixed(2));
+            $("#per_person").val('R' + perPerson);
 
-                console.log("pricingTotal: " + pricingTotal.toFixed(2));
-                console.log("pricingCommission: " + pricingCommission.toFixed(2));
-                console.log("pricingLocalFee: " + pricingLocalFee.toFixed(2));
-            }
+            console.log("pricingTotal: " + pricingTotal.toFixed(2));
+            console.log("pricingCommission: " + pricingCommission.toFixed(2));
+            console.log("pricingLocalFee: " + pricingLocalFee.toFixed(2));
         }
     };
 }
@@ -320,73 +310,51 @@ function setPricing() {
 function SelectColor() {
     this.init = function () {
 
-        $("select").each(function () {
-            if ($(this).val() != "") {
-                $(this).css({color: "#3d3d3d"});
-            }
-            else {
-                $(this).css({color: "#aeaeae"});
-            }
-        });
-
-        $("select").change(function () {
-            if ($(this).val() != "") {
-                $(this).css({color: "#3d3d3d"});
-            }
-            else {
-                $(this).css({color: "#aeaeae"});
-            }
-        });
+        // $("select").each(function () {
+        //     if ($(this).val() != "") {
+        //         $(this).css({color: "#3d3d3d"});
+        //     }
+        //     else {
+        //         $(this).css({color: "#aeaeae"});
+        //     }
+        // });
+        //
+        // $("select").change(function () {
+        //     if ($(this).val() != "") {
+        //         $(this).css({color: "#3d3d3d"});
+        //     }
+        //     else {
+        //         $(this).css({color: "#aeaeae"});
+        //     }
+        // });
     };
 }
 
-
-var resolvedCaption = false;
 function HomeBanners() {
 
     this.init = function () {
-        // get the current url from the body
-        var currentUrl = $("#current_url").val();
 
-        console.log("current url: " + currentUrl);
-        console.log("window width: " + $(window).width());
+        var searchBlock = $("#search-block");
+        var indexSlider = $(".index-slider");
 
-        if ($(window).width() >= 600 && (currentUrl == "blog" || currentUrl == "" || currentUrl == "become-a-local")) {
-            var indexSlider = $(".carousel-inner").first();
-            var carouselCaption = $(".carousel-caption");
-            var btnBlock = $(".home-btn-block");
-            var searchForm = 250;
+        if (searchBlock.length > 0) {
+            var sliderHeight = indexSlider.height();
+            var searchHeight = searchBlock.height();
+            var heightDiff = parseFloat(sliderHeight) / 2 + parseFloat(searchHeight) / 2;
 
-            if ($(window).width() >= 1340 && $(window).width() <= 1366) {
+            console.log("slider height: " + sliderHeight);
+            console.log("search height: " + searchHeight);
+            console.log("diff height: " + heightDiff);
+            searchBlock.css({
+                "top": "-" + (heightDiff + 20) + "px",
+                "visibility": "visible"
+            });
 
-                // console.log("Index slicer height: " + indexSlider.height());
-                resolvedCaption = true;
-
-                $(".search-form").css({top: ((426 - searchForm) / 2) + "px"});
-                carouselCaption.css({top: (((426 - searchForm) / 2) - 24) + "px"});
-                btnBlock.css({top: (((426 - searchForm) / 2) + 200) + "px"});
-
-            } else {
-
-                if (indexSlider > 100) {
-                    resolvedCaption = true;
-                }
-
-                if (indexSlider - searchForm > 0) {
-
-                    // console.log("Index slicer height: " + indexSlider.height());
-
-                    $(".search-form").css({top: ((indexSlider.height() - searchForm) / 2) + "px"});
-                    carouselCaption.css({top: (((indexSlider.height() - searchForm) / 2) - 24) + "px"});
-                    btnBlock.css({top: (((indexSlider.height() - searchForm) / 2) + 200) + "px"});
-                }
-
-            }
-
-            if (resolvedCaption == false) {
+            if (parseFloat(indexSlider.attr("data-height")) != sliderHeight) {
+                indexSlider.attr("data-height", sliderHeight);
                 setTimeout(function () {
                     (new HomeBanners).init();
-                }, 3000);
+                }, 2000);
             }
         }
     }
@@ -540,6 +508,8 @@ function FileUpload() {
 
         var removeBin = function () {
             imageBin = $(this).parent().remove();
+
+            $(window).resize();
             (new Vertilize).init();
         };
 
@@ -564,6 +534,8 @@ function FileUpload() {
                         imageBin.append(imageSet);
                     }
                     $('.bin-close').click(removeBin);
+
+                    $(window).resize();
                 });
                 (new Vertilize).init();
             },
@@ -627,7 +599,7 @@ $(function () {
 
     (new setGuest).init();
 
-    // (new HomeBanners).init();
+    (new HomeBanners).init();
 
     (new SelectColor).init();
 

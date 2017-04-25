@@ -51,8 +51,16 @@
             Become a local
         </a>
     {% elseif craft.request.firstSegment() == '' %}
-        <button type="submit" class="btn btn-default btn-lg btn-block">
-            Find a Local
-        </button>
+
+        <div class="hidden-xs">
+            <button type="submit" class="btn btn-default btn-lg btn-block">
+                Find a Local
+            </button>
+        </div>
+        <div class="hidden-lg hidden-md hidden-sm">
+            <button type="submit" class="btn btn-default btn-lg fullwidth">
+                Find a Local
+            </button>
+        </div>
     {% endif %}
 </form>

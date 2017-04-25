@@ -276,8 +276,6 @@
         <div class='row'>
             <div class="col-sm-12 col-xs-12">
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Save"/>
-                    <span class='inline pull-right'>&nbsp;&nbsp;</span>
                     <input type="submit" class="btn btn-primary pull-right" value="Next"/>
                 </div>
             </div>

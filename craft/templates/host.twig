@@ -2,7 +2,15 @@
 
 {% block content %}
 
-    {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
+    <div class="index-slider" data-height="0">
+        {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
+    </div>
+
+    <div class="container hidden-xs" style="position: relative">
+        <div class="search-block" id="search-block">
+            {%- include "_includes/search.twig" -%}
+        </div>
+    </div>
 
     <section id='trust-items'>
         <div class="container">

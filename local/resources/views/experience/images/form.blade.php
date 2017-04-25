@@ -83,9 +83,9 @@
     <div class="col-sm-12 col-xs-12">
         <div class="row">
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Save"/>
+                <input type="submit" class="btn btn-primary hide" value="Save"/>
                 <a href="{{ route('pricing.edit', ["id" => $experience->id]) }}"
-                   class="btn btn-primary pull-right">Back</a>
+                   class="btn btn-primary">Back</a>
                 <span class='inline pull-right'>&nbsp;&nbsp;</span>
                 <input type="submit" class="btn btn-primary pull-right" value="Next"/>
             </div>

@@ -44,7 +44,7 @@ h1, .h1, h2, .h2, h3, .h3 {
   padding-bottom: 15px;
 }
 
-@media (max-width: (@grid-float-breakpoint - 400)){
+@media (max-width: (@grid-float-breakpoint - 400)) {
   .col-xs-6-full {
     width: 100% !important;
   }
@@ -483,7 +483,6 @@ a {
 
 select {
   &.form-control {
-    color: @gray-lighter;
     &:focus {
       color: @gray-base;
     }
@@ -948,6 +947,7 @@ section {
             font-weight: 900;
             font-size: 45px;
             text-transform: uppercase;
+            text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
             @media (max-width: @grid-float-breakpoint) {
               font-size: 24px;
             }
@@ -972,7 +972,7 @@ section {
       font-weight: 900;
       font-size: 25px;
       margin: 0 0 15px;
-      &.media-heading{
+      &.media-heading {
         font-size: 23px;
         margin: 0 0 15px;
         line-height: 23px;
@@ -1199,7 +1199,7 @@ section {
     padding: @panel-body-padding;
     padding-bottom: 10px;
     .readmore {
-      .btn{
+      .btn {
         min-width: 80px;
       }
     }
@@ -1465,13 +1465,11 @@ section {
         outline: none;
         text-decoration: none;
         padding: 2px 0px;
-        border-bottom: 1px solid @yellow;
         &:hover,
         &:focus {
-          color: @gray-base;
+          color: @white;
           background-color: transparent !important;
           text-decoration: none;
-          border-bottom: 1px solid @white;
         }
       }
       &.active {
@@ -1558,11 +1556,10 @@ section {
 
   .btn-block {
     border-radius: 6px;
-    height: 54px;
     &.btn-lg {
-      height: 58px;
-      font-size: 16px;
-      line-height: 58px;
+      height: 65px;
+      font-size: 21px;
+      line-height: 65px;
       padding: 0px 15px;
     }
   }
@@ -1580,6 +1577,10 @@ section {
       }
     }
   }
+}
+
+p {
+  margin: 0 0 15px;
 }
 
 .btn {
@@ -1606,11 +1607,22 @@ section {
   .search-form {
     .form-group {
       .input-group {
+        select {
+          .form-control {
+            padding-left: 4px !important;
+          }
+        }
         .form-control {
-          font-size: 16px;
+          font-size: 21px;
         }
       }
     }
+  }
+
+  .dsfasfda {
+    height: 65px;
+    font-size: 21px;
+    line-height: 65px;
   }
 
   .datetime-group .date-range .table-condensed > thead > tr > th, .datetime-group .date-range .table-condensed > tfoot > tr > th {
@@ -1673,8 +1685,10 @@ section {
 }
 
 .page-become-a-local {
-  .form-group {
-    visibility: hidden;
+  .search-form {
+    .form-group {
+      visibility: hidden;
+    }
   }
 }
 
@@ -2268,6 +2282,7 @@ a.thumbnail:hover, a.thumbnail:active {
           margin: 0;
           line-height: 79px;
           margin-top: 0;
+          text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
         }
       }
       .right-cell {
@@ -2275,6 +2290,9 @@ a.thumbnail:hover, a.thumbnail:active {
         display: table-cell;
         vertical-align: middle;
         width: 356px;
+        form {
+          visibility: hidden;
+        }
       }
     }
   }
@@ -2657,6 +2675,13 @@ a.thumbnail:hover, a.thumbnail:active {
   .datetime-group {
     padding-right: 0px;
   }
+}
+
+#search-block {
+  position: absolute;
+  top: -480px;
+  right: 15px;
+  visibility: hidden;
 }
 
 .step-form-left {

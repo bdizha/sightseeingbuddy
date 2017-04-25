@@ -43,10 +43,10 @@
         </div>
     </div>
     <div class='col-xs-12'>
-        <div class='row'>
+        <div class='row mb-1'>
             <div class="col-sm-12 col-xs-12">
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Save"/>
+                    <input type="submit" class="btn btn-primary hide" value="Save"/>
                     <a href="{{ route('images.edit', ["id" => $experience->id]) }}"
                        class="btn btn-primary pull-right">Back</a>
                     <span class='inline pull-right'>&nbsp;&nbsp;</span>
