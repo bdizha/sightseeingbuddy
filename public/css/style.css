@@ -10241,14 +10241,14 @@ section #sidebar h2 {
 }
 #bottom {
   background: #3D3D3D;
-  color: #3D3D3D;
+  color: #aeaeae;
   font-size: 13px;
 }
-#bottom a {
-  color: #3D3D3D;
+#bottom .container a {
+  color: #aeaeae;
 }
-#bottom a:hover,
-#bottom a:focus {
+#bottom .container a:hover,
+#bottom .container a:focus {
   color: #FDBF0F;
 }
 .edit-this-page {
@@ -10480,6 +10480,44 @@ p {
 .navbar-default .navbar-toggle:hover .icon-bar,
 .navbar-default .navbar-toggle:focus .icon-bar {
   background-color: #FDBF0F;
+}
+.navbar-default .flag-select {
+  position: absolute;
+  right: 258px;
+  top: 15px;
+}
+@media (max-width: 992px) {
+  .navbar-default .flag-select {
+    right: 81px;
+    top: 37px;
+  }
+}
+.navbar-default .flag-select .flag-nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  float: right !important;
+}
+.navbar-default .flag-select .flag-nav span {
+  cursor: pointer;
+}
+.navbar-default .flag-select .flag-nav .selected {
+  padding-left: 15px;
+}
+.navbar-default .flag-select .flag-nav .dropdown-menu {
+  min-width: 60px;
+  margin: 5px 0;
+  padding: 10px 0;
+}
+.navbar-default .flag-select .flag-nav .dropdown-menu li {
+  padding: 0 15px;
 }
 .navbar-nav {
   margin: 0;

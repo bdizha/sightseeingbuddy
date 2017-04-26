@@ -30,10 +30,10 @@ Route::group(['prefix' => 'local'], function () {
 
         $server->outputImage($path, $params);
     });
-
     Route::auth();
 
     Route::get('/local/auth/{verify_token}', 'Auth\VerifyController@email')->name("auth_verify");
+    Route::get('/currency', 'Controller@currency')->name("currency");
 
     Route::resource('contact', 'Step\ContactController');
     Route::resource('introduction', 'Step\IntroductionController');

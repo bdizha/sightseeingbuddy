@@ -108,6 +108,26 @@
                         <ul class="nav navbar-nav">
                             {{ templateMacros.renderNav(craft.entries({section: "mainNavigation", with: ["relatedEntry"]}), currentMenuNode|default(null)) }}
                         </ul>
+                        <div class="flag-select">
+                            <ul class="flag-nav">
+                                <li class="selected">
+                                    <span class="flag-icon flag-icon-us"></span>
+                                </li>
+                                <li class="dropdown">
+                                    <ul class="dropdown-menu">
+                                        <li class="hide">
+                                            <span data-flag="us" class="flag-icon flag-icon-us"></span>
+                                        </li>
+                                        <li>
+                                            <span data-flag="eu"  class="flag-icon flag-icon-eu"></span>
+                                        </li>
+                                        <li>
+                                            <span data-flag="za" class="flag-icon flag-icon-za"></span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="field form-group search-field" id="fields-search-field">
                             <form id="search-form" action="/local/search" method="POST">
                                 <div class="input ltr">
@@ -123,6 +143,7 @@
             </div>
         </div>
 
+        <input type="hidden" id="current_currency" name="current_currency" value=""/>
         <input type="hidden" id="current_url" name="current_url" value="{{ craft.request.firstSegment() }}"/>
     </header>
 
@@ -184,7 +205,7 @@
 </footer>
 <footer id="bottom">
     <div class="container">
-        <div class="row>
+        <div class="row">
             <div class="col-sm-12 mb-1 mt-1">
                 &copy; {{ now.year }} {{ siteName }}
                 <span class="pull-right">

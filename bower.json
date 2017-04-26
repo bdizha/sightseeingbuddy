@@ -35,7 +35,8 @@
     "matchHeight": "^0.7.2",
     "jquery-ui": "^1.12.1",
     "bootstrap-datepicker": "^1.6.4",
-    "blueimp-file-upload": "^9.18.0"
+    "blueimp-file-upload": "^9.18.0",
+    "flag-icon-css": "^2.8.0"
   },
   "devDependencies": {
     "parsleyjs": "^2.3.5",

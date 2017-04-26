@@ -1506,13 +1506,15 @@ section {
 
 #bottom {
   background: @gray-base;
-  color: @gray-light;
+  color: @gray-lighter;
   font-size: 13px;
-  a{
-    color: @gray-light;
-    &:hover,
-    &:focus {
-      color: @yellow;
+  .container {
+    a {
+      color: @gray-lighter;
+      &:hover,
+      &:focus {
+        color: @yellow;
+      }
     }
   }
 }
@@ -1784,6 +1786,43 @@ p {
     &:focus {
       .icon-bar {
         background-color: @yellow;
+      }
+    }
+  }
+
+  .flag-select {
+    position: absolute;
+    right: 258px;
+    top: 15px;
+    @media (max-width: @grid-float-breakpoint) {
+      right: 81px;
+      top: 37px;
+    }
+    .flag-nav {
+      span{
+        cursor: pointer;
+      }
+      margin-bottom: 0;
+      padding-left: 0;
+      list-style: none;
+      -webkit-margin-before: 0px;
+      -webkit-margin-after: 0px;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 0px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      float: right !important;
+      .selected{
+        padding-left: 15px;
+      }
+      .dropdown-menu {
+        min-width: 60px;
+        margin: 5px 0;
+        padding: 10px 0;
+        li {
+          padding: 0 15px;
+        }
       }
     }
   }

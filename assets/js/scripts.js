@@ -339,7 +339,7 @@ function HomeBanners() {
 
         if (searchBlock.length > 0) {
 
-            if(indexSlider.width() > 300) {
+            if (indexSlider.width() > 300) {
 
                 var sliderHeight = indexSlider.height();
                 var searchHeight = searchBlock.height();
@@ -386,6 +386,67 @@ function HeaderNav() {
             }
         });
     };
+}
+
+
+function SetCurrency() {
+    this.init = function () {
+
+        $.get("/local/currency", function (data) {
+            console.log("SetCurrency::::");
+            console.log(data.flag);
+
+            var currentCurrency = $("#current_currency");
+
+            if (data.flag === "gb") {
+                currentCurrency.val("GBP");
+            }
+            else if (data.flag === "us") {
+                currentCurrency.val("USD");
+            }
+            else if (data.flag === "eu") {
+                currentCurrency.val("EUR");
+            }
+            else {
+                currentCurrency.val("ZAR");
+            }
+
+            SelectCurrency(data.flag);
+        }, "json");
+
+// $.get("/local/booking/forex", {})
+//     .done(function (data) {
+//         console.log("Forex data::::");
+//         console.log(data);
+//     });
+
+        $(".dropdown .flag-icon").click(function () {
+            var flag = $(this).attr("data-flag");
+            SelectCurrency(flag);
+            $.get("/local/currency", {'flag': flag})
+                .done(function (data) {
+// do nothing here
+                });
+        });
+
+        $(".selected span").click(function () {
+            var dropDown = $(".flag-select .dropdown");
+
+            if (dropDown.hasClass("open")) {
+                $(".flag-select .dropdown").removeClass("open");
+            }
+            else {
+                $(".flag-select .dropdown").addClass("open");
+            }
+        });
+    };
+}
+
+function SelectCurrency(flag) {
+    $(".dropdown .flag-icon").parent().removeClass("hide");
+    $(".selected span").attr("class", "flag-icon flag-icon-" + flag);
+    $(".flag-select .dropdown").removeClass("open");
+    $(".dropdown .flag-icon-" + flag).addClass("hide");
 }
 
 function DatePicker() {
@@ -607,6 +668,8 @@ $(function () {
     (new HomeBanners).init();
 
     (new SelectColor).init();
+
+    (new SetCurrency).init();
 
     setHeightFor('.media-heading.same-height');
     setHeightFor('.media-media-summary.same-height');
