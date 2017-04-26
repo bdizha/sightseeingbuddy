@@ -1474,14 +1474,13 @@ section {
       }
       &.active {
         a {
-          color: @gray-base;
+          color: @white;
           background-color: transparent;
           text-decoration: none;
-          border-bottom: 1px solid @white;
           &:hover,
           &:focus {
-            color: @gray-base;
-            background-color: transparent;
+            color: @white;
+            background-color: transparent !important;
             text-decoration: none;
           }
         }
@@ -1501,6 +1500,19 @@ section {
       li {
         font-size: 14px;
       }
+    }
+  }
+}
+
+#bottom {
+  background: @gray-base;
+  color: @gray-light;
+  font-size: 13px;
+  a{
+    color: @gray-light;
+    &:hover,
+    &:focus {
+      color: @yellow;
     }
   }
 }

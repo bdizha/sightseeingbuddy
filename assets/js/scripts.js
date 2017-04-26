@@ -338,25 +338,29 @@ function HomeBanners() {
         var indexSlider = $(".index-slider");
 
         if (searchBlock.length > 0) {
-            var sliderHeight = indexSlider.height();
-            var searchHeight = searchBlock.height();
-            var heightDiff = parseFloat(sliderHeight) / 2 + parseFloat(searchHeight) / 2;
 
-            console.log("slider height: " + sliderHeight);
-            console.log("search height: " + searchHeight);
-            console.log("diff height: " + heightDiff);
-            searchBlock.css({
-                "top": "-" + (heightDiff + 20) + "px",
-                "visibility": "visible"
-            });
+            if(indexSlider.width() > 300) {
 
-            if (parseFloat(indexSlider.attr("data-height")) != sliderHeight) {
+                var sliderHeight = indexSlider.height();
+                var searchHeight = searchBlock.height();
+                var heightDiff = parseFloat(sliderHeight) / 2 + parseFloat(searchHeight) / 2;
 
+                console.log("slider height: " + sliderHeight);
+                console.log("search height: " + searchHeight);
+                console.log("diff height: " + heightDiff);
+                searchBlock.css({
+                    "top": "-" + (heightDiff + 20) + "px",
+                    "visibility": "visible"
+                });
+
+                if (parseFloat(indexSlider.attr("data-height")) != sliderHeight) {
+
+                }
+                indexSlider.attr("data-height", sliderHeight);
+                setTimeout(function () {
+                    (new HomeBanners).init();
+                }, 3000);
             }
-            indexSlider.attr("data-height", sliderHeight);
-            setTimeout(function () {
-                (new HomeBanners).init();
-            }, 3000);
         }
     }
 }

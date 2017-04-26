@@ -10217,15 +10217,14 @@ section #sidebar h2 {
   text-decoration: none;
 }
 .site-footer .nav-stacked > li.active a {
-  color: #3D3D3D;
+  color: #FFFFFF;
   background-color: transparent;
   text-decoration: none;
-  border-bottom: 1px solid #FFFFFF;
 }
 .site-footer .nav-stacked > li.active a:hover,
 .site-footer .nav-stacked > li.active a:focus {
-  color: #3D3D3D;
-  background-color: transparent;
+  color: #FFFFFF;
+  background-color: transparent !important;
   text-decoration: none;
 }
 .site-footer h2 {
@@ -10239,6 +10238,18 @@ section #sidebar h2 {
   .site-footer ul li {
     font-size: 14px;
   }
+}
+#bottom {
+  background: #3D3D3D;
+  color: #3D3D3D;
+  font-size: 13px;
+}
+#bottom a {
+  color: #3D3D3D;
+}
+#bottom a:hover,
+#bottom a:focus {
+  color: #FDBF0F;
 }
 .edit-this-page {
   font-size: 14px !important;
