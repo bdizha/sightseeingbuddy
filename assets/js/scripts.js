@@ -446,7 +446,7 @@ function SelectCurrency(flag) {
     $(".dropdown .flag-icon").parent().removeClass("hide");
     $(".selected span").attr("class", "flag-icon flag-icon-" + flag);
     $(".flag-select .dropdown").removeClass("open");
-    $(".dropdown .flag-icon-" + flag).addClass("hide");
+    $(".dropdown .flag-icon-" + flag).parent().addClass("hide");
 }
 
 function DatePicker() {
