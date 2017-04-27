@@ -35,7 +35,6 @@ class ExperienceController extends Controller
         try {
             $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
         } catch (\Exception $e) {
-            dd($e);
         }
 
         try {
