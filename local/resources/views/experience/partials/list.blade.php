@@ -11,9 +11,13 @@
                 <div class="media-footer">
                     {{ str_limit($experience->teaser, 29) }}
                     <span class="hidden-xs">
-                        | {{ $experience->pricing->per_person }} |
-                        {{ $experience->duration }}
-                        {{ $experience->units }}
+                        <span>|</span>
+                        <span class="data-currency" data-currency-base="{{ str_replace("R", "", $experience->pricing->per_person) }}">
+                            {{ $experience->pricing->per_person }}
+                        </span>
+                        <span>|</span>
+                        <span>{{ $experience->duration }}</span>
+                        <span>{{ $experience->units }}</span>
                     </span>
                     <a href="/local/experience/{{ $experience->slug }}" class="btn btn-default pull-right">View</a>
                     <div class="clear-both"></div>

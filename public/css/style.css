@@ -10511,6 +10511,9 @@ p {
 .navbar-default .flag-select .flag-nav .selected {
   padding-left: 15px;
 }
+.navbar-default .flag-select .flag-nav .selected span {
+  visibility: hidden;
+}
 .navbar-default .flag-select .flag-nav .dropdown-menu {
   min-width: 60px;
   margin: 5px 0;

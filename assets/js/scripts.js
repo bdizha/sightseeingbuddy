@@ -388,45 +388,36 @@ function HeaderNav() {
     };
 }
 
-
+var currencyRates = {};
 function SetCurrency() {
     this.init = function () {
 
-        $.get("/local/currency", function (data) {
-            console.log("SetCurrency::::");
-            console.log(data.flag);
+        var flag = $.cookie('flag');
 
-            var currentCurrency = $("#current_currency");
+        if(_.isUndefined(flag)){
+            flag = "za";
+        }
 
-            if (data.flag === "gb") {
-                currentCurrency.val("GBP");
-            }
-            else if (data.flag === "us") {
-                currentCurrency.val("USD");
-            }
-            else if (data.flag === "eu") {
-                currentCurrency.val("EUR");
-            }
-            else {
-                currentCurrency.val("ZAR");
-            }
+        console.log("Setting currency ::::");
+        console.log(flag);
 
-            SelectCurrency(data.flag);
+        SelectCurrency(flag);
+
+        $.get("/local/booking/forex", function (data) {
+
+            currencyRates = data.rates;
+            currencyRates["ZAR"] = 1;
+
+            // convert currency
+            ConvertCurrency();
+
+            console.log("Currency rates:::");
+            console.log(currencyRates);
         }, "json");
-
-// $.get("/local/booking/forex", {})
-//     .done(function (data) {
-//         console.log("Forex data::::");
-//         console.log(data);
-//     });
 
         $(".dropdown .flag-icon").click(function () {
             var flag = $(this).attr("data-flag");
             SelectCurrency(flag);
-            $.get("/local/currency", {'flag': flag})
-                .done(function (data) {
-// do nothing here
-                });
         });
 
         $(".selected span").click(function () {
@@ -442,11 +433,66 @@ function SetCurrency() {
     };
 }
 
+function ConvertCurrency() {
+
+    console.log("Currency length::::" + _.isEmpty(currencyRates));
+
+    if (!_.isEmpty(currencyRates)) {
+
+        var currencies = {
+            GBP: "&pound;",
+            USD: "&dollar;",
+            EUR: "&euro;",
+            ZAR: "R"
+        };
+
+        var currency = $("#current_currency").val();
+        var currencyRate = currencyRates[currency];
+
+        console.log("current currency:" + currency);
+        console.log(currencyRates);
+
+        console.log("Conversion rate: " + currencyRates[currency]);
+
+        $(".data-currency").each(function () {
+            var pricing = $(this).attr("data-currency-base");
+
+            var convertedPricing = parseFloat(pricing) * currencyRate;
+            var currencyPricing = currencies[currency];
+
+            $(this).html(currencyPricing + Math.round(convertedPricing));
+        });
+    }
+}
+
 function SelectCurrency(flag) {
+
+    // save this currency flag
+    $.cookie('flag', flag,  { expires: 365, path: '/' });
+
     $(".dropdown .flag-icon").parent().removeClass("hide");
-    $(".selected span").attr("class", "flag-icon flag-icon-" + flag);
+    $(".selected span").attr("class", "flag-icon flag-icon-" + flag).css({visibility: "visible"});
     $(".flag-select .dropdown").removeClass("open");
     $(".dropdown .flag-icon-" + flag).parent().addClass("hide");
+
+    var currentCurrency = $("#current_currency");
+
+    if (flag === "gb") {
+        currentCurrency.val("GBP");
+    }
+    else if (flag === "us") {
+        currentCurrency.val("USD");
+    }
+    else if (flag === "eu") {
+        currentCurrency.val("EUR");
+    }
+    else {
+        flag = 'za';
+        currentCurrency.val("ZAR");
+    }
+
+    // convert currency
+    ConvertCurrency();
 }
 
 function DatePicker() {
