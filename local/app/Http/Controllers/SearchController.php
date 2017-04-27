@@ -57,6 +57,15 @@ class SearchController extends Controller {
         $query->orderBy("teaser", "ASC");
         $experiences = $query->get();
 
+        foreach ($experiences as $key => $experience) {
+            try {
+                $experiences[$key]->cover_image = file_get_contents(url("/") . '/pages/imager?w=550&h=320&url=' . $experience->cover_image);
+            } catch (\Exception $e) {
+                $experience->cover_image = null;
+            }
+
+        }
+
         $categories = ExperienceCategory::where("level", "=", "main")->get();
 
         $user = Auth::user();

@@ -9751,21 +9751,6 @@ section #sidebar h2 {
 .profiles-block h3 {
   font-size: 21px;
 }
-.experience-block .carousel-caption .container .table-block .left-cell {
-  text-align: center;
-  padding-right: 0px;
-}
-.experience-block .carousel-caption .container .table-block .left-cell h1 {
-  font-weight: 900;
-  font-size: 45px;
-  text-transform: uppercase;
-  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
-}
-@media (max-width: 992px) {
-  .experience-block .carousel-caption .container .table-block .left-cell h1 {
-    font-size: 24px;
-  }
-}
 #page .profile h1 {
   text-align: center;
   font-weight: 900;

@@ -5,7 +5,7 @@
             <article class="media media-responsive same-height" data-mh="experience">
                 <div class="media-top pull-top">
                     <a href="/local/experience/{{ $experience->slug }}">
-                        <img class="media-object" src="{{ $experience->cover_image }}" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
+                        {!! $experience->cover_image !!}
                     </a>                
                 </div>
                 <div class="media-footer">

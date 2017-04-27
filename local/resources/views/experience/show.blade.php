@@ -5,9 +5,10 @@
    
     @include('experience.partials.header')
 
-    <div class="container-fluid experience-block">
+    <div class="index-slider">
         @include('experience.partials.carousel')
     </div>
+
     <div class="container profile experience-block gray-block mt-1" id='experience-info'>
 
         <h1 id="experiences">
@@ -26,7 +27,7 @@
                         </div>
                     </div>
                 </article>
-                <img class="media-object" src="{{ $experience->cover_image }}" alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
+                {!! $experience->cover_image !!}
             </div>
             <div class="col-sm-6 col-xs-12">
                 <div class="gray-bottom-border mt-1 mb-1"></div>

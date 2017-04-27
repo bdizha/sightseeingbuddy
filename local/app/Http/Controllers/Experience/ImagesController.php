@@ -52,8 +52,6 @@ class ImagesController extends ExperienceController
 
     private function save($experienceId, $request)
     {
-        $builder = new UrlBuilder("keepitlocal.imgix.net");
-
         $fields = [
             'image' => 'required|max:255',
             'images' => 'required'
@@ -63,35 +61,16 @@ class ImagesController extends ExperienceController
         $input = $request->all();
 
         $experience = Experience::find($experienceId);
-
-        if (strpos($input['image'], 'imgix') === false) {
-            $imGix = str_replace("/files/", "", $input['image']);
-            $params = array("w" => 550, "h" => 320, 'fit' => 'crop');
-            $experience->cover_image = $builder->createURL($imGix, $params);
-        }
+        $experience->cover_image = $input['image'];
         $experience->save();
 
         ExperienceGallery::where("experience_id", "=", $experienceId)->delete();
 
         foreach ($input['images'] as $image) {
-
-            if (strpos($input['image'], 'imgix') === false) {
-
-                $builder = new UrlBuilder("keepitlocal.imgix.net");
-                $imageName = str_replace("/files/", "", $image);
-                $params = array("w" => 1600, "h" => 300, 'fit' => 'crop');
-
-                ExperienceGallery::create([
-                    'experience_id' => $experienceId,
-                    'image' => $builder->createURL($imageName, $params)
-                ]);
-            }
-            else{
-                ExperienceGallery::create([
-                    'experience_id' => $experienceId,
-                    'image' => $image
-                ]);
-            }
+            ExperienceGallery::create([
+                'experience_id' => $experienceId,
+                'image' => $image
+            ]);
         }
 
         Session::flash('flash_message', 'Experience gallery successfully saved!');

@@ -74,9 +74,6 @@ class IntroductionController extends StepController {
     }
 
     private function save($user, $notifyUser, $request) {
-
-        $builder = new UrlBuilder("keepitlocal.imgix.net");
-
         $fields = [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -100,12 +97,6 @@ class IntroductionController extends StepController {
         $input = $request->all();
 
         $input['password'] = bcrypt($input['password']);
-
-        if (strpos($input['image'], 'imgix') === false) {
-            $imGix = str_replace("/files/", "", $input['image']);
-            $params = array("w" => 200, "h" => 200, 'fit' => 'crop');
-            $input['image'] = $builder->createURL($imGix, $params);
-        }
 
         $user->fill($input)->save();
 

@@ -10,7 +10,7 @@
                 My experiences offered
             </h1>
 
-            @include('profile.experience.list', ['experiences' => $user->experiences])
+            @include('profile.experience.list', ['experiences' => $experiences])
             <div class="clear-both"></div>
         </div>
     </section>

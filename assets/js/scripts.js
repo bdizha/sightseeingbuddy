@@ -249,6 +249,8 @@ function Vertilize() {
             remove: false
         };
 
+        console.log("resizing...");
+
         $('.same-height').matchHeight(options);
     };
 }

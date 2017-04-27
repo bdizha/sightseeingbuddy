@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Experience;
 use Carbon\Carbon;
+use Craft\Exception;
 
 class ExperienceController extends Controller
 {
@@ -19,9 +20,32 @@ class ExperienceController extends Controller
     {
         $experience = Experience::where('slug', '=', $slug)->first();
 
+        $gallery = [];
+        foreach ($experience->gallery as $key => $image) {
+            try {
+                $transformedImage = file_get_contents(url("/") . '/pages/imager?url=' . $image->image);
+                if ($transformedImage) {
+                    $gallery[] = $transformedImage;
+                }
+            } catch (\Exception $e) {
+            }
+        }
+
         $user = $experience->user;
+        try {
+            $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
+        } catch (\Exception $e) {
+            dd($e);
+        }
+
+        try {
+            $experience->cover_image = file_get_contents(url("/") . '/pages/imager?w=550&h=320&url=' . $experience->cover_image);
+        } catch (\Exception $e) {
+            $experience->cover_image = null;
+        }
         return view('experience.show', [
             'experience' => $experience,
+            'gallery' => $gallery,
             'user' => $user,
             'extras' => $this->getExras()
         ]);

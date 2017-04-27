@@ -1,21 +1,20 @@
 <div class="blog-list text-align-center">
-    <div class="row vertilize">
+    <div class="row">
         @foreach($experiences as $experience)
             <div class="col-md-3 col-sm-3 col-xs-6 col-xs-6-full">
                 <article class="media media-responsive same-height" data-mh="experience">
                     <div class="media-top pull-top">
                         <a href="/local/experience/{{ $experience->slug }}">
-                            <img class="media-object" src="{{ $experience->cover_image }}"
-                                 alt="{{ $experience->teaser }}" title="{{ $experience->teaser }}">
+                            {!! $experience->cover_image !!}
                         </a>
                     </div>
                     <div class="media-body">
-                        <h2 class="media-heading same-height" data-mh="experience-media-heading">
+                        <h2 class="media-heading" data-mh="experience-media-heading">
                             <a href="/local/experience/{{ $experience->slug }}">
                                 {{ str_limit($experience->teaser, 35) }}
                             </a>
                         </h2>
-                        <div class="media-summary same-height" data-mh="experience-media-summary">
+                        <div class="media-summary" data-mh="experience-media-summary">
                             {{ str_limit($experience->description) }}
                         </div>
                         <div class="readmore mt-1">
