@@ -7,7 +7,7 @@
     { width: width, height: height }
     ] %}
 
-    {% set transformedImage = craft.imager.transformImage('http://local.dev' ~ imageUrl, thumb, {
+    {% set transformedImage = craft.imager.transformImage(siteUrl ~ imageUrl, thumb, {
     ratio: width == height ? 1 : 5/3,
     mode: 'crop',
     cropZoom: 1,
@@ -24,7 +24,7 @@
     { width: 800 }
     ] %}
 
-    {% set transformedImage = craft.imager.transformImage('http://local.dev' ~ imageUrl, thumb, {
+    {% set transformedImage = craft.imager.transformImage(siteUrl ~ imageUrl, thumb, {
     ratio: 16/5,
     mode: 'crop',
     cropZoom: 1,
