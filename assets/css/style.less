@@ -800,6 +800,9 @@ section {
       width: 150px;
       height: 150px;
       border-radius: 50%;
+      &.media-object {
+        display: inline-block;
+      }
     }
   }
 
@@ -1008,13 +1011,14 @@ section {
     }
     @media (max-width: @grid-float-breakpoint) {
       h1 {
-        font-size: 19px;
+        font-size: 26px;
         text-align: center;
+        margin-bottom: 20px;
       }
 
       h2 {
-        font-size: 21px;
-        line-height: 21px;
+        font-size: 23px;
+        line-height: 23px;
       }
 
       .profile-picture {
@@ -1570,6 +1574,11 @@ p {
 
 .btn {
   outline: none;
+  &:focus,
+  &:hover{
+    outline: none;
+    outline-offset: 0;
+  }
 }
 
 .btn-height {
@@ -1735,14 +1744,14 @@ p {
       font-size: 14px;
       height: 27px;
       width: 204px;
+      @media (max-width: @grid-float-breakpoint) {
+        width: 100%;
+      }
     }
     @media (min-width: @grid-float-breakpoint) {
       position: absolute;
       right: 30px;
       top: 15px;
-      .form-control {
-        width: 100%;
-      }
     }
     .fa-search {
       position: absolute;
@@ -1774,7 +1783,7 @@ p {
       top: 37px;
     }
     .flag-nav {
-      span{
+      span {
         cursor: pointer;
       }
       margin-bottom: 0;
@@ -1788,9 +1797,9 @@ p {
       padding-bottom: 0px;
       margin-top: 0px;
       float: right !important;
-      .selected{
+      .selected {
         padding-left: 15px;
-        span{
+        span {
           visibility: hidden;
         }
       }
@@ -2318,6 +2327,13 @@ a.thumbnail:hover, a.thumbnail:active {
           line-height: 79px;
           margin-top: 0;
           text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
+          @media (max-width: @grid-float-breakpoint-max) {
+            font-size: 28px;
+            line-height: 28px;
+            margin-top: -40px;
+            padding-top: 0;
+            width: 100%;
+          }
         }
       }
       .right-cell {
@@ -2331,36 +2347,17 @@ a.thumbnail:hover, a.thumbnail:active {
       }
     }
   }
+  @media (max-width: @grid-float-breakpoint-max) {
+    top: 35px;
+    // Move up the indicators
+    .carousel-indicators {
+      bottom: 20px;
+    }
+  }
 }
 
 .inline {
   display: inline-block;
-}
-
-// Scale up controls for tablets and up
-@media (max-width: @grid-float-breakpoint-max) {
-  .carousel-caption {
-    top: 35px;
-    .container {
-      font-weight: 900;
-      font-size: 28px;
-      text-transform: uppercase;
-      padding: 20px;
-      line-height: 24px;
-      h1 {
-        font-size: 28px;
-        line-height: 28px;
-        margin-top: 0;
-        padding-top: 0;
-        width: 100%;
-      }
-    }
-  }
-
-  // Move up the indicators
-  .carousel-indicators {
-    bottom: 20px;
-  }
 }
 
 // jquery upload

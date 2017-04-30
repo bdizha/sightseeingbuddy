@@ -84,6 +84,11 @@ class BookingController extends Controller
             $bookingsQuery->where("local_id", "=", $user->id);
         }
 
+        try {
+            $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
+        } catch (\Exception $e) {
+        }
+
         return view('booking.index', [
             'bookings' => $bookingsQuery->get(),
             'user' => $user

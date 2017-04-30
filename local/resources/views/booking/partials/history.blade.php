@@ -78,7 +78,7 @@
                         </div>
                         <div class="booking-row">
                             <h4>Price per guest:</h4>
-                            <h3>R{{ $experience->pricing->per_person }}</h3>
+                            <h3>R{{ str_replace("R", "", $experience->pricing->per_person) }}</h3>
                         </div>
                         <div class="booking-row">
                             <h4>Grand total:</h4>

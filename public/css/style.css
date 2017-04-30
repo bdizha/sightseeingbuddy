@@ -9654,6 +9654,9 @@ section #sidebar h2 {
   height: 150px;
   border-radius: 50%;
 }
+#page .profile-picture img.media-object {
+  display: inline-block;
+}
 #page .page-title {
   text-align: center;
   margin-top: 36px;
@@ -9823,12 +9826,13 @@ section #sidebar h2 {
 }
 @media (max-width: 992px) {
   #page .profile h1 {
-    font-size: 19px;
+    font-size: 26px;
     text-align: center;
+    margin-bottom: 20px;
   }
   #page .profile h2 {
-    font-size: 21px;
-    line-height: 21px;
+    font-size: 23px;
+    line-height: 23px;
   }
   #page .profile .profile-picture {
     vertical-align: top;
@@ -10302,6 +10306,11 @@ p {
 .btn {
   outline: none;
 }
+.btn:focus,
+.btn:hover {
+  outline: none;
+  outline-offset: 0;
+}
 .btn-height {
   line-height: 40px;
   text-transform: uppercase;
@@ -10442,14 +10451,16 @@ p {
   height: 27px;
   width: 204px;
 }
+@media (max-width: 992px) {
+  .navbar-default .search-field .form-control {
+    width: 100%;
+  }
+}
 @media (min-width: 992px) {
   .navbar-default .search-field {
     position: absolute;
     right: 30px;
     top: 15px;
-  }
-  .navbar-default .search-field .form-control {
-    width: 100%;
   }
 }
 .navbar-default .search-field .fa-search {
@@ -11001,6 +11012,15 @@ a.thumbnail:active {
   margin-top: 0;
   text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
 }
+@media (max-width: 991px) {
+  .carousel-caption .container .table-block .left-cell h1 {
+    font-size: 28px;
+    line-height: 28px;
+    margin-top: -40px;
+    padding-top: 0;
+    width: 100%;
+  }
+}
 .carousel-caption .container .table-block .right-cell {
   height: 100%;
   display: table-cell;
@@ -11010,30 +11030,16 @@ a.thumbnail:active {
 .carousel-caption .container .table-block .right-cell form {
   visibility: hidden;
 }
-.inline {
-  display: inline-block;
-}
 @media (max-width: 991px) {
   .carousel-caption {
     top: 35px;
   }
-  .carousel-caption .container {
-    font-weight: 900;
-    font-size: 28px;
-    text-transform: uppercase;
-    padding: 20px;
-    line-height: 24px;
-  }
-  .carousel-caption .container h1 {
-    font-size: 28px;
-    line-height: 28px;
-    margin-top: 0;
-    padding-top: 0;
-    width: 100%;
-  }
-  .carousel-indicators {
+  .carousel-caption .carousel-indicators {
     bottom: 20px;
   }
+}
+.inline {
+  display: inline-block;
 }
 .fileupload-buttonbar .btn,
 .fileupload-buttonbar .toggle {
