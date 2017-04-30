@@ -197,13 +197,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 mb-1 mt-1">
-            &copy; 2017 Keep It Local
-            <span class="pull-right">
-                Powered by
-                <a class="text-white" href="http://www.interseed.co.za" target="_blank">Interseed</a>
-            </span>
-        </div>
     </div>
 </footer>
 <footer id="bottom">

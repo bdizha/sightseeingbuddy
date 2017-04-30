@@ -1300,13 +1300,6 @@ section {
   }
 }
 
-.nav > li > a {
-  &:hover,
-  &:focus {
-    background-color: transparent !important;
-  }
-}
-
 .profile-nav {
   margin-bottom: 0;
   padding-left: 0;
@@ -1640,7 +1633,7 @@ p {
     .input-group {
       background: @white;
       padding-left: 45px;
-      border-radius: 5px;
+      border-radius: 10px;
       border: 1px solid @gray-base;;
       height: 60px;
       .form-control {
@@ -1738,14 +1731,18 @@ p {
 .navbar-default {
   .search-field {
     position: relative;
+    .form-control {
+      font-size: 14px;
+      height: 27px;
+      width: 204px;
+    }
     @media (min-width: @grid-float-breakpoint) {
       position: absolute;
       right: 30px;
       top: 15px;
-    }
-    .form-control {
-      font-size: 14px;
-      height: 27px;
+      .form-control {
+        width: 100%;
+      }
     }
     .fa-search {
       position: absolute;
@@ -1975,6 +1972,12 @@ p {
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+  &:hover,
+  &:focus {
+    color: @white;
+    background-color: @gray-base;
+    border-color: @gray-base;
+  }
   &.btn-lg {
     padding: 10px 15px;
     font-size: 27px;

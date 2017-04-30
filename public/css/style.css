@@ -4524,7 +4524,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: gray-base;
+  color: #3D3D3D;
   background-color: #FDBF0F;
 }
 .navbar-default .navbar-nav > .disabled > a,
@@ -4551,7 +4551,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: #FDBF0F;
-  color: gray-base;
+  color: #3D3D3D;
 }
 @media (max-width: 991px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -4565,7 +4565,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: gray-base;
+    color: #3D3D3D;
     background-color: #FDBF0F;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
@@ -10075,10 +10075,6 @@ section #sidebar h2 {
   background-color: transparent;
   text-decoration: none;
 }
-.nav > li > a:hover,
-.nav > li > a:focus {
-  background-color: transparent !important;
-}
 .profile-nav {
   margin-bottom: 0;
   padding-left: 0;
@@ -10354,7 +10350,7 @@ p {
 .search-form .form-group .input-group {
   background: #FFFFFF;
   padding-left: 45px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #3D3D3D;
   height: 60px;
 }
@@ -10441,16 +10437,20 @@ p {
 .navbar-default .search-field {
   position: relative;
 }
+.navbar-default .search-field .form-control {
+  font-size: 14px;
+  height: 27px;
+  width: 204px;
+}
 @media (min-width: 992px) {
   .navbar-default .search-field {
     position: absolute;
     right: 30px;
     top: 15px;
   }
-}
-.navbar-default .search-field .form-control {
-  font-size: 14px;
-  height: 27px;
+  .navbar-default .search-field .form-control {
+    width: 100%;
+  }
 }
 .navbar-default .search-field .fa-search {
   position: absolute;
@@ -10664,6 +10664,12 @@ p {
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+}
+.btn-yellow:hover,
+.btn-yellow:focus {
+  color: #FFFFFF;
+  background-color: #3D3D3D;
+  border-color: #3D3D3D;
 }
 .btn-yellow.btn-lg {
   padding: 10px 15px;

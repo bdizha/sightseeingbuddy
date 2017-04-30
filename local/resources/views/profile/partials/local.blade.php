@@ -66,7 +66,7 @@
                     @if(Auth::guest() OR $user->id != Auth::user()->id)
                         <a href="" onclick="window.history.go(-1); return false;" class="btn btn-primary pull-right fullwidth">Back</a>
                     @else
-                        <a href="#experiences" class="btn btn-primary pull-right fullwidth">My Experiences</a>
+                        <a href="{{ url('/local/profile/' . $user->username) }}#experiences" class="btn btn-primary pull-right fullwidth">My Experiences</a>
                     @endif
                 </div>
             </div>

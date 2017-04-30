@@ -43,14 +43,14 @@
                         <a href="/local/profile/{{ $experience->user->username }}"
                            class="btn btn-primary fullwidth">Hosts experiences</a>
                     @else
-                        <a href="/local/experience/{{ $experience->slug }}" class="btn btn-primary fullwidth">Information</a>
+                        <a href="/local/experience/{{ $experience->slug }}#experiences" class="btn btn-primary fullwidth">Information</a>
                     @endif
                 </div>
                 <div class="col-sm-6 col-xs-6">
                     @if(Auth::guest() OR $experience->user->id != Auth::user()->id)
                         <a href="" onclick="window.history.go(-1); return false;" class="btn btn-primary fullwidth">Back</a>
                     @else
-                        <a href="#experiences" class="btn btn-primary fullwidth pull-right">My Experiences</a>
+                        <a href="{{ url('/local/profile/' . $user->username) }}#experiences" class="btn btn-primary fullwidth pull-right">My Experiences</a>
                     @endif
                 </div>
             </div>
