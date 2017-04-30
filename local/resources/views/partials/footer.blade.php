@@ -5,11 +5,11 @@
             <div class="col-md-4">
                 <h2>Connect with us</h2>
                 <div class="socials-block">
-                    <a class="share-btn"><i class="fa fa-facebook"></i></a>
-                    <a class="share-btn"><i class="fa fa-twitter"></i></a>
-                    <a class="share-btn"><i class="fa fa-instagram"></i></a>
-                    <a class="share-btn"><i class="fa fa-google-plus"></i></a>
-                    <a class="share-btn"><i class="fa fa-youtube"></i></a>
+                    <a class="share-btn external-link" target="_blank" href="https://www.facebook.com/keepitlocal.co.za"><i class="fa fa-facebook"></i></a>
+                    <a class="share-btn external-link" target="_blank" href="https://twitter.com/KeepitLocalSA"><i class="fa fa-twitter"></i></a>
+                    <a class="share-btn" target="_blank" href=""><i class="fa fa-youtube"></i></a>
+                    <a class="share-btn" target="_blank" href=""><i class="fa fa-google-plus"></i></a>
+                    <a class="share-btn external-link" target="_blank" href="https://za.pinterest.com/keepitlocal0665"><i class="fa fa-pinterest"></i></a>
                     <a class="share-btn"><i class="fa fa-skype"></i></a>
                 </div>
                 <h2>Sign up to our newsletter</h2>
