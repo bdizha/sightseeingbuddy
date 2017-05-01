@@ -10333,9 +10333,9 @@ p {
 }
 .btn-height:hover,
 .btn-height:focus {
-  color: #3D3D3D;
-  background-color: #FDBF0F;
-  border-color: #FDBF0F;
+  color: #FFFFFF;
+  background-color: #3D3D3D;
+  border-color: #3D3D3D;
   outline: none;
 }
 .search-block {
