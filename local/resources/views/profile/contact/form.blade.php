@@ -1,5 +1,5 @@
 {!! csrf_field() !!}
-@include('partials.errors')
+@include('partials.newsletter')
 <div class="jobWhite">
     <div class="inputRow inputTable{{ $errors->has('city') ? ' hasError' : '' }}">
         {!! Form::label('city', 'City', ['class' => 'inputLabel']) !!}

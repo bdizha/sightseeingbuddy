@@ -10,7 +10,7 @@
                 'method' => 'PATCH',
                 'route' => ['email.update', $user->id]
                 ]) !!}
-                @include('partials.errors')
+                @include('partials.newsletter')
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="pub-row pub-margin-bottom">
                     {!! Form::label('news', 'News', ['class' => 'pub-label']) !!}

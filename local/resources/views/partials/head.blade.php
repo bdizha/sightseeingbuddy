@@ -11,9 +11,9 @@
     <meta property="og:description" content="" />
     <meta itemprop="description" content="">
     <!-- Image -->
-    <meta property="og:image" content="http://keepitlocal.dev/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png"/>
-    <meta itemprop="image" content="http://keepitlocal.dev/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png">
-    <link rel="image_src" href="http://keepitlocal.dev/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png"/>
+    <meta property="og:image" content=/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png"/>
+    <meta itemprop="image" content=/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png">
+    <link rel="image_src" href=/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png"/>
     <link rel="author" href="">
     <script>
         window.socialPlatforms = {"twitter": "", "facebook": "", "youtube": "", "google": "", "pinterest": ""};
@@ -33,5 +33,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">    
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="/cpresources/lib/redactor/redactor.css?d=1491941552">
 </head>

@@ -10,7 +10,7 @@
                 'method' => 'PATCH',
                 'route' => ['settings.update', $user->id]
                 ]) !!}
-                @include('partials.errors')
+                @include('partials.newsletter')
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="id" value="{{ $user->id }}">
                 <div class="pub-row pub-margin-bottom">

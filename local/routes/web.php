@@ -48,6 +48,7 @@ Route::group(['prefix' => 'local'], function () {
 
     Route::patch('/upload/image', 'Step\IntroductionController@upload');
     Route::post('/upload/image', 'Step\IntroductionController@upload');
+    Route::post('/newsletter', 'Controller@newsletter');
 
     Route::get('/date/{timestamp}', 'ExperienceController@date');
 

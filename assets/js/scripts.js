@@ -396,7 +396,7 @@ function SetCurrency() {
 
         var flag = $.cookie('flag');
 
-        if(_.isUndefined(flag)){
+        if (_.isUndefined(flag)) {
             flag = "za";
         }
 
@@ -470,7 +470,7 @@ function ConvertCurrency() {
 function SelectCurrency(flag) {
 
     // save this currency flag
-    $.cookie('flag', flag,  { expires: 365, path: '/' });
+    $.cookie('flag', flag, {expires: 365, path: '/'});
 
     $(".dropdown .flag-icon").parent().removeClass("hide");
     $(".selected span").attr("class", "flag-icon flag-icon-" + flag).css({visibility: "visible"});
@@ -613,6 +613,51 @@ function UIModal() {
     };
 }
 
+
+function Newsletter() {
+    this.init = function () {
+        var newsletterUrl = "/local/newsletter";
+        var newsletterGroup = $("#newsletter-group");
+        var newsletterGroupLabel = $("#newsletter-group .control-label");
+        var newsletterGroupAlert = $("#newsletter-group .newsletter-alert");
+
+        $("#newsletter_email").keypress(function (event) {
+
+            console.log("Submitting newsletter subscription...");
+
+            if (event.which == 13) {
+                console.log("Pressed the enter button...");
+                $.ajax({
+                    type: 'post',
+                    data: {email: $(this).val()},
+                    url: newsletterUrl,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log("Success....");
+                        newsletterGroup.removeClass("has-error");
+                        newsletterGroupLabel.addClass("hide");
+                        newsletterGroupAlert.removeClass("hide");
+                        $("#newsletter_email").addClass("hide");
+                    },
+                    error: function (response) {
+                        var data = JSON.stringify(response);
+                        var json = $.parseJSON(data);
+                        console.log(response);
+                        console.log(json.responseJSON);
+                        newsletterGroup.addClass("has-error");
+
+                        newsletterGroupLabel.html(json.responseJSON.email);
+                        newsletterGroupLabel.removeClass("hide");
+                        newsletterGroupAlert.addClass("hide");
+                    }
+                });
+
+                console.log("Done with submission...");
+            }
+        });
+    };
+}
+
 function FileUpload() {
     this.init = function () {
         // Change this to the location of your server-side upload handler:
@@ -718,6 +763,8 @@ $(function () {
     (new SelectColor).init();
 
     (new SetCurrency).init();
+
+    (new Newsletter).init();
 
     setHeightFor('.media-heading.same-height');
     setHeightFor('.media-media-summary.same-height');

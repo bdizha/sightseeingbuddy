@@ -38,7 +38,8 @@
     "blueimp-file-upload": "^9.18.0",
     "flag-icon-css": "^2.8.0",
     "jquery.cookie": "^1.4.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "bower-redactor": "^10.2.6"
   },
   "devDependencies": {
     "parsleyjs": "^2.3.5",

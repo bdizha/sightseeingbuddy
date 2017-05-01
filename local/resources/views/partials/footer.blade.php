@@ -13,9 +13,13 @@
                     <a class="share-btn"><i class="fa fa-skype"></i></a>
                 </div>
                 <h2>Sign up to our newsletter</h2>
-                <div class="form-group">
-                    <input class="text form-control fullwidth" type="text" id="newsletter-email"
-                           name="newsletter-email" value="" required autocomplete="off"
+                <div id="newsletter-group" class="form-group">
+                    <label class="control-label hide" id="errorEmail" for="newsletter_email">Invalid email.</label>
+                    <div class="newsletter-alert hide">
+                        You've successfully subscribed to our newsletter!
+                    </div>
+                    <input class="text form-control fullwidth" type="text" id="newsletter_email"
+                           name="newsletter_email" value="" required autocomplete="off"
                            placeholder="Please enter your email address...">
                 </div>
             </div>
@@ -212,3 +216,9 @@
         </div>
     </div>
 </footer>
+<script type="text/javascript" src="/cpresources/lib/redactor/redactor.js?d=1491941552"></script>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $('.redactor-input').redactor();
+    /*]]>*/
+</script>

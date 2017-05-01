@@ -172,7 +172,7 @@
                             @endif
                             <div class="input-group">
                                 <label class="control-label" for="mobile">Description</label>
-                                {{ Form::textarea('description', $user->description, ['class' => 'form-control fullwidth', 'required' => true, 'placeholder' => 'More detailed description of yourself']) }}
+                                {{ Form::textarea('description', $user->description, ['class' => 'form-control fullwidth redactor-input', 'required' => true, 'placeholder' => 'More detailed description of yourself']) }}
                             </div>
                         </div>
                     </div>

@@ -155,7 +155,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="country">Your experience description</label>
-                            {{ Form::textarea('description', $experience->description, ['rows' => 5, 'class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Detailed description of your experience*']) }}
+                            {{ Form::textarea('description', $experience->description, ['rows' => 5, 'class' => 'form-control fullwidth redactor-input','required' => true, 'placeholder' => 'Detailed description of your experience*']) }}
                         </div>
                     </div>
                 </div>

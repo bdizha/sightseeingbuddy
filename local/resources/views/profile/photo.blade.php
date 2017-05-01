@@ -11,7 +11,7 @@
                 'route' => ['photo.update', $user->id],
                 'files' => true
                 ]) !!}
-                @include('partials.errors')
+                @include('partials.newsletter')
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="pub-row pub-margin-bottom">
                     @if ($user->media)
