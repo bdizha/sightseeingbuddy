@@ -44,9 +44,8 @@
             <div class='row mt-1'>
                 <div class="col-sm-12 col-xs-12">
                     @if(Auth::guest() OR $user->id != Auth::user()->id)
-                        <button class="btn btn-lg btn-yellow fullwidth mb-1">
-                            Contact Host
-                        </button>
+                        <a href="{{ route('search') }}"
+                           class="btn btn-lg btn-yellow fullwidth mb-1">Find a local</a>
                     @else
                         <a href="{{ route('info.create') }}" class="btn btn-lg btn-yellow fullwidth mb-1">
                             Create new experience
@@ -55,8 +54,8 @@
                 </div>
                 <div class="col-sm-6 col-xs-6">
                     @if(Auth::guest() OR $user->id != Auth::user()->id)
-                        <a href="{{ route('search') }}"
-                           class="btn btn-primary fullwidth">Find a local</a>
+                        <a href="#experiences"
+                           class="btn btn-primary fullwidth">Experiences</a>
                     @else
                         <a href="{{ route('introduction.edit', ["id" => Auth::user()->id]) }}"
                            class="btn btn-primary fullwidth">Edit Profile</a>
