@@ -87,7 +87,7 @@
                             <input type="submit" class="btn btn-yellow"
                                    value="Sign Up & @if($currentType == 'local') Become a local @else Find a Local @endif "/>
                         </div>
-                        <div class="col-sm-4 col-xs-12">
+                        <div class="col-sm-5 col-xs-12">
                             <a href="{{ route('login') }}" class="btn-height">Already have an account?</a>
                         </div>
                     </div>

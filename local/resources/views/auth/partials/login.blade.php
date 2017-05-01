@@ -25,10 +25,10 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-4 col-xs-12">
+                        <div class="col-sm-3 col-xs-12">
                             <input type="submit" class="btn btn-yellow" value="Log In"/>
                         </div>
-                        <div class="col-sm-4 col-xs-12">
+                        <div class="col-sm-5 col-xs-12">
                             <a href="{{ route('register') }}" class="btn-height">Don't have an account?</a>
                         </div>
                     </div>
