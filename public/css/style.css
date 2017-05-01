@@ -9950,12 +9950,16 @@ section #sidebar h2 {
   background: #FDBF0F;
   font-weight: 900;
   padding: 16px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 40px;
 }
 @media (max-width: 992px) {
   #page .search-list .media .media-footer {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  #page .search-list .media .media-footer .btn-default {
+    padding: 5px 12px;
+    font-size: 12px;
   }
 }
 .booking-row h3 {
