@@ -1598,12 +1598,33 @@ p {
   border-color: transparent;
   background-color: transparent;
   display: inline-block;
+  margin-left: 10px;
   &:hover,
   &:focus {
     color: @white;
     background-color: @gray-base;
     border-color: @gray-base;
     outline: none;
+  }
+  @media (max-width: @grid-float-breakpoint) {
+    margin-top: 15px;
+  }
+}
+
+.password-group {
+  position: relative;
+  input {
+    padding-right: 75px;
+  }
+  .password-eye {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 1px;
+    width: 66px;
+    height: 33px;
+    background: url(/images/password-eye.png) no-repeat;
+    background-size: 75%;
   }
 }
 

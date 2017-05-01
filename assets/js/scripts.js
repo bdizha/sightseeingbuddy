@@ -613,6 +613,20 @@ function UIModal() {
     };
 }
 
+function TogglePassword() {
+    this.init = function () {
+        $(".password-eye").click(function () {
+            var passwordInput = $(this).siblings("input");
+            if(passwordInput.attr("type") == "text"){
+                passwordInput.attr("type", "password");
+            }
+            else{
+                passwordInput.attr("type", "text");
+            }
+        });
+    };
+}
+
 
 function Newsletter() {
     this.init = function () {
@@ -765,6 +779,8 @@ $(function () {
     (new SetCurrency).init();
 
     (new Newsletter).init();
+
+    (new TogglePassword).init();
 
     setHeightFor('.media-heading.same-height');
     setHeightFor('.media-media-summary.same-height');

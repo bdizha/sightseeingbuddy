@@ -39,7 +39,7 @@
                                    required placeholder="Your email address*">
                         </div>
                     </div>
-                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}" >
+                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
                         <div class="col-sm-8 col-xs-12">
                             @if ($errors->has('country_id'))
                                 <label class="control-label"
@@ -57,8 +57,13 @@
                             @if ($errors->has('password'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
                             @endif
-                            <input class="form-control fullwidth" type="password" id="fields-password" name="password"
-                                   value="{{ old('password') }}" autocomplete="off" required placeholder="Your password*">
+                            <div class="password-group">
+                                <input class="form-control fullwidth" type="password" id="fields-password"
+                                       name="password"
+                                       value="{{ old('password') }}" autocomplete="off" required
+                                       placeholder="Your password*"/>
+                                <div class="password-eye"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}"
@@ -68,26 +73,29 @@
                                 <label class="control-label"
                                        for="inputError1">{{ $errors->first('password_confirmation') }}</label>
                             @endif
-                            <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
-                                   name="password_confirmation" value="{{ old('password_confirmation') }}" autocomplete="off"
-                                   required placeholder="Confirm password*">
+                            <div class="password-group">
+                                <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
+                                       name="password_confirmation" value="{{ old('password_confirmation') }}"
+                                       autocomplete="off"
+                                       required placeholder="Confirm password*"/>
+                                <div class="password-eye"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-8 col-xs-12">
                             <small>
                                 By creating an account, you confirm that you've read and accept our
-                                <a href="/pages/terms-conditions" class="text-bold" target="_blank">Terms & Conditions</a> and
+                                <a href="/pages/terms-conditions" class="text-bold" target="_blank">Terms &
+                                    Conditions</a> and
                                 <a href="/pages/privacy-policy" class="text-bold" target="_blank">Privacy Policy</a>
                             </small>
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-4 col-xs-12">
+                        <div class="col-sm-9 col-xs-12">
                             <input type="submit" class="btn btn-yellow"
                                    value="Sign Up & @if($currentType == 'local') Become a local @else Find a Local @endif "/>
-                        </div>
-                        <div class="col-sm-5 col-xs-12">
                             <a href="{{ route('login') }}" class="btn-height">Already have an account?</a>
                         </div>
                     </div>
