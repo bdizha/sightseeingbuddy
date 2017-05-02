@@ -42,4 +42,13 @@ class Controller extends BaseController
         echo "true";
         exit();
     }
+
+    protected function getImage($path)
+    {
+        try {
+            return file_get_contents(url("/") . $path);
+        } catch (\Exception $e) {
+            return "";
+        }
+    }
 }

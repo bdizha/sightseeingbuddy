@@ -34,17 +34,11 @@ class InfoController extends Controller
             $user->save();
         }
 
-        try {
-            $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
-        } catch (\Exception $e) {
-        }
+        $user->image = $this->getImage( '/pages/imager?w=200&h=200&url=' . $user->image);
 
         $experiences = $user->experiences;
         foreach ($experiences as $key => $experience) {
-            try {
-                $experiences[$key]->cover_image = file_get_contents(url("/") . '/pages/imager?w=550&h=320&url=' . $experience->cover_image);
-            } catch (\Exception $e) {
-            }
+            $experiences[$key]->cover_image = $this->getImage( '/pages/imager?w=550&h=320&url=' . $experience->cover_image);
         }
 
         if ($user) {

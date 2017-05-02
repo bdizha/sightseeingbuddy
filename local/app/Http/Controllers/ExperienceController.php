@@ -23,7 +23,7 @@ class ExperienceController extends Controller
         $gallery = [];
         foreach ($experience->gallery as $key => $image) {
             try {
-                $transformedImage = file_get_contents(url("/") . '/pages/imager?url=' . $image->image);
+                $transformedImage = $this->getImage('/pages/imager?url=' . $image->image);
                 if ($transformedImage) {
                     $gallery[] = $transformedImage;
                 }
@@ -32,16 +32,9 @@ class ExperienceController extends Controller
         }
 
         $user = $experience->user;
-        try {
-            $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
-        } catch (\Exception $e) {
-        }
+        $user->image = $this->getImage('/pages/imager?w=200&h=200&url=' . $user->image);
+        $experience->cover_image = $this->getImage('/pages/imager?w=550&h=320&url=' . $experience->cover_image);
 
-        try {
-            $experience->cover_image = file_get_contents(url("/") . '/pages/imager?w=550&h=320&url=' . $experience->cover_image);
-        } catch (\Exception $e) {
-            $experience->cover_image = null;
-        }
         return view('experience.show', [
             'experience' => $experience,
             'gallery' => $gallery,
@@ -55,6 +48,8 @@ class ExperienceController extends Controller
         $experience = Experience::where('id', '=', $id)->first();
 
         $user = $experience->user;
+        $user->image = $this->getImage('/pages/imager?w=200&h=200&url=' . $user->image);
+
         return view('experience.schedule', [
             'experience' => $experience,
             'user' => $user

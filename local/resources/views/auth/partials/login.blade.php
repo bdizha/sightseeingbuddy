@@ -27,12 +27,12 @@
                     <div class="row form-group">
                         <div class="col-sm-8 col-xs-12">
                             <input type="submit" class="btn btn-yellow" value="Log In"/>
-                            <a href="{{ route('register') }}" class="btn-height">Don't have an account?</a>
+                            <a href="{{ route('register') }}" class="btn-height mt-xs-1">Don't have an account?</a>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-4 col-xs-12">
-                            <a href="{{ url('/local/password/reset') }}" class="btn-height">Forgot password?</a>
+                            <a href="{{ url('/local/password/reset') }}" class="btn-height mt-xs-1">Forgot password?</a>
                         </div>
                     </div>
                 </form>

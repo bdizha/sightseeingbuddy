@@ -28,6 +28,17 @@
                     </div>
                 </article>
                 {!! $experience->cover_image !!}
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 mt-1">
+                        @if(Auth::guest() OR $experience->user->id != Auth::user()->id)
+                            <a href="/local/experience/{{ $experience->id }}/schedule"
+                               class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
+                        @else
+                            <a href="/local/info/{{ $experience->id }}/edit"
+                               class="btn btn-lg btn-yellow fullwidth mb-1">Edit experience</a>
+                        @endif
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6 col-xs-12">
                 <div class="gray-bottom-border mt-1 mb-1"></div>
