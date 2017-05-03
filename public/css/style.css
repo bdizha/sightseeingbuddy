@@ -9968,15 +9968,24 @@ section #sidebar h2 {
   padding: 16px;
   font-size: 17px;
   line-height: 40px;
+  position: relative;
 }
 @media (max-width: 992px) {
   #page .search-list .media .media-footer {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 32px;
   }
   #page .search-list .media .media-footer .btn-default {
     padding: 5px 12px;
     font-size: 12px;
+  }
+}
+@media (max-width: 650px) {
+  #page .search-list .media .media-footer .pull-right {
+    position: absolute;
+    bottom: 77px;
+    right: 15px;
+    background: #FDBF0F;
   }
 }
 .booking-row h3 {

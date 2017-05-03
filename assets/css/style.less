@@ -1170,12 +1170,21 @@ section {
         padding: 16px;
         font-size: 17px;
         line-height: 40px;
+        position: relative;
         @media (max-width: @grid-float-breakpoint) {
-          font-size: 14px;
+          font-size: 13px;
           line-height: 32px;
           .btn-default {
             padding: 5px 12px;
             font-size: 12px;
+          }
+        }
+        @media (max-width: 650px) {
+          .pull-right{
+            position: absolute;
+            bottom: 77px;
+            right: 15px;
+            background: @yellow;
           }
         }
       }
