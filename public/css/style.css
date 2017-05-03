@@ -9987,6 +9987,9 @@ section #sidebar h2 {
     right: 15px;
     background: #FDBF0F;
   }
+  #page .search-list .media .media-footer .pull-right.btn-default {
+    border-color: #FDBF0F;
+  }
 }
 .booking-row h3 {
   margin-top: 0;
