@@ -39,7 +39,6 @@ class SendGuestVerify
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
-            dd($e);
         }
     }
 }

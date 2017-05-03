@@ -108,16 +108,19 @@
                         </div>
                         <div class="booking-row">
                             <h4>Price per guest:</h4>
-                            <h3>R{{ $experience->pricing->per_person }}</h3>
+                            <h3 class="data-currency" data-currency-base="{{ str_replace("R", "", $experience->pricing->per_person) }}">
+                                {{ $experience->pricing->per_person }}
+                            </h3>
+                        </span>
                         </div>
                         <div class="booking-row">
                             <div class='row'>
                                 <div class="col-sm-5 col-xs-12">
                                     <h4>Grand total:</h4>
                                     <h1>
-                                        <span class="currency-name" currency-name="ZAR">R</span>
-                                        <span class="currency-value"
-                                              currency-value="{{ $experience->total }}">{{ $experience->total }}</span>
+                                        <span  class="data-currency" data-currency-base="{{ $experience->total }}">
+                                            {{ $experience->total }}
+                                        </span>
                                     </h1>
                                 </div>
                                 <div class="col-sm-7 col-xs-12">

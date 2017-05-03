@@ -9381,6 +9381,13 @@ select.form-control:focus {
 form .gray-left-border {
   padding-left: 35px;
 }
+@media (max-width: 992px) {
+  form .gray-left-border {
+    padding-left: 0px;
+    padding-right: 0px;
+    border-left: none;
+  }
+}
 form .input-group {
   display: block;
 }
@@ -9392,6 +9399,10 @@ form .input-group .redactor-box {
   background: transparent;
   border: 1px solid #4b4b4b;
   border-radius: 10px;
+}
+form .input-group .redactor-editor .redactor-toolbar,
+form .input-group .redactor-box .redactor-toolbar {
+  background: transparent;
 }
 form .input-group .redactor-editor .redactor-editor,
 form .input-group .redactor-box .redactor-editor {
@@ -9961,6 +9972,7 @@ section #sidebar h2 {
 @media (max-width: 992px) {
   #page .search-list .media .media-footer {
     font-size: 14px;
+    line-height: 32px;
   }
   #page .search-list .media .media-footer .btn-default {
     padding: 5px 12px;
@@ -11458,8 +11470,10 @@ a.thumbnail:active {
   right: 15px;
   visibility: hidden;
 }
-.step-form-left {
-  padding-left: 0;
+@media (min-width: 992px) {
+  .step-form-left {
+    padding-left: 0;
+  }
 }
 .modal-content .modal-header {
   padding: 10px 15px;

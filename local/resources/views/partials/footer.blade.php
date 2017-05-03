@@ -220,5 +220,8 @@
 <script type="text/javascript">
     /*<![CDATA[*/
     $('.redactor-input').redactor();
+    $('.redactor-editor').on('keypress', function () {
+        (new Vertilize).init();
+    });
     /*]]>*/
 </script>

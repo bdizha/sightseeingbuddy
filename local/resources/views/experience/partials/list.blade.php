@@ -6,11 +6,11 @@
                 <div class="media-top pull-top">
                     <a href="/local/experience/{{ $experience->slug }}">
                         {!! $experience->cover_image !!}
-                    </a>                
+                    </a>
                 </div>
                 <div class="media-footer">
                     {{ str_limit($experience->teaser, 29) }}
-                    <span class="hidden-xs">
+                    <span>
                         <span>|</span>
                         <span class="data-currency" data-currency-base="{{ str_replace("R", "", $experience->pricing->per_person) }}">
                             {{ $experience->pricing->per_person }}
@@ -25,5 +25,5 @@
             </article>
         </div>
         @endforeach
-    </div>                        
+    </div>
 </div>

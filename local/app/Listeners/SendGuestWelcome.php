@@ -41,7 +41,6 @@ class SendGuestWelcome
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
-            dd($e);
         }
     }
 }

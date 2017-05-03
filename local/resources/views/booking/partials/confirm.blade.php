@@ -13,7 +13,7 @@
                 You're about to make a payment for this experience.
             </div>
             <div class="text-center">
-                <button type="button" class="btn btn-primary mb-1">Back</button>
+                <button modal-id="confirm-modal" type="button" class="btn btn-primary mb-1 btn-close">Back</button>
                 <button type="submit" class="btn btn-yellow mb-1">Make payment</button>
             </div>
         </div>

@@ -304,9 +304,8 @@ input[type="radio"] {
   }
 }
 
-
 @media (max-width: @grid-float-breakpoint-max) {
-  .mt-xs-1{
+  .mt-xs-1 {
     margin-top: @line-height-computed * 1px;
   }
 }
@@ -499,6 +498,11 @@ select {
 form {
   .gray-left-border {
     padding-left: 35px;
+    @media (max-width: @grid-float-breakpoint) {
+      padding-left: 0px;
+      padding-right: 0px;
+      border-left: none;
+    }
   }
 
   .input-group {
@@ -510,6 +514,9 @@ form {
       background: transparent;
       border: 1px solid #4b4b4b;
       border-radius: 10px;
+      .redactor-toolbar {
+        background: transparent;
+      }
       .redactor-editor {
         min-height: 210px !important;
       }
@@ -1165,7 +1172,8 @@ section {
         line-height: 40px;
         @media (max-width: @grid-float-breakpoint) {
           font-size: 14px;
-          .btn-default{
+          line-height: 32px;
+          .btn-default {
             padding: 5px 12px;
             font-size: 12px;
           }
@@ -2768,8 +2776,10 @@ a.thumbnail:hover, a.thumbnail:active {
   visibility: hidden;
 }
 
-.step-form-left {
-  padding-left: 0;
+@media (min-width: @grid-float-breakpoint) {
+  .step-form-left {
+    padding-left: 0;
+  }
 }
 
 // Actual modal

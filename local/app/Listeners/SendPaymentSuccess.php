@@ -47,7 +47,7 @@ class SendPaymentSuccess
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
-            dd($e);
+//            dd($e);
         }
     }
 }
