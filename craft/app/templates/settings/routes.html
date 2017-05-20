@@ -45,7 +45,7 @@
 
 	<div id="routes">
 		{% for route in routes %}
-			<div class="route" data-id="{{ route.id }}"{% if route.locale %} data-locale="{{ route.locale }}"{% endif %}>
+			<div class="route" data-id="{{ route.id }}"{% if route.locale %} data-buddye="{{ route.locale }}"{% endif %}>
 				<div class="url-container">
 					{%- spaceless %}
 						{% if craft.isLocalized() %}

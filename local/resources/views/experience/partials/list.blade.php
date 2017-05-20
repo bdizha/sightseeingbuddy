@@ -19,7 +19,7 @@
                         <span>{{ $experience->duration }}</span>
                         <span>{{ $experience->units }}</span>
                     </span>
-                    <a href="/local/experience/{{ $experience->slug }}" class="btn btn-default pull-right">View</a>
+                    <a href="/local/experience/{{ $experience->slug }}" class="btn btn-primary pull-right">View</a>
                     <div class="clear-both"></div>
                 </div>
             </article>

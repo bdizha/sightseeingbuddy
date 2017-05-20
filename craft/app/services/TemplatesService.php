@@ -1533,7 +1533,7 @@ class TemplatesService extends BaseApplicationComponent
 
 		$label = HtmlHelper::encode($context['element']);
 
-		$html .= '" data-id="'.$context['element']->id.'" data-locale="'.$context['element']->locale.'" data-status="'.$context['element']->getStatus().'" data-label="'.$label.'" data-url="'.$context['element']->getUrl().'"';
+		$html .= '" data-id="'.$context['element']->id.'" data-buddye="'.$context['element']->locale.'" data-status="'.$context['element']->getStatus().'" data-label="'.$label.'" data-url="'.$context['element']->getUrl().'"';
 
 		if ($context['element']->level)
 		{

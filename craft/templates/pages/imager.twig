@@ -1,6 +1,7 @@
 {% set imageUrl = craft.request.getParam("url") %}
 {% set width = craft.request.getParam("w", 0) %}
 {% set height = craft.request.getParam("h", 0) %}
+{% set ratio = craft.request.getParam("r", 0) %}
 
 {% if width > 0 %}
     {% set thumb =  [
@@ -8,15 +9,15 @@
     ] %}
 
     {% set transformedImage = craft.imager.transformImage(siteUrl ~ imageUrl, thumb, {
-    ratio: width == height ? 1 : 5/3,
+    ratio: width == ratio ? ratio : height ? 1 : 5/3,
     mode: 'crop',
     cropZoom: 1,
-    position: 'top-center',
+    position: 'center-center',
     jpegQuality: 100 }) %}
 
     <img class="media-object"
          src="{{ width == height ?  craft.imager.base64Pixel(1,1) : craft.imager.base64Pixel(5,3) }}"
-         sizes="(min-width: 768px) 555px, (min-width: 400px) 300px, 200px" srcset="{{ craft.imager.srcset(transformedImage) }}" />
+         sizes="(min-width: 768px) 555px, (max-width: 767px) 400px, 300px" srcset="{{ craft.imager.srcset(transformedImage) }}" />
 {% else %}
     {% set thumb =  [
     { width: 1600 },
@@ -28,7 +29,7 @@
     ratio: 16/5,
     mode: 'crop',
     cropZoom: 1,
-    position: 'top-center',
+    position: 'center-center',
     jpegQuality: 100
     }) %}
     <img src="{{ craft.imager.base64Pixel(16,5) }}" sizes="100vw"

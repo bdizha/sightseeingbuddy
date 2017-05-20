@@ -18,8 +18,11 @@
 
 html, body {
   height: 100%;
-  background: @yellow;
-  color: @gray-base;
+  background: @blue;
+  color: @white;
+  a{
+    color: @white;
+  }
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
@@ -33,6 +36,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 .gray-block {
   background: #E6E6E6;
+  color: @gray-base;
 }
 
 .white-block {
@@ -41,7 +45,11 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 #blog article {
   background: @white;
-  padding-bottom: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  .media-body{
+    padding-bottom: 20px;
+  }
 }
 
 @media (max-width: (@grid-float-breakpoint - 400)) {
@@ -148,10 +156,10 @@ h1, .h1, h2, .h2, h3, .h3 {
         top: 0;
         left: 0;
         &.available {
-          background-color: @yellow;
+          background-color: @blue;
         }
         &.not-available {
-          background-color: @gray-base;
+          background-color: @white;
         }
       }
     }
@@ -410,6 +418,13 @@ input[type="radio"] {
 
 .gray-top-border {
   border-top: 1px solid @gray-base;
+  .panel{
+    .panel-body{
+      a{
+        color: @blue;
+      }
+    }
+  }
 }
 
 .clear-both {
@@ -490,7 +505,7 @@ a {
 select {
   &.form-control {
     &:focus {
-      color: @gray-base;
+      color: @white;
     }
   }
 }
@@ -583,7 +598,7 @@ form {
     margin-bottom: 15px;
   }
   .line-item {
-    background-color: @gray-base;
+    background-color: @white;
     color: @white;
     position: relative;
     padding: 0px 10px;
@@ -593,7 +608,7 @@ form {
     &:hover,
     &:focus {
       color: @white;
-      background-color: @yellow;
+      background-color: @blue;
     }
     &:first-child {
       margin-top: 15px;
@@ -743,14 +758,12 @@ section {
     &:nth-child(2) {
       .step-arrow {
         display: none;
-        background: url(/images/right_arrow.svg);
-        width: 79px;
+        background: url(/images/right_arrow_gray.svg) no-repeat;
+        width: 46px;
         height: 85px;
         position: absolute;
         right: -40px;
-        top: 90px;
-        margin-top: -50px;
-        background-size: 100%;
+        top: 33px;
         @media (min-width: @grid-float-breakpoint) {
           display: block;
         }
@@ -916,6 +929,24 @@ section {
     margin: 0 auto;
     border-radius: 50%;
     overflow: hidden;
+  }
+  .point {
+    padding: 0 40px;
+    &:nth-child(1),
+    &:nth-child(2) {
+      .point-arrow {
+        display: none;
+        background: url(/images/right_arrow_white.svg) no-repeat;
+        width: 46px;
+        height: 85px;
+        position: absolute;
+        right: -40px;
+        top: 33px;
+        @media (min-width: @grid-float-breakpoint) {
+          display: block;
+        }
+      }
+    }
   }
 }
 
@@ -1141,7 +1172,7 @@ section {
           margin-bottom: 15px;
         }
         .currency-block {
-          background: @yellow;
+          background: @blue;
           padding: 15px;
           text-align: center;
           border-radius: 5px;
@@ -1165,7 +1196,7 @@ section {
       }
 
       .media-footer {
-        background: @yellow;
+        background: @blue;
         font-weight: 900;
         padding: 16px;
         font-size: 17px;
@@ -1184,9 +1215,9 @@ section {
             position: absolute;
             bottom: 77px;
             right: 15px;
-            background: @yellow;
+            background: @blue;
             &.btn-default{
-              border-color: @yellow;
+              border-color: @blue;
             }
           }
         }
@@ -1217,6 +1248,8 @@ section {
   padding-bottom: @panel-body-padding;
   border-radius: 0;
   .media-body {
+    background-color: @blue;
+    color: @white;
     padding: @panel-body-padding;
     padding-bottom: 10px;
     .readmore {
@@ -1320,21 +1353,22 @@ section {
   > li {
     margin-top: 10px;
     > a {
+      color: @gray-base;
       text-decoration: none;
       padding: 2px 0px;
       &:hover {
-        color: @yellow;
+        color: @blue;
         background-color: transparent;
         text-decoration: none;
       }
     }
     &.active {
       a {
-        color: @yellow;
+        color: @blue;
         background-color: transparent;
         text-decoration: none;
         &:hover {
-          color: @yellow;
+          color: @blue;
           background-color: transparent;
           text-decoration: none;
         }
@@ -1386,7 +1420,7 @@ section {
       padding: 2px 0px 2px 35px;
       position: relative;
       &:hover {
-        color: @yellow;
+        color: @blue;
         background-color: transparent;
         text-decoration: none;
       }
@@ -1394,12 +1428,12 @@ section {
     &.active {
       a {
         font-weight: 900;
-        color: @yellow;
+        color: @blue;
         background-color: transparent;
         text-decoration: none;
         &:hover,
         &:focus {
-          color: @yellow;
+          color: @blue;
           background-color: transparent;
           text-decoration: none;
         }
@@ -1460,8 +1494,13 @@ section {
 }
 
 .site-footer {
+  color: @gray-light;
   text-align: left;
   padding: 10px;
+
+  .form-control{
+    background-color: @white;
+  }
 
   .socials-block {
     margin-top: 25px;
@@ -1479,6 +1518,7 @@ section {
         outline: none;
         text-decoration: none;
         padding: 2px 0px;
+        color: @gray-light;
         &:hover,
         &:focus {
           color: @white;
@@ -1527,7 +1567,7 @@ section {
       color: @gray-lighter;
       &:hover,
       &:focus {
-        color: @yellow;
+        color: @blue;
       }
     }
   }
@@ -1594,14 +1634,14 @@ section {
   .btn-primary {
     &.btn-lg {
       color: @white;
-      background-color: @gray-base;
-      border-color: @gray-base;
+      background-color: @white;
+      border-color: @white;
       border-width: 3px;
       &:hover,
       &:focus {
         color: @white;
-        background-color: @yellow;
-        border-color: @yellow;
+        background-color: @blue;
+        border-color: @blue;
       }
     }
   }
@@ -1633,8 +1673,8 @@ p {
   &:hover,
   &:focus {
     color: @white;
-    background-color: @gray-base;
-    border-color: @gray-base;
+    background-color: @white;
+    border-color: @white;
     outline: none;
   }
   @media (max-width: @grid-float-breakpoint) {
@@ -1685,16 +1725,10 @@ p {
     }
   }
 
-  .dsfasfda {
-    height: 65px;
-    font-size: 21px;
-    line-height: 65px;
-  }
-
   .datetime-group .date-range .table-condensed > thead > tr > th, .datetime-group .date-range .table-condensed > tfoot > tr > th {
     padding: 7px 2px;
     font-size: 12px;
-    color: @gray-base;
+    color: @white;
   }
 
   .datetime-group .date-range .table-condensed > tbody > tr td {
@@ -1703,7 +1737,7 @@ p {
     width: 21px;
     height: 21px;
     font-weight: 500;
-    color: @gray-base;
+    color: @white;
   }
 }
 
@@ -1750,7 +1784,7 @@ p {
   }
 }
 
-.page-become-a-local {
+.page-become-a-buddy {
   .search-form {
     .form-group {
       visibility: hidden;
@@ -1780,7 +1814,7 @@ p {
 }
 
 #footer {
-  background: @yellow;
+  background: @gray-base;
   font-size: 16px;
   @media (max-width: @grid-float-breakpoint) {
     font-size: 14px;
@@ -1790,14 +1824,15 @@ p {
 .site-header {
   background: @white;
   .top-yellow-bg {
-    background: @yellow;
+    background: @blue;
     height: 30px;
     line-height: 30px;
     width: 100%;
+    color: @white;
     a,
     span {
       font-size: 14px;
-      color: @gray;
+      color: @white;
       .fa {
         font-size: 13px;
       }
@@ -1830,18 +1865,18 @@ p {
       top: 6px;
       right: 10px;
       font-size: 14px;
-      color: @yellow;
+      color: @blue;
     }
   }
 
   .navbar-toggle {
     .icon-bar {
-      background-color: @gray-base;
+      background-color: @white;
     }
     &:hover,
     &:focus {
       .icon-bar {
-        background-color: @yellow;
+        background-color: @blue;
       }
     }
   }
@@ -1972,22 +2007,23 @@ p {
   &:hover,
   &:focus {
     color: @white;
-    background-color: @gray-base;
-    border-color: @gray-base;
+    background-color: @blue;
+    border-color: @blue;
     outline: none;
   }
   &.btn-lg {
-    background: @yellow;
-    color: @gray-base;
+    background: @blue;
+    border-color: @blue;
+    color: @white;
     font-weight: 900;
-    border-color: transparent;
-    padding: 8px 15px;
     font-size: 24px;
+    border-width: 3px;
+    padding: 10px 15px;
     &:hover,
     &:focus {
-      color: @white;
-      background-color: @gray-base;
-      border-color: @gray-base;
+      color: @blue;
+      background-color: @white;
+      border-color: @blue;
     }
   }
 }
@@ -1998,11 +2034,14 @@ p {
   font-size: 15px;
   padding: 7px 24px;
   border-radius: 5px;
+  background: @blue;
+  border-color: @white;
+  color: @white;
   &:hover,
   &:focus {
-    color: @gray-base;
-    background-color: @yellow;
-    border-color: @yellow;
+    color: @blue;
+    background-color: @white;
+    border-color: @blue;
     outline: none;
   }
   &.btn-lg {
@@ -2010,9 +2049,9 @@ p {
     font-size: 24px;
     line-height: 1.3333333;
     border-radius: 6px;
-    color: @gray-base;
+    color: @white;
     background-color: transparent;
-    border-color: @gray-base;
+    border-color: @white;
     border-width: 3px;
     font-weight: 900;
     @media (max-width: @grid-float-breakpoint) {
@@ -2024,9 +2063,9 @@ p {
     }
     &:hover,
     &:focus {
-      color: @white;
-      background-color: @gray-base;
-      border-color: @gray-base;
+      color: @blue;
+      background-color: @white;
+      border-color: @white;
     }
   }
 }
@@ -2037,41 +2076,41 @@ p {
   padding: 7px 24px;
   border-radius: 5px;
   background-color: transparent;
-  border-color: @gray-base;
+  border-color: @white;
   border-width: 3px;
   font-weight: 900;
 }
 
 .btn-yellow {
-  color: @gray-base;
+  color: @white;
   text-transform: uppercase;
   font-weight: 900;
   font-size: 16px;
   padding: 7px 24px;
   border-color: transparent;
-  background-color: @yellow;
+  background-color: @blue;
   position: relative;
   overflow: hidden;
   border-radius: 5px;
   &:hover,
   &:focus {
-    color: @white;
-    background-color: @gray-base;
-    border-color: @gray-base;
+    color: @blue;
+    background-color: @white;
+    border-color: @blue;
   }
   &.btn-lg {
     padding: 10px 15px;
     font-size: 27px;
     line-height: 1.3333333;
     border-radius: 6px;
-    color: @gray-base;
-    border-color: @yellow;
+    color: @white;
+    border-color: @blue;
     border-width: 3px;
     &:hover,
     &:focus {
-      color: @white;
-      background-color: @gray-base;
-      border-color: @gray-base;
+      color: @blue;
+      background-color: @white;
+      border-color: @blue;
     }
   }
 }
@@ -2094,7 +2133,7 @@ p {
       height: 25px;
       width: 25px;
       line-height: 25px;
-      color: @gray-base;
+      color: @white;
       border-radius: 50%;
     }
     width: 150px;
@@ -2193,20 +2232,21 @@ form {
 }
 
 .share-btn {
+  background: transparent;
   display: inline-block;
   margin-right: 5px;
   cursor: pointer;
-  color: @gray-base;
+  color: @white;
   font-size: 21px;
-  border: 1px solid @gray-base;
+  border: 1px solid @white;
   border-radius: 50%;
   height: 38px;
   width: 38px;
   line-height: 38px;
   text-align: center;
   &:hover {
-    background: @gray-base;
-    color: @white;
+    background: @white;
+    color: @gray-base;
   }
 }
 
@@ -2515,7 +2555,7 @@ a.thumbnail:hover, a.thumbnail:active {
 }
 
 .datepicker table tr td.active.active.focus, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.highlighted.active.focus, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active.highlighted:active.focus, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active:active.focus, .datepicker table tr td.active:active:focus, .datepicker table tr td.active:active:hover {
-  color: @yellow;
+  color: @blue;
   background-color: transparent;
   border: none;
   text-shadow: none;
@@ -2523,7 +2563,7 @@ a.thumbnail:hover, a.thumbnail:active {
 
 .datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active.highlighted:hover, .datepicker table tr td.active:active, .datepicker table tr td.active:hover {
   color: @white;
-  background-color: @yellow;
+  background-color: @blue;
   border: none;
 }
 
@@ -2568,7 +2608,7 @@ a.thumbnail:hover, a.thumbnail:active {
     > tfoot > tr {
       position: relative;
       &:nth-child(2) {
-        background: @yellow;
+        background: @blue;
       }
       > th {
         font-weight: 900;
@@ -2639,11 +2679,11 @@ a.thumbnail:hover, a.thumbnail:active {
       td.day:hover,
       td.focused {
         color: @white;
-        background-color: @yellow;
+        background-color: @blue;
         border: none;
       }
       td.highlighted {
-        color: @yellow;
+        color: @blue;
         background-color: transparent;
         border: none;
       }
@@ -2800,7 +2840,7 @@ a.thumbnail:hover, a.thumbnail:active {
     padding: 10px 15px;
     text-align: center;
     text-transform: uppercase;
-    background-color: @yellow;
+    background-color: @blue;
     .close {
       font-size: 36px;
       font-weight: bold;
@@ -2830,7 +2870,7 @@ a.thumbnail:hover, a.thumbnail:active {
 
 .navbar-brand > img {
   display: block;
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
 .nav {

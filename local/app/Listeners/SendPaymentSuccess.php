@@ -36,7 +36,7 @@ class SendPaymentSuccess
             'pricing' => $booking->experience->pricing,
             'local' => $booking->experience->user,
             'from' => env('MAIL_FROM'),
-            'subject' => 'Keep it Local: Successful payment'
+            'subject' => 'Sightseeing Buddy: Successful payment'
         ];
 
         try {

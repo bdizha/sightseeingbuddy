@@ -46,20 +46,20 @@
             </div>
         </div>
     </div>
-    {% if craft.request.firstSegment() == 'become-a-local' %}
+    {% if craft.request.firstSegment() == 'become-a-buddy' %}
         <a href="/local/introduction/create" class="btn btn-default btn-block btn-lg">
-            Become a local
+            become a buddy
         </a>
     {% elseif craft.request.firstSegment() == '' %}
 
         <div class="hidden-xs">
             <button type="submit" class="btn btn-default btn-lg btn-block">
-                Find a Local
+                find a buddy
             </button>
         </div>
         <div class="hidden-lg hidden-md hidden-sm">
             <button type="submit" class="btn btn-default btn-lg fullwidth">
-                Find a Local
+                find a buddy
             </button>
         </div>
     {% endif %}

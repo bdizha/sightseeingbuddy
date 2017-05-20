@@ -1,7 +1,7 @@
 <div class="col-sm-8 col-sm-offset-1 same-height mt-3 gray-bottom-border gray-top-border" data-mh="column">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading">Sign up to Keep it Local</div>
+            <div class="panel-heading">Sign up to Sightseeing Buddy</div>
             <div class="panel-body">
                 <form id="sign-in" method="POST" class="form" action="{{ route('register') }}">
                     {!! csrf_field() !!}
@@ -95,7 +95,7 @@
                     <div class="row form-group">
                         <div class="col-sm-9 col-xs-12">
                             <input type="submit" class="btn btn-yellow"
-                                   value="Sign Up & @if($currentType == 'local') Become a local @else Find a Local @endif "/>
+                                   value="Sign Up & @if($currentType == 'local') become a buddy @else find a buddy @endif "/>
                             <a href="{{ route('login') }}" class="btn-height">Already have an account?</a>
                         </div>
                     </div>

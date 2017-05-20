@@ -442,7 +442,7 @@ var RouteSettingsModal = Garnish.Modal.extend(
 					if (!this.route)
 					{
 						var routeHtml =
-							'<div class="pane route" data-id="'+response.routeId+'"'+(response.locale ? ' data-locale="'+response.locale+'"' : '')+'>' +
+							'<div class="pane route" data-id="'+response.routeId+'"'+(response.locale ? ' data-buddye="'+response.locale+'"' : '')+'>' +
 								'<div class="url-container">';
 
 						if (Craft.routes.locales)

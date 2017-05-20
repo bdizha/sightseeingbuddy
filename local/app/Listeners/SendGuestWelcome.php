@@ -29,7 +29,7 @@ class SendGuestWelcome
     {
         $data = [
             'user' => $event->user,
-            'from' => 'info@keepitlocal.co.za',
+            'from' => 'info@sightseeingbuddy.com',
             'subject' => 'Welcome to our community'
         ];
 

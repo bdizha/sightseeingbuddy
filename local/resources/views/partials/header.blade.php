@@ -2,13 +2,13 @@
     <div class="top-yellow-bg">
         <div class="container">
             <div class="inline">
-                <a href="mailto:info@keepitlocal.co.za">
+                <a href="mailto:info@sightseeingbuddy.com">
                     <i class="fa fa-envelope-o"></i>
-                    <span>info@keepitlocal.co.za</span>
+                    <span>info@sightseeingbuddy.com</span>
                 </a>
                 <span class="hidden-xs">
                     <i class="fa fa-link"></i>
-                    <span>082 987 1234</span>
+                    <span>+27 71 871 2903</span>
                 </span>
             </div>
             @include('auth.partials.nav')
@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img src="/cpresources/transforms/63?x=gdGXHQ18N" alt="Keep It Local" style="height: 52px">
+                        <img src="/uploads/files/_AUTOx52_crop_center-center/sightseeingbuddy.png" alt="Sightseeing Buddy" style="height: 67px">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="primaryNav">
@@ -52,8 +52,8 @@
                             item
                             item-level-1
                             ">
-                            <a href="/become-a-local">
-                                Become a Local
+                            <a href="/become-a-buddy">
+                                become a buddy
                             </a>
                         </li>
                         <li class="
@@ -61,7 +61,7 @@
                             item-level-1
                             ">
                             <a href="/local/search">
-                                Find a Local
+                                find a buddy
                             </a>
                         </li>
                         <li class="

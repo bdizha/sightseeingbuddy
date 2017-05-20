@@ -32,7 +32,7 @@ class SendLocalVerify
     {
         $data = [
             'user' => $event->user,
-            'subject' => 'Keep it Local: New local verification request',
+            'subject' => 'Sightseeing Buddy: New local verification request',
             'email' => env('VERIFY_EMAIL'),
             'name' => env('VERIFY_NAME')
         ];

@@ -44,7 +44,7 @@
 							<div class="menu">
 								<ul class="padded">
 									{% for locale in craft.i18n.getEditableLocales() %}
-										<li><a{% if initialLocale and locale.getId() == initialLocale.getId() %} class="sel"{% endif %} data-locale="{{ locale.getId() }}">{{ locale.getName() }}</a></li>
+										<li><a{% if initialLocale and locale.getId() == initialLocale.getId() %} class="sel"{% endif %} data-buddye="{{ locale.getId() }}">{{ locale.getName() }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>

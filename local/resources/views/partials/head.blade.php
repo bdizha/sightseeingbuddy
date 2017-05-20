@@ -5,8 +5,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,200italic,300italic,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/vendors.css?v={{ Helper::timestamp('/css/style.css') }}">
     <link rel="stylesheet" href="/css/style.css?v={{ Helper::timestamp('/css/style.css') }}">
-    <title>Keep It Local</title>
-    <meta content="Keep It Local" property="og:title"/>
+    <title>Sightseeing Buddy</title>
+    <meta content="Sightseeing Buddy" property="og:title"/>
     <meta name="description" content="">
     <meta property="og:description" content="" />
     <meta itemprop="description" content="">

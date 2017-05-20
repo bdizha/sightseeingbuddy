@@ -1685,7 +1685,7 @@ Craft.BaseElementIndex = Garnish.Base.extend(
 				if (storedLocale && storedLocale != this.locale)
 				{
 					// Is that one available here?
-					var $storedLocaleOption = this.localeMenu.$options.filter('[data-locale="'+storedLocale+'"]:first');
+					var $storedLocaleOption = this.localeMenu.$options.filter('[data-buddye="'+storedLocale+'"]:first');
 
 					if ($storedLocaleOption.length)
 					{

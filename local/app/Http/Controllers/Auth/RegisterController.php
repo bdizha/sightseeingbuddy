@@ -93,7 +93,7 @@ class RegisterController extends AuthController
             $this->redirectTo = '/local/introduction/create';
         }
 
-        Session::flash('flash_message', 'Welcome to Keep it local!');
+        Session::flash('flash_message', 'Welcome to Sightseeing Buddy!');
 
         $user = User::create([
             'first_name' => $data['first_name'],

@@ -13,7 +13,6 @@
 
 # Exclude SQL files in home dir, but leave for modules etc
 /*.sql
-!/default2016.sql
 /vendor/*
 node_modules
 
@@ -33,11 +32,6 @@ public/uploads/files/*
 # Keep these files!
 !.sf
 !placeholder.gif
-!.keepdir
-!.gitignore
-
-!**/Flow-logo_600x600_white-background.png
-/nbproject/private/nbproject
 nbproject/
 bower_components
 node_modules/

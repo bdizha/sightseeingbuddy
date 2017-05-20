@@ -16,14 +16,14 @@
         <div class="container">
             <div class="hidden-lg hidden-md hidden-sm">
                 <div class="text-center">
-                    <a href="/local/introduction/create" class="btn btn-primary btn-lg">Become a local</a>
+                    <a href="/local/introduction/create" class="btn btn-primary btn-lg">become a buddy</a>
                 </div>
             </div>
             {% set hasArrows = false %}
             <h2 class="text-center section-title"> {{ entry.body.type('text').first().text }}</h2>
             {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(1).panel.first(), hasArrows) }}
             <div class="text-center">
-                <a href="/local/introduction/create" class="btn btn-primary btn-lg">Become a local</a>
+                <a href="/local/introduction/create" class="btn btn-primary btn-lg">become a buddy</a>
             </div>
         </div>
     </section>
@@ -36,7 +36,7 @@
             {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(2).panel.first(), hasArrows, panelType) }}
 
             <div class="text-center">
-                <a href="/local/introduction/create" class="btn btn-primary btn-lg">Become a Local</a>
+                <a href="/local/introduction/create" class="btn btn-default btn-lg">become a buddy</a>
             </div>
         </div>
     </section>
@@ -53,5 +53,5 @@
             </div>
         </div>
     </section>
-    <input type="hidden" id="url" value="/become-a-local">
+    <input type="hidden" id="url" value="/become-a-buddy">
 {% endblock %}

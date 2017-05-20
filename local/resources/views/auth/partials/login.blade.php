@@ -1,7 +1,7 @@
 <div class="col-sm-8 col-sm-offset-1 same-height mt-3 gray-bottom-border gray-top-border" data-mh="column">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading">Log in to Keep it Local</div>
+            <div class="panel-heading">Log in to Sightseeing Buddy</div>
             <div class="panel-body">
                 <form id="sign-in" method="POST" class="form" action="{{ route('login') }}">
                     {!! csrf_field() !!}

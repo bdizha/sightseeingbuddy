@@ -29,7 +29,7 @@ class SendContact
     {
         $data = [];
         $data['contact'] = $event->contact;
-        $data['subject'] = 'Keep it Local - New contact message';
+        $data['subject'] = 'Sightseeing Buddy - New contact message';
         $data['email'] = env("CONTACT_EMAIL");
         $data['name'] = env("CONTACT_NAME");
 

@@ -21,11 +21,11 @@
                     <li>Entrance fees</li>
                 </ul>
                 <p>
-                    *Keep it Local reserves the right to apply fair pricing. We’re travel gurus and give suggestions if
+                    *Sightseeing Buddy reserves the right to apply fair pricing. We’re travel gurus and give suggestions if
                     your price is too low or too high.
                 <p>
                 </p>
-                Keep it Local adds an average of 30% to your price. The price displayed on your experience is the total
+                Sightseeing Buddy adds an average of 30% to your price. The price displayed on your experience is the total
                 price, including our fees and commissions. You will get the exact amount you’ve quoted.
                 </p>
                 <p>
@@ -63,7 +63,7 @@
                     <div class="col-sm-4 col-xs-12">
                         <div class="row">
                             <div class="col-sm-6 col-xs-6">
-                                <label class="control-label">Keep it Local fee</label>
+                                <label class="control-label">Sightseeing Buddy fee</label>
                                 <label class="control-value" id="pricing_commission">R0.00</label>
                             </div>
                             <div class="col-sm-6 col-xs-6">

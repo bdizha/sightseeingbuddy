@@ -13,7 +13,7 @@ class AuthController extends Controller {
             'register' => [
                 'label' => 'Sign up',
                 'route' => 'register',
-                'sub_label' => $type == "local" ? 'Become a local' : 'Become a guest & find a local'
+                'sub_label' => $type == "local" ? 'become a buddy' : 'Become a guest & find a buddy'
             ],
             'login' => [
                 'label' => 'Log in',

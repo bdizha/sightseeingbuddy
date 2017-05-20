@@ -38,7 +38,7 @@ class SendPaymentFailure
             'pricing' => $booking->experience->pricing,
             'local' => $booking->experience->user,
             'from' => env('MAIL_FROM'),
-            'subject' => 'Keep it Local: Payment failure'
+            'subject' => 'Sightseeing Buddy: Payment failure'
         ];
 
         try {

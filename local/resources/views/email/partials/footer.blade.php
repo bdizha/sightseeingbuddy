@@ -9,7 +9,7 @@
                         You're receiving this
                         email from our secure server at
                         <a href="{{ url('/') }}" style="color:#a7a9ab;text-decoration:none"
-                           target="_blank"><span>Keep it Local</span>.</a></td>
+                           target="_blank"><span>Sightseeing Buddy</span>.</a></td>
                 </tr>
                 <tr>
                     <td style="color:#a7a9ab;font-size:11px;line-height:13px;padding-top:20px;text-align: center;">
@@ -25,7 +25,7 @@
                     <td style="color:#a7a9ab;font-size:11px;line-height:13px;padding-bottom:20px;text-align: center;">
                         <span>© {{ date('Y') }} </span>
                         <a href="" style="color:#a7a9ab;text-decoration:none" target="_blank">
-                            <span style="font-weight: 500;">Keep it Local</span>
+                            <span style="font-weight: 500;">Sightseeing Buddy</span>
                         </a>
                     </td>
                 </tr>

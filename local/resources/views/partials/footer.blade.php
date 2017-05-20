@@ -5,7 +5,7 @@
             <div class="col-md-4">
                 <h2>Connect with us</h2>
                 <div class="socials-block">
-                    <a class="share-btn external-link" target="_blank" href="https://www.facebook.com/keepitlocal.co.za"><i class="fa fa-facebook"></i></a>
+                    <a class="share-btn external-link" target="_blank" href="https://www.facebook.com/sightseeingbuddy.com"><i class="fa fa-facebook"></i></a>
                     <a class="share-btn external-link" target="_blank" href="https://twitter.com/KeepitLocalSA"><i class="fa fa-twitter"></i></a>
                     <a class="share-btn" target="_blank" href=""><i class="fa fa-youtube"></i></a>
                     <a class="share-btn" target="_blank" href=""><i class="fa fa-google-plus"></i></a>
@@ -33,7 +33,7 @@
                                 item-level-1
                                 ">
                                 <a href="/pages/about-keep-it-local">
-                                    About Keep it Local
+                                    About Sightseeing Buddy
                                 </a>
                             </li>
                             <li class="
@@ -48,7 +48,7 @@
                                 item
                                 item-level-1
                                 ">
-                                <a href="/pages/becoming-a-local">
+                                <a href="/pages/becoming-a-buddy">
                                     Becoming a local
                                 </a>
                             </li>
@@ -56,7 +56,7 @@
                                 item
                                 item-level-1
                                 ">
-                                <a href="/pages/finding-a-local">
+                                <a href="/pages/finding-a-buddy">
                                     Finding a local
                                 </a>
                             </li>
@@ -207,7 +207,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mb-1 mt-1">
-                &copy; 2017 Keep It Local
+                &copy; 2017 Sightseeing Buddy
                 <span class="pull-right">
                 Powered by
                 <a class="text-white" href="http://www.interseed.co.za" target="_blank">Interseed</a>

@@ -45,7 +45,7 @@
                 <div class="col-sm-12 col-xs-12">
                     @if(Auth::guest() OR $user->id != Auth::user()->id)
                         <a href="{{ route('search') }}"
-                           class="btn btn-lg btn-yellow fullwidth mb-1">Find a local</a>
+                           class="btn btn-lg btn-yellow fullwidth mb-1">find a buddy</a>
                     @else
                         <a href="{{ route('info.create') }}" class="btn btn-lg btn-yellow fullwidth mb-1">
                             Create new experience

@@ -23,7 +23,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-8 col-xs-12">
-                            <input type="submit" class="btn btn-yellow" value="Log In & Find a Local"/>
+                            <input type="submit" class="btn btn-yellow" value="Log In & find a buddy"/>
                             <a href="{{ url('/login') }}" class="btn-height mt-xs-1">Sign In</a>
                         </div>
                     </div>

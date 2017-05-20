@@ -240,7 +240,7 @@ class BookingController extends Controller
             // Remove duplicates
             $validIps = array_unique($validIps);
 
-            if ($_SERVER["SERVER_NAME"] != 'staging.keepitlocal.co.za') {
+            if ($_SERVER["SERVER_NAME"] != 'project.interseed.co.za') {
                 $pfError = true;
                 $pfErrMsg = PF_ERR_BAD_SOURCE_IP;
             }
