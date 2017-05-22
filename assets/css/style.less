@@ -1211,7 +1211,7 @@ section {
         line-height: 40px;
         position: relative;
         @media (max-width: @grid-float-breakpoint) {
-          font-size: 13px;
+          font-size: 14px;
           line-height: 32px;
           .btn-default {
             padding: 5px 12px;
@@ -1901,13 +1901,17 @@ small {
   }
 
   .navbar-toggle {
+    background-color: @white;
+    border-color: @blue;
     .icon-bar {
-      background-color: @white;
+      background-color: @blue;
     }
     &:hover,
     &:focus {
+      border-color: @blue;
+      background-color: @blue;
       .icon-bar {
-        background-color: @blue;
+        background-color: @white;
       }
     }
   }
@@ -2055,6 +2059,23 @@ small {
       color: @blue;
       background-color: @white;
       border-color: @blue;
+    }
+  }
+}
+
+.page-{
+  .search-form {
+    .btn-default {
+      &.btn-lg {
+        border-color: @white;
+        color: @white;
+        &:hover,
+        &:focus {
+          color: @blue;
+          background-color: @white;
+          border-color: @blue;
+        }
+      }
     }
   }
 }
@@ -2489,7 +2510,7 @@ a.thumbnail:hover, a.thumbnail:active {
           @media (max-width: @grid-float-breakpoint-max) {
             font-size: 30px;
             line-height: 30px;
-            margin-top: -40px;
+            margin-top: -80px;
             padding-top: 0;
             width: 100%;
           }

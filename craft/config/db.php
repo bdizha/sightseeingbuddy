@@ -18,6 +18,6 @@ return array(
     'live'    => [
         'user'     => 'root',
         'password' => '@%Gr4f1f0x#',
-        'database' => 'keepitlocal',
+        'database' => 'ssb',
     ],
 );

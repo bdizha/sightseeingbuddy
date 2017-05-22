@@ -10009,7 +10009,7 @@ section #sidebar h2 {
 }
 @media (max-width: 992px) {
   #page .search-list .media .media-footer {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 32px;
   }
   #page .search-list .media .media-footer .btn-default {
@@ -10605,12 +10605,21 @@ small a:hover {
   font-size: 14px;
   color: #1a75bb;
 }
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-default .navbar-toggle {
   background-color: #FFFFFF;
+  border-color: #1a75bb;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #1a75bb;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  border-color: #1a75bb;
+  background-color: #1a75bb;
 }
 .navbar-default .navbar-toggle:hover .icon-bar,
 .navbar-default .navbar-toggle:focus .icon-bar {
-  background-color: #1a75bb;
+  background-color: #FFFFFF;
 }
 .navbar-default .flag-select {
   position: absolute;
@@ -10746,6 +10755,16 @@ small a:hover {
 }
 .btn-default.btn-lg:hover,
 .btn-default.btn-lg:focus {
+  color: #1a75bb;
+  background-color: #FFFFFF;
+  border-color: #1a75bb;
+}
+.page- .search-form .btn-default.btn-lg {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}
+.page- .search-form .btn-default.btn-lg:hover,
+.page- .search-form .btn-default.btn-lg:focus {
   color: #1a75bb;
   background-color: #FFFFFF;
   border-color: #1a75bb;
@@ -11172,7 +11191,7 @@ a.thumbnail:active {
   .carousel-caption .container .table-block .left-cell h1 {
     font-size: 30px;
     line-height: 30px;
-    margin-top: -40px;
+    margin-top: -80px;
     padding-top: 0;
     width: 100%;
   }
