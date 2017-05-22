@@ -7,10 +7,10 @@
             @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900';
             * {
                 font-family: 'Roboto', sans-serif;
-                color: #FFFFFF;
+                color: #3f3f3f;
             }
             a {
-                color: #FFFFFF
+                color: #3f3f3f
             }
         </style>
     </head>
@@ -29,13 +29,13 @@
                             valign="middle">
                             <a href="{{ url('/') }}">
                                 <span>
-                                    <img border="0" height="33" src="{{ url('/images/logo.png') }}">
+                                    <img border="0" height="33" src="{{ url('/images/logo.png') }}?v={{ time() }}">
                                 </span>
                             </a>
                         </td>
                     </tr>
                     <tr>
-                        <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:20px;font-size:14px;line-height:20px;color: #FFFFFF;background: #FFFFFF;">
+                        <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:20px;font-size:14px;line-height:20px;color: #3f3f3f;background: #FFFFFF;">
                             @yield('content')
                             @include('email.partials.signature')
                         </td>

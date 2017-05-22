@@ -16,11 +16,11 @@
         @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900';
         * {
             font-family: 'Roboto', sans-serif;
-            color: #FFFFFF;
+            color: #3f3f3f;
         }
 
         a {
-            color: #FFFFFF
+            color: #3f3f3f
         }
     </style>
 </head>
@@ -52,14 +52,14 @@ $style = [
 
     /* Type ------------------------------ */
 
-    'anchor' => 'color: #FFFFFF;',
-    'paragraph' => 'margin-top: 0; color: #FFFFFF; font-size: 14px; line-height: 1.5em;',
-    'paragraph-sub' => 'margin-top: 0; color: #FFFFFF; font-size: 12px; line-height: 1.5em;',
+    'anchor' => 'color: #3f3f3f;',
+    'paragraph' => 'margin-top: 0; color: #3f3f3f; font-size: 14px; line-height: 1.5em;',
+    'paragraph-sub' => 'margin-top: 0; color: #3f3f3f; font-size: 12px; line-height: 1.5em;',
     'paragraph-center' => 'text-align: center;',
 
     /* Buttons ------------------------------ */
 
-    'button' => 'color: #FFFFFF;
+    'button' => 'color: #3f3f3f;
     text-transform: uppercase;
     font-weight: 900;
     font-size: 16px;
@@ -94,13 +94,13 @@ $style = [
                         valign="middle">
                         <a href="{{ url('/') }}">
                             <span>
-                                <img border="0" height="33" src="{{ url('/images/logo.png') }}">
+                                <img border="0" height="33" src="{{ url('/images/logo.png') }}?v={{ time() }}">
                             </span>
                         </a>
                     </td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #FFFFFF;background: #FFFFFF;">
+                    <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #3f3f3f;background: #FFFFFF;">
                         <table style="{{ $style['email-body_inner'] }}" align="center" width="570" cellpadding="0"
                                cellspacing="0">
                             <tr>
