@@ -94,7 +94,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-4 col-xs-12">
-                            <input type="submit" class="btn btn-yellow"
+                            <input type="submit" class="btn fullwidth btn-yellow"
                                    value="Sign Up & @if($currentType == 'local') become a buddy @else find a buddy @endif "/>
                         </div>
                         <div class="col-sm-5 col-xs-12">

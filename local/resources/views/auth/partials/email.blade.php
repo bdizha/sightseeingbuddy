@@ -13,7 +13,7 @@
                 <form id="sign-in" method="POST" class="form" action="{{ url('/local/password/email') }}">
                     {!! csrf_field() !!}
                     <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}" id="fields-email-field">
-                        <div class="col-sm-8 col-xs-12">
+                        <div class="col-sm-9 col-xs-12">
                             @if ($errors->has('email'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('email') }}</label>
                             @endif
@@ -22,8 +22,10 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-8 col-xs-12">
-                            <input type="submit" class="btn btn-yellow" value="Log In & find a buddy"/>
+                        <div class="col-sm-5 col-xs-12">
+                            <input type="submit" class="btn fullwidth btn-yellow" value="Log In & find a buddy"/>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
                             <a href="{{ url('/login') }}" class="btn-height mt-xs-1">Sign In</a>
                         </div>
                     </div>

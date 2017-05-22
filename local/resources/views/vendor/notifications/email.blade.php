@@ -59,7 +59,7 @@ $style = [
 
     /* Buttons ------------------------------ */
 
-    'button' => 'color: #3f3f3f;
+    'button' => 'color: #FFFFFF;
     text-transform: uppercase;
     font-weight: 900;
     font-size: 16px;

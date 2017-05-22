@@ -13,11 +13,11 @@
                 </tr>
                 <tr>
                     <td style="color:#a7a9ab;font-size:11px;line-height:13px;padding-top:20px;text-align: center;">
-                        <a href="{{ url('/pages/privacy-policy') }}" style="color:#FFFFFF;text-decoration:none"
+                        <a href="{{ url('/pages/privacy-policy') }}" style="color:#1a75bb;text-decoration:none"
                            target="_blank">Privacy&nbsp;</a>|
-                        <a href="{{ url('/pages/terms-conditions') }}" style="color:#FFFFFF;text-decoration:none"
+                        <a href="{{ url('/pages/terms-conditions') }}" style="color:#1a75bb;text-decoration:none"
                            target="_blank">&nbsp;Terms of Use&nbsp;</a>|
-                        <a href="{{ url('/local/contact-us/create') }}" style="color:#FFFFFF;text-decoration:none"
+                        <a href="{{ url('/local/contact-us/create') }}" style="color:#1a75bb;text-decoration:none"
                            target="_blank">&nbsp;Contact Us&nbsp;</a>
                     </td>
                 </tr>

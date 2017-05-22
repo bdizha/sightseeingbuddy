@@ -9013,6 +9013,7 @@ h3,
 .gray-block {
   background: #E6E6E6;
   color: #3F3F3F;
+  min-height: 550px;
 }
 .white-block {
   background: #FFFFFF;
@@ -10411,6 +10412,7 @@ small a:hover {
   border-color: #1a75bb;
   color: #1a75bb;
   width: 100%;
+  text-align: center;
 }
 .btn-height:hover,
 .btn-height:focus {
