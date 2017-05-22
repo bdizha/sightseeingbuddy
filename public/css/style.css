@@ -10044,7 +10044,7 @@ section #sidebar h2 {
   background-color: #1a75bb;
   padding: 0;
   margin-bottom: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 0;
   border-radius: 0;
 }
 .media .media-body {
