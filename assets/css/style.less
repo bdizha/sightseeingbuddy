@@ -20,8 +20,12 @@ html, body {
   height: 100%;
   background: @blue;
   color: @white;
-  a{
+  a {
     color: @white;
+    &:hover,
+    &:focus {
+      color: @white;
+    }
   }
 }
 
@@ -47,7 +51,7 @@ h1, .h1, h2, .h2, h3, .h3 {
   background: @white;
   margin-bottom: 0;
   padding-bottom: 0;
-  .media-body{
+  .media-body {
     padding-bottom: 20px;
   }
 }
@@ -105,7 +109,6 @@ h1, .h1, h2, .h2, h3, .h3 {
   .blog-list {
     article {
       border: none;
-      background-color: @white;
       margin-top: 15px;
     }
     .media-object {
@@ -188,6 +191,7 @@ h1, .h1, h2, .h2, h3, .h3 {
   text-transform: lowercase;
   margin-bottom: 15px;
   padding-top: 5px;
+  color: @gray-base;
   label {
     font-weight: 400;
   }
@@ -418,10 +422,12 @@ input[type="radio"] {
 
 .gray-top-border {
   border-top: 1px solid @gray-base;
-  .panel{
-    .panel-body{
-      a{
-        color: @blue;
+  .panel {
+    .panel-body {
+      p {
+        > a {
+          color: @blue;
+        }
       }
     }
   }
@@ -761,10 +767,10 @@ section {
         display: none;
         background: url(/images/right_arrow_gray.svg) no-repeat;
         width: 46px;
-        height: 85px;
+        height: 55px;
         position: absolute;
-        right: -40px;
-        top: 33px;
+        right: -30px;
+        top: 46px;
         @media (min-width: @grid-float-breakpoint) {
           display: block;
         }
@@ -939,10 +945,10 @@ section {
         display: none;
         background: url(/images/right_arrow_white.svg) no-repeat;
         width: 46px;
-        height: 85px;
+        height: 55px;
         position: absolute;
-        right: -40px;
-        top: 33px;
+        right: -30px;
+        top: 46px;
         @media (min-width: @grid-float-breakpoint) {
           display: block;
         }
@@ -1180,6 +1186,7 @@ section {
           margin-bottom: 15px;
           font-size: 13px;
           font-weight: 500;
+          color: @white;
           light {
             font-weight: 300;
           }
@@ -1212,12 +1219,12 @@ section {
           }
         }
         @media (max-width: 650px) {
-          .pull-right{
+          .pull-right {
             position: absolute;
             bottom: 77px;
             right: 15px;
             background: @blue;
-            &.btn-default{
+            &.btn-default {
               border-color: @blue;
             }
           }
@@ -1244,6 +1251,7 @@ section {
 }
 
 .media {
+  background-color: @blue;
   padding: 0;
   margin-bottom: @panel-body-padding;
   padding-bottom: @panel-body-padding;
@@ -1285,7 +1293,7 @@ section {
     font-weight: 900;
     a {
       &:hover {
-        text-decoration: none;
+        text-decoration: underline;
       }
     }
     @media (max-width: @screen-sm) {
@@ -1486,12 +1494,11 @@ section {
 .local-left {
   .nav-stacked {
     > li {
-      padding-bottom: 10px;
       border-bottom: 1px solid @gray-base;
       padding: 0 10px 10px;
       margin-bottom: 10px;
+      padding-bottom: 10px;
     }
-
   }
 }
 
@@ -1500,7 +1507,7 @@ section {
   text-align: left;
   padding: 10px;
 
-  .form-control{
+  .form-control {
     background-color: @white;
   }
 
@@ -1563,7 +1570,6 @@ section {
 #bottom {
   background: @gray-base;
   color: @gray-lighter;
-  font-size: 13px;
   .container {
     a {
       color: @gray-lighter;
@@ -1577,17 +1583,16 @@ section {
 
 .edit-this-page {
   font-size: 14px !important;
-  background: #fff;
+  background: @white;
   display: inline-block;
   padding: 4px;
   height: 22px;
   width: 22px;
   line-height: 14px;
   color: @gray;
-
   &:hover {
     background: @gray;
-    color: #fff;
+    color: @white;
   }
 }
 
@@ -1633,24 +1638,20 @@ section {
       padding: 0px 15px;
     }
   }
-  .btn-primary {
-    &.btn-lg {
-      color: @white;
-      background-color: @white;
-      border-color: @white;
-      border-width: 3px;
-      &:hover,
-      &:focus {
-        color: @white;
-        background-color: @blue;
-        border-color: @blue;
-      }
-    }
-  }
 }
 
 p {
   margin: 0 0 15px;
+}
+
+small {
+  a {
+    color: @blue;
+    &:focus,
+    &:hover {
+      color: @blue;
+    }
+  }
 }
 
 .btn {
@@ -1668,19 +1669,24 @@ p {
   font-size: 16px;
   padding: 7px 24px;
   border-radius: 5px;
-  border-color: transparent;
-  background-color: transparent;
   display: inline-block;
-  margin-left: 10px;
+  background-color: @white;
+  border-color: @blue;
+  color: @blue;
+  width: 100%;
   &:hover,
   &:focus {
     color: @white;
-    background-color: @white;
+    background-color: @blue;
     border-color: @white;
     outline: none;
   }
   @media (max-width: @grid-float-breakpoint) {
     margin-top: 15px;
+    width: 100%;
+  }
+  &.ml-0 {
+    margin-left: 15px;
   }
 }
 
@@ -1713,10 +1719,6 @@ p {
 
   .search-form {
     .form-group {
-      display: inline-block;
-      margin: 0 5px;
-      float: left;
-      width: ~ "calc(25% - 10px)";
       height: 65px;
       .input-group {
         select {
@@ -1725,25 +1727,25 @@ p {
           }
         }
         .form-control {
-          font-size: 21px;
+          font-size: 17px;
         }
       }
     }
   }
 
-  .datetime-group .date-range .table-condensed > thead > tr > th, .datetime-group .date-range .table-condensed > tfoot > tr > th {
-    padding: 7px 2px;
-    font-size: 12px;
+  .datetime-group .date-range .table-condensed > thead > tr > th,
+  .datetime-group .date-range .table-condensed > tfoot > tr > th {
+    padding: 8px 10px;
+    font-size: 14px;
     color: @white;
   }
 
   .datetime-group .date-range .table-condensed > tbody > tr td {
-    padding: 2px 5px;
-    font-size: 12px;
-    width: 21px;
-    height: 21px;
+    padding: 8px 10px;
+    font-size: 14px;
+    width: 34px;
+    height: 30px;
     font-weight: 500;
-    color: @white;
   }
 }
 
@@ -1842,6 +1844,29 @@ p {
       .fa {
         font-size: 13px;
       }
+    }
+    li {
+      a {
+        color: @white;
+      }
+      &.open {
+        a {
+          color: @gray-base;
+        }
+      }
+      ul {
+        li {
+          a {
+            color: @gray-base;
+          }
+        }
+      }
+    }
+    .nav .open > a,
+    .nav .open > a:hover,
+    .nav .open > a:focus {
+      background-color: @white;
+      border-color: @white;
     }
     .text-uppercase {
       font-size: 13px;
@@ -2085,6 +2110,22 @@ p {
   border-color: @white;
   border-width: 3px;
   font-weight: 900;
+  &.btn-lg {
+    padding: 10px 15px;
+    font-size: 27px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    color: @blue;
+    background-color: @white;
+    border-color: @blue;
+    border-width: 3px;
+    &:hover,
+    &:focus {
+      color: @white;
+      background-color: @blue;
+      border-color: @blue;
+    }
+  }
 }
 
 .btn-yellow {
@@ -2438,16 +2479,16 @@ a.thumbnail:hover, a.thumbnail:active {
         padding-right: 70px;
         h1 {
           font-weight: 900;
-          font-size: 79px;
+          font-size: 82px;
           text-transform: uppercase;
-          padding: 0 20px 0px;
-          margin: 0;
-          line-height: 79px;
+          padding: 0;
+          margin: 0 0 95px;
+          line-height: 82px;
           margin-top: 0;
           text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
           @media (max-width: @grid-float-breakpoint-max) {
-            font-size: 28px;
-            line-height: 28px;
+            font-size: 30px;
+            line-height: 30px;
             margin-top: -40px;
             padding-top: 0;
             width: 100%;
@@ -2578,6 +2619,7 @@ a.thumbnail:hover, a.thumbnail:active {
   font-size: 26px;
   font-weight: 700;
   border-radius: 0px;
+  color: @gray-base;
 }
 
 .booking-block {
@@ -2622,14 +2664,15 @@ a.thumbnail:hover, a.thumbnail:active {
         padding: 20px 23px;
         font-size: 24px;
         text-transform: uppercase;
+        color: @white;
         &:hover,
         &.focused {
           background-color: transparent;
         }
         &.prev {
           position: absolute;
-          width: 44px;
-          height: 44px;
+          width: 46px;
+          height: 46px;
           left: 36px;
           top: 16px;
           background-image: url(/images/date-prev-arrow.png) !important;
@@ -2643,8 +2686,8 @@ a.thumbnail:hover, a.thumbnail:active {
         }
         &.next {
           position: absolute;
-          width: 44px;
-          height: 44px;
+          width: 46px;
+          height: 46px;
           right: 36px;
           top: 16px;
           background-image: url(/images/date-next-arrow.png) !important;
@@ -2829,14 +2872,33 @@ a.thumbnail:hover, a.thumbnail:active {
 
 #search-block {
   position: absolute;
-  top: -180px !important;
-  right: 15px;
-  visibility: hidden;
-
-  .datetime-group{
+  top: -180px;
+  width: 100%;
+  .datetime-group {
     width: auto;
-    .datetime-inner{
+    left: -146px;
+    top: 76px;
+    .datetime-inner {
       width: auto;
+    }
+  }
+  .search-form {
+    .form-group {
+      display: inline-block;
+      margin: 0 5px;
+      float: left;
+      width: ~ "calc(25% - 10px)";
+      height: 65px;
+      .input-group {
+        select {
+          .form-control {
+            padding-left: 4px !important;
+          }
+        }
+        .form-control {
+          font-size: 17px;
+        }
+      }
     }
   }
 }
@@ -2847,6 +2909,12 @@ a.thumbnail:hover, a.thumbnail:active {
   }
 }
 
+@media (min-width: 768px) {
+  .modal-dialog {
+    margin: 80px auto;
+  }
+}
+
 // Actual modal
 .modal-content {
   .modal-header {
@@ -2854,6 +2922,9 @@ a.thumbnail:hover, a.thumbnail:active {
     text-align: center;
     text-transform: uppercase;
     background-color: @blue;
+    .modal-title {
+      color: @white;
+    }
     .close {
       font-size: 36px;
       font-weight: bold;

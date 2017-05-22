@@ -65,14 +65,14 @@ $style = [
     font-size: 16px;
     padding: 15px;
     border-color: transparent;
-    background-color: #FDBF0F;
+    background-color: #1a75bb;
     position: relative;
     overflow: hidden;
     border-radius: 5px;
     text-decoration: none;
     ',
 
-    'button--yellow' => 'background-color: #FDBF0F;',
+    'button--yellow' => 'background-color: #1a75bb;',
 ];
 ?>
 

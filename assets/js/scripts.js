@@ -249,6 +249,10 @@ function Vertilize() {
             remove: false
         };
 
+        setHeightFor('.media-heading.same-height');
+        setHeightFor('.media-media-summary.same-height');
+        setHeightFor('.left-cell h1');
+
         console.log("resizing...");
 
         $('.same-height').matchHeight(options);
@@ -336,34 +340,34 @@ function HomeBanners() {
 
     this.init = function () {
 
-        var searchBlock = $("#search-block");
-        var indexSlider = $(".index-slider");
-
-        if (searchBlock.length > 0) {
-
-            if (indexSlider.width() > 300) {
-
-                var sliderHeight = indexSlider.height();
-                var searchHeight = searchBlock.height();
-                var heightDiff = parseFloat(sliderHeight) / 2 + parseFloat(searchHeight) / 2;
-
-                console.log("slider height: " + sliderHeight);
-                console.log("search height: " + searchHeight);
-                console.log("diff height: " + heightDiff);
-                searchBlock.css({
-                    "top": "-" + (heightDiff + 20) + "px",
-                    "visibility": "visible"
-                });
-
-                if (parseFloat(indexSlider.attr("data-height")) != sliderHeight) {
-
-                }
-                indexSlider.attr("data-height", sliderHeight);
-                setTimeout(function () {
-                    (new HomeBanners).init();
-                }, 3000);
-            }
-        }
+        // var searchBlock = $("#search-block");
+        // var indexSlider = $(".index-slider");
+        //
+        // if (searchBlock.length > 0) {
+        //
+        //     if (indexSlider.width() > 300) {
+        //
+        //         var sliderHeight = indexSlider.height();
+        //         var searchHeight = searchBlock.height();
+        //         var heightDiff = parseFloat(sliderHeight) / 2 + parseFloat(searchHeight) / 2;
+        //
+        //         console.log("slider height: " + sliderHeight);
+        //         console.log("search height: " + searchHeight);
+        //         console.log("diff height: " + heightDiff);
+        //         searchBlock.css({
+        //             "top": "-" + (heightDiff + 20) + "px",
+        //             "visibility": "visible"
+        //         });
+        //
+        //         if (parseFloat(indexSlider.attr("data-height")) != sliderHeight) {
+        //
+        //         }
+        //         indexSlider.attr("data-height", sliderHeight);
+        //         setTimeout(function () {
+        //             (new HomeBanners).init();
+        //         }, 3000);
+        //     }
+        // }
     }
 }
 
@@ -787,9 +791,6 @@ $(function () {
 
     $window.on('resize', function () {
         (new Vertilize).init();
-
-        setHeightFor('.media-heading.same-height');
-        setHeightFor('.media-media-summary.same-height');
     });
 
     setTimeout(function () {

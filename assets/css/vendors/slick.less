@@ -7,7 +7,7 @@
     overflow: visible;
   }
   .slick-dots {
-    bottom: 10px;
+    bottom: 20px;
     z-index: 99;
     li {
       button {
@@ -18,7 +18,7 @@
         width: 15px;
         height: 15px;
         content: "";
-        border: 1px solid #FFFFFF;
+        border: 1px solid @white;
         border-radius: 50%;
         overflow: hidden;
         &::before {
@@ -28,7 +28,7 @@
       &.slick-active,
       &:hover {
         button {
-          background: #FFFFFF;
+          background: @white;
         }
       }
     }
