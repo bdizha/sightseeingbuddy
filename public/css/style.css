@@ -10576,6 +10576,14 @@ small a:hover {
 .site-header .top-yellow-bg li ul li a {
   color: #3F3F3F;
 }
+.site-header .top-yellow-bg ul.top-nav li a {
+  color: #1a75bb;
+}
+.site-header .top-yellow-bg ul.top-nav li a:hover,
+.site-header .top-yellow-bg ul.top-nav li a:focus {
+  color: #1a75bb;
+  text-decoration: underline;
+}
 .site-header .top-yellow-bg .nav .open > a,
 .site-header .top-yellow-bg .nav .open > a:hover,
 .site-header .top-yellow-bg .nav .open > a:focus {

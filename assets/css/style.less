@@ -1800,7 +1800,7 @@ small {
   .search-form {
     .form-group {
       visibility: hidden;
-      &:last-child{
+      &:last-child {
         visibility: visible;
       }
     }
@@ -1865,6 +1865,20 @@ small {
         li {
           a {
             color: @gray-base;
+          }
+        }
+      }
+    }
+    ul {
+      &.top-nav {
+        li {
+          a {
+            color: @blue;
+            &:hover,
+            &:focus {
+              color: @blue;
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -2070,9 +2084,9 @@ small {
   }
 }
 
-.page-{
-  .carousel-caption{
-    h1{
+.page- {
+  .carousel-caption {
+    h1 {
       margin-top: -15px;
     }
   }
