@@ -1869,15 +1869,17 @@ small {
         }
       }
     }
-    ul {
-      &.top-nav {
-        li {
-          a {
-            color: @blue;
-            &:hover,
-            &:focus {
+    @media (max-width: 370px) {
+      ul {
+        &.top-nav {
+          li {
+            a {
               color: @blue;
-              text-decoration: underline;
+              &:hover,
+              &:focus {
+                color: @blue;
+                text-decoration: underline;
+              }
             }
           }
         }
