@@ -7,10 +7,10 @@
             @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900';
             * {
                 font-family: 'Roboto', sans-serif;
-                color: #3D3D3D;
+                color: #FFFFFF;
             }
             a {
-                color: #3D3D3D
+                color: #FFFFFF
             }
         </style>
     </head>
@@ -35,7 +35,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:20px;font-size:14px;line-height:20px;color: #3D3D3D;background: #FFFFFF;">
+                        <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:20px;font-size:14px;line-height:20px;color: #FFFFFF;background: #FFFFFF;">
                             @yield('content')
                             @include('email.partials.signature')
                         </td>

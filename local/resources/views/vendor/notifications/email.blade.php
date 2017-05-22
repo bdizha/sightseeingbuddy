@@ -16,11 +16,11 @@
         @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900';
         * {
             font-family: 'Roboto', sans-serif;
-            color: #3D3D3D;
+            color: #FFFFFF;
         }
 
         a {
-            color: #3D3D3D
+            color: #FFFFFF
         }
     </style>
 </head>
@@ -52,14 +52,14 @@ $style = [
 
     /* Type ------------------------------ */
 
-    'anchor' => 'color: #3D3D3D;',
-    'paragraph' => 'margin-top: 0; color: #3D3D3D; font-size: 14px; line-height: 1.5em;',
-    'paragraph-sub' => 'margin-top: 0; color: #3D3D3D; font-size: 12px; line-height: 1.5em;',
+    'anchor' => 'color: #FFFFFF;',
+    'paragraph' => 'margin-top: 0; color: #FFFFFF; font-size: 14px; line-height: 1.5em;',
+    'paragraph-sub' => 'margin-top: 0; color: #FFFFFF; font-size: 12px; line-height: 1.5em;',
     'paragraph-center' => 'text-align: center;',
 
     /* Buttons ------------------------------ */
 
-    'button' => 'color: #3D3D3D;
+    'button' => 'color: #FFFFFF;
     text-transform: uppercase;
     font-weight: 900;
     font-size: 16px;
@@ -100,7 +100,7 @@ $style = [
                     </td>
                 </tr>
                 <tr>
-                    <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #3D3D3D;background: #FFFFFF;">
+                    <td style="border:1px solid #dddddd; font-family:Roboto,Arial,sans-serif;padding:40px 60px;font-size:14px;line-height:20px;color: #FFFFFF;background: #FFFFFF;">
                         <table style="{{ $style['email-body_inner'] }}" align="center" width="570" cellpadding="0"
                                cellspacing="0">
                             <tr>

@@ -318,7 +318,7 @@ function SelectColor() {
 
         // $("select").each(function () {
         //     if ($(this).val() != "") {
-        //         $(this).css({color: "#3d3d3d"});
+        //         $(this).css({color: "#FFFFFF"});
         //     }
         //     else {
         //         $(this).css({color: "#aeaeae"});
@@ -327,7 +327,7 @@ function SelectColor() {
         //
         // $("select").change(function () {
         //     if ($(this).val() != "") {
-        //         $(this).css({color: "#3d3d3d"});
+        //         $(this).css({color: "#FFFFFF"});
         //     }
         //     else {
         //         $(this).css({color: "#aeaeae"});
