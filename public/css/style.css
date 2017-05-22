@@ -9386,9 +9386,10 @@ a:hover {
   background-color: transparent;
   border-radius: 10px !important;
   font-size: 14px;
+  color: #3F3F3F;
 }
 select.form-control:focus {
-  color: #FFFFFF;
+  color: #3F3F3F;
 }
 form .gray-left-border {
   padding-left: 35px;
@@ -10171,6 +10172,7 @@ section #sidebar h2 {
   margin-top: 10px;
 }
 .profile-nav > li > a {
+  color: #3F3F3F;
   outline: none;
   font-weight: 900;
   text-transform: uppercase;
@@ -10437,9 +10439,15 @@ p {
 @media (min-width: 992px) {
   .search-block .search-form {
     display: block;
-    width: 270px;
     z-index: 99;
   }
+}
+.search-block .search-form .form-group {
+  display: inline-block;
+  margin: 0 5px;
+  float: left;
+  width: calc(25% - 10px);
+  height: 65px;
 }
 .search-block .search-form .form-group .input-group select .form-control {
   padding-left: 4px !important;
@@ -10462,7 +10470,7 @@ p {
   color: #FFFFFF;
 }
 .search-form .form-group {
-  height: 58px;
+  height: 65px;
   position: relative;
 }
 .search-form .form-group .input-group {
@@ -10470,7 +10478,7 @@ p {
   padding-left: 45px;
   border-radius: 10px;
   border: 1px solid #3F3F3F;
-  height: 60px;
+  height: 65px;
 }
 .search-form .form-group .input-group .form-control {
   border: 1px solid transparent;
@@ -11516,9 +11524,15 @@ a.thumbnail:active {
 }
 #search-block {
   position: absolute;
-  top: -480px;
+  top: -180px !important;
   right: 15px;
   visibility: hidden;
+}
+#search-block .datetime-group {
+  width: auto;
+}
+#search-block .datetime-group .datetime-inner {
+  width: auto;
 }
 @media (min-width: 992px) {
   .step-form-left {

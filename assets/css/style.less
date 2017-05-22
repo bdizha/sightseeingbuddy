@@ -500,12 +500,13 @@ a {
   background-color: transparent;
   border-radius: 10px !important;
   font-size: 14px;
+  color: @gray-base;
 }
 
 select {
   &.form-control {
     &:focus {
-      color: @white;
+      color: @gray-base;
     }
   }
 }
@@ -1392,6 +1393,7 @@ section {
     display: inline-block;
     margin-top: 10px;
     > a {
+      color: @gray-base;
       outline: none;
       font-weight: 900;
       text-transform: uppercase;
@@ -1705,13 +1707,17 @@ p {
   @media (min-width: @grid-float-breakpoint) {
     .search-form {
       display: block;
-      width: 270px;
       z-index: 99;
     }
   }
 
   .search-form {
     .form-group {
+      display: inline-block;
+      margin: 0 5px;
+      float: left;
+      width: ~ "calc(25% - 10px)";
+      height: 65px;
       .input-group {
         select {
           .form-control {
@@ -1743,14 +1749,14 @@ p {
 
 .search-form {
   .form-group {
-    height: 58px;
+    height: 65px;
     position: relative;
     .input-group {
       background: @white;
       padding-left: 45px;
       border-radius: 10px;
       border: 1px solid @gray-base;;
-      height: 60px;
+      height: 65px;
       .form-control {
         border: 1px solid transparent;
         background: @white;
@@ -2823,9 +2829,16 @@ a.thumbnail:hover, a.thumbnail:active {
 
 #search-block {
   position: absolute;
-  top: -480px;
+  top: -180px !important;
   right: 15px;
   visibility: hidden;
+
+  .datetime-group{
+    width: auto;
+    .datetime-inner{
+      width: auto;
+    }
+  }
 }
 
 @media (min-width: @grid-float-breakpoint) {

@@ -32,7 +32,7 @@
                                 item
                                 item-level-1
                                 ">
-                                <a href="/pages/about-keep-it-local">
+                                <a href="/pages/about-sightseeing-buddy">
                                     About Sightseeing Buddy
                                 </a>
                             </li>
