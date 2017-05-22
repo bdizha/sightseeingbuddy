@@ -45,8 +45,6 @@ class Controller extends BaseController
 
     protected function getImage($path)
     {
-        dd(url("/") . $path);
-
         try {
             return file_get_contents(url("/") . $path);
         } catch (\Exception $e) {
