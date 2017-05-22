@@ -1,4 +1,4 @@
 <b style="font-weight: 500;">
-    Lazanne,<br />
-    Sightseeing Buddy Founder
+    Cheers,<br />
+    Sightseeing Buddy Team
 </b>
