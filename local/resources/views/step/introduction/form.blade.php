@@ -73,23 +73,32 @@
                     <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}"
                          id="fields-password-field">
                         <div class="col-xs-12">
-                            @if ($errors->has('password'))
-                                <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
-                            @endif
-                            <input class="form-control fullwidth" type="password" id="fields-password" name="password"
-                                   value="" autocomplete="off" @if (Auth::guest())required @endif placeholder="Your password*">
+                            <div class="password-group">
+                                @if ($errors->has('password'))
+                                    <label class="control-label"
+                                           for="inputError1">{{ $errors->first('password') }}</label>
+                                @endif
+                                <input class="form-control fullwidth" type="password" id="fields-password"
+                                       name="password"
+                                       value="" autocomplete="off" @if (Auth::guest())required
+                                       @endif placeholder="Your password*"/>
+                                <div class="password-eye"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}"
+                    <div class="password-group row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}"
                          id="fields-password-confirmation-field">
                         <div class="col-xs-12">
-                            @if ($errors->has('password_confirmation'))
-                                <label class="control-label"
-                                       for="inputError1">{{ $errors->first('password_confirmation') }}</label>
-                            @endif
-                            <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
-                                   name="password_confirmation" value="" autocomplete="off"
-                                   @if (Auth::guest())required @endif placeholder="Confirm password*">
+                            <div class="password-group">
+                                @if ($errors->has('password_confirmation'))
+                                    <label class="control-label"
+                                           for="inputError1">{{ $errors->first('password_confirmation') }}</label>
+                                @endif
+                                <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
+                                       name="password_confirmation" value="" autocomplete="off"
+                                       @if (Auth::guest())required @endif placeholder="Confirm password*"/>
+                                <div class="password-eye"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

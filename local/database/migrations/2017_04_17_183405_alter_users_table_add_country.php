@@ -14,7 +14,7 @@ class AlterUsersTableAddCountry extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('country_id')->nullable();
+            $table->string('verify_key')->nullable();
         });
     }
 

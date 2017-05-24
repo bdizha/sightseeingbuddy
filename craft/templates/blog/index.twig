@@ -15,7 +15,13 @@
 
                 {%- include "_includes/sidebar.twig" -%}
 
-                <div class="col-sm-8 col-sm-offset-1 mt-3">
+
+
+                {% set query = craft.request.getParam('search') %}
+
+                {% set entries = craft.entries.section(['blog']).search(query) %}
+
+                <div class="col-sm-8 col-sm-offset-1 mt-3 {{ query }}">
                     <div class="row">
                         <div class="container-fluid">
                             <div class="articles-block same-height gray-bottom-border gray-top-border pb-3"
@@ -24,10 +30,13 @@
                                     <h3 class="inline">Blog Posts</h3>
                                     <div class="inline pull-right hidden-xs">
                                         <div class="form-group" id="fields-fullName-field">
-                                            <input class="text form-control nicetext fullwidth" type="text"
-                                                   id="fields-fullName" name="fields[email]" value=""
-                                                   data-show-chars-left="" autocomplete="off"
-                                                   placeholder="Search blog posts...">
+
+                                            <form action="/blog" method="GET">
+                                                <input class="text form-control nicetext fullwidth" type="text"
+                                                       id="fields-fullName" name="search" value="{{ query }}"
+                                                       data-show-chars-left="" autocomplete="off"
+                                                       placeholder="Search blog posts...">
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="inline pull-right hidden-xs" style="margin-right: 10px;">
@@ -38,10 +47,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group hidden-lg hidden-md hidden-sm" id="fields-fullName-field">
-                                        <input class="text form-control nicetext fullwidth" type="text"
-                                               id="fields-fullName" name="fields[email]" value=""
-                                               data-show-chars-left="" autocomplete="off"
-                                               placeholder="Search blog posts...">
+                                        <form action="/blog" method="GET">
+                                            <input class="text form-control nicetext fullwidth" type="text"
+                                                   id="fields-fullName" name="search" value="{{ query }}"
+                                                   data-show-chars-left="" autocomplete="off"
+                                                   placeholder="Search blog posts...">
+                                        </form>
                                     </div>
                                     <div class="form-group hidden-lg hidden-md hidden-sm">
                                         <select class="form-control fullwidth" name="guests">
@@ -51,7 +62,18 @@
                                 </div>
 
                                 <div class="blog-list text-align-center">
-                                    {% paginate craft.entries.section('blog').with(["featureImage"]).limit(12) as paging, entries %}
+
+                                    {% paginate craft.entries.search(query).section('blog').with(["featureImage"]).limit(12) as paging, entries %}
+
+                                    {% if query is not empty %}
+                                        {% if entries|length %}
+                                            <p style="text-align: center;">Your search for "{{ query }}"
+                                                returned {{ entries|length }} results</p>
+                                        {% else %}
+                                            <p class="text-align-center">Your search for “{{ query }}” didn’t return any
+                                                results.</p>
+                                        {% endif %}
+                                    {% endif %}
 
                                     {%- include "blog/_list.twig" -%}
 

@@ -17,11 +17,14 @@
                     </div>
                     <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}" id="email-field">
                         <div class="col-sm-9 col-xs-12">
+                            <div class="password-group ">
                             @if ($errors->has('password'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
                             @endif
                             <input class="form-control fullwidth" type="password" id="password" name="password" value=""
                                     autocomplete="off" required placeholder="Your password" />
+                                <div class="password-eye"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group">

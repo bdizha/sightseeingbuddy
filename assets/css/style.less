@@ -41,19 +41,24 @@ h1, .h1, h2, .h2, h3, .h3 {
 .gray-block {
   background: #E6E6E6;
   color: @gray-base;
-  min-height: 550px;
+}
+
+#page {
+  min-height: 630px;
 }
 
 .white-block {
   background: @white;
 }
 
-#blog article {
-  background: @white;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  .media-body {
-    padding-bottom: 20px;
+#blog {
+  article {
+    background: transparent;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+    .media-body {
+      padding-bottom: 20px;
+    }
   }
 }
 
@@ -2097,13 +2102,25 @@ small {
   .search-form {
     .btn-default {
       &.btn-lg {
-        border-color: @white;
         color: @white;
         &:hover,
         &:focus {
           color: @blue;
           background-color: @white;
           border-color: @blue;
+        }
+      }
+    }
+  }
+  .search-form-xs {
+    .search-form {
+      .btn-default {
+        &.btn-lg {
+          border-color: @white;
+          &:hover,
+          &:focus {
+            border-color: @blue;
+          }
         }
       }
     }

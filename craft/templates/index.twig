@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="container search-xs hidden-lg hidden-md hidden-sm">
+    <div class="container search-xs hidden-lg hidden-md hidden-sm search-form-xs">
         {%- include "_includes/search.twig" -%}
     </div>
 
@@ -45,6 +45,8 @@
         <div class="container">
             <h2 class="text-center section-title"><b>Tourism</b> news blog</h2>
             <div class="text-align-center blog-list">
+                {% set entries = craft.entries.section('blog').limit(3) %}
+
                 {%- include "blog/_list.twig" -%}
             </div>
         </div>

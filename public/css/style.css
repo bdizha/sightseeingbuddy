@@ -9013,14 +9013,16 @@ h3,
 .gray-block {
   background: #E6E6E6;
   color: #3F3F3F;
-  min-height: 550px;
+}
+#page {
+  min-height: 630px;
 }
 .white-block {
   background: #FFFFFF;
 }
 #blog article {
-  background: #FFFFFF;
-  margin-bottom: 0;
+  background: transparent;
+  margin-bottom: 30px;
   padding-bottom: 0;
 }
 #blog article .media-body {
@@ -10783,13 +10785,19 @@ small a:hover {
   margin-top: -15px;
 }
 .page- .search-form .btn-default.btn-lg {
-  border-color: #FFFFFF;
   color: #FFFFFF;
 }
 .page- .search-form .btn-default.btn-lg:hover,
 .page- .search-form .btn-default.btn-lg:focus {
   color: #1a75bb;
   background-color: #FFFFFF;
+  border-color: #1a75bb;
+}
+.page- .search-form-xs .search-form .btn-default.btn-lg {
+  border-color: #FFFFFF;
+}
+.page- .search-form-xs .search-form .btn-default.btn-lg:hover,
+.page- .search-form-xs .search-form .btn-default.btn-lg:focus {
   border-color: #1a75bb;
 }
 .btn-primary {

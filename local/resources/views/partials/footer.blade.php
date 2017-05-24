@@ -80,30 +80,8 @@
                                 item
                                 item-level-1
                                 ">
-                                <a href="/gallery">
-                                    Gallery
-                                </a>
-                            </li>
-                            <li class="
-                                item
-                                item-level-1
-                                ">
                                 <a href="/pages/faq">
                                     FAQ
-                                </a>
-
-                            </li>
-
-
-                            <li class="
-                                item
-                                item-level-1
-
-
-
-                                ">
-                                <a href="/pages/privacy-policy">
-                                    Privacy policy
                                 </a>
 
                             </li>
@@ -115,12 +93,16 @@
                         <h2>Other</h2>
                         <ul class="nav nav-stacked nav-pills">
 
+
                             <li class="
                                 item
                                 item-level-1
-                            ">
-                                <a href="/pages/meet-the-team">
-                                    Meet the team
+
+
+
+                                ">
+                                <a href="/pages/privacy-policy">
+                                    Privacy policy
                                 </a>
 
                             </li>
