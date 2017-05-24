@@ -9014,7 +9014,7 @@ h3,
   background: #E6E6E6;
   color: #3F3F3F;
 }
-#page {
+#page.gray-block {
   min-height: 630px;
 }
 .white-block {
