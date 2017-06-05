@@ -14,11 +14,6 @@
                         <span>Bookings</span>
                     </a>
                 </li>
-                <li class="item">
-                    <a href="/local/profile/{{ $user->username }}">
-                        <img src="/images/person-66.png"/>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

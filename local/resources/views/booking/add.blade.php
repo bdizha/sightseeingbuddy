@@ -21,41 +21,14 @@
                                 <span>Bookings</span>
                             </a>
                         </li>
-                        <li class="item">
-                            <a href="/local/profile/{{ $user->username }}">
-                                <img src="/images/person_white.png"/>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
             <div class="gray-bottom-border mb-1"></div>
             <div class='row mt-2'>
-                <div class="col-sm-6 col-xs-12">
-                    <div class="booking-row">
-                        <button type="button" modal-id="message-modal" class="btn btn-modal btn-lg btn-yellow mb-1">
-                            Message for other special requests
-                        </button>
-                    </div>
-                    <div class="booking-row text-bold">
-                        {{ $time }}, {{ $date }}
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <div class="mb-1">
-                        @foreach(range(1, 4) as $value)
-                            <div class="col-sm-6 col-xs-6">
-                                <div class="row">
-                                    <label class="checkbox-inline">
-                                        {{ Form::checkbox("special_request[]", null, false, ['id' => "special_request_" . $value]) }}
-                                        <label for="{{ "special_request_" . $value }}">
-                                            <span></span>
-                                            Special request {{ $value }}
-                                        </label>
-                                    </label>
-                                </div>
-                            </div>
-                        @endforeach
+                <div class="col-sm-12 col-xs-12">
+                    <div class="booking-row ">
+                        <h3>{{ $time }}, {{ $date }}</h3>
                     </div>
                 </div>
             </div>
@@ -70,8 +43,8 @@
                 @endforeach
                 <div class='row'>
                     <div class="col-sm-6 col-xs-12">
+                        <h3>Your booking details</h3>
                         <div class="booking-row">
-                            <h3>Your contact details</h3>
                             <h4>Name:</h4>
                             <h3>{{ $user->first_name }}</h3>
                         </div>
@@ -80,8 +53,12 @@
                             <h3>{{ $user->last_name }}</h3>
                         </div>
                         <div class="booking-row">
-                            <h4>Email:</h4>
-                            <h3>{{ $user->email }}</h3>
+                            <h4>Date:</h4>
+                            <h3>{{ $date  }}</h3>
+                        </div>
+                        <div class="booking-row">
+                            <h4>Time:</h4>
+                            <h3>{{ $time }}</h3>
                         </div>
                         <div class="hidden-xs">
                             <div class="booking-row">
@@ -97,10 +74,14 @@
                         </div>
                     </div>
                     <div class="col-sm-6 col-xs-12">
+                        <h3>Your experience details</h3>
                         <div class="booking-row">
+                            <h4>Experience:</h4>
                             <h3>{{ $experience->teaser }}</h3>
+                        </div>
+                        <div class="booking-row">
                             <h4>Host:</h4>
-                            <h3>{{ $experience->user->email }}</h3>
+                            <h3>{{ $experience->user->first_name }}</h3>
                         </div>
                         <div class="booking-row">
                             <h4>Number of guests:</h4>
@@ -108,8 +89,8 @@
                         </div>
                         <div class="booking-row">
                             <h4>Price per guest:</h4>
-                            <h3 class="data-currency" data-currency-base="{{ str_replace("R", "", $experience->pricing->per_person) }}">
-                                {{ $experience->pricing->per_person }}
+                            <h3 class="data-currency" data-currency-base="{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}">
+                                R{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}
                             </h3>
                         </span>
                         </div>

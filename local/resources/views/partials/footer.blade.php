@@ -9,9 +9,6 @@
                     <a class="share-btn external-link" target="_blank" href="https://twitter.com/SightBud"><i class="fa fa-twitter"></i></a>
                     <a class="share-btn external-link" target="_blank" href="https://www.instagram.com/sightseeingbuddy/"><i class="fa fa-instagram"></i></a>
                     <a class="share-btn" target="_blank" href=""><i class="fa fa-youtube"></i></a>
-                    <a class="share-btn" target="_blank" href=""><i class="fa fa-google-plus"></i></a>
-                    <a class="share-btn" target="_blank" href=""><i class="fa fa-pinterest"></i></a>
-                    <a class="share-btn"><i class="fa fa-skype"></i></a>
                 </div>
                 <h2>Sign up to our newsletter</h2>
                 <div id="newsletter-group" class="form-group">

@@ -18,11 +18,6 @@
                     <span>Bookings</span>
                 </a>
             </li>
-            <li class="item">
-                <a href="/local/dashboard">
-                    <img src="/images/person-66.png" />
-                </a>
-            </li>
         </ul>
     </div>
 </div>

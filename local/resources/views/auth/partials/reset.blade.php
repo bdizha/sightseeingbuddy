@@ -28,7 +28,7 @@
                                 <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
                             @endif
                             <input class="form-control fullwidth" type="password" id="password" name="password"
-                                   value="{{ old('password') }}" autocomplete="off" required placeholder="New passport">
+                                   value="{{ old('password') }}" autocomplete="off" required placeholder="New password">
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">

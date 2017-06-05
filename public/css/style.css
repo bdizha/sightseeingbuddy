@@ -9929,6 +9929,10 @@ section #sidebar h2 {
     font-size: 23px;
   }
 }
+#page.booking-block h3 {
+  font-size: 25px;
+  font-weight: 900;
+}
 #page.booking-block .profile h1 {
   font-size: 75px;
   font-weight: 900;
@@ -9966,9 +9970,9 @@ section #sidebar h2 {
   margin-bottom: 0;
 }
 #page.booking-block form .booking-row h3 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 900;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-bottom: 15px;
 }
 #page.booking-block form .booking-row h1 {
@@ -10033,6 +10037,7 @@ section #sidebar h2 {
 }
 .booking-row h3 {
   margin-top: 0;
+  color: #3F3F3F;
 }
 .booking-row h4 {
   font-size: 14px;
@@ -11471,16 +11476,30 @@ a.thumbnail:active {
     top: 12px;
   }
 }
-.datepicker-inline .table-condensed > tbody > tr td.day:hover,
+.datepicker-inline .table-condensed > tbody > tr td.highlighted {
+  color: #1a75bb;
+  background-color: transparent;
+  border: none;
+}
+.datepicker-inline .table-condensed > tbody > tr td.highlighted:hover,
+.datepicker-inline .table-condensed > tbody > tr td.highlighted.focused {
+  color: #FFFFFF;
+  background-color: #1a75bb;
+  border: none;
+}
+.datepicker-inline .table-condensed > tbody > tr td:hover,
 .datepicker-inline .table-condensed > tbody > tr td.focused {
   color: #FFFFFF;
   background-color: #1a75bb;
   border: none;
 }
-.datepicker-inline .table-condensed > tbody > tr td.highlighted {
-  color: #1a75bb;
-  background-color: transparent;
-  border: none;
+.datepicker-inline .table-condensed > tbody > tr td.disabled {
+  color: #777 !important;
+}
+.datepicker-inline .table-condensed > tbody > tr td.disabled:hover,
+.datepicker-inline .table-condensed > tbody > tr td.disabled.focused {
+  color: #777 !important;
+  background-color: transparent !important;
 }
 @media (min-width: 1024px) and (max-width: 1210px) {
   .datepicker-inline .table-condensed > tbody > tr td.day {

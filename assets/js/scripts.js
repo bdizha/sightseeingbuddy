@@ -468,7 +468,7 @@ function ConvertCurrency() {
             var convertedPricing = parseFloat(pricing) * currencyRate;
             var currencyPricing = currencies[currency];
 
-            $(this).html(currencyPricing + Math.round(convertedPricing));
+            $(this).html(currencyPricing + convertedPricing.toFixed(2));
         });
     }
 }
@@ -517,12 +517,10 @@ function DatePicker() {
         var daysActive = $("#datepicker").attr("data-days-active");
         var daysInActive = $("#datepicker").attr("data-days-inactive");
 
-        console.log("some data is coming through now");
-        console.log(daysInActive);
-
         $('#datepicker').datepicker({
             daysOfWeekDisabled: daysInActive,
             daysOfWeekHighlighted: daysActive,
+            startDate: new Date(),
             templates: {
                 leftArrow: '&nbsp;',
                 rightArrow: '&nbsp;'

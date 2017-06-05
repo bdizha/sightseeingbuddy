@@ -1,7 +1,7 @@
 <div class="col-sm-8 col-sm-offset-1 same-height mt-3 gray-bottom-border gray-top-border" data-mh="column">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading">Reset Password</div>
+            <div class="panel-heading">Recover Password</div>
             <div class="panel-body">
                 @if (session('status'))
                     <div class="alert alert-success">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-5 col-xs-12">
-                            <input type="submit" class="btn fullwidth btn-yellow" value="Log In & find a buddy"/>
+                            <input type="submit" class="btn fullwidth btn-yellow" value="Send new password link"/>
                         </div>
                         <div class="col-sm-4 col-xs-12">
                             <a href="{{ url('/login') }}" class="btn-height mt-xs-1">Sign In</a>

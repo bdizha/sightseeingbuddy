@@ -1126,6 +1126,12 @@ section {
     }
   }
   &.booking-block {
+
+    h3 {
+      font-size: 25px;
+      font-weight: 900;
+    }
+
     .profile {
       h1 {
         font-size: 75px;
@@ -1171,9 +1177,9 @@ section {
           margin-bottom: 0;
         }
         h3 {
-          font-size: 24px;
+          font-size: 22px;
           font-weight: 900;
-          margin-top: 5px;
+          margin-top: 0px;
           margin-bottom: 15px;
         }
         h1 {
@@ -1245,6 +1251,7 @@ section {
 .booking-row {
   h3 {
     margin-top: 0;
+    color: @gray-base;
   }
   h4 {
     font-size: 14px;
@@ -2795,31 +2802,48 @@ a.thumbnail:hover, a.thumbnail:active {
       }
     }
     > tbody > tr {
-      td.day:hover,
-      td.focused {
-        color: @white;
-        background-color: @blue;
-        border: none;
-      }
-      td.highlighted {
-        color: @blue;
-        background-color: transparent;
-        border: none;
-      }
-      @media (min-width: 1024px) and (max-width: 1210px) {
-        td.day {
-          padding: 15px;
-          font-size: 22px;
+      td {
+        &.highlighted {
+          color: @blue;
+          background-color: transparent;
+          border: none;
+          &:hover,
+          &.focused {
+            color: @white;
+            background-color: @blue;
+            border: none;
+          }
         }
-      }
-      @media (max-width: 1023px) {
-        td.day {
-          padding: 10px;
-          font-size: 19px;
+        &:hover,
+        &.focused {
+          color: @white;
+          background-color: @blue;
+          border: none;
         }
+        &.disabled{
+          color: #777 !important;
+          &:hover,
+          &.focused {
+            color: #777 !important;
+            background-color: transparent !important;
+          }
+      }
+    }
+    @media (min-width: 1024px) and (max-width: 1210px) {
+      td.day {
+        padding: 15px;
+        font-size: 22px;
+      }
+    }
+    @media (max-width: 1023px) {
+      td.day {
+        padding: 10px;
+        font-size: 19px;
       }
     }
   }
+}
+
 }
 
 .datetime-group {

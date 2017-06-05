@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Subscriber;
+use App\Events\Subscribe;
 
 class Controller extends BaseController
 {
@@ -36,8 +37,10 @@ class Controller extends BaseController
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $notice = new Subscriber();
-        $notice->fill($input)->save();
+        $subscriber = new Subscriber();
+        $subscriber->fill($input)->save();
+
+        event(new Subscribe($subscriber));
 
         echo "true";
         exit();

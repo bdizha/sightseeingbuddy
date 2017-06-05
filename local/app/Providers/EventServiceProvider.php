@@ -39,6 +39,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\Contact' => [
             'App\Listeners\SendContact@handle'
+        ],
+        'App\Events\Subscribe' => [
+            'App\Listeners\SendSubscription@handle'
         ]
     ];
 

@@ -29,7 +29,7 @@
                                    required placeholder="Your last name*">
                         </div>
                     </div>
-                    <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}" id="fields-email-field">
+                    <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                         <div class="col-sm-9 col-xs-12">
                             @if ($errors->has('email'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('email') }}</label>
@@ -37,6 +37,16 @@
                             <input class="form-control fullwidth" type="text" name="email"
                                    value="{{ old('email') }}" autocomplete="off"
                                    required placeholder="Your email address*">
+                        </div>
+                    </div>
+                    <div class="row form-group {{ $errors->has('mobile') ? 'has-error' : '' }}">
+                        <div class="col-sm-9 col-xs-12">
+                            @if ($errors->has('mobile'))
+                                <label class="control-label" for="inputError1">{{ $errors->first('mobile') }}</label>
+                            @endif
+                            <input class="form-control fullwidth" type="text" name="mobile"
+                                   value="{{ old('mobile') }}" autocomplete="off"
+                                   required placeholder="Your mobile*">
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">

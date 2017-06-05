@@ -38,7 +38,7 @@ use AuthenticatesAndRegistersUsers,
      * @return void
      */
     public function __construct() {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => 'logout'ThrottlesLogins]);
     }
 
     /**

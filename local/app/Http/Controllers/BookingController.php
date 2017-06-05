@@ -163,6 +163,7 @@ class BookingController extends Controller
             'experience' => $experience,
             'user' => Auth::user(),
             'time' => $time,
+            'date' => $date,
             'data' => $data,
             'pfHost' => $pfHost,
             'date' => $date,

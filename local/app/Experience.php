@@ -163,7 +163,9 @@ class Experience extends Model {
     }
 
     public function getTotalAttribute() {
-        return $this->pricing->guests * str_replace("R", "", $this->pricing->per_person);
+
+        $total = $this->pricing->guests * str_replace("R", "", $this->pricing->per_person);
+        return number_format($total, 2, '.', '');
     }
 
 }
