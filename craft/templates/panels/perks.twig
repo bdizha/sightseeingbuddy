@@ -3,7 +3,8 @@
         <div class="perk col-sm-6 col-xs-12">
             <figure class="perk-figure" style="background-image: url({{ step.image.first().getUrl({height:50, quality:80}) }})"></figure>
             <h3>
-                <span class="sub-heading">{{ step.displayTitle }}</span>
+                <span class="sub-heading hidden-xs">{{ step.displayTitle }}</span>
+                <span class="sub-heading hidden-sm hidden-lg hidden-md">{{ loop.index }}</span>
             </h3>
             <p class="text-light">
                 {{ step.summary | hacksaw(chars='140', append='...') }}

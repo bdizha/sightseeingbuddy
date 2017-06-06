@@ -10,6 +10,32 @@
             @include('profile.partials.tabs', ['user' => $user, 'title' => 'WELCOME TO YOUR DASHBOARD'])
             <div class="gray-bottom-border mb-1"></div>
         </div>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    How to find your local Buddy?
+                </div>
+                <div class="panel-body">
+                    <ul class="text-gray">
+                        <li>
+                            <p>Browse
+                                through our extensive list of host buddies, and choose the buddy that best suits your
+                                needs.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Get
+                                chatting with your host buddy, and start planning your trip to Cape Town.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Arrive and enjoy your tailor-made experience the local way. &nbsp;&nbsp;</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="gray-bottom-border mb-1"></div>
+        </div>
         <div class="container mt-1 pb-3">
             {!! Form::open([
             'route' => 'search',

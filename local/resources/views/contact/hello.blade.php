@@ -5,7 +5,7 @@
     <section>
         <div class="container mt-2">
             <div class="mb-1 text-center">
-                <h1>We'd love to hear from you!</h1>
+                <h1>We&#39;d love to hear from you!</h1>
             </div>
         </div>
     </section>
@@ -21,33 +21,19 @@
                 <div class="col-sm-6 col-xs-12">
                     <div class="pl-1 row-max-0">
                         <div class="panel panel-default">
-                            <div class="panel-heading">This a sub header</div>
+                            <div class="panel-heading hide">We&#39;d love to hear from you!</div>
                             <div class="panel-body">
-
+                               <div class="mt-1">
+                                   <p>
+                                       Feel free to contact us. We have a team of dedicated and knowledgeable staff waiting to assist you.
+                                   </p>
+                                   <p>
+                                       Simply fill in the below form along with the required fields.
+                                   </p>
+                                   <p>&nbsp;</p>
+                               </div>
                                 {!! Form::open([
                                 'route' => 'contact-us.store']) !!}
-                                <p>
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                    Some test here
-                                </p>
                                 <div class="gray-bottom-border mb-1 mt-1"></div>
                                 <div class='row'>
                                     <div class="col-sm-6 col-xs-12">

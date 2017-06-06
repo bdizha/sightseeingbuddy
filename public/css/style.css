@@ -9210,7 +9210,7 @@ input[type="radio"] {
   background-image: url(/images/checked-68.png);
 }
 .text-bold {
-  font-weight: 700;
+  font-weight: 900;
 }
 .mt-0 {
   margin-top: 0 !important;
@@ -9520,7 +9520,7 @@ section h2 {
   margin: 40px 0;
 }
 section h3 {
-  font-size: 25px;
+  font-size: 24px;
 }
 section h4 {
   font-size: 15px;
@@ -9752,15 +9752,23 @@ section #sidebar h2 {
   overflow: hidden;
   background-size: 100%;
   position: absolute;
-  left: 0;
+  left: 30px;
   top: 0;
 }
 .perks-block .perk {
-  padding-left: 60px;
+  padding-left: 110px;
 }
 .perks-block .perk h3 {
   font-weight: 900;
   margin-top: 10px;
+}
+@media (max-width: 400px) {
+  .perks-block figure {
+    left: 60px;
+  }
+  .perks-block .perk {
+    padding-left: 140px;
+  }
 }
 .points-block figure {
   width: 160px;
@@ -10391,7 +10399,7 @@ section #sidebar h2 {
   padding: 0px 15px;
 }
 p {
-  margin: 0 0 15px;
+  margin: 0 0 20px;
 }
 small a {
   color: #1a75bb;
@@ -10399,6 +10407,9 @@ small a {
 small a:focus,
 small a:hover {
   color: #1a75bb;
+}
+.text-gray {
+  color: #3F3F3F;
 }
 .btn {
   outline: none;

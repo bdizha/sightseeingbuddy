@@ -282,7 +282,7 @@ input[type="radio"] {
 // text
 
 .text-bold {
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .mt-0 {
@@ -651,7 +651,7 @@ section {
     margin: 40px 0;
   }
   h3 {
-    font-size: 25px;
+    font-size: 24px;
   }
   h4 {
     font-size: 15px;
@@ -917,12 +917,12 @@ section {
     overflow: hidden;
     background-size: 100%;
     position: absolute;
-    left: 0;
+    left: 30px;
     top: 0;
   }
 
   .perk {
-    padding-left: 60px;
+    padding-left: 110px;
     h3 {
       font-weight: 900;
       margin-top: 10px;
@@ -934,6 +934,13 @@ section {
   }
 
   @media (max-width: @screen-xs) {
+    figure {
+      left: 60px;
+    }
+
+    .perk {
+      padding-left: 140px;
+    }
   }
 }
 
@@ -1660,7 +1667,7 @@ section {
 }
 
 p {
-  margin: 0 0 15px;
+  margin: 0 0 20px;
 }
 
 small {
@@ -1671,6 +1678,10 @@ small {
       color: @blue;
     }
   }
+}
+
+.text-gray{
+  color: @gray-base;
 }
 
 .btn {

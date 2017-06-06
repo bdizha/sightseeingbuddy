@@ -37,7 +37,7 @@
                 { width: 1200 },
                 { width: 800 }
                 ], {
-                ratio: 16/5,
+                ratio: 16/6,
                 mode: 'crop',
                 cropZoom: 1,
                 position: image.focalPoint,
@@ -45,14 +45,14 @@
                 }) %}
 
                 <div class="item {{ loop.first ? "active" : "" }}">
-                    <img src="{{ craft.imager.base64Pixel(16,5) }}" sizes="100vw"
+                    <img src="{{ craft.imager.base64Pixel(16,6) }}" sizes="100vw"
                          srcset="{{ craft.imager.srcset(transformedImage) }}">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="table-block">
                                 <div class="left-cell">
                                     <div class="row">
-                                        <div class="col-sm-7 col-xs-12">
+                                        <div class="col-sm-9 col-xs-12">
                                             <h1 class="pb-3">{{ slide.summary | raw }}</h1>
                                         </div>
                                     </div>

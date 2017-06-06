@@ -5,9 +5,12 @@
             <div class="col-md-4">
                 <h2>Connect with us</h2>
                 <div class="socials-block">
-                    <a class="share-btn external-link" target="_blank" href="https://www.facebook.com/Sightseeing-Buddy-629528153904966/"><i class="fa fa-facebook"></i></a>
-                    <a class="share-btn external-link" target="_blank" href="https://twitter.com/SightBud"><i class="fa fa-twitter"></i></a>
-                    <a class="share-btn external-link" target="_blank" href="https://www.instagram.com/sightseeingbuddy/"><i class="fa fa-instagram"></i></a>
+                    <a class="share-btn external-link" target="_blank"
+                       href="https://www.facebook.com/Sightseeing-Buddy-629528153904966/"><i class="fa fa-facebook"></i></a>
+                    <a class="share-btn external-link" target="_blank" href="https://twitter.com/SightBud"><i
+                                class="fa fa-twitter"></i></a>
+                    <a class="share-btn external-link" target="_blank"
+                       href="https://www.instagram.com/sightseeingbuddy/"><i class="fa fa-instagram"></i></a>
                     <a class="share-btn" target="_blank" href=""><i class="fa fa-youtube"></i></a>
                 </div>
                 <h2>Sign up to our newsletter</h2>
@@ -26,58 +29,99 @@
                     <div class="col-xs-6">
                         <h2>Information</h2>
                         <ul class="nav nav-stacked nav-pills">
+
+
                             <li class="
-                                item
-                                item-level-1
-                                ">
+                item
+                item-level-1
+
+
+
+            ">
                                 <a href="/pages/about-sightseeing-buddy">
                                     About Sightseeing Buddy
                                 </a>
+
                             </li>
+
+
                             <li class="
-                                item
-                                item-level-1
-                                ">
+                item
+                item-level-1
+
+
+
+            ">
                                 <a href="/pages/how-it-works">
                                     How it works
                                 </a>
+
                             </li>
+
+
                             <li class="
-                                item
-                                item-level-1
-                                ">
+                item
+                item-level-1
+
+
+
+            ">
                                 <a href="/pages/becoming-a-buddy">
-                                    Becoming a local
+                                    Become A Buddy
                                 </a>
+
                             </li>
+
+
                             <li class="
-                                item
-                                item-level-1
-                                ">
+                item
+                item-level-1
+                active
+
+
+            ">
                                 <a href="/pages/finding-a-buddy">
-                                    Finding a local
+                                    Find a Buddy
                                 </a>
+
                             </li>
+
+
                             <li class="
-                                item
-                                item-level-1
-                                ">
+                item
+                item-level-1
+
+
+
+            ">
                                 <a href="/pages/booking-advice">
                                     Booking advice
                                 </a>
+
                             </li>
+
+
                             <li class="
-                                item
-                                item-level-1
-                                ">
+                item
+                item-level-1
+
+
+
+            ">
                                 <a href="/blog">
                                     Blog
                                 </a>
+
                             </li>
+
+
                             <li class="
-                                item
-                                item-level-1
-                                ">
+                item
+                item-level-1
+
+
+
+            ">
                                 <a href="/pages/faq">
                                     FAQ
                                 </a>
@@ -93,12 +137,12 @@
 
 
                             <li class="
-                                item
-                                item-level-1
+                item
+                item-level-1
 
 
 
-                                ">
+            ">
                                 <a href="/pages/privacy-policy">
                                     Privacy policy
                                 </a>
@@ -107,12 +151,12 @@
 
 
                             <li class="
-                                item
-                                item-level-1
+                item
+                item-level-1
 
 
 
-                                ">
+            ">
                                 <a href="/pages/terms-conditions">
                                     Terms &amp; conditions
                                 </a>
@@ -121,12 +165,12 @@
 
 
                             <li class="
-                                item
-                                item-level-1
+                item
+                item-level-1
 
 
 
-                                ">
+            ">
                                 <a href="/pages/payments-pricing">
                                     Payments &amp; pricing
                                 </a>
@@ -135,12 +179,12 @@
 
 
                             <li class="
-                                item
-                                item-level-1
+                item
+                item-level-1
 
 
 
-                                ">
+            ">
                                 <a href="/pages/cancellation-refunds">
                                     Cancellation &amp; refunds
                                 </a>
@@ -149,12 +193,12 @@
 
 
                             <li class="
-                                item
-                                item-level-1
+                item
+                item-level-1
 
 
 
-                                ">
+            ">
                                 <a href="/pages/security">
                                     Security
                                 </a>
@@ -163,12 +207,12 @@
 
 
                             <li class="
-                                item
-                                item-level-1
+                item
+                item-level-1
 
 
 
-                                ">
+            ">
                                 <a href="/pages/reviews-ratings">
                                     Reviews &amp; ratings
                                 </a>
