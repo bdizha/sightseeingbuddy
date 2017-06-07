@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img src="/uploads/files/_AUTOx52_crop_center-center/sightseeingbuddy.png" alt="Sightseeing Buddy" style="height: 67px">
+                        <img src="/uploads/files/_AUTOx52_crop_center-center/ssb_logo.svg" alt="Sightseeing Buddy" style="height: 67px">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="primaryNav">
