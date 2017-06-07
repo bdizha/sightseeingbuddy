@@ -67,7 +67,7 @@
 
             ">
                                 <a href="/pages/becoming-a-buddy">
-                                    Become A Buddy
+                                    Become a buddy
                                 </a>
 
                             </li>
@@ -81,7 +81,7 @@
 
             ">
                                 <a href="/pages/finding-a-buddy">
-                                    Find a Buddy
+                                    Find a buddy
                                 </a>
 
                             </li>
