@@ -19,6 +19,8 @@ class SearchController extends Controller {
         $dateFrom = $request->get("date_from");
         $dateTo = $request->get("date_to");
         $guests = $request->get("guests");
+
+//        dd([$guests]);
         
         $query = Experience::has("pricing");
 
@@ -50,7 +52,7 @@ class SearchController extends Controller {
 
         if (!empty($guests)) {
             $query->whereHas('pricing', function ($q) use ($guests) {
-                $q->where("guests", "=", $guests);
+                $q->where("guests", ">=", $guests);
             });
         }
 

@@ -558,6 +558,11 @@ function DatePicker() {
             (new BookNow).init();
         });
 
+        $(".datepicker-switch").on("click", function(){
+            console.log("date switched disabled...");
+            return false;
+        });
+
         $(".datetime-input").click(function () {
             $(".datetime-group").show();
         });
