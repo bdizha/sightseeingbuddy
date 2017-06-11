@@ -9097,7 +9097,11 @@ h3,
 #page .experience-block article h3 {
   margin-top: 0;
 }
-#page .experience-block .media-object {
+#page .experience-block .media .media-body {
+  background-color: #FFFFFF;
+  color: #3F3F3F;
+}
+#page .experience-block .media .media-object {
   width: 100%;
 }
 #page .experience-block ul li {
@@ -10521,7 +10525,7 @@ small a:hover {
 .search-form .form-group .input-group .form-control {
   border: 1px solid transparent;
   background: #FFFFFF;
-  height: 58px;
+  height: 63px;
   font-size: 21px;
   padding: 6px 15px;
 }

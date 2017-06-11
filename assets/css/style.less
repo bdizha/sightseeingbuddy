@@ -141,8 +141,14 @@ h1, .h1, h2, .h2, h3, .h3 {
         margin-top: 0;
       }
     }
-    .media-object {
-      width: 100%;
+    .media{
+      .media-body{
+        background-color: @white;
+        color:@gray-base;
+      }
+      .media-object {
+        width: 100%;
+      }
     }
     ul {
       li {
@@ -1806,7 +1812,7 @@ small {
       .form-control {
         border: 1px solid transparent;
         background: @white;
-        height: 58px;
+        height: 63px;
         font-size: 21px;
         padding: 6px 15px;
         &:hover,

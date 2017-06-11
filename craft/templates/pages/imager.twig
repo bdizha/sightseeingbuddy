@@ -9,7 +9,7 @@
     ] %}
 
     {% set transformedImage = craft.imager.transformImage(siteUrl ~ imageUrl, thumb, {
-    ratio: width == ratio ? ratio : height ? 1 : 5/3,
+    ratio: ratio > 0 ? ratio : width == height ? 1 : 5/3,
     mode: 'crop',
     cropZoom: 1,
     position: 'center-center',
