@@ -96,7 +96,9 @@ class IntroductionController extends StepController {
         $this->validate($request, $fields);
         $input = $request->all();
 
-        $input['password'] = bcrypt($input['password']);
+        if(!empty($input['password'])){
+            $input['password'] = bcrypt($input['password']);
+        }
 
         $user->fill($input)->save();
 

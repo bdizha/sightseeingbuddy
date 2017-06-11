@@ -24,22 +24,30 @@
                     </div>
                     <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                         <div class="col-sm-8 col-xs-12">
-                            @if ($errors->has('password'))
-                                <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
-                            @endif
-                            <input class="form-control fullwidth" type="password" id="password" name="password"
-                                   value="{{ old('password') }}" autocomplete="off" required placeholder="New password">
+                            <div class="password-group">
+                                @if ($errors->has('password'))
+                                    <label class="control-label"
+                                           for="inputError1">{{ $errors->first('password') }}</label>
+                                @endif
+                                <input class="form-control fullwidth" type="password" id="password" name="password"
+                                       value="{{ old('password') }}" autocomplete="off" required
+                                       placeholder="New password"/>
+                                <div class="password-eye"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
                         <div class="col-sm-8 col-xs-12">
-                            @if ($errors->has('password_confirmation'))
-                                <label class="control-label"
-                                       for="inputError1">{{ $errors->first('password_confirmation') }}</label>
-                            @endif
-                            <input class="form-control fullwidth" type="password" id="password_confirmation"
-                                   name="password_confirmation" value="{{ old('password_confirmation') }}"
-                                   autocomplete="off" required placeholder="Confirm passport">
+                            <div class="password-group">
+                                @if ($errors->has('password_confirmation'))
+                                    <label class="control-label"
+                                           for="inputError1">{{ $errors->first('password_confirmation') }}</label>
+                                @endif
+                                <input class="form-control fullwidth" type="password" id="password_confirmation"
+                                       name="password_confirmation" value="{{ old('password_confirmation') }}"
+                                       autocomplete="off" required placeholder="Confirm password"/>
+                                <div class="password-eye"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group">

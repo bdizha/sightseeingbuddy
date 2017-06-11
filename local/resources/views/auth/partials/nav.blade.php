@@ -25,7 +25,7 @@
                 </li>
                 <li>
                     <a class="text-uppercase text-bold"
-                       href="{{ route("introduction.edit", ["id" => Auth::user()->id]) }}">
+                       href="{{ route((Auth::user()->type == "local" ? 'introduction' : 'guest') . ".edit", ["id" => Auth::user()->id]) }}">
                         <i class="fa fa-fw fa-gear"></i>
                         Settings
                     </a>

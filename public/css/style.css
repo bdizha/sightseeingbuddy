@@ -9416,23 +9416,21 @@ form .input-group {
 form .input-group .control-label {
   display: none;
 }
-form .input-group .redactor-editor,
 form .input-group .redactor-box {
   background: transparent;
   border: 1px solid #4b4b4b;
   border-radius: 10px;
 }
-form .input-group .redactor-editor .redactor-toolbar,
 form .input-group .redactor-box .redactor-toolbar {
   background: transparent;
 }
-form .input-group .redactor-editor .redactor-editor,
 form .input-group .redactor-box .redactor-editor {
+  padding: 15px;
   min-height: 210px !important;
 }
 form .input-group .form-control {
   background-color: transparent;
-  padding: 6px 15px;
+  padding: 6px 12px;
 }
 form .input-group .control-label {
   font-size: 10px;
@@ -10159,22 +10157,37 @@ section #sidebar h2 {
 .nav-stacked > li {
   margin-top: 10px;
 }
+.nav-stacked > li.active:hover,
+.nav-stacked > li.active:focus {
+  color: #1a75bb;
+  background-color: transparent;
+  text-decoration: none;
+}
 .nav-stacked > li > a {
   color: #3F3F3F;
   text-decoration: none;
   padding: 2px 0px;
 }
-.nav-stacked > li > a:hover {
+.nav-stacked > li > a.active,
+.nav-stacked > li > a:hover,
+.nav-stacked > li > a:focus {
   color: #1a75bb;
   background-color: transparent;
   text-decoration: none;
 }
-.nav-stacked > li.active a {
+.nav-stacked > li.active > a,
+.nav-stacked > li:hover > a,
+.nav-stacked > li:focus > a {
   color: #1a75bb;
   background-color: transparent;
   text-decoration: none;
 }
-.nav-stacked > li.active a:hover {
+.nav-stacked > li.active > a:hover,
+.nav-stacked > li:hover > a:hover,
+.nav-stacked > li:focus > a:hover,
+.nav-stacked > li.active > a:focus,
+.nav-stacked > li:hover > a:focus,
+.nav-stacked > li:focus > a:focus {
   color: #1a75bb;
   background-color: transparent;
   text-decoration: none;
@@ -10394,9 +10407,7 @@ section #sidebar h2 {
 }
 .search-form .btn-block.btn-lg {
   height: 65px;
-  font-size: 21px;
-  line-height: 65px;
-  padding: 0px 15px;
+  line-height: 39px;
 }
 p {
   margin: 0 0 20px;
@@ -11549,7 +11560,7 @@ a.thumbnail:active {
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 15px solid #FFFFFF;
+  border-bottom: 15px solid #3F3F3F;
   position: absolute;
   top: -12px;
   left: 50%;

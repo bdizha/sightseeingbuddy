@@ -540,7 +540,8 @@ form {
     .control-label {
       display: none;
     }
-    .redactor-editor, .redactor-box {
+
+    .redactor-box {
       background: transparent;
       border: 1px solid #4b4b4b;
       border-radius: 10px;
@@ -548,12 +549,13 @@ form {
         background: transparent;
       }
       .redactor-editor {
+        padding: 15px;
         min-height: 210px !important;
       }
     }
     .form-control {
       background-color: transparent;
-      padding: 6px 15px;
+      padding: 6px 12px;
     }
     .control-label {
       font-size: 10px;
@@ -1383,22 +1385,35 @@ section {
   padding-bottom: 20px;
   > li {
     margin-top: 10px;
-    > a {
-      color: @gray-base;
-      text-decoration: none;
-      padding: 2px 0px;
-      &:hover {
+    &.active {
+      &:hover,
+      &:focus {
         color: @blue;
         background-color: transparent;
         text-decoration: none;
       }
     }
-    &.active {
-      a {
+    > a {
+      color: @gray-base;
+      text-decoration: none;
+      padding: 2px 0px;
+      &.active,
+      &:hover,
+      &:focus {
         color: @blue;
         background-color: transparent;
         text-decoration: none;
-        &:hover {
+      }
+    }
+    &.active,
+    &:hover,
+    &:focus {
+      > a {
+        color: @blue;
+        background-color: transparent;
+        text-decoration: none;
+        &:hover,
+        &:focus {
           color: @blue;
           background-color: transparent;
           text-decoration: none;
@@ -1659,9 +1674,7 @@ section {
     border-radius: 6px;
     &.btn-lg {
       height: 65px;
-      font-size: 21px;
-      line-height: 65px;
-      padding: 0px 15px;
+      line-height: 39px;
     }
   }
 }
@@ -1680,7 +1693,7 @@ small {
   }
 }
 
-.text-gray{
+.text-gray {
   color: @gray-base;
 }
 
@@ -2831,29 +2844,29 @@ a.thumbnail:hover, a.thumbnail:active {
           background-color: @blue;
           border: none;
         }
-        &.disabled{
+        &.disabled {
           color: #777 !important;
           &:hover,
           &.focused {
             color: #777 !important;
             background-color: transparent !important;
           }
+        }
       }
-    }
-    @media (min-width: 1024px) and (max-width: 1210px) {
-      td.day {
-        padding: 15px;
-        font-size: 22px;
+      @media (min-width: 1024px) and (max-width: 1210px) {
+        td.day {
+          padding: 15px;
+          font-size: 22px;
+        }
       }
-    }
-    @media (max-width: 1023px) {
-      td.day {
-        padding: 10px;
-        font-size: 19px;
+      @media (max-width: 1023px) {
+        td.day {
+          padding: 10px;
+          font-size: 19px;
+        }
       }
     }
   }
-}
 
 }
 
@@ -2880,7 +2893,7 @@ a.thumbnail:hover, a.thumbnail:active {
       height: 0;
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
-      border-bottom: 15px solid #FFFFFF;
+      border-bottom: 15px solid @gray-base;
       position: absolute;
       top: -12px;
       left: 50%;

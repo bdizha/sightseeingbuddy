@@ -101,6 +101,7 @@ class RegisterController extends AuthController
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'mobile' => $data['mobile'],
+            'country_id' => $data['country_id'],
             'password' => bcrypt($data['password']),
             'type' => $data['type'],
         ]);

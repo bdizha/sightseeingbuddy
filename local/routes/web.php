@@ -35,6 +35,8 @@ Route::group(['prefix' => 'local'], function () {
     Route::get('/local/auth/{verify_token}', 'Auth\VerifyController@email')->name("auth_verify");
     Route::get('/currency', 'Controller@currency')->name("currency");
 
+    Route::resource('guest', 'GuestController');
+
     Route::resource('contact', 'Step\ContactController');
     Route::resource('introduction', 'Step\IntroductionController');
     Route::resource('location', 'Step\LocationController');
