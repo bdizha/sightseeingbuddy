@@ -11430,6 +11430,10 @@ a.thumbnail:active {
 .datepicker-inline .table-condensed > tfoot > tr:nth-child(2) {
   background: #1a75bb;
 }
+.datepicker-inline .table-condensed > thead > tr:nth-child(2) > th,
+.datepicker-inline .table-condensed > tfoot > tr:nth-child(2) > th {
+  color: #FFFFFF;
+}
 .datepicker-inline .table-condensed > thead > tr > th,
 .datepicker-inline .table-condensed > tfoot > tr > th {
   font-weight: 900;
@@ -11437,7 +11441,7 @@ a.thumbnail:active {
   padding: 20px 23px;
   font-size: 24px;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #3F3F3F;
 }
 .datepicker-inline .table-condensed > thead > tr > th:hover,
 .datepicker-inline .table-condensed > tfoot > tr > th:hover,
@@ -11748,6 +11752,16 @@ a.thumbnail:active {
   font-size: 14px;
   background: #FFFFFF;
   color: #1a75bb;
+}
+.btn-yellow.affix-top {
+  right: 0 !important;
+}
+.btn-yellow.affix {
+  top: 100px;
+  /* Set the top position of pinned element */
+  z-index: 9999;
+  max-width: 458px;
+  position: fixed !important;
 }
 
 /*# sourceMappingURL=style.css.map */

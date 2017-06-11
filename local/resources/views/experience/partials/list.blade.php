@@ -4,7 +4,7 @@
         @if($experiences->count() == 0)
             <div class="pb-1">
                 <p class="text-align-center">
-                    Your search didn’t return any results.
+                    Your search didn't return any results.
                 </p>
             </div>
         @endif

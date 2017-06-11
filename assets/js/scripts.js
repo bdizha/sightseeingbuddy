@@ -743,6 +743,18 @@ function FileUpload() {
 $(function () {
     var $window = $(window);
 
+    $("#book-experience-btn").affix({
+        offset: {
+            top: 250  /* Set top offset equal to header outer height including margin */
+        }
+    });
+
+    var w = ($("body").width() - $(".container").width()) / 2;
+
+    $("#book-experience-btn").css({right: w + "px"}).width($("#book-experience-btn").width());
+
+    console.log(w + ">>>>");
+
     (new StickyFooter($('#container'), $('#footer'))).update().bindOnResize();
 
     (new ExternalLinkHandler).addTargetAttribute($('body'));

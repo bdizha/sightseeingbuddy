@@ -26,7 +26,7 @@
             <div class='row'>
                 <div class="col-sm-12 col-xs-12">
                     @if(Auth::guest() OR $experience->user->id != Auth::user()->id)
-                        <a href="/local/experience/{{ $experience->id }}/schedule"
+                        <a data-spy="affix" id="book-experience-btn" href="/local/experience/{{ $experience->id }}/schedule"
                            class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
                     @else
                         <a href="/local/info/{{ $experience->id }}/edit"
