@@ -401,7 +401,7 @@ class BookingController extends Controller
         $user = Auth::user();
         $booking = Booking::where('reference', '=', $reference)->first();
 
-        $booking->status = "cancel";
+        $booking->status = "cancelled";
         $booking->save();
 
         event(new PaymentFailure($booking));
