@@ -84,6 +84,8 @@ class BookingController extends Controller
             $bookingsQuery->where("local_id", "=", $user->id);
         }
 
+        $bookingsQuery->where("status", "!=", "pending");
+
         try {
             $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
         } catch (\Exception $e) {
@@ -402,7 +404,7 @@ class BookingController extends Controller
         event(new PaymentFailure($booking));
 
         file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . time());
-        
+
         return view('booking.cancel', [
             'user' => $user,
             'experience' => Experience::where("id", "=", 3)->first()

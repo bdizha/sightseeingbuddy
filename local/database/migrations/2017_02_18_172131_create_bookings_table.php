@@ -16,7 +16,7 @@ class CreateBookingsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('experience_id')->unsigned();
-            $table->enum('status', ['pending', 'processed', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'success', 'processed', 'cancelled'])->default('pending');
             $table->integer('pricing_id')->unsigned();
             $table->integer('schedule_id')->unsigned();
             $table->timestamps();

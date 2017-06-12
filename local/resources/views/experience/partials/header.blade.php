@@ -24,7 +24,7 @@
         </div>
         <div class="col-sm-5 col-xs-12">
             <div class='row'>
-                <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-12 col-xs-12" id="booking-btn-container">
                     @if(Auth::guest() OR $experience->user->id != Auth::user()->id)
                         <a data-spy="affix" id="book-experience-btn" href="/local/experience/{{ $experience->id }}/schedule"
                            class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
