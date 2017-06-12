@@ -401,6 +401,9 @@ class BookingController extends Controller
         $user = Auth::user();
         $booking = Booking::where('reference', '=', $reference)->first();
 
+        $booking->status = "cancel";
+        $booking->save();
+
         event(new PaymentFailure($booking));
 
         file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . time());
@@ -422,6 +425,9 @@ class BookingController extends Controller
 
         $user = Auth::user();
         $booking = Booking::where("reference", "=", $reference)->first();
+
+        $booking->status = "success";
+        $booking->save();
 
         event(new PaymentSuccess($booking));
 

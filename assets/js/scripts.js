@@ -636,6 +636,22 @@ function TogglePassword() {
     };
 }
 
+function AffixButton() {
+    this.init = function () {
+        $("#book-experience-btn").affix({
+            offset: {
+                top: 250  /* Set top offset equal to header outer height including margin */
+            }
+        });
+
+        var w = ($("body").width() - $(".container").width()) / 2;
+
+        $("#book-experience-btn").css({right: w + "px"}).width($("#booking-btn-container").width() - 30);
+
+        console.log(w + ">>>>");
+    };
+}
+
 
 function Newsletter() {
     this.init = function () {
@@ -743,17 +759,7 @@ function FileUpload() {
 $(function () {
     var $window = $(window);
 
-    $("#book-experience-btn").affix({
-        offset: {
-            top: 250  /* Set top offset equal to header outer height including margin */
-        }
-    });
 
-    var w = ($("body").width() - $(".container").width()) / 2;
-
-    $("#book-experience-btn").css({right: w + "px"}).width($("#book-experience-btn").width());
-
-    console.log(w + ">>>>");
 
     (new StickyFooter($('#container'), $('#footer'))).update().bindOnResize();
 
@@ -803,10 +809,15 @@ $(function () {
 
     (new TogglePassword).init();
 
+    (new AffixButton).init();
+
     setHeightFor('.media-heading.same-height');
     setHeightFor('.media-media-summary.same-height');
 
+
+
     $window.on('resize', function () {
+        (new AffixButton).init();
         (new Vertilize).init();
     });
 
