@@ -141,10 +141,10 @@ h1, .h1, h2, .h2, h3, .h3 {
         margin-top: 0;
       }
     }
-    .media{
-      .media-body{
+    .media {
+      .media-body {
         background-color: @white;
-        color:@gray-base;
+        color: @gray-base;
       }
       .media-object {
         width: 100%;
@@ -1791,24 +1791,13 @@ small {
     color: @white;
   }
 
-  .datetime-group .date-range .table-condensed > tbody > tr td {
-    padding: 8px 10px;
-    font-size: 14px;
-    width: 34px;
-    height: 30px;
-    font-weight: 500;
-  }
-}
-
-.datepicker-days{
-  display: block !important;
-}
-
-.datepicker-months,
-.datepicker-years,
-.datepicker-decades,
-.datepicker-centuries{
-  display: none !important;
+  //.datetime-group .date-range .table-condensed > tbody > tr td {
+  //  padding: 8px 10px;
+  //  font-size: 14px;
+  //  width: 34px;
+  //  height: 30px;
+  //  font-weight: 500;
+  //}
 }
 
 .search-form {
@@ -2143,6 +2132,7 @@ small {
     }
   }
 }
+
 .carousel-caption {
   h1 {
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
@@ -2898,7 +2888,7 @@ a.thumbnail:hover, a.thumbnail:active {
 }
 
 .datetime-group {
-  display: none;
+  visibility: hidden;
   position: absolute;
   padding-right: 30px;
   z-index: 9999;
@@ -2972,8 +2962,21 @@ a.thumbnail:hover, a.thumbnail:active {
         td {
           padding: 5px;
           font-size: 14px;
+          span {
+            display: inline-block;
+            width: 23%;
+            height: 49.3pt;
+            line-height: 49.3pt;
+            &:focus,
+            &:hover,
+            &.focused{
+              color: @blue;
+              background: @white;
+            }
+          }
         }
       }
+
       @media (max-width: @grid-float-breakpoint-max) {
         > thead > tr,
         > tfoot > tr {
@@ -3124,11 +3127,11 @@ a.thumbnail:hover, a.thumbnail:active {
   color: @blue;
 }
 
-.btn-yellow.affix-top{
+.btn-yellow.affix-top {
   right: 0 !important;
 }
 
-.btn-yellow.affix{
+.btn-yellow.affix {
   top: 100px; /* Set the top position of pinned element */
   z-index: 9999;
   max-width: 458px;

@@ -10507,22 +10507,6 @@ small a:hover {
   font-size: 14px;
   color: #FFFFFF;
 }
-.search-block .datetime-group .date-range .table-condensed > tbody > tr td {
-  padding: 8px 10px;
-  font-size: 14px;
-  width: 34px;
-  height: 30px;
-  font-weight: 500;
-}
-.datepicker-days {
-  display: block !important;
-}
-.datepicker-months,
-.datepicker-years,
-.datepicker-decades,
-.datepicker-centuries {
-  display: none !important;
-}
 .search-form .form-group {
   height: 65px;
   position: relative;
@@ -11560,7 +11544,7 @@ a.thumbnail:active {
   }
 }
 .datetime-group {
-  display: none;
+  visibility: hidden;
   position: absolute;
   padding-right: 30px;
   z-index: 9999;
@@ -11638,6 +11622,18 @@ a.thumbnail:active {
 .datetime-group .date-range .table-condensed > tbody > tr td {
   padding: 5px;
   font-size: 14px;
+}
+.datetime-group .date-range .table-condensed > tbody > tr td span {
+  display: inline-block;
+  width: 23%;
+  height: 49.3pt;
+  line-height: 49.3pt;
+}
+.datetime-group .date-range .table-condensed > tbody > tr td span:focus,
+.datetime-group .date-range .table-condensed > tbody > tr td span:hover,
+.datetime-group .date-range .table-condensed > tbody > tr td span.focused {
+  color: #1a75bb;
+  background: #FFFFFF;
 }
 @media (max-width: 991px) {
   .datetime-group .date-range .table-condensed > thead > tr > th,

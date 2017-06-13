@@ -441,6 +441,23 @@ function SetCurrency() {
     };
 }
 
+function CalcDateWidth() {
+    var dateWidth = $(".datetime-inner").width();
+
+    var dateHeight = $(".datepicker-days .table-condensed").height();
+
+    $(".datepicker-years .table-condensed").width((dateWidth / 2) - 3).height(dateHeight);
+    $(".datepicker-months .table-condensed").width((dateWidth / 2) - 3).height(dateHeight);
+    $(".datepicker-decades .table-condensed").width((dateWidth / 2) - 3).height(dateHeight);
+    $(".datepicker-centuries .table-condensed").width((dateWidth / 2) - 3).height(dateHeight);
+
+    console.log("setting width...: " + (dateWidth / 2));
+
+    // setTimeout(function () {
+    //     // CalcDateWidth();
+    // }, 1500);
+}
+
 function ConvertCurrency() {
 
     console.log("Currency length::::" + _.isEmpty(currencyRates));
@@ -510,17 +527,21 @@ function DatePicker() {
 
         window.onclick = function (event) {
             if (event.target.id !== "duration") {
-                $(".datetime-group").hide();
+                $(".datetime-group").css({visibility: "hidden"});
             }
         };
 
         var daysActive = $("#datepicker").attr("data-days-active");
         var daysInActive = $("#datepicker").attr("data-days-inactive");
 
+        var today = new Date();
+
+        var sDate = new Date(today.getTime() + 1000 * 60 * 60 *24);
+
         $('#datepicker').datepicker({
             daysOfWeekDisabled: daysInActive,
             daysOfWeekHighlighted: daysActive,
-            startDate: new Date(),
+            startDate: sDate,
             templates: {
                 leftArrow: '&nbsp;',
                 rightArrow: '&nbsp;'
@@ -533,8 +554,8 @@ function DatePicker() {
             var experienceId = $("#experience-id").val();
             var date = day + " " + monthYear;
 
-            console.log("datepicker switch: " + monthYear);
-            console.log("date: " + day);
+            // console.log("datepicker switch: " + monthYear);
+            // console.log("date: " + day);
 
             $(".available-times").attr("date", date);
 
@@ -558,13 +579,17 @@ function DatePicker() {
             (new BookNow).init();
         });
 
-        $(".datepicker-switch").on("click", function(){
-            console.log("date switched disabled...");
-            return false;
+        $(".table-condensed tr").click(function(){
+            console.log("table-condensed disabled...");
         });
 
+        var dateRangeWidth = 0;
         $(".datetime-input").click(function () {
-            $(".datetime-group").show();
+            $(".datetime-group").css({visibility: "visible"});
+
+            CalcDateWidth();
+
+            console.log($(".date-range").width());
         });
 
         $('.date-range').datepicker({
@@ -572,6 +597,7 @@ function DatePicker() {
                 leftArrow: '&nbsp;',
                 rightArrow: '&nbsp;'
             },
+            startDate: sDate,
             toValue: function (date, format, language) {
                 var d = new Date(date);
                 d.setDate(d.getDate() + 7);

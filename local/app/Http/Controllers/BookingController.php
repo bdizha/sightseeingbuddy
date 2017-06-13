@@ -395,7 +395,7 @@ class BookingController extends Controller
         $reference = $request->get('reference');
 
         if (empty($reference)) {
-            file_put_contents(public_path() . "/" . "error.txt", "Error: " . time());
+            file_put_contents(public_path() . "/" . "error.txt", "Error: " . date("Y-m-d", time()));
         }
 
         $user = Auth::user();
@@ -406,11 +406,11 @@ class BookingController extends Controller
 
         event(new PaymentFailure($booking));
 
-        file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . time());
+        file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . date("Y-m-d", time()));
 
         return view('booking.cancel', [
             'user' => $user,
-            'experience' => Experience::where("id", "=", 3)->first()
+            'experience' => Experience::where("id", "=", $booking->experience_id)->first()
         ]);
 
     }
@@ -420,7 +420,7 @@ class BookingController extends Controller
         $reference = $request->get('reference');
 
         if (empty($reference)) {
-            file_put_contents(public_path() . "/" . "success.txt", "Error: " . time());
+            file_put_contents(public_path() . "/" . "success.txt", "Error: " . date("Y-m-d", time()));
         }
 
         $user = Auth::user();
@@ -431,11 +431,11 @@ class BookingController extends Controller
 
         event(new PaymentSuccess($booking));
 
-        file_put_contents(public_path() . "/" . "success.txt", "success: " . time());
+        file_put_contents(public_path() . "/" . "success.txt", "success: " . date("Y-m-d", time()));
 
         return view('booking.success', [
             'user' => $user,
-            'experience' => Experience::where("id", "=", 3)->first()
+            'experience' => Experience::where("id", "=", $booking->experience_id)->first()
         ]);
     }
 

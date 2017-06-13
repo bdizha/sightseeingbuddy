@@ -1,7 +1,7 @@
 <div class="col-sm-8 col-sm-offset-1 same-height mt-3 gray-bottom-border gray-top-border" data-mh="column">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading">Reset Password</div>
+            <div class="panel-heading">Create New Password</div>
             <div class="panel-body">
                 @if (session('status'))
                     <div class="alert alert-success">
@@ -49,10 +49,10 @@
                                 <div class="password-eye"></div>
                             </div>
                         </div>
-                    </div>
+                    </div>ss
                     <div class="row form-group">
                         <div class="col-sm-4 col-xs-6">
-                            <input type="submit" class="btn fullwidth btn-yellow" value="Reset Password"/>
+                            <input type="submit" class="btn fullwidth btn-yellow" value="Change password"/>
                         </div>
                     </div>
                 </form>

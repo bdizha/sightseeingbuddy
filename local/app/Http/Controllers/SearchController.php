@@ -52,7 +52,7 @@ class SearchController extends Controller {
 
         if (!empty($guests)) {
             $query->whereHas('pricing', function ($q) use ($guests) {
-                $q->where("guests", ">=", $guests);
+                $q->where("guests", "<=", $guests);
             });
         }
 
