@@ -1,7 +1,7 @@
 <?php
 $environments = array(
     'local'   => array('\.dev'),
-    'live' => array('\.co\.za')
+    'live' => array('\.com', '\.co\.za')
 );
 
 if (getenv('CRAFT_ENVIRONMENT')) {

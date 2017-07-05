@@ -7,7 +7,7 @@ return array(
     ],
     'local'   => [
         'user'     => 'root',
-        'password' => '@%Gr4f1f0x#',
+        'password' => '@%Sightseeing#',
         'database' => 'ssb',
     ],
     'staging' => [
@@ -17,7 +17,7 @@ return array(
     ],
     'live'    => [
         'user'     => 'root',
-        'password' => '@%Gr4f1f0x#',
+        'password' => '@%Sightseeing#',
         'database' => 'ssb',
     ],
 );
