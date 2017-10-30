@@ -425,7 +425,7 @@ class BookingController extends Controller
 
         $user = Auth::user();
         $booking = Booking::where("reference", "=", $reference)->first();
-
+//dd($booking);
         $booking->status = "success";
         $booking->save();
 

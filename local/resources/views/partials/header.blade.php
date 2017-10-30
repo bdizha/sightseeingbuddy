@@ -8,7 +8,7 @@
                 </a>
                 <span class="hidden-xs">
                     <i class="fa fa-link"></i>
-                    <span>+27 21 811 709</span>
+                    <span>+27 21 811 9709</span>
                 </span>
             </div>
             @include('auth.partials.nav')

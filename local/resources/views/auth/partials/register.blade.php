@@ -39,6 +39,19 @@
                                    required placeholder="Your email address*">
                         </div>
                     </div>
+                 <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
+                        <div class="col-sm-9 col-xs-12">
+                            @if ($errors->has('country_id'))
+                                <label class="control-label"
+                                       for="country_id">{{ $errors->first('country_id') }}</label>
+                            @endif
+                            <div class="input-group">
+                                <label class="control-label" for="country">Country</label>
+                                {{ Form::select('country_id', \App\Country::getFullList(), old('country_id'), ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Country Code*']) }}
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="row form-group {{ $errors->has('mobile') ? 'has-error' : '' }}">
                         <div class="col-sm-9 col-xs-12">
                             @if ($errors->has('mobile'))

@@ -25,7 +25,7 @@
                     your price is too low or too high.
                 <p>
                 </p>
-                Sightseeing Buddy adds an average of 30% to your price. The price displayed on your experience is the total
+                Sightseeing Buddy adds an average of 20% to your price. The price displayed on your experience is the total
                 price, including our fees and commissions. You will get the exact amount you’ve quoted.
                 </p>
                 <p>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="col-sm-6 col-xs-6">
                                 <label class="control-label">Total price</label>
-                                <label class="control-value" id="pricing_total">R00.00</label>
+                                <label class="control-value" id="pricing_total">R10.00</label>
                             </div>
                         </div>
                     </div>
