@@ -20,11 +20,6 @@
     </main>
 </div>
 
-@if(empty($excludeJs))
-    <script src="/js/vendors.js?v={{ Helper::timestamp('/js/vendors.js') }}"></script>
-    <script src="/js/scripts.js?v={{ Helper::timestamp('/js/scripts.js') }}"></script>
-@endif
-
 @include('experience.partials.js')
 
 <!-- begin footer here -->

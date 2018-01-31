@@ -1,11 +1,3 @@
-/**
- * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
- * @copyright Copyright (c) 2014, Pixel & Tonic, Inc.
- * @license   http://craftcms.com/license Craft License Agreement
- * @see       http://craftcms.com
- * @package   craft.app.resources
- */
-
 (function($){
 
 
@@ -37,7 +29,7 @@ Craft.MatrixInput = Garnish.Base.extend(
 
 	init: function(id, blockTypes, inputNamePrefix, maxBlocks)
 	{
-		this.id = id
+		this.id = id;
 		this.blockTypes = blockTypes;
 		this.inputNamePrefix = inputNamePrefix;
 		this.inputIdPrefix = Craft.formatInputId(this.inputNamePrefix);
@@ -49,6 +41,8 @@ Craft.MatrixInput = Garnish.Base.extend(
 		this.$addBlockBtnGroup = this.$addBlockBtnContainer.children('.btngroup');
 		this.$addBlockBtnGroupBtns = this.$addBlockBtnGroup.children('.btn');
 		this.$addBlockMenuBtn = this.$addBlockBtnContainer.children('.menubtn');
+
+        this.$container.data('matrix', this);
 
 		this.setNewBlockBtn();
 
@@ -237,7 +231,7 @@ Craft.MatrixInput = Garnish.Base.extend(
 		var id = 'new'+this.totalNewBlocks;
 
 		var html =
-			'<div class="matrixblock" data-id="'+id+'">' +
+			'<div class="matrixblock" data-id="'+id+'" data-type="'+type+'">' +
 				'<input type="hidden" name="'+this.inputNamePrefix+'['+id+'][type]" value="'+type+'"/>' +
 				'<input type="hidden" name="'+this.inputNamePrefix+'['+id+'][enabled]" value="1"/>' +
 				'<div class="titlebar">' +
@@ -470,11 +464,13 @@ var MatrixBlock = Garnish.Base.extend(
 			this.collapse();
 		}
 
-		this.addListener(this.$titlebar, 'dblclick', function(ev)
+		this._handleTitleBarClick = function(ev)
 		{
 			ev.preventDefault();
 			this.toggle();
-		});
+		};
+
+		this.addListener(this.$titlebar, 'doubletap', this._handleTitleBarClick);
 	},
 
 	toggle: function()
@@ -509,7 +505,8 @@ var MatrixBlock = Garnish.Base.extend(
 
 			for (var j = 0; j < $inputs.length; j++)
 			{
-				var $input = $($inputs[j]);
+				var $input = $($inputs[j]),
+					value;
 
 				if ($input.hasClass('label'))
 				{
@@ -523,11 +520,11 @@ var MatrixBlock = Garnish.Base.extend(
 						continue;
 					}
 
-					var value = $input.text();
+					value = $input.text();
 				}
 				else
 				{
-					var value = Craft.getText(Garnish.getInputPostVal($input));
+					value = Craft.getText(Garnish.getInputPostVal($input));
 				}
 
 				if (value instanceof Array)

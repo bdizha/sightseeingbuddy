@@ -217,11 +217,10 @@ class WebApp extends \CWebApplication
 			if ($this->request->isCpRequest())
 			{
 				$version = $this->getVersion();
-				$build = $this->getBuild();
-				$url = "https://download.craftcdn.com/craft/{$version}/{$version}.{$build}/Craft-{$version}.{$build}.zip";
+				$url = AppHelper::getCraftDownloadUrl($version);
 
 				throw new HttpException(200, Craft::t('Craft CMS does not support backtracking to this version. Please upload Craft CMS {url} or later.', array(
-					'url' => '['.$build.']('.$url.')',
+					'url' => '['.$version.']('.$url.')',
 				)));
 			}
 			else
@@ -243,7 +242,7 @@ class WebApp extends \CWebApplication
 		}
 
 		// If there's a new version, but the schema hasn't changed, just update the info table
-		if ($this->updates->hasCraftBuildChanged())
+		if ($this->updates->hasCraftVersionChanged())
 		{
 			$this->updates->updateCraftVersionInfo();
 
@@ -685,7 +684,24 @@ class WebApp extends \CWebApplication
 			return;
 		}
 
+		// Because: https://bugs.php.net/bug.php?id=74980
+		if (version_compare(PHP_VERSION, '7.1', '>=') && strpos($message, 'Narrowing occurred during type inference. Please file a bug report') !== false)
+		{
+			return;
+		}
+
 		parent::handleError($code, $message, $file, $line);
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function onEndRequest($event)
+	{
+		// Related to: https://github.com/craftcms/cms/issues/2245
+		$this->elements->handleRequestEnd();
+
+		parent::onEndRequest($event);
 	}
 
 	// Private Methods
@@ -899,10 +915,11 @@ class WebApp extends \CWebApplication
 			{
 				if ($this->updates->isBreakpointUpdateNeeded())
 				{
-					throw new HttpException(200, Craft::t('You need to be on at least Craft CMS {url} before you can manually update to Craft CMS {targetVersion} build {targetBuild}.', array(
-						'url'           => '[build '.CRAFT_MIN_BUILD_REQUIRED.']('.CRAFT_MIN_BUILD_URL.')',
+					$minVersionUrl = AppHelper::getCraftDownloadUrl(CRAFT_MIN_VERSION_REQUIRED);
+
+					throw new HttpException(200, Craft::t('You need to be on at least Craft CMS {url} before you can manually update to Craft CMS {targetVersion}.', array(
+						'url'           => '['.CRAFT_MIN_VERSION_REQUIRED.']('.$minVersionUrl.')',
 						'targetVersion' => CRAFT_VERSION,
-						'targetBuild'   => CRAFT_BUILD
 					)));
 				}
 				else
@@ -1012,14 +1029,15 @@ class WebApp extends \CWebApplication
 			}
 
 			$actionSegs = $this->request->getActionSegments();
+			$singleAction = $this->request->isSingleActionRequest();
 
 			if ($actionSegs && (
-				$actionSegs == array('users', 'login') ||
-				$actionSegs == array('users', 'logout') ||
+				($actionSegs == array('users', 'login')) ||
+				($actionSegs == array('users', 'logout') && $singleAction) ||
+				($actionSegs == array('users', 'verifyemail') && $singleAction) ||
+				($actionSegs == array('users', 'setpassword') && $singleAction) ||
 				$actionSegs == array('users', 'forgotpassword') ||
 				$actionSegs == array('users', 'sendPasswordResetEmail') ||
-				$actionSegs == array('users', 'setpassword') ||
-				$actionSegs == array('users', 'verifyemail') ||
 				$actionSegs[0] == 'update'
 			))
 			{

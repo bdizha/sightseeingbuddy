@@ -1,3 +1,8 @@
+<script src="/js/vendors.js?v={{ Helper::timestamp('/js/vendors.js') }}"></script>
+<script src="/js/scripts.js?v={{ Helper::timestamp('/js/scripts.js') }}"></script>
+<script src="/js/underscore-min.js?v={{ Helper::timestamp('/js/scripts.js') }}"></script>
+
+
 <header id="header" class="site-header">
     <div class="top-yellow-bg">
         <div class="container">

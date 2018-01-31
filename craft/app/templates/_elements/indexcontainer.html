@@ -11,7 +11,10 @@
 
 {% set context = context is defined ? context : 'index' %}
 {% set showStatusMenu = (showStatusMenu is defined and showStatusMenu != 'auto' ? showStatusMenu : elementType.hasStatuses()) %}
-{% set showLocaleMenu = (craft.isLocalized() and context == 'index' ? (showLocaleMenu is defined and showLocaleMenu != 'auto' ? showLocaleMenu : elementType.isLocalized()) : false) %}
+{% set showLocaleMenu = (craft.isLocalized() ? (showLocaleMenu ?? 'auto') : false) %}
+{% if showLocaleMenu == 'auto' %}
+	{% set showLocaleMenu = elementType.isLocalized() %}
+{% endif %}
 {% set sortableAttributes = elementType.defineSortableAttributes() %}
 
 <div class="main">
@@ -44,7 +47,7 @@
 							<div class="menu">
 								<ul class="padded">
 									{% for locale in craft.i18n.getEditableLocales() %}
-										<li><a{% if initialLocale and locale.getId() == initialLocale.getId() %} class="sel"{% endif %} data-buddye="{{ locale.getId() }}">{{ locale.getName() }}</a></li>
+										<li><a{% if initialLocale and locale.getId() == initialLocale.getId() %} class="sel"{% endif %} data-locale="{{ locale.getId() }}">{{ locale.getName() }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>

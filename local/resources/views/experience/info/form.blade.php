@@ -8,8 +8,7 @@
                 {!! csrf_field() !!}
                 <div class='row'>
                     <div class="col-sm-5 col-xs-12">
-                        <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}"
-                             id="country_id">
+                        <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
                             <div class="col-xs-12">
                                 @if ($errors->has('country_id'))
                                     <label class="control-label"
@@ -17,7 +16,7 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="country">Your Country</label>
-                                    {{ Form::select('country_id', \App\Country::getList(), $experience->country_id, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Your country*']) }}
+                                    {{ Form::select('country_id', \App\Country::getList(), $experience->country_id, ['class' => 'form-control fullwidth', 'id' => 'country_id', 'required' => true, 'placeholder' => 'Your country*']) }}
                                 </div>
                             </div>
                         </div>
@@ -30,12 +29,11 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="city">Your city</label>
-                                    {{ Form::text('city', $experience->city_name, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Your city*']) }}
+                                    {{ Form::text('city', $experience->city_name, ['class' => 'form-control fullwidth', 'id' => 'city_name','required' => true, 'placeholder' => 'Your city*']) }}
                                 </div>
                             </div>
                         </div>
-                        <div class="row form-group {{ $errors->has('street_address') ? 'has-error' : '' }}"
-                             id="street_address">
+                        <div class="row form-group {{ $errors->has('street_address') ? 'has-error' : '' }}">
                             <div class="col-xs-12">
                                 @if ($errors->has('street_address'))
                                     <label class="control-label"
@@ -43,12 +41,11 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="street_address">Street address</label>
-                                    {{ Form::text('street_address', $experience->street_address, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Meeting point street address*']) }}
+                                    {{ Form::text('street_address', $experience->street_address, ['class' => 'form-control fullwidth', 'id' => 'street_address','required' => true, 'placeholder' => 'Meeting point street address*']) }}
                                 </div>
                             </div>
                         </div>
-                        <div class="row form-group {{ $errors->has('postal_code') ? 'has-error' : '' }}"
-                             id="postal_code">
+                        <div class="row form-group {{ $errors->has('postal_code') ? 'has-error' : '' }}">
                             <div class="col-xs-12">
                                 @if ($errors->has('postal_code'))
                                     <label class="control-label"
@@ -56,7 +53,7 @@
                                 @endif
                                 <div class="input-group">
                                     <label class="control-label" for="postal_code">Postal code</label>
-                                    {{ Form::text('postal_code', $experience->postal_code, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Postal code*']) }}
+                                    {{ Form::text('postal_code', $experience->postal_code, ['class' => 'form-control fullwidth','id' => 'postal_code', 'required' => true, 'placeholder' => 'Postal code*']) }}
                                 </div>
                             </div>
                         </div>
@@ -97,9 +94,10 @@
                         </div>
                     </div>
                     <div class="col-sm-7 col-xs-12">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52973.7501198164!2d18.47359695747957!3d-33.91901849430067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c6704f82b65%3A0x78920bf352a0d24f!2sKenilworth%2C+Cape+Town%2C+7708!5e0!3m2!1sen!2sza!4v1488221127609"
-                                width="400" height="300" frameborder="0" style="border:0"
-                                allowfullscreen></iframe>
+                        <div class="row">
+                            <div id="map"></div>
+                        </div>
+                        @include('partials.map')
                     </div>
                 </div>
             </div>
