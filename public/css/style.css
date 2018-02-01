@@ -11683,9 +11683,8 @@ a.thumbnail:active {
 }
 #search-block .search-form .form-group {
   display: inline-block;
-  margin: 0 5px;
   float: left;
-  width: calc(25% - 10px);
+  width: 250px;
   height: 65px;
 }
 #search-block .search-form .form-group .input-group select .form-control {
