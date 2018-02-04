@@ -144,7 +144,7 @@ h1, .h1, h2, .h2, h3, .h3 {
     .media {
       .media-body {
         background-color: @white;
-        color: @gray-base;
+        color: @black;
       }
       .media-object {
         width: 100%;
@@ -286,6 +286,18 @@ input[type="radio"] {
 }
 
 // text
+
+.black-text{
+  text-transform: uppercase;
+  font-weight: bold;
+  color: @black;
+}
+
+.black-text-none{
+  text-transform: none;
+  font-weight: bold;
+  color: @black;
+}
 
 .text-bold {
   font-weight: 900;
@@ -1288,8 +1300,8 @@ section {
   margin-bottom: @panel-body-padding;
   border-radius: 0;
   .media-body {
-    background-color: @blue;
-    color: @white;
+    background-color: @white;
+    color: @black;
     padding: @panel-body-padding;
     padding-bottom: 20px;
     .readmore {
@@ -1643,6 +1655,8 @@ section {
     color: @white;
   }
 }
+
+
 
 .search-form {
   .form-group {
@@ -2572,13 +2586,10 @@ a.thumbnail:hover, a.thumbnail:active {
 // Hidden by default for smaller viewports
 .carousel-caption {
   position: absolute;
-  left: 0px;
   right: auto;
   bottom: 0;
   top: 0;
   z-index: 10;
-  text-align: left;
-  width: 100%;
   .container {
     height: 100%;
     .table-block {
@@ -3033,9 +3044,9 @@ a.thumbnail:hover, a.thumbnail:active {
   .search-form {
     .form-group {
       display: inline-block;
-      margin: 0 5px;
+      margin: 0 43px;
       float: left;
-      width: ~ "calc(25% - 10px)";
+      width: 200px;
       height: 65px;
       .input-group {
         select {
