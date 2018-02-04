@@ -82,6 +82,13 @@ class Experience extends Model {
     }
 
     /**
+     * Get the reviews.
+     */
+    public function reviews() {
+        return $this->hasMany('App\Review', 'experience_id', 'id');
+    }
+
+    /**
      * Get the highliths.
      */
     public function highlights() {

@@ -89,6 +89,9 @@ Route::group(['prefix' => 'local'], function () {
     // contact resource
     Route::resource('contact-us', 'ContactController');
 
+    // review resource
+    Route::resource('review', 'ReviewController');
+
     // subscribe resource
 //    Route::post('subscriber', 'SubscriberController');
 });
