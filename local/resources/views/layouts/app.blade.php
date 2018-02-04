@@ -13,9 +13,6 @@
                 @yield('content')
             </main>
         </div>
-
-        <script src="/js/vendors.js?v={{ Helper::timestamp('/js/vendors.js') }}"></script>
-        <script src="/js/scripts.js?v={{ Helper::timestamp('/js/scripts.js') }}"></script>
         
         <!-- begin footer here -->
         @include('partials.footer', [])  

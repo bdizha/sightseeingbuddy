@@ -7,7 +7,7 @@ return array(
     ],
     'local'   => [
         'user'     => 'root',
-        'password' => '@%Sightseeing#',
+        'password' => '@%Gr4f1f0x#',
         'database' => 'ssb',
     ],
     'staging' => [

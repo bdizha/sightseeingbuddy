@@ -5,7 +5,7 @@
         @include('profile.partials.header', ['user' => $user, 'section' => 'search', 'title' => 'LET\'S FIND YOU A LOCAL EXPERIENCE'])
     </section>
 
-    <section id="page" class="white-block booking-block">
+    <section id="page" class="gray-block booking-block">
         <div class="container mt-1">
             @include('profile.partials.tabs', ['user' => $user, 'title' => 'WELCOME TO YOUR DASHBOARD'])
             <div class="gray-bottom-border mb-1"></div>

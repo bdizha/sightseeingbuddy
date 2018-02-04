@@ -897,7 +897,7 @@ class AssetTransformsService extends BaseApplicationComponent
 		$maxCachedImageSize = $this->getCachedCloudImageSize();
 
 		// Resize if constrained by maxCachedImageSizes setting
-		if ($maxCachedImageSize > 0 && ImageHelper::isImageManipulatable($localCopy))
+		if ($maxCachedImageSize > 0 && ImageHelper::isImageManipulatable(IOHelper::getExtension($localCopy)))
 		{
 
 			$image = craft()->images->loadImage($localCopy);
@@ -907,7 +907,7 @@ class AssetTransformsService extends BaseApplicationComponent
 				$image->setQuality(100);
 			}
 
-			$image->scaleToFit($maxCachedImageSize, $maxCachedImageSize)->saveAs($destination);
+			$image->scaleToFit($maxCachedImageSize, $maxCachedImageSize, false)->saveAs($destination);
 		}
 		else
 		{
@@ -1054,11 +1054,14 @@ class AssetTransformsService extends BaseApplicationComponent
 	{
 		$thumbFolders = IOHelper::getFolderContents(craft()->path->getAssetsThumbsPath());
 
-		foreach ($thumbFolders as $folder)
+		if ($thumbFolders)
 		{
-			if (is_dir($folder))
+			foreach ($thumbFolders as $folder)
 			{
-				IOHelper::deleteFile($folder.'/'.$file->id.'.'.$this->_getThumbExtension($file));
+				if (is_dir($folder))
+				{
+					IOHelper::deleteFile($folder.'/'.$file->id.'.'.$this->_getThumbExtension($file));
+				}
 			}
 		}
 	}

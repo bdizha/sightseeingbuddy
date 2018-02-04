@@ -9194,13 +9194,13 @@ input[type="radio"] + label span {
   margin: -2px 4px 0 0;
   vertical-align: middle;
   background-repeat: no-repeat;
-  background-image: url(/images/gray-untick.png);
+  background-image: url(/images/gray-untick.png?v=1);
   background-size: 100%;
   cursor: pointer;
 }
 input[type="checkbox"]:checked + label span,
 input[type="radio"]:checked + label span {
-  background-image: url(/images/gray-tick.png);
+  background-image: url(/images/gray-tick.png?v=1);
 }
 input[type="radio"] {
   display: none;
@@ -11683,9 +11683,8 @@ a.thumbnail:active {
 }
 #search-block .search-form .form-group {
   display: inline-block;
-  margin: 0 5px;
   float: left;
-  width: calc(25% - 10px);
+  width: 250px;
   height: 65px;
 }
 #search-block .search-form .form-group .input-group select .form-control {
@@ -11759,7 +11758,7 @@ a.thumbnail:active {
 .btn-yellow.affix {
   top: 100px;
   /* Set the top position of pinned element */
-  z-index: 9999;
+  z-index: 999;
   max-width: 458px;
   position: fixed !important;
 }

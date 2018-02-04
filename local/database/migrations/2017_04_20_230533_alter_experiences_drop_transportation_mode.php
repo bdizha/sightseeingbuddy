@@ -14,7 +14,7 @@ class AlterExperiencesDropTransportationMode extends Migration
     public function up()
     {
         Schema::table('experiences', function (Blueprint $table) {
-            $table->dropColumn('transportation_mode');
+//            $table->dropColumn('transportation_mode');
         });
     }
 
