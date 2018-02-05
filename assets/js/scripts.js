@@ -654,7 +654,7 @@ function TogglePassword() {
     this.init = function () {
         $(".password-eye").click(function () {
             var passwordInput = $(this).siblings("input");
-            if(passwordInput.attr("type") == "text"){
+            if(passwordInput.attr("type") === "text"){
                 passwordInput.attr("type", "password");
             }
             else{
@@ -689,7 +689,7 @@ function Newsletter() {
 
             console.log("Submitting newsletter subscription...");
 
-            if (event.which == 13) {
+            if (event.which === 13) {
                 console.log("Pressed the enter button...");
                 $.ajax({
                     type: 'post',
