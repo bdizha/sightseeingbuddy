@@ -525,9 +525,11 @@ function DatePicker() {
         var toDate = '';
         var fromDate = '';
 
+        $(".datetime-group").css({visibility: "hidden", "height": 0});
+
         window.onclick = function (event) {
             if (event.target.id !== "duration") {
-                $(".datetime-group").css({visibility: "hidden"});
+                $(".datetime-group").css({visibility: "hidden", "height": 0});
             }
         };
 
@@ -585,7 +587,7 @@ function DatePicker() {
 
         var dateRangeWidth = 0;
         $(".datetime-input").click(function () {
-            $(".datetime-group").css({visibility: "visible"});
+            $(".datetime-group").css({visibility: "visible", "height": 'auto'});
 
             CalcDateWidth();
 
@@ -664,17 +666,14 @@ function TogglePassword() {
 
 function AffixButton() {
     this.init = function () {
-        $("#book-experience-btn").affix({
-            offset: {
-                top: 250  /* Set top offset equal to header outer height including margin */
-            }
-        });
-
-        var w = ($("body").width() - $(".container").width()) / 2;
-
-        $("#book-experience-btn").css({right: w + "px"}).width($("#booking-btn-container").width() - 30);
-
-        console.log(w + ">>>>");
+        // $("#book-experience-btn").affix({
+        //     offset: {
+        //         top: 250  /* Set top offset equal to header outer height including margin */
+        //     }
+        // });
+        //
+        // var w = ($("body").width() - $(".container").width()) / 2;
+        // $("#book-experience-btn").css({right: w + "px"}).width($("#booking-btn-container").width() - 30);
     };
 }
 

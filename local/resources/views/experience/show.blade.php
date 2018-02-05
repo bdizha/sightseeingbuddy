@@ -427,7 +427,7 @@
             $("#rating-text").html(dataText);
 
             $(".rating-input .star").each(function (index) {
-                if (parseInt(dataValue) >= index) {
+                if (parseInt(dataValue) > index) {
                     $(this).addClass("star-filled");
                 }
             });
