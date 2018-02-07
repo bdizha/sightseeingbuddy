@@ -43,15 +43,13 @@
                         <td>
                             <button class="btn btn-primary btn-modal" modal-id="booking-modal-{{ $booking->id }}">View
                             </button>
-                            @if($booking->status !== 'cancelled')
-                                <a class="btn btn-primary btn-danger"
-                                   href="/local/booking/cancel?reference={{ $booking->reference }}">
-                                    Cancel
-                                </a>
+                            @if($booking->status !== 'pending')
+                                <button class="btn btn-primary btn-danger btn-modal" modal-id="cancel-modal-{{ $booking->id }}">Cancel</button>
                             @endif
+                            @include("booking.partials.cancel", ['booking' => $booking])
+                            @include('booking.partials.history', ['booking' => $booking, 'experience' => $booking->experience, 'user' => $booking->user])
                         </td>
                     </tr>
-                    @include('booking.partials.history', ['booking' => $booking, 'experience' => $booking->experience, 'user' => $booking->user])
                 @endforeach
                 </tbody>
                 @if(empty($bookings->count()))

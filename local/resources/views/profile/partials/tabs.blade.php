@@ -9,7 +9,7 @@
             <li class="item<?php echo $tab === 'manage' ? ' active' : '' ?>">
                 <a href="{{ "/local/booking/manage" }}">
                     <i class="bookings"></i>
-                    <span>Manage Booking</span>
+                    <span>Find my booking</span>
                 </a>
             </li>
             <li class="item<?php echo $tab === 'dashboard' ? ' active' : "" ?>">
@@ -21,7 +21,7 @@
             <li class="item<?php echo $tab === 'bookings' ? " active" : "" ?>">
                 <a href="{{ "/local/bookings" }}">
                     <i class="bookings"></i>
-                    <span>Bookings</span>
+                    <span>Manage Booking</span>
                 </a>
             </li>
         </ul>
