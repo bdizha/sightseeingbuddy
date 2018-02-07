@@ -85,7 +85,7 @@ class BookingController extends Controller
             && $request->has('reference')
             && $request->has('surname')) {
             $bookingsQuery->with('user');
-            $bookingsQuery->where('reference', $values['reference']);
+            $bookingsQuery->where('reference', str_replace("#", "", $values['reference']));
 
             $bookingsQuery->whereHas('user', function ($query) use ($values) {
                 $query->where('users.last_name', '=', $values['surname']);
