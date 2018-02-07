@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Experience;
-use Carbon\Carbon;
 use App\Events\PaymentFailure;
 use App\Events\PaymentSuccess;
+use App\Experience;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ["times", "success", "cancel", "verify", "forex"]]);
+        $this->middleware('auth', ['except' => ["times", "success", "cancel", "verify", "forex", "manage"]]);
 
         /**
          * Notes:
@@ -411,6 +411,15 @@ class BookingController extends Controller
         return view('booking.cancel', [
             'user' => $user,
             'experience' => Experience::where("id", "=", $booking->experience_id)->first()
+        ]);
+
+    }
+
+    public function manage(Request $request)
+    {
+        $user = Auth::user();
+        return view('booking.manage', [
+            'user' => $user
         ]);
 
     }

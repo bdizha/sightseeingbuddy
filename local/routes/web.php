@@ -73,6 +73,8 @@ Route::group(['prefix' => 'local'], function () {
         Route::post('/times', 'BookingController@times')->name("payment_times");
         Route::get('/success', 'BookingController@success')->name("payment_success");
         Route::get('/cancel', 'BookingController@cancel')->name("payment_cancel");
+        Route::get('/manage', 'BookingController@manage')->name("booking_manage");
+        Route::post('/manage', 'BookingController@manage')->name("booking_manage");
         Route::post('/verify', 'BookingController@verify')->name("payment_verify");
         Route::get('/verify', 'BookingController@verify')->name("payment_verify");
         Route::get('/forex', 'BookingController@forex');

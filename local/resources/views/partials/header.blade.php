@@ -72,6 +72,14 @@
                         <li class="
                             item
                             item-level-1
+                        ">
+                            <a href="/local/booking/manage">
+                                Manage Booking
+                            </a>
+                        </li>
+                        <li class="
+                            item
+                            item-level-1
                             ">
                             <a href="/local/contact-us/create">
                                 Contact

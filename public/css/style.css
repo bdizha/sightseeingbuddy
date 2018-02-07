@@ -8999,6 +8999,12 @@ h3,
 #page.gray-block {
   min-height: 630px;
 }
+#privacy-policy .panel .panel-body,
+#terms-conditions .panel .panel-body {
+  max-height: 760px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .white-block {
   background: #FFFFFF;
 }
@@ -9176,7 +9182,7 @@ input[type="radio"] + label span {
   margin: -2px 4px 0 0;
   vertical-align: middle;
   background-repeat: no-repeat;
-  background-image: url(/images/gray-untick.png?v=1);
+  background-image: url(/images/gray-untick.svg?v=1);
   background-size: 100%;
   cursor: pointer;
 }
@@ -9189,7 +9195,7 @@ input[type="radio"] {
 }
 .search-item input[type="checkbox"] + label span,
 .search-item input[type="radio"] + label span {
-  background-image: url(/images/unchecked-68.png);
+  background-image: url(/images/unchecked-68.svg);
 }
 .search-item input[type="checkbox"]:checked + label span,
 .search-item input[type="radio"]:checked + label span {
@@ -10206,6 +10212,7 @@ section #sidebar h2 {
 .profile-nav > li {
   display: inline-block;
   margin-top: 10px;
+  margin-left: 20px;
 }
 .profile-nav > li > a {
   color: #3F3F3F;
@@ -10217,20 +10224,21 @@ section #sidebar h2 {
   position: relative;
 }
 .profile-nav > li > a i {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   background-size: 100%;
-  background-position-x: 4px;
+  background-position-x: 0;
   display: inline-block;
   position: absolute;
   left: 0;
-  top: -2px;
+  top: 0;
+  background-repeat: no-repeat;
 }
 .profile-nav > li > a i.dashboard {
-  background-image: url(/images/dashboard.png);
+  background-image: url(/images/dashboard.svg);
 }
 .profile-nav > li > a i.bookings {
-  background-image: url(/images/bookings.png);
+  background-image: url(/images/bookings.svg);
 }
 .profile-nav > li > a img {
   height: 35px;
@@ -11383,7 +11391,7 @@ a.thumbnail:active {
   top: 0px;
 }
 .booking-block .profile-nav > li > a i.dashboard {
-  background-image: url(/images/search-dashboard.png);
+  background-image: url(/images/dashboard.svg);
   width: 24px;
   height: 24px;
   background-position-x: 0;
@@ -11752,6 +11760,15 @@ a.thumbnail:active {
   z-index: 999;
   max-width: 458px;
   position: fixed !important;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #3F3F3F;
+  width: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
