@@ -7,7 +7,7 @@
 
     <section id="page" class="gray-block booking-block">
         <div class="container mt-1">
-            @include('profile.partials.tabs', ['user' => $user, 'title' => 'WELCOME TO YOUR DASHBOARD'])
+            @include('profile.partials.tabs', ['user' => $user, 'title' => 'WELCOME TO YOUR DASHBOARD', 'tab' => 'dashboard'])
             <div class="gray-bottom-border mb-1"></div>
         </div>
         <div class="container">

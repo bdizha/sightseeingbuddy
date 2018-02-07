@@ -50,7 +50,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 }
 
 #privacy-policy,
-#terms-conditions{
+#terms-conditions {
   .panel > {
     .panel-body {
       max-height: 760px;
@@ -1058,7 +1058,7 @@ section {
     h2 {
       font-weight: 900;
       font-size: 25px;
-      margin: 0 0 15px;
+      margin: 0 0 30px;
       &.media-heading {
         font-size: 23px;
         margin: 0 0 15px;
@@ -1164,7 +1164,6 @@ section {
     }
   }
   &.booking-block {
-
     h3 {
       font-size: 25px;
       font-weight: 900;
@@ -2155,6 +2154,16 @@ small {
       background-color: @white;
       border-color: @blue;
     }
+  }
+}
+
+.btn-danger {
+  background-color: @state-danger-text !important;
+  &:hover,
+  &:focus {
+    color: @state-danger-text !important;
+    background-color: @white !important;
+    border-color: @state-danger-text !important;
   }
 }
 

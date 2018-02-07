@@ -22,6 +22,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\PaymentFailure' => [
             'App\Listeners\SendPaymentFailure@handle'
         ],
+        'App\Events\PaymentCancel' => [
+            'App\Listeners\SendPaymentCancel@handle'
+        ],
         'App\Events\GuestWelcome' => [
             'App\Listeners\SendGuestWelcome@handle'
         ],

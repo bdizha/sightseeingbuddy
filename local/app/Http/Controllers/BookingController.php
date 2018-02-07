@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Events\PaymentCancel;
 use App\Events\PaymentFailure;
 use App\Events\PaymentSuccess;
 use App\Experience;
@@ -78,17 +79,29 @@ class BookingController extends Controller
         $user = Auth::user();
         $bookingsQuery = Booking::orderBy("date", "DESC");
 
-        if ($user->type == "guest") {
-            $bookingsQuery->where("user_id", "=", $user->id);
+        $values = $request->all();
+
+        if (strpos($request->headers->get('referer'), 'manage') !== false) {
+            $bookingsQuery->with('user');
+            $bookingsQuery->where('reference', $values['reference']);
+
+            $bookingsQuery->whereHas('user', function ($query) use ($values) {
+                $query->where('users.last_name', '=', $values['surname']);
+            });
+
         } else {
-            $bookingsQuery->where("local_id", "=", $user->id);
-        }
+            if ($user->type == "guest") {
+                $bookingsQuery->where("user_id", "=", $user->id);
+            } else {
+                $bookingsQuery->where("local_id", "=", $user->id);
+            }
 
-        $bookingsQuery->where("status", "!=", "pending");
+            $bookingsQuery->where("status", "!=", "pending");
 
-        try {
-            $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
-        } catch (\Exception $e) {
+            try {
+                $user->image = file_get_contents(url("/") . '/pages/imager?w=200&h=200&url=' . $user->image);
+            } catch (\Exception $e) {
+            }
         }
 
         return view('booking.index', [
@@ -404,11 +417,36 @@ class BookingController extends Controller
         $booking->status = "cancelled";
         $booking->save();
 
-        event(new PaymentFailure($booking));
+        event(new PaymentCancel($booking));
 
         file_put_contents(public_path() . "/" . "cancel.txt", "cancel: " . date("Y-m-d", time()));
 
         return view('booking.cancel', [
+            'user' => $user,
+            'experience' => Experience::where("id", "=", $booking->experience_id)->first()
+        ]);
+
+    }
+
+    public function failure(Request $request)
+    {
+        $reference = $request->get('reference');
+
+        if (empty($reference)) {
+            file_put_contents(public_path() . "/" . "error.txt", "Error: " . date("Y-m-d", time()));
+        }
+
+        $user = Auth::user();
+        $booking = Booking::where('reference', '=', $reference)->first();
+
+        $booking->status = "cancelled";
+        $booking->save();
+
+        event(new PaymentCancel($booking));
+
+        file_put_contents(public_path() . "/" . "failure.txt", "cancel: " . date("Y-m-d", time()));
+
+        return view('booking.failure', [
             'user' => $user,
             'experience' => Experience::where("id", "=", $booking->experience_id)->first()
         ]);
@@ -434,7 +472,6 @@ class BookingController extends Controller
 
         $user = Auth::user();
         $booking = Booking::where("reference", "=", $reference)->first();
-//dd($booking);
         $booking->status = "success";
         $booking->save();
 

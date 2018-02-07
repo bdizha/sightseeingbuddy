@@ -13,7 +13,7 @@
             @if(Auth::user()->type == 'local')
                 @include('profile.partials.local', ['title' => 'Your booking history'])
             @else
-                @include('profile.partials.tabs', ['user' => $user, 'title' => ''])
+                @include('profile.partials.tabs', ['user' => $user, 'title' => '', 'tab' => 'bookings'])
                 <div class="gray-bottom-border mb-1"></div>
             @endif
 
@@ -43,6 +43,12 @@
                         <td>
                             <button class="btn btn-primary btn-modal" modal-id="booking-modal-{{ $booking->id }}">View
                             </button>
+                            @if($booking->status !== 'cancelled')
+                                <a class="btn btn-primary btn-danger"
+                                   href="/local/booking/cancel?reference={{ $booking->reference }}">
+                                    Cancel
+                                </a>
+                            @endif
                         </td>
                     </tr>
                     @include('booking.partials.history', ['booking' => $booking, 'experience' => $booking->experience, 'user' => $booking->user])

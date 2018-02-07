@@ -1350,11 +1350,11 @@ a.text-warning:focus {
   color: #66512c;
 }
 .text-danger {
-  color: #a94442;
+  color: #ee0027;
 }
 a.text-danger:hover,
 a.text-danger:focus {
-  color: #843534;
+  color: #bb001f;
 }
 .bg-primary {
   color: #fff;
@@ -2850,23 +2850,23 @@ select[multiple].input-lg {
 .has-error.checkbox label,
 .has-error.radio-inline label,
 .has-error.checkbox-inline label {
-  color: #a94442;
+  color: #ee0027;
 }
 .has-error .form-control {
-  border-color: #a94442;
+  border-color: #ee0027;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 .has-error .form-control:focus {
-  border-color: #843534;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+  border-color: #bb001f;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ff5571;
 }
 .has-error .input-group-addon {
-  color: #a94442;
-  border-color: #a94442;
+  color: #ee0027;
+  border-color: #ee0027;
   background-color: #f2dede;
 }
 .has-error .form-control-feedback {
-  color: #a94442;
+  color: #ee0027;
 }
 .has-feedback label ~ .form-control-feedback {
   top: 29px;
@@ -5087,13 +5087,13 @@ a.thumbnail.active {
 .alert-danger {
   background-color: #f2dede;
   border-color: #ebccd1;
-  color: #a94442;
+  color: #ee0027;
 }
 .alert-danger hr {
   border-top-color: #e4b9c0;
 }
 .alert-danger .alert-link {
-  color: #843534;
+  color: #bb001f;
 }
 @-webkit-keyframes progress-bar-stripes {
   from {
@@ -5383,12 +5383,12 @@ button.list-group-item-warning.active:focus {
   border-color: #8a6d3b;
 }
 .list-group-item-danger {
-  color: #a94442;
+  color: #ee0027;
   background-color: #f2dede;
 }
 a.list-group-item-danger,
 button.list-group-item-danger {
-  color: #a94442;
+  color: #ee0027;
 }
 a.list-group-item-danger .list-group-item-heading,
 button.list-group-item-danger .list-group-item-heading {
@@ -5398,7 +5398,7 @@ a.list-group-item-danger:hover,
 button.list-group-item-danger:hover,
 a.list-group-item-danger:focus,
 button.list-group-item-danger:focus {
-  color: #a94442;
+  color: #ee0027;
   background-color: #ebcccc;
 }
 a.list-group-item-danger.active,
@@ -5408,8 +5408,8 @@ button.list-group-item-danger.active:hover,
 a.list-group-item-danger.active:focus,
 button.list-group-item-danger.active:focus {
   color: #fff;
-  background-color: #a94442;
-  border-color: #a94442;
+  background-color: #ee0027;
+  border-color: #ee0027;
 }
 .list-group-item-heading {
   margin-top: 0;
@@ -5747,7 +5747,7 @@ button.list-group-item-danger.active:focus {
   border-color: #ebccd1;
 }
 .panel-danger > .panel-heading {
-  color: #a94442;
+  color: #ee0027;
   background-color: #f2dede;
   border-color: #ebccd1;
 }
@@ -5756,7 +5756,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-danger > .panel-heading .badge {
   color: #f2dede;
-  background-color: #a94442;
+  background-color: #ee0027;
 }
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ebccd1;
@@ -8803,13 +8803,13 @@ textarea.parsley-success {
 input.parsley-error,
 select.parsley-error,
 textarea.parsley-error {
-  color: #a94442;
+  color: #ee0027;
   background-color: #f2dede;
   border: 1px solid #ebccd1;
 }
 .parsley-errors-list {
   font-size: 13px;
-  color: #a94442;
+  color: #ee0027;
   background-color: #f2dede;
   padding: 5px 15px;
   margin: 10px 0 20px;
@@ -9838,7 +9838,7 @@ section #sidebar h2 {
 #page .profile h2 {
   font-weight: 900;
   font-size: 25px;
-  margin: 0 0 15px;
+  margin: 0 0 30px;
 }
 #page .profile h2.media-heading {
   font-size: 23px;
@@ -10808,6 +10808,15 @@ small a:hover {
   background-color: #FFFFFF;
   border-color: #1a75bb;
 }
+.btn-danger {
+  background-color: #ee0027 !important;
+}
+.btn-danger:hover,
+.btn-danger:focus {
+  color: #ee0027 !important;
+  background-color: #FFFFFF !important;
+  border-color: #ee0027 !important;
+}
 .carousel-caption h1 {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
 }
@@ -11109,13 +11118,13 @@ body.rtl #notifications {
 #notifications .notification[class*="error"] {
   background-color: #f2dede;
   border-color: #ebccd1;
-  color: #a94442;
+  color: #ee0027;
 }
 #notifications .notification[class*="error"] hr {
   border-top-color: #e4b9c0;
 }
 #notifications .notification[class*="error"] .alert-link {
-  color: #843534;
+  color: #bb001f;
 }
 #notifications .notification {
   margin-bottom: 0;

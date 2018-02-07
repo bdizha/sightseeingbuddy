@@ -2,12 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Events\PaymentFailure;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Events\PaymentCancel;
 use Illuminate\Contracts\Mail\Mailer;
 
-class SendPaymentFailure
+class SendPaymentCancel
 {
 
     protected $mailer;
@@ -28,7 +26,7 @@ class SendPaymentFailure
      * @param  PaymentCancel $event
      * @return void
      */
-    public function handle(PaymentFailure $event)
+    public function handle(PaymentCancel $event)
     {
         $booking = $event->booking;
         $data = [
@@ -38,12 +36,12 @@ class SendPaymentFailure
             'pricing' => $booking->experience->pricing,
             'local' => $booking->experience->user,
             'from' => env('MAIL_FROM'),
-            'subject' => 'Sightseeing Buddy: Payment failure'
+            'subject' => 'Sightseeing Buddy: Booking cancelled'
         ];
 
         try {
 
-            $this->mailer->send('email.guest.payment.failure', $data, function ($message) use ($data) {
+            $this->mailer->send('email.guest.payment.cancel', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
                     ->cc(env("CC_EMAIL"), env("CC_NAME"))
                     ->subject($data['subject']);

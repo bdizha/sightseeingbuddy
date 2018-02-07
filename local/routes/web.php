@@ -37,7 +37,6 @@ Route::group(['prefix' => 'local'], function () {
 
     Route::resource('guest', 'GuestController');
 
-    Route::resource('contact', 'Step\ContactController');
     Route::resource('introduction', 'Step\IntroductionController');
     Route::resource('location', 'Step\LocationController');
     Route::resource('wallet', 'Step\WalletController');
@@ -65,6 +64,7 @@ Route::group(['prefix' => 'local'], function () {
 
     Route::get('/dashboard', 'SearchController@index');
     Route::get('/bookings', 'BookingController@index');
+    Route::post('/bookings', 'BookingController@index')->name('bookings');
 
     // bookings resources
     Route::group(['prefix' => 'booking'], function () {
@@ -72,6 +72,7 @@ Route::group(['prefix' => 'local'], function () {
         Route::post('/confirm', 'BookingController@confirm')->name("payment_confirm");
         Route::post('/times', 'BookingController@times')->name("payment_times");
         Route::get('/success', 'BookingController@success')->name("payment_success");
+        Route::get('/failure', 'BookingController@failure')->name("payment_failure");
         Route::get('/cancel', 'BookingController@cancel')->name("payment_cancel");
         Route::get('/manage', 'BookingController@manage')->name("booking_manage");
         Route::post('/manage', 'BookingController@manage')->name("booking_manage");
