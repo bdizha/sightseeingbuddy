@@ -81,7 +81,9 @@ class BookingController extends Controller
 
         $values = $request->all();
 
-        if (strpos($request->headers->get('referer'), 'manage') !== false) {
+        if (strpos($request->headers->get('referer'), 'manage') !== false
+            && $request->has('reference')
+            && $request->has('surname')) {
             $bookingsQuery->with('user');
             $bookingsQuery->where('reference', $values['reference']);
 
