@@ -303,8 +303,8 @@ class AppBehavior extends BaseBehavior
 	 */
 	public function canUpgradeEdition()
 	{
-		// Only admin & client accounts can upgrade Craft
-		if (craft()->userSession->isAdmin() || (craft()->getEdition() === Craft::Client))
+		// Only admins can upgrade Craft
+		if (craft()->userSession->isAdmin())
 		{
 			// Are they either *using* or *licensed to use* something < Craft Pro?
 			$activeEdition = $this->getEdition();

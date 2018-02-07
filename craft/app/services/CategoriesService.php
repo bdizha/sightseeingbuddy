@@ -902,13 +902,8 @@ class CategoriesService extends BaseApplicationComponent
 					(!$category->isSiblingOf($prevCategory) && !$category->isChildOf($prevCategory))
 				))
 				{
-					// Merge in all of the category's ancestors
-					$ancestorIds = $category
-                        ->getAncestors()
-					    ->status(null)
-                        ->localeEnabled(false)
-                        ->ids();
-
+					// Merge in all of the entry's ancestors
+					$ancestorIds = $category->getAncestors()->ids();
 					$completeIds = array_merge($completeIds, $ancestorIds);
 				}
 

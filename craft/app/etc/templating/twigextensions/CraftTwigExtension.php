@@ -563,7 +563,7 @@ class CraftTwigExtension extends \Twig_Extension
 			// Technically deprecated, though.
 			$globals['user'] = $globals['currentUser'];
 
-			if (craft()->templates->getTemplateMode() === TemplateMode::CP)
+			if (craft()->request->isCpRequest())
 			{
 				$globals['CraftEdition']  = craft()->getEdition();
 				$globals['CraftPersonal'] = Craft::Personal;
@@ -579,7 +579,7 @@ class CraftTwigExtension extends \Twig_Extension
 			$globals['siteName'] = craft()->getSiteName();
 			$globals['siteUrl'] = craft()->getSiteUrl();
 
-			if (craft()->templates->getTemplateMode() === TemplateMode::Site)
+			if (craft()->request->isSiteRequest())
 			{
 				foreach (craft()->globals->getAllSets() as $globalSet)
 				{

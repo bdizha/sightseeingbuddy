@@ -19,6 +19,10 @@
 {% includecssresource "css/profile.css" %}
 
 
+{% set photoInput %}
+	{% include 'users/_userphoto' with {account: account} only %}
+{% endset %}
+
 {% set saveUserButtons %}
 
 	<div class="buttons">
@@ -66,14 +70,6 @@
 
 				<div id="account">
 					{% include "users/_accountfields" %}
-
-					{% if not isNewAccount %}
-						{{ forms.field({
-							label: "Photo"|t
-						}, include('users/_userphoto', {account: account}, with_context = false)) }}
-					{% endif %}
-
-					<hr>
 
 					{% if isNewAccount %}
 
@@ -160,15 +156,26 @@
 					{{ saveUserButtons }}
 				</div>
 
-				{% if CraftEdition == CraftPro %}
-					{% for tab in account.getFieldLayout().getTabs() %}
-						<div id="tab{{ loop.index }}" class="hidden">
+				{% if not isNewAccount or CraftEdition == CraftPro %}
+					<div id="profile" class="hidden">
+						{% if not isNewAccount %}
+							{{ forms.field({
+								label: "Photo"|t
+							}, photoInput) }}
+
+							<hr>
+						{% endif %}
+
+						{% if CraftEdition == CraftPro %}
 							{% include "_includes/fields" with {
-								fields: tab.getFields(),
+								fields: craft.fields.getLayoutByType('User').getFields(),
 								element: account
 							} only %}
-						</div>
-					{% endfor %}
+
+							{{ saveUserButtons }}
+
+						{% endif %}
+					</div>
 				{% endif %}
 
 				{% if CraftEdition >= CraftClient and currentUser.can('assignUserPermissions') %}
@@ -177,21 +184,21 @@
 						{% if CraftEdition == CraftPro %}
 							<h2>{{ "User Groups"|t }}</h2>
 
-							{% set assignableGroups = craft.userGroups.getAssignableGroups(account) %}
-							{% set currentGroupIds = account.getGroups('id')|keys %}
+							{% set allGroups = craft.userGroups.getAllGroups() %}
+							{% set userGroups = account.getGroups('id') %}
 
 							{% set userGroupsInput %}
 								<input type="hidden" name="groups" value="">
 
-								{% if assignableGroups %}
+								{% if allGroups %}
 									<ul>
-										{% for group in assignableGroups %}
+										{% for group in allGroups %}
 											<li>
 												{{ forms.checkbox({
 													label: group.name|t|e,
 													name: 'groups[]',
 													value: group.id,
-													checked: (group.id in currentGroupIds)
+													checked: (group.id in userGroups|keys)
 												}) }}
 											</li>
 										{% endfor %}

@@ -1,4 +1,4 @@
-/*! Craft  - 2018-01-29 */
+/*! Craft  - 2017-06-26 */
 (function($){
 
 // Set all the standard Craft.* stuff
@@ -2067,11 +2067,6 @@ Craft.BaseElementIndex = Garnish.Base.extend(
 
 		if (this.getSelectedSortAttribute() == 'structure')
 		{
-			if (typeof this.instanceState.collapsedElementIds === 'undefined')
-			{
-				this.instanceState.collapsedElementIds = [];
-			}
-
 			params.collapsedElementIds = this.instanceState.collapsedElementIds;
 		}
 
@@ -3590,7 +3585,6 @@ Craft.BaseElementIndexView = Garnish.Base.extend(
 				this.appendElements($newElements);
 				Craft.appendHeadHtml(response.headHtml);
 				Craft.appendFootHtml(response.footHtml);
-				picturefill();
 
 				if (this.elementSelect)
 				{
@@ -6842,13 +6836,14 @@ Craft.AuthManager = Garnish.Base.extend(
 			{
 				if (textStatus == 'success')
 				{
+					this.updateAuthTimeout(jqXHR.responseJSON.timeout);
+
+					this.submitLoginIfLoggedOut = false;
+
 					if (typeof jqXHR.responseJSON.csrfTokenValue !== 'undefined' && typeof Craft.csrfTokenValue !== 'undefined')
 					{
 						Craft.csrfTokenValue = jqXHR.responseJSON.csrfTokenValue;
 					}
-
-					this.updateAuthTimeout(jqXHR.responseJSON.timeout);
-					this.submitLoginIfLoggedOut = false;
 				}
 				else
 				{
@@ -10817,7 +10812,7 @@ Craft.EntryIndex = Craft.BaseElementIndex.extend(
 			{
 				var href = this._getSectionTriggerHref(selectedSection),
 					label = (this.settings.context == 'index' ? Craft.t('New entry') : Craft.t('New {section} entry', {section: selectedSection.name}));
-				this.$newEntryBtn = $('<a class="btn submit add icon" '+href+'>'+Craft.escapeHtml(label)+'</a>').appendTo(this.$newEntryBtnGroup);
+				this.$newEntryBtn = $('<a class="btn submit add icon" '+href+'>'+label+'</a>').appendTo(this.$newEntryBtnGroup);
 
 				if (this.settings.context != 'index')
 				{
@@ -16357,12 +16352,6 @@ Craft.TagSelectInput = Craft.BaseElementSelectInput.extend(
 
 			Craft.postActionRequest('tags/searchForTags', data, $.proxy(function(response, textStatus)
 			{
-				// Just in case
-				if (this.searchMenu)
-				{
-					this.killSearchMenu();
-				}
-
 				this.$spinner.addClass('hidden');
 
 				if (textStatus == 'success')
@@ -16415,7 +16404,7 @@ Craft.TagSelectInput = Craft.BaseElementSelectInput.extend(
 			$input = $('<input type="hidden" name="'+this.settings.name+'[]" value="'+id+'"/>').appendTo($element);
 
 		$('<a class="delete icon" title="'+Craft.t('Remove')+'"></a>').appendTo($element);
-		$('<span class="label"/>').text(title).appendTo($element);
+		$('<span class="label">'+title+'</span>').appendTo($element);
 
 		var margin = -($element.outerWidth()+10);
 		this.$addTagInput.css('margin-'+Craft.left, margin+'px');
@@ -16826,7 +16815,7 @@ Craft.UpgradeModal = Garnish.Modal.extend(
 
 	init: function(settings)
 	{
-		this.$container = $('<div id="upgrademodal" class="modal loading"/>').appendTo(Garnish.$bod);
+		this.$container = $('<div id="upgrademodal" class="modal loading"/>').appendTo(Garnish.$bod),
 
 		this.base(this.$container, $.extend({
 			resizable: true

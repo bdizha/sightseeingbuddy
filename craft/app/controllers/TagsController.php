@@ -151,7 +151,7 @@ class TagsController extends BaseController
 		$this->requirePostRequest();
 		$this->requireAjaxRequest();
 
-		$search = trim(craft()->request->getPost('search'));
+		$search = craft()->request->getPost('search');
 		$tagGroupId = craft()->request->getPost('tagGroupId');
 		$excludeIds = craft()->request->getPost('excludeIds', array());
 
@@ -181,6 +181,7 @@ class TagsController extends BaseController
 		{
 			$search = StringHelper::normalizeKeywords($search);
 		}
+
 
 		foreach ($tags as $tag)
 		{
@@ -231,7 +232,7 @@ class TagsController extends BaseController
 
 		$tag = new TagModel();
 		$tag->groupId = craft()->request->getRequiredPost('groupId');
-		$tag->getContent()->title = trim(craft()->request->getRequiredPost('title'));
+		$tag->getContent()->title = craft()->request->getRequiredPost('title');
 
 		if (craft()->tags->saveTag($tag))
 		{

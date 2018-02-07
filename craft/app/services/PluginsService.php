@@ -103,6 +103,8 @@ class PluginsService extends BaseApplicationComponent
 					->where('enabled=1')
 					->queryAll();
 
+				$names = array();
+
 				foreach ($rows as $row)
 				{
 					$plugin = $this->_getPlugin($row['class']);
@@ -110,17 +112,19 @@ class PluginsService extends BaseApplicationComponent
 					if ($plugin)
 					{
 						$this->_autoloadPluginClasses($plugin);
-						$lcPluginHandle = mb_strtolower($plugin->getClassHandle());
 
 						// Clean it up a bit
 						$row['settings'] = JsonHelper::decode($row['settings']);
 						$row['installDate'] = DateTime::createFromString($row['installDate']);
-						$row['lcHandle'] = $lcPluginHandle;
 
 						$this->_enabledPluginInfo[$row['class']] = $row;
 
+						$lcPluginHandle = mb_strtolower($plugin->getClassHandle());
 						$this->_plugins[$lcPluginHandle] = $plugin;
 						$this->_enabledPlugins[$lcPluginHandle] = $plugin;
+						$names[] = $plugin->getName();
+
+						$plugin->setSettings($row['settings']);
 
 						$plugin->isInstalled = true;
 						$plugin->isEnabled = true;
@@ -139,12 +143,10 @@ class PluginsService extends BaseApplicationComponent
 					}
 				}
 
-				// Now that all of the components have been imported, set the plugins settings, then initialize them
-				foreach ($this->_enabledPluginInfo as $class => $row)
-				{
-					$this->_enabledPlugins[$row['lcHandle']]->setSettings($row['settings']);
-				}
+				// Sort plugins by name
+				$this->_sortPlugins($names, $this->_enabledPlugins);
 
+				// Now that all of the components have been imported, initialize all the plugins
 				foreach ($this->_enabledPlugins as $plugin)
 				{
 					$plugin->init();
@@ -154,9 +156,6 @@ class PluginsService extends BaseApplicationComponent
 			}
 
 			$this->_pluginsLoaded = true;
-
-			// Sort plugins by name
-			$this->_sortPlugins($this->_enabledPlugins);
 
 			// Fire an 'onLoadPlugins' event
 			$this->onLoadPlugins(new Event($this));
@@ -263,14 +262,18 @@ class PluginsService extends BaseApplicationComponent
 									if ($plugin)
 									{
 										$this->_allPlugins[$lcHandle] = $plugin;
+										$names[] = $plugin->getName();
 									}
 								}
 							}
 						}
 					}
 
-					// Sort plugins by name
-					$this->_sortPlugins($this->_allPlugins);
+					if (!empty($names))
+					{
+						// Sort plugins by name
+						$this->_sortPlugins($names, $this->_allPlugins);
+					}
 				}
 			}
 
@@ -546,7 +549,7 @@ class PluginsService extends BaseApplicationComponent
 		if ($plugin->getSettings()->validate())
 		{
 			// JSON-encode them and save the plugin row
-			$settings = JsonHelper::encode($plugin->getSettings()->getAttributes(null, true));
+			$settings = JsonHelper::encode($plugin->getSettings()->getAttributes());
 
 			$affectedRows = craft()->db->createCommand()->update('plugins', array(
 				'settings' => $settings
@@ -1188,30 +1191,23 @@ class PluginsService extends BaseApplicationComponent
 	}
 
 	/**
-	 * @param BasePlugin[] $plugins
+	 * @param $names
+	 * @param $secondaryArray
 	 *
 	 * @return null
 	 */
-	private function _sortPlugins(&$plugins)
+	private function _sortPlugins(&$names, &$secondaryArray)
 	{
-		$names = array();
-
-		foreach ($plugins as $plugin) {
-			$names[] = $plugin->getName();
-		}
-
 		// TODO: Remove this check for Craft 3.
 		if (PHP_VERSION_ID < 50400)
 		{
 			// Sort plugins by name
-			array_multisort($names, $plugins);
+			array_multisort($names, $secondaryArray);
 		}
 		else
 		{
 			// Sort plugins by name
-			array_multisort($names, SORT_NATURAL | SORT_FLAG_CASE, $plugins);
+			array_multisort($names, SORT_NATURAL | SORT_FLAG_CASE, $secondaryArray);
 		}
-
-		return null;
 	}
 }

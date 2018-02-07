@@ -134,8 +134,6 @@ class RichTextFieldType extends BaseFieldType
 			'redactorLang'    => static::$_redactorLang,
 		);
 
-		$settings['redactorConfig']['toolbarFixed'] = false;
-
 		if (isset($this->model) && $this->model->translatable)
 		{
 			// Explicitly set the text direction
@@ -433,9 +431,7 @@ class RichTextFieldType extends BaseFieldType
 		}
 
 		foreach ($assetSourceIds as $assetSourceId) {
-		    if (isset($list[$assetSourceId])) {
-                $sources[] = 'folder:'.$list[$assetSourceId];
-            }
+		    $sources[] = 'folder:'.$list[$assetSourceId];
         }
 
 		return $sources;

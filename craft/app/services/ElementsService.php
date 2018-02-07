@@ -28,11 +28,6 @@ class ElementsService extends BaseApplicationComponent
 	 */
 	private $_searchResults;
 
-	/**
-	 * @var array
-	 */
-	private $_elementCleanup = array();
-
 	// Public Methods
 	// =========================================================================
 
@@ -446,7 +441,7 @@ class ElementsService extends BaseApplicationComponent
 
 						// Get the target elements
 						$customParams = array_merge(
-						// Default to no order and limit, but allow the element type/path criteria to override
+							// Default to no order and limit, but allow the element type/path criteria to override
 							array('order' => null, 'limit' => null),
 							(isset($map['criteria']) ? $map['criteria'] : array()),
 							(isset($pathCriterias[$targetPath]) ? $pathCriterias[$targetPath] : array())
@@ -1582,6 +1577,28 @@ class ElementsService extends BaseApplicationComponent
 
 					if ($success)
 					{
+						if (!$isNewElement)
+						{
+							// Delete the rows that don't need to be there anymore
+
+							craft()->db->createCommand()->delete('elements_i18n', array('and',
+								'elementId = :elementId',
+								array('not in', 'locale', $localeIds)
+							), array(
+								':elementId' => $element->id
+							));
+
+							if ($elementType->hasContent())
+							{
+								craft()->db->createCommand()->delete($element->getContentTable(), array('and',
+									'elementId = :elementId',
+									array('not in', 'locale', $localeIds)
+								), array(
+									':elementId' => $element->id
+								));
+							}
+						}
+
 						// Call the field types' onAfterElementSave() methods
 						$fieldLayout = $element->getFieldLayout();
 
@@ -1629,24 +1646,7 @@ class ElementsService extends BaseApplicationComponent
 				$transaction->rollback();
 			}
 
-			// Specifically look for a MySQL "data truncation" exception. The use-case
-			// is for a disabled element where validation doesn't run and a text field
-			// is limited in length, but more data is entered than is allowed.
-			if (
-				$e instanceof \CDbException
-				&& isset($e->errorInfo[0])
-				&& $e->errorInfo[0] == 22001
-				&& isset($e->errorInfo[1])
-				&& $e->errorInfo[1] == 1406)
-			{
-				$success = false;
-				craft()->errorHandler->logException($e);
-			}
-			else
-			{
-				throw $e;
-			}
-
+			throw $e;
 		}
 
 		if ($success)
@@ -1669,17 +1669,6 @@ class ElementsService extends BaseApplicationComponent
 					$element->getContent()->elementId = null;
 				}
 			}
-		}
-
-		if ($success && !$isNewElement)
-		{
-			// Do any element cleanup work onEndRequest outside of transactions to help with deadlocks.
-			$this->_elementCleanup[] = array(
-				'localeIds' => $localeIds,
-				'elementId' => $element->id,
-				'hasContent' => $elementType->hasContent(),
-				'contentTable' => $element->getContentTable(),
-			);
 		}
 
 		return $success;
@@ -2289,29 +2278,6 @@ class ElementsService extends BaseApplicationComponent
 		}
 
 		$this->_placeholderElements[$element->id][$element->locale] = $element;
-	}
-
-	/**
-	 * Perform element clean-up work.
-	 */
-	public function handleRequestEnd()
-	{
-		while (($info = array_shift($this->_elementCleanup)) !== null)
-		{
-			// Delete the rows that don't need to be there anymore
-			craft()->db->createCommand()->delete(
-				'elements_i18n',
-				array('and', 'elementId = :elementId', array('not in', 'locale', $info['localeIds'])),
-				array(':elementId' => $info['elementId']));
-
-			if ($info['hasContent'])
-			{
-				craft()->db->createCommand()->delete(
-					$info['contentTable'],
-					array('and', 'elementId = :elementId', array('not in', 'locale', $info['localeIds'])),
-					array(':elementId' => $info['elementId']));
-			}
-		}
 	}
 
 	// Events

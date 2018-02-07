@@ -24,6 +24,11 @@ class Sanitizer
     const SCRIPT_REGEX = '/(?:\w+script|data):/xi';
 
     /**
+     * Regex to test for remote URLs in linked assets
+     */
+    const REMOTE_REFERENCE_REGEX = '/url\(([\'"]?(?:http|https):)[\'"]?([^\'"\)]*)[\'"]?\)/xi';
+
+    /**
      * @var DOMDocument
      */
     protected $xmlDocument;
@@ -52,11 +57,6 @@ class Sanitizer
      * @var bool
      */
     protected $removeRemoteReferences = false;
-
-    /**
-     * @var bool
-     */
-    protected $removeXMLTag = false;
 
     /**
      *
@@ -171,11 +171,7 @@ class Sanitizer
         $this->startClean($allElements);
 
         // Save cleaned XML to a variable
-        if($this->removeXMLTag) {
-            $clean = $this->xmlDocument->saveXML($this->xmlDocument->documentElement, LIBXML_NOEMPTYTAG);
-        } else {
-            $clean = $this->xmlDocument->saveXML($this->xmlDocument, LIBXML_NOEMPTYTAG);
-        }
+        $clean = $this->xmlDocument->saveXML($this->xmlDocument, LIBXML_NOEMPTYTAG);
 
         $this->resetAfter();
 
@@ -249,13 +245,6 @@ class Sanitizer
             $this->cleanXlinkHrefs($currentElement);
 
             $this->cleanHrefs($currentElement);
-
-            if(strtolower($currentElement->tagName) === 'use') {
-                if($this->isUseTagDirty($currentElement)) {
-                    $currentElement->parentNode->removeChild($currentElement);
-                    continue;
-                }
-            }
         }
     }
 
@@ -271,7 +260,7 @@ class Sanitizer
             $attrName = $element->attributes->item($x)->name;
 
             // Remove attribute if not in whitelist
-            if (!in_array(strtolower($attrName), $this->allowedAttrs) && !$this->isAriaAttribute(strtolower($attrName)) && !$this->isDataAttribute(strtolower($attrName))) {
+            if (!in_array(strtolower($attrName), $this->allowedAttrs)) {
                 $element->removeAttribute($attrName);
             }
 
@@ -294,15 +283,7 @@ class Sanitizer
     {
         $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
         if (preg_match(self::SCRIPT_REGEX, $xlinks) === 1) {
-            if(! in_array(substr($xlinks, 0, 14), array(
-                'data:image/png', // PNG
-                'data:image/gif', // GIF
-                'data:image/jpg', // JPG
-                'data:image/jpe', // JPEG
-                'data:image/pjp', // PJPEG
-            ))) {
-                $element->removeAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
-            }
+            $element->removeAttributeNS('http://www.w3.org/1999/xlink', 'href');
         }
     }
 
@@ -320,33 +301,14 @@ class Sanitizer
     }
 
     /**
-     * Removes non-printable ASCII characters from string & trims it
-     *
-     * @param string $value
-     * @return bool
-     */
-    protected function removeNonPrintableCharacters($value)
-    {
-        return trim(preg_replace('/[^ -~]/xu','',$value));
-    }
-
-    /**
      * Does this attribute value have a remote reference?
      *
      * @param $value
      * @return bool
      */
-    protected function hasRemoteReference($value){
-        $value = $this->removeNonPrintableCharacters($value);
-
-        $wrapped_in_url = preg_match('~^url\(\s*[\'"]\s*(.*)\s*[\'"]\s*\)$~xi', $value, $match);
-        if (!$wrapped_in_url){
-            return false;
-        }
-
-        $value = trim($match[1], '\'"');
-
-        if (preg_match('~^((https?|ftp|file):)?//~xi', $value)){
+    protected function hasRemoteReference($value)
+    {
+        if (preg_match(self::REMOTE_REFERENCE_REGEX, $value) === 1) {
             return true;
         }
 
@@ -361,66 +323,5 @@ class Sanitizer
     public function minify($shouldMinify = false)
     {
         $this->minifyXML = (bool) $shouldMinify;
-    }
-
-    /**
-     * Should we remove the XML tag in the header?
-     *
-     * @param bool $removeXMLTag
-     */
-    public function removeXMLTag ($removeXMLTag = false)
-    {
-        $this->removeXMLTag = (bool) $removeXMLTag;
-    }
-
-    /**
-     * Check to see if an attribute is an aria attribute or not
-     *
-     * @param $attributeName
-     *
-     * @return bool
-     */
-    protected function isAriaAttribute( $attributeName )
-    {
-        $position = strpos($attributeName, 'aria-');
-
-        if($position === 0) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Check to see if an attribute is an data attribute or not
-     *
-     * @param $attributeName
-     *
-     * @return bool
-     */
-    protected function isDataAttribute( $attributeName )
-    {
-        $position = strpos($attributeName, 'data-');
-
-        if($position === 0) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Make sure our use tag is only referencing internal resources
-     *
-     * @param \DOMElement $element
-     * @return bool
-     */
-    protected function isUseTagDirty(\DOMElement $element) {
-        $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
-        if ($xlinks && substr($xlinks, 0, 1) !== '#') {
-            return true;
-        }
-
-        return false;
     }
 }

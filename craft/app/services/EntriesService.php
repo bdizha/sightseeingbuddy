@@ -184,7 +184,7 @@ class EntriesService extends BaseApplicationComponent
 					}
 
 					// If "title" has an error, check if they've defined a custom title label.
-					if ($entry->getError('title') && $entryType->titleLabel)
+					if ($entry->getError('title'))
 					{
 						// Grab all of the original errors.
 						$errors = $entry->getErrors();

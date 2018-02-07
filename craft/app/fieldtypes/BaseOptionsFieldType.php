@@ -223,7 +223,7 @@ abstract class BaseOptionsFieldType extends BaseFieldType implements IPreviewabl
 		else
 		{
 			/** @var SingleOptionFieldData $value */
-			return $value->label;
+			return $value->value;
 		}
 	}
 

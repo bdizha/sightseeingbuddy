@@ -166,7 +166,7 @@ abstract class BaseAssetSourceType extends BaseSavableComponentType
 		$fileName = AssetsHelper::cleanAssetName($file['name']);
 
 		// Save the file to a temp location and pass this on to the source type implementation
-		$filePath = AssetsHelper::getTempFilePath(IOHelper::getExtension($fileName), true);
+		$filePath = AssetsHelper::getTempFilePath(IOHelper::getExtension($fileName));
 		move_uploaded_file($file['tmp_name'], $filePath);
 
 		$response = $this->insertFileByPath($filePath, $folder, $fileName);
@@ -459,6 +459,7 @@ abstract class BaseAssetSourceType extends BaseSavableComponentType
 		if ($oldFile->kind == 'image')
 		{
 			craft()->assetTransforms->deleteAllTransformData($oldFile);
+			$this->deleteSourceFile($oldFile->getPath());
 			$this->purgeCachedSourceFile($oldFile->getPath());
 
 			// For remote sources, fetch the source image and move it in the old ones place
@@ -472,7 +473,6 @@ abstract class BaseAssetSourceType extends BaseSavableComponentType
 			}
 		}
 
-		$this->deleteSourceFile($oldFile->getPath());
 		$newFileName = !empty($filenameToUse) ? $filenameToUse : $oldFile->filename;
 		$folder = craft()->assets->getFolderById($oldFile->folderId);
 

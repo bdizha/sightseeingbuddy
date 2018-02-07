@@ -65,7 +65,7 @@ namespace lsolesen\pel;
  * @author Martin Geisler <mgeisler@users.sourceforge.net>
  * @package PEL
  */
-class PelEntryVersion extends PelEntry
+class PelEntryVersion extends PelEntryUndefined
 {
 
     /**
@@ -78,28 +78,27 @@ class PelEntryVersion extends PelEntry
     /**
      * Make a new entry for holding a version.
      *
-     * @param integer $tag
-     *            This should be one of {@link
+     * @param
+     *            PelTag the tag. This should be one of {@link
      *            PelTag::EXIF_VERSION}, {@link PelTag::FLASH_PIX_VERSION},
      *            or {@link PelTag::INTEROPERABILITY_VERSION}.
      *
-     * @param float $version
-     *            The size of the entries leave room for
+     * @param
+     *            float the version. The size of the entries leave room for
      *            exactly four digits: two digits on either side of the decimal
      *            point.
      */
     public function __construct($tag, $version = 0.0)
     {
-        $this->tag = $tag;
-        $this->format = PelFormat::UNDEFINED;
+        parent::__construct($tag);
         $this->setValue($version);
     }
 
     /**
      * Set the version held by this entry.
      *
-     * @param float $version
-     *            The size of the entries leave room for
+     * @param
+     *            float the version. The size of the entries leave room for
      *            exactly four digits: two digits on either side of the decimal
      *            point.
      */
@@ -111,15 +110,13 @@ class PelEntryVersion extends PelEntry
             $version = 0;
         }
         $minor = ($version - $major) * 100;
-        $strValue = sprintf('%02.0f%02.0f', $major, $minor);
-        $this->components = strlen($strValue);
-        $this->bytes = $strValue;
+        parent::setValue(sprintf('%02.0f%02.0f', $major, $minor));
     }
 
     /**
      * Return the version held by this entry.
      *
-     * @return float This will be the same as the value
+     * @return float the version. This will be the same as the value
      *         given to {@link setValue} or {@link __construct the
      *         constructor}.
      */
@@ -131,8 +128,8 @@ class PelEntryVersion extends PelEntry
     /**
      * Return a text string with the version.
      *
-     * @param boolean $brief
-     *            controls if the output should be brief. Brief
+     * @param
+     *            boolean controls if the output should be brief. Brief
      *            output omits the word 'Version' so the result is just 'Exif x.y'
      *            instead of 'Exif Version x.y' if the entry holds information
      *            about the Exif version --- the output for FlashPix is similar.

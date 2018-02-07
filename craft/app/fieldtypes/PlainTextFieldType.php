@@ -1,8 +1,6 @@
 <?php
 namespace Craft;
 
-use LitEmoji\LitEmoji;
-
 /**
  * Class PlainTextFieldType
  *
@@ -62,23 +60,6 @@ class PlainTextFieldType extends BaseFieldType implements IPreviewableFieldType
 	}
 
 	/**
-	 * @inheritDoc IFieldType::prepValue()
-	 *
-	 * @param mixed $value The field’s stored value.
-	 *
-	 * @return mixed The prepped value.
-	 */
-	public function prepValue($value)
-	{
-		if (PHP_VERSION_ID >= 50400)
-		{
-			$value = LitEmoji::shortcodeToUnicode($value);
-		}
-
-		return $value;
-	}
-
-	/**
 	 * @inheritDoc IFieldType::getInputHtml()
 	 *
 	 * @param string $name
@@ -93,42 +74,6 @@ class PlainTextFieldType extends BaseFieldType implements IPreviewableFieldType
 			'value'    => $value,
 			'settings' => $this->getSettings()
 		));
-	}
-
-	/**
-	 * @inheritDoc IFieldType::prepValueFromPost()
-	 *
-	 * @param mixed $value
-	 *
-	 * @return mixed
-	 */
-	public function prepValueFromPost($value)
-	{
-		if (PHP_VERSION_ID >= 50400)
-		{
-			$value = LitEmoji::unicodeToShortcode($value);
-		}
-
-		return $value;
-	}
-
-	/**
-	 * @inheritDoc IFieldType::getSearchKeywords()
-	 *
-	 * @param mixed $value
-	 *
-	 * @return string
-	 */
-	public function getSearchKeywords($value)
-	{
-		$value = (string) $value;
-
-		if (PHP_VERSION_ID >= 50400)
-		{
-			$value = LitEmoji::unicodeToShortcode($value);
-		}
-
-		return $value;
 	}
 
 	// Protected Methods

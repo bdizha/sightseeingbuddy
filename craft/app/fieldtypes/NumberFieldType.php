@@ -68,7 +68,7 @@ class NumberFieldType extends BaseFieldType implements IPreviewableFieldType
 
 		return craft()->templates->render('_includes/forms/text', array(
 			'name'  => $name,
-			'value' => is_numeric($value) ? craft()->numberFormatter->formatDecimal($value, false) : $value,
+			'value' => craft()->numberFormatter->formatDecimal($value, false),
 			'size'  => 10
 		));
 	}
@@ -86,8 +86,10 @@ class NumberFieldType extends BaseFieldType implements IPreviewableFieldType
 		{
 			return 0;
 		}
-
-		return LocalizationHelper::normalizeNumber($data);
+		else
+		{
+			return LocalizationHelper::normalizeNumber($data);
+		}
 	}
 
 	// Protected Methods

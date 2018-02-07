@@ -793,7 +793,7 @@ class IOHelper
 
 			if (!static::folderExists($folderName, false, $suppressErrors))
 			{
-				if (!static::createFolder($folderName, null, $suppressErrors))
+				if (!static::createFolder($folderName, $suppressErrors))
 				{
 					return false;
 				}
@@ -1160,7 +1160,7 @@ class IOHelper
 					}
 					elseif (static::folderExists($item, false, $suppressErrors))
 					{
-						if (!static::createFolder($itemDest, null, $suppressErrors))
+						if (!static::createFolder($itemDest, $suppressErrors))
 						{
 							Craft::log('Could not create destination folder '.$itemDest, LogLevel::Error);
 						}
@@ -1930,7 +1930,7 @@ class IOHelper
 				'php'         => array('label' => Craft::t('PHP'),         'extensions' => array('php')),
 				'powerpoint'  => array('label' => Craft::t('PowerPoint'),  'extensions' => array('pps','ppsm','ppsx','ppt','pptm','pptx','potx')),
 				'text'        => array('label' => Craft::t('Text'),        'extensions' => array('txt','text')),
-				'video'       => array('label' => Craft::t('Video'),       'extensions' => array('avchd','asf','asx','avi','flv','fla','mov','m4v','mng','mpeg','mpg','m1s','m2t','mp2v','m2v','m2s','mp4','mkv','qt','flv','mp4','ogg','ogv','rm','wmv','webm','vob')),
+				'video'       => array('label' => Craft::t('Video'),       'extensions' => array('avchd','asf','asx','avi','flv','fla','mov','m4v','mng','mpeg','mpg','m1s','mp2v','m2v','m2s','mp4','mkv','qt','flv','mp4','ogg','ogv','rm','wmv','webm','vob')),
 				'word'        => array('label' => Craft::t('Word'),        'extensions' => array('doc','docx','dot','docm','dotm')),
 				'xml'         => array('label' => Craft::t('XML'),         'extensions' => array('xml')),
 			);

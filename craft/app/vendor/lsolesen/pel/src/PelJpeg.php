@@ -22,8 +22,24 @@
  * Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
  * Boston, MA 02110-1301 USA
  */
-
 namespace lsolesen\pel;
+
+/**
+ * Classes representing JPEG data.
+ *
+ * @author Martin Geisler <mgeisler@users.sourceforge.net>
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License (GPL)
+ * @package PEL
+ */
+
+
+// require_once ('PelJpegComment.php');
+// require_once ('PelJpegContent.php');
+// require_once ('PelDataWindow.php');
+// require_once ('PelJpegMarker.php');
+// require_once ('PelException.php');
+// require_once ('PelExif.php');
+// require_once ('Pel.php');
 
 /**
  * Class for handling JPEG data.
@@ -133,24 +149,6 @@ class PelJpeg
     }
 
     /**
-     * JPEG sections start with 0xFF. The first byte that is not
-     * 0xFF is a marker (hopefully).
-     *
-     * @param PelDataWindow $d
-     *
-     * @return integer
-     */
-    protected static function getJpgSectionStart($d)
-    {
-        for ($i = 0; $i < 7; $i ++) {
-            if ($d->getByte($i) != 0xFF) {
-                 break;
-            }
-        }
-        return $i;
-    }
-
-    /**
      * Load data into a JPEG object.
      *
      * The data supplied will be parsed and turned into an object
@@ -181,12 +179,20 @@ class PelJpeg
          * no data left in the window.
          */
         while ($d->getSize() > 0) {
-            $i = $this->getJpgSectionStart($d);
+            /*
+             * JPEG sections start with 0xFF. The first byte that is not
+             * 0xFF is a marker (hopefully).
+             */
+            for ($i = 0; $i < 7; $i ++) {
+                if ($d->getByte($i) != 0xFF) {
+                    break;
+                }
+            }
 
             $marker = $d->getByte($i);
 
-            if (!PelJpegMarker::isValid($marker)) {
-                throw new PelJpegInvalidMarkerException($marker, $i);
+            if (! PelJpegMarker::isValid($marker)) {
+                throw new \lsolesen\pel\PelJpegInvalidMarkerException($marker, $i);
             }
 
             /*
@@ -301,8 +307,7 @@ class PelJpeg
         $app1_offset = - 1;
 
         /* Search through all sections looking for APP0 or APP1. */
-        $sections_count = count($this->sections);
-        for ($i = 0; $i < $sections_count; $i ++) {
+        for ($i = 0; $i < count($this->sections); $i ++) {
             if (! empty($this->sections[$i][0])) {
                 if ($this->sections[$i][0] == PelJpegMarker::APP0) {
                     $app0_offset = $i;
@@ -340,8 +345,7 @@ class PelJpeg
         $app2_offset = - 1;
 
         /* Search through all sections looking for APP0 or APP1. */
-        $count_sections = count($this->sections);
-        for ($i = 0; $i < $count_sections; $i ++) {
+        for ($i = 0; $i < count($this->sections); $i ++) {
             if (! empty($this->sections[$i][0])) {
                 if ($this->sections[$i][0] == PelJpegMarker::APP1) {
                     $app1_offset = $i;
@@ -406,8 +410,7 @@ class PelJpeg
      */
     public function clearExif()
     {
-        $sections_count = count($this->sections);
-        for ($i = 0; $i < $sections_count; $i ++) {
+        for ($i = 0; $i < count($this->sections); $i ++) {
             if ($this->sections[$i][0] == PelJpegMarker::APP1) {
                 unset($this->sections[$i]);
                 return;
@@ -591,13 +594,10 @@ class PelJpeg
      * @param
      *            string the filename to save in. An existing file with the
      *            same name will be overwritten!
-     *
-     * @return integer|FALSE The number of bytes that were written to the
-     *         file, or FALSE on failure.
      */
     public function saveFile($filename)
     {
-        return file_put_contents($filename, $this->getBytes());
+        file_put_contents($filename, $this->getBytes());
     }
 
     /**
@@ -611,8 +611,7 @@ class PelJpeg
     public function __toString()
     {
         $str = Pel::tra("Dumping JPEG data...\n");
-        $count_sections = count($this->sections);
-        for ($i = 0; $i < $count_sections; $i ++) {
+        for ($i = 0; $i < count($this->sections); $i ++) {
             $m = $this->sections[$i][0];
             $c = $this->sections[$i][1];
             $str .= Pel::fmt("Section %d (marker 0x%02X - %s):\n", $i, $m, PelJpegMarker::getName($m));
@@ -656,7 +655,11 @@ class PelJpeg
         /* JPEG data is stored in big-endian format. */
         $d->setByteOrder(PelConvert::BIG_ENDIAN);
 
-        $i = self::getJpgSectionStart($d);
+        for ($i = 0; $i < 7; $i ++) {
+            if ($d->getByte($i) != 0xFF) {
+                break;
+            }
+        }
 
         return $d->getByte($i) == PelJpegMarker::SOI;
     }

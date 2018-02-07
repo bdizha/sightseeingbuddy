@@ -59,9 +59,8 @@ class ToolsController extends BaseController
 	public function actionDownloadBackupFile()
 	{
 		$fileName = craft()->request->getRequiredQuery('fileName');
-		$filePath = craft()->path->getTempPath().$fileName.'.zip';
 
-		if (IOHelper::fileExists($filePath) && PathHelper::ensurePathIsContained($fileName))
+		if (($filePath = IOHelper::fileExists(craft()->path->getTempPath().$fileName.'.zip')) == true)
 		{
 			craft()->request->sendFile(IOHelper::getFileName($filePath), IOHelper::getFileContents($filePath), array('forceDownload' => true));
 		}

@@ -277,14 +277,14 @@ class DateTimeHelper
 	/**
 	 * Returns true if given date was yesterday
 	 *
-	 * @param int $date Unix timestamp
+	 * @param string $date Unix timestamp
 	 *
 	 * @return bool true if date was yesterday, false otherwise.
 	 */
 	public static function wasYesterday($date)
 	{
 		$date = new DateTime('@'.$date);
-		$yesterday = new DateTime('yesterday', new \DateTimeZone(craft()->getTimeZone()));
+		$yesterday = new DateTime('@'.strtotime('yesterday'));
 
 		return $date->format('Y-m-d') == $yesterday->format('Y-m-d');
 	}
@@ -292,7 +292,7 @@ class DateTimeHelper
 	/**
 	 * Returns true if given date is in this year
 	 *
-	 * @param int $date Unix timestamp
+	 * @param string $date Unix timestamp
 	 *
 	 * @return bool true if date is in this year, false otherwise.
 	 */
@@ -307,7 +307,7 @@ class DateTimeHelper
 	/**
 	 * Returns true if given date is in this week
 	 *
-	 * @param int $date Unix timestamp
+	 * @param string $date Unix timestamp
 	 *
 	 * @return bool true if date is in this week, false otherwise.
 	 */
@@ -322,7 +322,7 @@ class DateTimeHelper
 	/**
 	 * Returns true if given date is in this month
 	 *
-	 * @param int $date Unix timestamp
+	 * @param string $date Unix timestamp
 	 *
 	 * @return bool True if date is in this month, false otherwise.
 	 */

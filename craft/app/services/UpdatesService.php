@@ -897,7 +897,6 @@ class UpdatesService extends BaseApplicationComponent
 	 */
 	public function isSchemaVersionCompatible()
 	{
-//        die(craft()->getSchemaVersion());
 		return version_compare(CRAFT_SCHEMA_VERSION, craft()->getSchemaVersion(), '>=');
 	}
 

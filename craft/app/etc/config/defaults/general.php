@@ -45,7 +45,7 @@ return array(
 	/**
 	 * A list of file extensions that Craft will allow when a user is uploading files.
 	 */
-	'allowedFileExtensions' => '7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,htm,html,jp2,jpeg,jpg,jpx,js,m2t,mid,mov,mp3,mp4,m4a,m4v,mpc,mpeg,mpg,ods,odt,ogg,ogv,pdf,png,potx,pps,ppsm,ppsx,ppt,pptm,pptx,ppz,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,svg,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vob,vsd,wav,webm,wma,wmv,xls,xlsx,zip',
+	'allowedFileExtensions' => '7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,htm,html,jpeg,jpg,js,mid,mov,mp3,mp4,m4a,m4v,mpc,mpeg,mpg,ods,odt,ogg,ogv,pdf,png,potx,pps,ppsm,ppsx,ppt,pptm,pptx,ppz,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,svg,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vob,vsd,wav,webm,wma,wmv,xls,xlsx,zip',
 
 	/**
 	 * If this is set to true, then a tag name of "Proteines" will also match a tag name of "Protéines". Otherwise,
@@ -448,13 +448,6 @@ return array(
 	 * setting) when they are already logged in.
 	 */
 	'postLoginRedirect' => '',
-
-	/**
-	 * Whether the EXIF data should be preserved when manipulating images.
-	 *
-	 * Setting this to false will reduce the image size a little bit, but all EXIF data will be cleared. This will only have effect if Imagick is in use.
-	 */
-	'preserveExifData' => false,
 
 	/**
 	 * Whether the embedded Image Color Profile (ICC) should be preserved when manipulating images.
