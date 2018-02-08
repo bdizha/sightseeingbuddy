@@ -525,7 +525,7 @@ function DatePicker() {
         var toDate = '';
         var fromDate = '';
 
-        $(".datetime-group").css({visibility: "hidden", "height": 0});
+        $(".datetime-group").css({visibility: "hidden", "height": 0, overflow: 'hidden'});
 
         window.onclick = function (event) {
             if (event.target.id !== "duration") {
@@ -587,7 +587,7 @@ function DatePicker() {
 
         var dateRangeWidth = 0;
         $(".datetime-input").click(function () {
-            $(".datetime-group").css({visibility: "visible", "height": 'auto'});
+            $(".datetime-group").css({visibility: "visible", "height": 'auto', overflow: 'hidden'});
 
             CalcDateWidth();
 

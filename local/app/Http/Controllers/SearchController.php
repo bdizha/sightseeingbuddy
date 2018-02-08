@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\User;
 use App\Experience;
 use App\ExperienceCategory;
+use App\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class SearchController extends Controller {
+class SearchController extends Controller
+{
 
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $keyword = $request->get("keyword");
         $destination = $request->get("destination");
         $categoryIds = $request->get("category_ids", []);
@@ -21,7 +22,7 @@ class SearchController extends Controller {
         $guests = $request->get("guests");
 
 //        dd([$guests]);
-        
+
         $query = Experience::has("pricing");
 
         if (!empty($keyword)) {
@@ -52,7 +53,7 @@ class SearchController extends Controller {
 
         if (!empty($guests)) {
             $query->whereHas('pricing', function ($q) use ($guests) {
-                $q->where("guests", "<=", $guests);
+                $q->where("guests", "=", $guests);
             });
         }
 

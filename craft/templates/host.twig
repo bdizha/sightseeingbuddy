@@ -6,12 +6,6 @@
         {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
     </div>
 
-    <div class="container hidden-xs" style="position: relative">
-        <div class="search-block" id="search-block">
-            {%- include "_includes/search.twig" -%}
-        </div>
-    </div>
-
     <section id='trust-items'>
         <div class="container">
             <div class="hidden-lg hidden-md hidden-sm">
@@ -34,10 +28,6 @@
             {% set panelType = 'perks' %}
             <h2 class="text-center section-title"> {{ entry.body.type('text').offsetGet(1).text }}</h2>
             {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(2).panel.first(), hasArrows, panelType) }}
-
-            <div class="text-center">
-                <a href="/local/introduction/create" class="btn btn-default btn-lg">become a buddy</a>
-            </div>
         </div>
     </section>
 
