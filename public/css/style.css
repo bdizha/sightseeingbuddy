@@ -9000,7 +9000,8 @@ h3,
   min-height: 630px;
 }
 #privacy-policy .panel .panel-body,
-#terms-conditions .panel .panel-body {
+#terms-conditions .panel .panel-body,
+#faq .panel .panel-body {
   max-height: 760px;
   overflow-y: auto;
   overflow-x: hidden;
