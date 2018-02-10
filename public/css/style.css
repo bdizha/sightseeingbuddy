@@ -11237,20 +11237,7 @@ a.thumbnail:active {
 .carousel-caption .container {
   height: 100%;
 }
-.carousel-caption .container .table-block {
-  display: table;
-  width: 100%;
-  position: relative;
-  height: 100%;
-}
-.carousel-caption .container .table-block .left-cell {
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
-  width: 100%;
-  padding-right: 70px;
-}
-.carousel-caption .container .table-block .left-cell h1 {
+.carousel-caption .container h1 {
   font-weight: 400;
   font-size: 81px;
   text-transform: none;
@@ -11261,37 +11248,26 @@ a.thumbnail:active {
   font-family: 'Coolvetica';
 }
 @media (max-width: 991px) {
-  .carousel-caption .container .table-block .left-cell h1 {
-    font-size: 30px;
-    line-height: 30px;
-    margin-top: -80px;
-    padding-top: 0;
-    width: 100%;
+  .carousel-caption .container h1 {
+    font-size: 24px;
+    margin: 0;
   }
 }
-.carousel-caption .container .table-block .left-cell h2 {
+.carousel-caption .container h2 {
   font-size: 35px;
   font-family: 'Coolvetica';
   text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.4);
   margin: 15px;
   font-weight: 300;
+  width: 100%;
 }
 @media (max-width: 991px) {
-  .carousel-caption .container .table-block .left-cell h2 {
-    font-size: 34px;
-    line-height: 24px;
+  .carousel-caption .container h2 {
+    line-height: 18px;
     padding-top: 0;
-    width: 100%;
+    font-size: 18px;
+    margin: 15px;
   }
-}
-.carousel-caption .container .table-block .right-cell {
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
-  width: 356px;
-}
-.carousel-caption .container .table-block .right-cell form {
-  visibility: hidden;
 }
 @media (max-width: 991px) {
   .carousel-caption {
