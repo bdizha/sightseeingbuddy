@@ -8790,6 +8790,10 @@ button.close {
 .fa-percent:before {
   content: "\f295";
 }
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('../fonts/Coolvetica.ttf');
+}
 /*
 * Vendor specific
 */
@@ -11247,14 +11251,14 @@ a.thumbnail:active {
   padding-right: 70px;
 }
 .carousel-caption .container .table-block .left-cell h1 {
-  font-weight: 900;
-  font-size: 82px;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 81px;
+  text-transform: none;
   padding: 0;
   margin: 0 0 95px;
-  line-height: 82px;
-  margin-top: 0;
+  line-height: 81px;
   text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
+  font-family: 'Coolvetica';
 }
 @media (max-width: 991px) {
   .carousel-caption .container .table-block .left-cell h1 {
@@ -11783,11 +11787,6 @@ a.thumbnail:active {
 /* my css */
 .table-block .left-cell .row .col-sm-9.col-xs-12 {
   width: 100% !important;
-}
-.carousel-caption .container .table-block .left-cell h1 {
-  font-size: 46px !important;
-  text-align: center;
-  margin-left: 75px;
 }
 .search-field #search-form .ltr .fullwidth {
   border-radius: 5px !important;
