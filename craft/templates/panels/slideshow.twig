@@ -122,7 +122,8 @@
                      srcset="{{ craft.imager.srcset(transformedImage) }}">
                 <div class="carousel-caption">
                     <div class="container">
-                        <h1>{{ slide.summary | raw }}</h1>
+                        <h1>{{ slide.caption | raw }}</h1>
+                        <h2>{{ slide.summary | raw }}</h2>
                     </div>
                 </div>
             </div>
