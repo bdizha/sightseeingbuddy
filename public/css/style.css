@@ -11843,6 +11843,12 @@ a.thumbnail:active {
 .col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body .readmore.mt-1 a.btn.btn-primary:hover {
   border: white;
 }
+.input-group .redactor-styles {
+  font-size: 16px;
+  line-height: 16px;
+  max-height: 190px;
+  height: 190px;
+}
 div#newsletter-group input#newsletter_email {
   border-radius: 6px !important;
 }
