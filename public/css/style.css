@@ -10214,14 +10214,6 @@ section #sidebar h2 {
   padding-bottom: 22px;
   margin-top: 44px;
 }
-@media (max-width: 992px) {
-  .profile-nav {
-    margin-top: 22px;
-  }
-  .profile-nav > li {
-    margin-left: 0;
-  }
-}
 .profile-nav > li {
   display: inline-block;
   margin-top: 10px;
@@ -10273,6 +10265,14 @@ section #sidebar h2 {
   color: #1a75bb;
   background-color: transparent;
   text-decoration: none;
+}
+@media (max-width: 992px) {
+  .profile-nav {
+    margin-top: 22px;
+  }
+  .profile-nav > li {
+    margin-left: 0;
+  }
 }
 .white-block .profile-nav > li > a i {
   background-position-x: 0;

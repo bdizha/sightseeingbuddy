@@ -1464,12 +1464,6 @@ section {
   -webkit-padding-start: 0px;
   padding-bottom: 22px;
   margin-top: 44px;
-  @media (max-width: @grid-float-breakpoint) {
-    margin-top: 22px;
-    > li{
-      margin-left: 0;
-    }
-  }
   > li {
     display: inline-block;
     margin-top: 10px;
@@ -1523,6 +1517,12 @@ section {
           text-decoration: none;
         }
       }
+    }
+  }
+  @media (max-width: @grid-float-breakpoint) {
+    margin-top: 22px;
+    > li{
+      margin-left: 0;
     }
   }
 }
