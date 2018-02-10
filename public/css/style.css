@@ -11237,6 +11237,7 @@ a.thumbnail:active {
 @media (max-width: 991px) {
   .carousel-caption {
     top: 20%;
+    left: 0;
   }
 }
 .carousel-caption .container {
@@ -11254,7 +11255,8 @@ a.thumbnail:active {
 }
 @media (max-width: 991px) {
   .carousel-caption .container h1 {
-    font-size: 24px;
+    font-size: 28px;
+    line-height: 28px;
     margin: 0;
   }
 }
@@ -11268,10 +11270,11 @@ a.thumbnail:active {
 }
 @media (max-width: 991px) {
   .carousel-caption .container h2 {
-    line-height: 18px;
+    line-height: 20px;
     padding-top: 0;
-    font-size: 18px;
-    margin: 15px;
+    font-size: 20px;
+    margin: 0;
+    padding: 15px;
   }
 }
 @media (max-width: 991px) {

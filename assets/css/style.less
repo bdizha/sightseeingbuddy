@@ -2613,6 +2613,7 @@ a.thumbnail:hover, a.thumbnail:active {
   z-index: 10;
   @media (max-width: @grid-float-breakpoint-max) {
     top: 20%;
+    left: 0;
   }
   .container {
     height: 100%;
@@ -2626,7 +2627,8 @@ a.thumbnail:hover, a.thumbnail:active {
       text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.6);
       font-family: 'Coolvetica';
       @media (max-width: @grid-float-breakpoint-max) {
-        font-size: 24px;
+        font-size: 28px;
+        line-height: 28px;
         margin: 0;
       }
     }
@@ -2638,10 +2640,11 @@ a.thumbnail:hover, a.thumbnail:active {
       font-weight: 300;
       width: 100%;
       @media (max-width: @grid-float-breakpoint-max) {
-        line-height: 18px;
+        line-height: 20px;
         padding-top: 0;
-        font-size: 18px;
-        margin: 15px;
+        font-size: 20px;
+        margin: 0;
+        padding: 15px;
       }
     }
   }
