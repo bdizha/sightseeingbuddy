@@ -9103,10 +9103,10 @@ h3,
 #page .experience-block h2 {
   font-weight: 900;
   font-size: 30px;
-  margin: 40px 0 15px;
+  margin: 44px 0 15px;
 }
 #page .experience-block .legend {
-  padding-left: 40px;
+  padding-left: 44px;
   position: relative;
   font-size: 17px;
   margin-bottom: 11px;
@@ -9513,7 +9513,7 @@ form .form-group .input-add .form-control {
   color: #FFFFFF;
 }
 section {
-  padding-bottom: 40px;
+  padding-bottom: 44px;
 }
 section h1 {
   font-weight: 900;
@@ -9522,7 +9522,7 @@ section h1 {
 section h2 {
   font-weight: 500;
   font-size: 30px;
-  margin: 40px 0;
+  margin: 44px 0;
 }
 section h3 {
   font-size: 24px;
@@ -9547,7 +9547,7 @@ section #sidebar h2 {
   }
   section h2 {
     font-size: 28px;
-    margin: 40px 0;
+    margin: 44px 0;
   }
   section h3 {
     font-size: 21px;
@@ -9635,7 +9635,7 @@ section #sidebar h2 {
 }
 .steps-block .step,
 .reviews-block .step {
-  padding: 0 40px;
+  padding: 0 44px;
 }
 .steps-block .step:nth-child(1) .step-arrow,
 .reviews-block .step:nth-child(1) .step-arrow,
@@ -9677,7 +9677,7 @@ section #sidebar h2 {
 }
 #trust-items .step,
 #steps-items .step {
-  padding: 0 40px;
+  padding: 0 44px;
 }
 #trust-items .step:nth-child(1) .step-arrow,
 #steps-items .step:nth-child(1) .step-arrow,
@@ -9690,7 +9690,7 @@ section #sidebar h2 {
   height: 100px;
 }
 #page .steps-block .step {
-  padding: 0 40px;
+  padding: 0 44px;
 }
 #page .steps-block .step:nth-child(1) .step-arrow,
 #page .steps-block .step:nth-child(2) .step-arrow {
@@ -9718,7 +9718,7 @@ section #sidebar h2 {
   font-weight: 900;
   font-size: 28px;
   margin-top: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
   padding-top: 0px;
 }
 #page .page-title.page-title-center {
@@ -9726,7 +9726,7 @@ section #sidebar h2 {
   font-weight: 900;
   font-size: 32px;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
   padding-top: 0px;
 }
 #page .page-title p {
@@ -9783,7 +9783,7 @@ section #sidebar h2 {
   overflow: hidden;
 }
 .points-block .point {
-  padding: 0 40px;
+  padding: 0 44px;
 }
 .points-block .point:nth-child(1) .point-arrow,
 .points-block .point:nth-child(2) .point-arrow {
@@ -9811,7 +9811,7 @@ section #sidebar h2 {
   overflow: hidden;
 }
 .reviews-block .review-summary {
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 .reviews-block .review-byline {
   padding-top: 10px;
@@ -9836,8 +9836,8 @@ section #sidebar h2 {
   text-align: center;
   font-weight: 900;
   font-size: 32px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 44px;
+  margin-bottom: 44px;
   padding: 0 19px;
 }
 #page .profile h2 {
@@ -10029,7 +10029,7 @@ section #sidebar h2 {
   font-weight: 900;
   padding: 16px;
   font-size: 17px;
-  line-height: 40px;
+  line-height: 44px;
   position: relative;
 }
 @media (max-width: 992px) {
@@ -11052,7 +11052,7 @@ small a:hover {
 .panel > .panel-body h2 {
   font-weight: 900;
   font-size: 24px;
-  margin: 40px 0 20px;
+  margin: 44px 0 20px;
 }
 .panel > .panel-body h2:first-child {
   margin-top: 0px;
@@ -11817,7 +11817,9 @@ a.thumbnail:active {
 .container.hidden-xs .search-block .search-form .hidden-xs.form-group {
   margin-left: 20px;
 }
-.container.hidden-xs .search-block .search-form .form-group .input-group {
+.container.hidden-xs .search-block .search-form .form-group .input-group,
+.container.search-xs .search-block .search-form .form-group .input-group {
+  background: #FFFFFF;
   border: 1px solid white;
 }
 #trust-items .container .points-block .point:nth-child(1) .point-arrow,
