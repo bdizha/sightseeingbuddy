@@ -51,7 +51,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 #privacy-policy,
 #terms-conditions,
-#faq{
+#faq {
   .panel > {
     .panel-body {
       max-height: 760px;
@@ -2613,56 +2613,32 @@ a.thumbnail:hover, a.thumbnail:active {
   z-index: 10;
   .container {
     height: 100%;
-    .table-block {
-      display: table;
-      width: 100%;
-      position: relative;
-      height: 100%;
-      .left-cell {
-        height: 100%;
-        display: table-cell;
-        vertical-align: middle;
-        width: 100%;
-        padding-right: 70px;
-        h1 {
-          font-weight: 400;
-          font-size: 81px;
-          text-transform: none;
-          padding: 0;
-          margin: 0;
-          line-height: 81px;
-          text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.6);
-          font-family: 'Coolvetica';
-          @media (max-width: @grid-float-breakpoint-max) {
-            font-size: 30px;
-            line-height: 30px;
-            margin-top: -80px;
-            padding-top: 0;
-            width: 100%;
-          }
-        }
-        h2{
-          font-size: 35px;
-          font-family: 'Coolvetica';
-          text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.4);
-          margin: 15px;
-          font-weight: 300;
-          @media (max-width: @grid-float-breakpoint-max) {
-            font-size: 34px;
-            line-height: 24px;
-            padding-top: 0;
-            width: 100%;
-          }
-        }
+    h1 {
+      font-weight: 400;
+      font-size: 81px;
+      text-transform: none;
+      padding: 0;
+      margin: 0;
+      line-height: 81px;
+      text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.6);
+      font-family: 'Coolvetica';
+      @media (max-width: @grid-float-breakpoint-max) {
+        font-size: 24px;
+        margin: 0;
       }
-      .right-cell {
-        height: 100%;
-        display: table-cell;
-        vertical-align: middle;
-        width: 356px;
-        form {
-          visibility: hidden;
-        }
+    }
+    h2 {
+      font-size: 35px;
+      font-family: 'Coolvetica';
+      text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.4);
+      margin: 15px;
+      font-weight: 300;
+      width: 100%;
+      @media (max-width: @grid-float-breakpoint-max) {
+        line-height: 18px;
+        padding-top: 0;
+        font-size: 18px;
+        margin: 15px;
       }
     }
   }
@@ -3200,22 +3176,26 @@ a.thumbnail:hover, a.thumbnail:active {
   width: 100% !important;
 }
 
-.search-field #search-form .ltr .fullwidth
-{
+.search-field #search-form .ltr .fullwidth {
   border-radius: 5px !important;
 }
+
 .container.hidden-xs .search-block {
   margin-left: 44px;
 }
+
 .container.hidden-xs .search-block .search-form #guests {
   margin-left: 10px;
 }
+
 .container.hidden-xs .search-block .search-form #duration {
   margin-left: 10px;
 }
+
 .container.hidden-xs .search-block .search-form .hidden-xs.form-group {
   margin-left: 20px;
 }
+
 .container.hidden-xs .search-block .search-form .form-group .input-group {
 
   border: 1px solid white;
@@ -3229,21 +3209,24 @@ a.thumbnail:hover, a.thumbnail:active {
   color: black !important;
   text-decoration: none;
 }
+
 .col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body .media-summary {
   color: black;
 }
+
 .col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body .readmore.mt-1 a.btn.btn-primary {
   color: black;
   background-color: white;
 }
-.col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body
-{
+
+.col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body {
   background-color: white;
 }
+
 .col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body .readmore.mt-1 a.btn.btn-primary:hover {
   border: white;
 }
-div#newsletter-group input#newsletter_email
-{
+
+div#newsletter-group input#newsletter_email {
   border-radius: 6px !important;
 }
