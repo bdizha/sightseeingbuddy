@@ -251,11 +251,8 @@ function Vertilize() {
 
         setHeightFor('.media-heading.same-height');
         setHeightFor('.media-media-summary.same-height');
-        setHeightFor('.left-cell h1');
         setHeightFor('.media .media-heading');
         setHeightFor('.media .media-summary');
-
-        console.log("resizing...");
 
         $('.same-height').matchHeight(options);
     };

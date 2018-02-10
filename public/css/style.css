@@ -11269,6 +11269,19 @@ a.thumbnail:active {
     width: 100%;
   }
 }
+.carousel-caption .container .table-block .left-cell h2 {
+  font-size: 32px;
+  font-family: 'Coolvetica';
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 991px) {
+  .carousel-caption .container .table-block .left-cell h2 {
+    font-size: 34px;
+    line-height: 24px;
+    padding-top: 0;
+    width: 100%;
+  }
+}
 .carousel-caption .container .table-block .right-cell {
   height: 100%;
   display: table-cell;
