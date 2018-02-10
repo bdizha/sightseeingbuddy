@@ -11846,8 +11846,9 @@ a.thumbnail:active {
 .input-group .redactor-styles {
   font-size: 16px;
   line-height: 16px;
-  max-height: 190px;
-  height: 190px;
+  max-height: 233px;
+  height: 233px;
+  background: transparent;
 }
 div#newsletter-group input#newsletter_email {
   border-radius: 6px !important;
