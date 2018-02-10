@@ -1,7 +1,7 @@
 @extends('layouts.app', ['url' => '/local/search'])
 
 @section('content')
-    @if(Auth::user()->type == 'guest')
+    @if(!Auth::guest() && Auth::user()->type == 'guest')
         <section id="page" class="booking-block">
             @include('profile.partials.header', ['user' => $user, 'section' => 'search', 'title' => 'Your booking history'])
         </section>
@@ -10,7 +10,7 @@
     <section id="page" class="gray-block">
         <div class="container profile">
 
-            @if(Auth::user()->type == 'local')
+            @if(!Auth::guest() && Auth::user()->type == 'local')
                 @include('profile.partials.local', ['title' => 'Your booking history'])
             @else
                 @include('profile.partials.tabs', ['user' => $user, 'title' => '', 'tab' => 'manage'])

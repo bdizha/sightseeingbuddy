@@ -176,7 +176,7 @@ h1, .h1, h2, .h2, h3, .h3 {
       padding-left: 40px;
       position: relative;
       font-size: 17px;
-      margin-bottom: 10px;
+      margin-bottom: 11px;
       line-height: 30px;
       icon {
         width: 30px;
@@ -1022,7 +1022,7 @@ section {
 
   .review-byline {
     padding-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 11px;
     font-weight: 500;
     font-style: italic;
   }
@@ -1205,7 +1205,7 @@ section {
     }
     .text-left {
       float: left;
-      margin-top: 35px;
+      margin-top: 44px;
     }
     form {
       .booking-row {
@@ -1462,8 +1462,8 @@ section {
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
   -webkit-padding-start: 0px;
-  padding-bottom: 15px;
-  margin-top: 25px;
+  padding-bottom: 22px;
+  margin-top: 44px;
   > li {
     display: inline-block;
     margin-top: 10px;
@@ -1565,7 +1565,7 @@ section {
     > li {
       border-bottom: 1px solid @gray-base;
       padding: 0 10px 10px;
-      margin-bottom: 10px;
+      margin-bottom: 11px;
       padding-bottom: 10px;
     }
   }
@@ -1830,14 +1830,12 @@ small {
     height: 65px;
     position: relative;
     .input-group {
-      background: @white;
       padding-left: 45px;
       border-radius: 10px;
       border: 1px solid @gray-base;;
       height: 65px;
       .form-control {
         border: 1px solid transparent;
-        background: @white;
         height: 63px;
         font-size: 21px;
         padding: 6px 15px;
@@ -1857,13 +1855,13 @@ small {
       }
     }
     #destination .input-group-addon {
-      background-image: url(/images/destination.png);
+      background-image: url(/images/destination-gray.svg);
     }
     #guests .input-group-addon {
-      background-image: url(/images/guests.png);
+      background-image: url(/images/guests-gray.svg);
     }
     #duration .input-group-addon {
-      background-image: url(/images/duration.png);
+      background-image: url(/images/duration-gray.svg);
     }
   }
 }
@@ -2062,7 +2060,7 @@ small {
       padding: 2px 10px;
       line-height: 25px;
     }
-    margin-bottom: 10px;
+    margin-bottom: 11px;
   }
   margin: 0;
   -webkit-margin-before: 0px;
@@ -2073,7 +2071,7 @@ small {
 
   // Uncollapse the nav
   @media (min-width: @grid-float-breakpoint) {
-    margin: 55px 0 0;
+    margin: 60px 0 0;
     float: right;
     > li {
       margin-bottom: 0px;
@@ -2402,12 +2400,13 @@ small {
     text-align: left;
     font-weight: 900;
     font-size: 28px;
-    margin-top: 25px;
-    margin-bottom: 10px;
+    line-height: 28px;
+    margin-top: 22px;
+    margin-bottom: 11px;
     padding: 0px;
   }
   > .panel-body {
-    padding: 15px 0px;
+    padding: 22px 0px;
     h2 {
       font-weight: 900;
       font-size: 24px;
@@ -2437,8 +2436,8 @@ form {
   font-size: 21px;
   border: 1px solid @white;
   border-radius: 50%;
-  height: 38px;
-  width: 38px;
+  height: 44px;
+  width: 44px;
   line-height: 38px;
   text-align: center;
   &:hover {
@@ -2737,7 +2736,7 @@ a.thumbnail:hover, a.thumbnail:active {
 .progress {
   overflow: hidden;
   height: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
   background-color: #f5f5f5;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -3128,9 +3127,15 @@ a.thumbnail:hover, a.thumbnail:active {
   }
 }
 
-.navbar-brand > img {
-  display: block;
-  margin-top: 0px;
+.navbar-brand {
+  padding: 22px;
+  font-size: 20px;
+  line-height: 24px;
+  height: auto;
+  > img {
+    display: block;
+    margin-top: 0px;
+  }
 }
 
 .nav {
