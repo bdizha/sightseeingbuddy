@@ -11231,8 +11231,13 @@ a.thumbnail:active {
   position: absolute;
   right: auto;
   bottom: 0;
-  top: 0;
+  top: 25%;
   z-index: 10;
+}
+@media (max-width: 991px) {
+  .carousel-caption {
+    top: 20%;
+  }
 }
 .carousel-caption .container {
   height: 100%;
