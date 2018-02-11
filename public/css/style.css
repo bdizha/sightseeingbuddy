@@ -9024,7 +9024,10 @@ h3,
 #blog article .media-body {
   padding-bottom: 20px;
 }
-#experiences-row .media-summary {
+.experiences-row .media-heading {
+  color: #3F3F3F;
+}
+.experiences-row .media-summary {
   height: 88px;
   max-height: 88px;
   overflow: hidden;
