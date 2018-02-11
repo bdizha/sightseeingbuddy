@@ -11716,6 +11716,7 @@ a.thumbnail:active {
   margin: 0 43px;
   width: 200px;
   height: 65px;
+  float: left;
 }
 #search-block .search-form .form-group .input-group select .form-control {
   padding-left: 4px !important;
