@@ -9320,10 +9320,13 @@ input[type="radio"] {
   }
 }
 .alert-success {
-  background-color: #3F3F3F;
+  background-color: #1a75bb;
   border-color: #FFFFFF;
   color: #FFFFFF;
   padding: 15px;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 .white-bottom-border {
   border-bottom: 1px solid #FFFFFF;

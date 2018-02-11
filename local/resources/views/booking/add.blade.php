@@ -82,31 +82,14 @@
                             <h3 class="data-currency" data-currency-base="{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}">
                                 R{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}
                             </h3>
-                        </span>
                         </div>
                         <div class="booking-row">
-                            <div class='row'>
-                                <div class="col-sm-5 col-xs-12">
-                                    <h4>Grand total:</h4>
-                                    <h1>
-                                        <span  class="data-currency" data-currency-base="{{ $experience->total }}">
-                                            {{ $experience->total }}
-                                        </span>
-                                    </h1>
-                                </div>
-                                <div class="col-sm-7 col-xs-12">
-                                    <div class="currency-block">
-                                        "CURRENCY CONVERTER" LINK VIA NEW TAB AS API IS $799 p/year
-                                        <light>:www.xe.com</light>
-                                    </div>
-                                    <small>
-                                        By using this third-party website, you confirm that you've
-                                        read and accept our <a href="/pages/terms-conditions" target="_blank">Terms &
-                                            Conditions</a> and
-                                        <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
-                                    </small>
-                                </div>
-                            </div>
+                            <h4>Grand total:</h4>
+                            <h1>
+                                <span  class="data-currency" data-currency-base="{{ $experience->total }}">
+                                    {{ $experience->total }}
+                                </span>
+                            </h1>
                         </div>
                         <div class="hidden-lg hidden-md hidden-sm">
                             <div class="booking-row">
