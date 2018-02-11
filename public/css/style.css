@@ -10437,13 +10437,13 @@ section #sidebar h2 {
   top: 11px;
 }
 .search-form #destination .input-group-addon {
-  background-image: url(/images/destination.svg?v=1);
+  background-image: url(/images/destination.svg?v=2);
 }
 .search-form #guests .input-group-addon {
-  background-image: url(/images/guests.svg?v=1);
+  background-image: url(/images/guests.svg?v=2);
 }
 .search-form #duration .input-group-addon {
-  background-image: url(/images/duration.svg?v=1);
+  background-image: url(/images/duration.svg?v=2);
 }
 .search-form .btn-block {
   border-radius: 6px;
@@ -10573,13 +10573,13 @@ small a:hover {
   top: 11px;
 }
 .search-form .form-group #destination .input-group-addon {
-  background-image: url(/images/destination.svg);
+  background-image: url(/images/destination.svg?v=2);
 }
 .search-form .form-group #guests .input-group-addon {
-  background-image: url(/images/guests.svg);
+  background-image: url(/images/guests.svg?v=2);
 }
 .search-form .form-group #duration .input-group-addon {
-  background-image: url(/images/duration.svg);
+  background-image: url(/images/duration.svg?v=2);
 }
 .page-become-a-buddy .search-form .form-group {
   visibility: hidden;
