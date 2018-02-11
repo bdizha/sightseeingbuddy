@@ -9024,7 +9024,7 @@ h3,
 #blog article .media-body {
   padding-bottom: 20px;
 }
-.experiences-row .media-heading {
+.experiences-row .media-heading a {
   color: #3F3F3F;
 }
 .experiences-row .media-summary {
@@ -9103,7 +9103,7 @@ h3,
 }
 #page .experience-block .media .media-body {
   background-color: #FFFFFF;
-  color: #000000;
+  color: #3F3F3F;
 }
 #page .experience-block .media .media-object {
   width: 100%;
