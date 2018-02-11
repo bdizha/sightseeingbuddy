@@ -150,7 +150,7 @@
         <input type="hidden" id="current_url" name="current_url" value="{{ craft.request.firstSegment() }}"/>
     </header>
 
-    <div id="notifications-wrapper" class="container">
+    <div id="notifications-wrapper">
         <div id="notifications">
             {% for type, message in craft.session.flashes %}
                 <div class="notification {{ type }}">

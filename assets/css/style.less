@@ -80,6 +80,12 @@ h1, .h1, h2, .h2, h3, .h3 {
   }
 }
 
+.experience-media-summary{
+  height: 88px;
+  max-height: 88px;
+  overflow: hidden;
+}
+
 @media (max-width: (@grid-float-breakpoint - 400)) {
   .col-xs-6-full {
     width: 100% !important;
@@ -440,12 +446,13 @@ input[type="radio"] {
 
 .alert-success {
   background-color: @blue;
-  border-color: #FFFFFF;
   color: #FFFFFF;
-  padding: 15px;
+  padding: 4px 15px;
   position: fixed;
   left: 0;
   right: 0;
+  font-size: 15px;
+  width: 100%;
 }
 
 .white-bottom-border {
@@ -2230,7 +2237,7 @@ small {
 .btn-primary {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   padding: 7px 24px;
   border-radius: 5px;
   background: @blue;

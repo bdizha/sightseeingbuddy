@@ -15,7 +15,7 @@
                             </a>
                         </h2>
                         <div class="media-summary" data-mh="experience-media-summary">
-                            {{ str_limit($experience->description) }}
+                            {{ $experience->description }}
                         </div>
                         <div class="readmore mt-1">
                             <a href="/local/experience/{{ $experience->slug }}" class="btn btn-primary">View</a>
