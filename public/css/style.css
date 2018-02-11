@@ -9136,6 +9136,9 @@ h3,
 #page .experience-block .legend icon.not-available {
   background-color: #FFFFFF;
 }
+.contact-block .same-height {
+  min-height: 360px;
+}
 .articles-block .blogs-header .form-group {
   margin-top: 15px;
   margin-bottom: 0px;

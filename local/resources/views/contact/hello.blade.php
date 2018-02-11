@@ -11,15 +11,15 @@
     </section>
 
     <section class="gray-block pb-0">
-        <div class="container-fluid">
+        <div class="container-fluid contact-block">
             <div class='row'>
                 <div class="col-sm-6 col-xs-12">
-                    <div class='row'>
-                        <img src="/images/sunset-beach.jpg" class="fullwidth"/>
+                    <div class="row same-height" style="background: url(/images/sunset-beach.jpg);background-size: cover" data-mh="experience">
+                        &nbsp;
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div class="pl-1 row-max-0">
+                    <div class="pl-1 row-max-0 same-height" data-mh="experience">
                         <div class="panel panel-default">
                             <div class="panel-heading hide">We&#39;d love to hear from you!</div>
                             <div class="panel-body">

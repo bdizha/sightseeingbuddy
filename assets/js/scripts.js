@@ -253,6 +253,7 @@ function Vertilize() {
         setHeightFor('.media-media-summary.same-height');
         setHeightFor('.media .media-heading');
         setHeightFor('.media .media-summary');
+        setHeightFor('.contact-block .same-height');
 
         $('.same-height').matchHeight(options);
     };
@@ -535,7 +536,7 @@ function DatePicker() {
 
         var today = new Date();
 
-        var sDate = new Date(today.getTime() + 1000 * 60 * 60 *24);
+        var sDate = new Date(today.getTime() + 1000 * 60 * 60 * 24);
 
         $('#datepicker').datepicker({
             daysOfWeekDisabled: daysInActive,
@@ -578,7 +579,7 @@ function DatePicker() {
             (new BookNow).init();
         });
 
-        $(".table-condensed tr").click(function(){
+        $(".table-condensed tr").click(function () {
             console.log("table-condensed disabled...");
         });
 
@@ -651,10 +652,10 @@ function TogglePassword() {
     this.init = function () {
         $(".password-eye").click(function () {
             var passwordInput = $(this).siblings("input");
-            if(passwordInput.attr("type") === "text"){
+            if (passwordInput.attr("type") === "text") {
                 passwordInput.attr("type", "password");
             }
-            else{
+            else {
                 passwordInput.attr("type", "text");
             }
         });
@@ -834,7 +835,6 @@ $(function () {
 
     setHeightFor('.media-heading.same-height');
     setHeightFor('.media-media-summary.same-height');
-
 
 
     $window.on('resize', function () {
