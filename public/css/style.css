@@ -9024,7 +9024,7 @@ h3,
 #blog article .media-body {
   padding-bottom: 20px;
 }
-.experience-media-summary {
+#experiences-row .media-summary {
   height: 88px;
   max-height: 88px;
   overflow: hidden;
@@ -9328,9 +9328,6 @@ input[type="radio"] {
   background-color: #1a75bb;
   color: #FFFFFF;
   padding: 4px 15px;
-  position: fixed;
-  left: 0;
-  right: 0;
   font-size: 15px;
   width: 100%;
 }

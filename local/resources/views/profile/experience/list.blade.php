@@ -1,5 +1,5 @@
 <div class="blog-list text-align-center">
-    <div class="row">
+    <div class="row experiences-row">
         @foreach($experiences as $experience)
             <div class="col-md-3 col-sm-3 col-xs-6 col-xs-6-full">
                 <article class="media media-responsive same-height" data-mh="experience">
@@ -15,7 +15,7 @@
                             </a>
                         </h2>
                         <div class="media-summary" data-mh="experience-media-summary">
-                            {{ $experience->description }}
+                            {!! $experience->description !!}
                         </div>
                         <div class="readmore mt-1">
                             <a href="/local/experience/{{ $experience->slug }}" class="btn btn-primary">View</a>

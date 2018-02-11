@@ -80,10 +80,12 @@ h1, .h1, h2, .h2, h3, .h3 {
   }
 }
 
-.experience-media-summary{
-  height: 88px;
-  max-height: 88px;
-  overflow: hidden;
+#experiences-row{
+  .media-summary{
+    height: 88px;
+    max-height: 88px;
+    overflow: hidden;
+  }
 }
 
 @media (max-width: (@grid-float-breakpoint - 400)) {
@@ -448,9 +450,6 @@ input[type="radio"] {
   background-color: @blue;
   color: #FFFFFF;
   padding: 4px 15px;
-  position: fixed;
-  left: 0;
-  right: 0;
   font-size: 15px;
   width: 100%;
 }
