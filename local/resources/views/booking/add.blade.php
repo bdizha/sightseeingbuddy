@@ -4,7 +4,7 @@
     <section id="page" class="booking-block">
         @include('profile.partials.header', ['title' => 'LET\'S CONFIRM YOUR LOCAL EXPERIENCE BOOKING'])
     </section>
-    <section class="white-block">
+    <section class="gray-block booking-block">
         <div class="container mt-1">
             <div class='row'>
                 <div class="col-sm-12 col-xs-12">
@@ -25,18 +25,8 @@
                 </div>
             </div>
             <div class="gray-bottom-border mb-1"></div>
-            <div class='row mt-2'>
-                <div class="col-sm-12 col-xs-12">
-                    <div class="booking-row ">
-                        <h3>{{ $time }}, {{ $date }}</h3>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
-    <section id="page" class="gray-block booking-block">
-        <div class="container pt-1">
-
+        <div class="container pb-3 pt-1">
             <form method="POST" action="https://{{ $pfHost }}/eng/process">
                 @foreach($data as $key => $input)
                     <input type="hidden" name="{{ $key }}" value="{{ $input }}"/>
@@ -61,7 +51,7 @@
                             <h3>{{ $time }}</h3>
                         </div>
                         <div class="hidden-xs">
-                            <div class="booking-row">
+                            <div class="booking-row mb-1">
                                 <small>
                                     By booking this experience, you confirm that you've read and accept our
                                     <a href="/pages/terms-conditions" target="_blank">Terms & Conditions</a> and

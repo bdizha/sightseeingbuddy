@@ -13,7 +13,7 @@ class ExperienceCategoriesSeeder extends Seeder {
     public function run() {
         $experiencesCategories = [
             [
-                'name' => "Food Experiences"
+                'name' => "Dining experiences"
             ],
             [
                 'name' => "Things to do"

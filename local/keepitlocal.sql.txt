@@ -2728,7 +2728,7 @@ CREATE TABLE `local_experience_categories` (
 
 LOCK TABLES `local_experience_categories` WRITE;
 /*!40000 ALTER TABLE `local_experience_categories` DISABLE KEYS */;
-INSERT INTO `local_experience_categories` VALUES (1,'Food Experiences','main','2017-02-26 15:18:02','2017-02-26 15:18:02'),(2,'Tour experiences','main','2017-02-26 15:18:02','2017-02-26 15:18:02'),(3,'Translation experiences','main','2017-02-26 15:18:36','2017-02-26 15:18:36'),(4,'Some stuff','sub','2017-02-26 16:43:17','2017-02-26 16:43:17'),(5,'sub category','sub','2017-02-26 16:43:47','2017-02-26 16:43:47'),(6,'Food Experiences','sub','2017-02-26 16:51:04','2017-02-26 16:51:04'),(7,'Dinner food','sub','2017-02-26 16:51:29','2017-02-26 16:51:29'),(8,'Some sub category','sub','2017-03-19 12:16:25','2017-03-19 12:16:25');
+INSERT INTO `local_experience_categories` VALUES (1,'Dining experiences','main','2017-02-26 15:18:02','2017-02-26 15:18:02'),(2,'Adventure experiences','main','2017-02-26 15:18:02','2017-02-26 15:18:02'),(3,'Nightlife experiences','main','2017-02-26 15:18:36','2017-02-26 15:18:36'),(4,'Some stuff','sub','2017-02-26 16:43:17','2017-02-26 16:43:17'),(5,'sub category','sub','2017-02-26 16:43:47','2017-02-26 16:43:47'),(6,'Dining experiences','sub','2017-02-26 16:51:04','2017-02-26 16:51:04'),(7,'Dinner food','sub','2017-02-26 16:51:29','2017-02-26 16:51:29'),(8,'Some sub category','sub','2017-03-19 12:16:25','2017-03-19 12:16:25');
 /*!40000 ALTER TABLE `local_experience_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -727,7 +727,9 @@ function FileUpload() {
         var imageType = "";
 
         var removeBin = function () {
-            imageBin = $(this).parent().remove();
+            $(".bin-item img").remove();
+
+            $(".bin-close").hide();
 
             $(window).resize();
             (new Vertilize).init();
@@ -737,7 +739,6 @@ function FileUpload() {
             url: url,
             dataType: 'json',
             done: function (e, data) {
-
                 $.each(data.result.files, function (index, file) {
                     $('.profile-picture img').attr('src', "/files/" + file.name);
 
@@ -753,7 +754,7 @@ function FileUpload() {
                     } else {
                         imageBin.append(imageSet);
                     }
-                    $('.bin-close').click(removeBin);
+                    $('.bin-close').show().click(removeBin);
 
                     $(window).resize();
                 });
@@ -780,8 +781,6 @@ function FileUpload() {
 
 $(function () {
     var $window = $(window);
-
-
 
     (new StickyFooter($('#container'), $('#footer'))).update().bindOnResize();
 

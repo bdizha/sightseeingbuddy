@@ -117,7 +117,7 @@ class BookingController extends Controller
         $user = Auth::user();
         $experience = Experience::where('id', '=', $id)->first();
         $pricing = $experience->pricing;
-        $reference = "KIL" . time();
+        $reference = "SSB" . time();
 
         $date = date("Y-m-d", $timestamp);
 

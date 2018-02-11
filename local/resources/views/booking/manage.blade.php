@@ -45,7 +45,7 @@
                                                        id="reference"
                                                        name="reference"
                                                        value="" autocomplete="off" required
-                                                       placeholder="E.g #1000000000000000000000"/>
+                                                       placeholder="E.g #SSSSSSSBBBBBB"/>
                                                 <div class="error"></div>
                                             </div>
                                             <div class="form-group">

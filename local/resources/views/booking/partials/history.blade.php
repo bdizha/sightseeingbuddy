@@ -50,10 +50,6 @@
                                 <h4>Surname:</h4>
                                 <h3>{{ $booking->local->last_name }}</h3>
                             </div>
-                            <div class="booking-row">
-                                <h4>Email:</h4>
-                                <h3>{{ $booking->local->email }}</h3>
-                            </div>
                         @else
                             <h3>Your guest's details</h3>
                             <div class="booking-row">
@@ -63,10 +59,6 @@
                             <div class="booking-row">
                                 <h4>Surname:</h4>
                                 <h3>{{ $booking->user->last_name }}</h3>
-                            </div>
-                            <div class="booking-row">
-                                <h4>Email:</h4>
-                                <h3>{{ $booking->user->email }}</h3>
                             </div>
                         @endif
                     </div>
