@@ -1810,12 +1810,15 @@ small {
   .password-eye {
     cursor: pointer;
     position: absolute;
-    right: 0px;
-    top: 1px;
-    width: 66px;
-    height: 33px;
-    background: url(/images/password-eye.png) no-repeat;
-    background-size: 75%;
+    right: 10px;
+    top: 8px;
+    width: 39.72px;
+    height: 21.62px;
+    background: url(/images/eye-closed.svg) no-repeat;
+    background-size: 100%;
+    &.active{
+      background: url(/images/eye-opened.svg) no-repeat;
+    }
   }
 }
 

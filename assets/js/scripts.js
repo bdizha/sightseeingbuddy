@@ -651,6 +651,7 @@ function UIModal() {
 function TogglePassword() {
     this.init = function () {
         $(".password-eye").click(function () {
+            $(this).toggleClass('active');
             var passwordInput = $(this).siblings("input");
             if (passwordInput.attr("type") === "text") {
                 passwordInput.attr("type", "password");
