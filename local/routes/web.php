@@ -64,6 +64,7 @@ Route::group(['prefix' => 'local'], function () {
 
     Route::get('/dashboard', 'SearchController@index');
     Route::get('/bookings', 'BookingController@index');
+    Route::get('/messages', 'MessageController@index');
     Route::post('/bookings', 'BookingController@index')->name('bookings');
 
     // bookings resources

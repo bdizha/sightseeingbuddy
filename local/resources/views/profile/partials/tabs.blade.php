@@ -6,6 +6,12 @@
             </div>
         @endif
         <ul class="profile-nav pull-right">
+            <li class="item<?php echo $tab === 'messages' ? ' active' : '' ?>">
+                <a href="{{ "/local/messages" }}">
+                    <i class="bookings"></i>
+                    <span>Messages</span>
+                </a>
+            </li>
             <li class="item<?php echo $tab === 'manage' ? ' active' : '' ?>">
                 <a href="{{ "/local/booking/manage" }}">
                     <i class="bookings"></i>

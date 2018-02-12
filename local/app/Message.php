@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class Message extends Model
 {
-    protected $table = 'reviews';
+    protected $table = 'messages';
     /*
      * Fillable fields
      *
@@ -16,15 +16,18 @@ class Review extends Model
         'experience_id',
         'sender_id',
         'recipient_id',
-        'title',
-        'vote',
-        'is_recommended',
+        'is_read',
         'content',
         'nickname'
     ];
 
-    public function experience()
+    public function sender()
     {
-        return $this->hasOne('App\Experience', 'id', 'experience_id');
+        return $this->hasOne('App\User', 'id', 'sender_id');
+    }
+
+    public function recipient()
+    {
+        return $this->hasOne('App\User', 'id', 'recipient_id');
     }
 }

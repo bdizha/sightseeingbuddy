@@ -1,4 +1,4 @@
-<div class="modal fade confirm-modal in" id="confirm-modal">
+<div class="modal fade read-modal in" id="read-modal-{{ $message->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,15 +6,15 @@
                     <span aria-hidden="true">×</span>
                 </button>
                 <h3 class="modal-title">
-                    PAYMENT CONFIRMATION
+                    Message
                 </h3>
             </div>
-            <div class="modal-body text-center">
-                You're about to make a payment for this experience.
+            @include('message.partials.header')
+            <div class="modal-body">
+                {!! $message->content !!}
             </div>
             <div class="modal-footer text-right">
-                <button modal-id="confirm-modal" type="button" class="btn btn-primary btn-close">Back</button>
-                <button type="submit" class="btn btn-yellow">Make payment</button>
+                <button modal-id="read-modal-{{ $message->id }}" type="button" class="btn btn-yellow btn-close">Reply</button>
             </div>
         </div>
     </div>
