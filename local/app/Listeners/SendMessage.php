@@ -31,6 +31,7 @@ class SendMessage
 
         $data = [
             'content' => $message->content,
+            'experience' => $message->experience,
             'user' => $recipient,
             'from' => 'info@sightseeingbuddy.com',
             'subject' => 'Sightseeing Buddy: You\'ve a new message from ' . $sender->first_name . " " . $sender->last_name
