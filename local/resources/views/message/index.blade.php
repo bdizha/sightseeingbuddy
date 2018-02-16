@@ -21,13 +21,9 @@
                 My messages
             </h1>
 
-            <div class="pull-right">
-                <button class="btn btn-primary btn-modal" modal-id="compose-modal">
-                    Compose
-                </button>
-            </div>
-            @include("message.partials.compose", ['user' => $user])
-
+            @if(!empty($experience))
+                @include("message.partials.compose", ['experience' => $experience])
+            @endif
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -41,9 +37,9 @@
                 </thead>
                 <tbody>
                 @foreach($messages as $k => $message)
-                    <tr>
+                    <tr class="<?php echo $message->is_read ? "" : "text-bold" ?>">
                         <td scope="row">{{ $message->sender->first_name }}</td>
-                        <td>{{ "Some experience here " . ($k + 1) }}</td>
+                        <td>{{ str_limit($message->experience->teaser, 50) }}</td>
                         <td>{{ \Carbon\Carbon::parse($message->created_at)->format("d/m/Y") }}</td>
                         <td>{{ \Carbon\Carbon::parse($message->created_at)->format("H\hi") }}</td>
                         <td>{{ ucfirst($message->status) }}</td>
@@ -55,7 +51,7 @@
                                 Reply
                             </button>
                             @include("message.partials.read", ['message' => $message])
-                            @include("message.partials.reply", ['message' => $message])
+                            @include("message.partials.reply", ['message' => $message, 'experience' => $message->experience])
                         </td>
                     </tr>
                 @endforeach
@@ -72,4 +68,11 @@
             </table>
         </div>
     </section>
+    <script type="text/javascript">
+        $(".btn-reply").click(function () {
+            var messageId = $(this).attr("data-id");
+            $("#respond-modal-" + messageId).modal("show");
+            console.log("replying ...", messageId);
+        });
+    </script>
 @endsection

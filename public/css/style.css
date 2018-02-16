@@ -11452,12 +11452,14 @@ a.thumbnail:active {
 .message-header {
   padding: 15px;
   background: #E6E6E6;
+  border-bottom: 1px solid #3F3F3F;
 }
 .message-header .message-row .text-bold:after {
   content: ':';
 }
 .modal-content {
   background: #E6E6E6;
+  font-weight: normal;
 }
 .booking-block {
   padding-bottom: 0 !important;

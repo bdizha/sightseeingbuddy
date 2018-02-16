@@ -9,13 +9,7 @@
                     Re: Message
                 </h3>
             </div>
-            @include('message.partials.header')
-            <div class="modal-body">
-                <textarea class="redactor-input" placeholder="Compose your message here..."></textarea>
-            </div>
-            <div class="modal-footer text-right">
-                <button modal-id="respond-modal-{{ $message->id }}" type="submit" class="btn btn-yellow btn-close">Send</button>
-            </div>
+            @include("message.partials.form", ["experience" => $experience])
         </div>
     </div>
 </div>

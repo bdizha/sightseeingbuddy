@@ -30,4 +30,9 @@ class Message extends Model
     {
         return $this->hasOne('App\User', 'id', 'recipient_id');
     }
+
+    public function experience()
+    {
+        return $this->hasOne('App\Experience', 'id', 'experience_id');
+    }
 }

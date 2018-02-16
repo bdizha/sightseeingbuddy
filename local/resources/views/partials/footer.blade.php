@@ -243,9 +243,11 @@
 <script type="text/javascript" src="/cpresources/lib/redactor/redactor.js?d=1491941552"></script>
 <script type="text/javascript">
     /*<![CDATA[*/
-    $('.redactor-input').redactor();
-    $('.redactor-editor').on('keypress', function () {
-        (new Vertilize).init();
-    });
+   $(document).ready(function () {
+       $('.redactor-input').redactor();
+       $('.redactor-editor').on('keypress', function () {
+           (new Vertilize).init();
+       });
+   });
     /*]]>*/
 </script>

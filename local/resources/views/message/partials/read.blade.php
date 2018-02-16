@@ -14,7 +14,7 @@
                 {!! $message->content !!}
             </div>
             <div class="modal-footer text-right">
-                <button modal-id="read-modal-{{ $message->id }}" type="button" class="btn btn-yellow btn-close">Reply</button>
+                <button modal-id="read-modal-{{ $message->id }}" data-id="{{ $message->id }}" type="button" class="btn btn-yellow btn-close btn-reply">Reply</button>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
             </div>
             <div class="message-row">
                 <span class="text-bold">Experience</span>
-                <span class="value">{{ 'N/A' }}</span>
+                <span class="value">{{ str_limit($message->experience->teaser, 100) }}</span>
             </div>
         </div>
         <div class="col-xs-6">

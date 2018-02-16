@@ -46,12 +46,14 @@ Route::group(['prefix' => 'local'], function () {
     Route::resource('images', 'Experience\ImagesController');
     Route::resource('last', 'Experience\LastController');
     Route::resource('contact-us', 'ContactController');
+    Route::resource('messages', 'MessageController');
 
     Route::patch('/upload/image', 'Step\IntroductionController@upload');
     Route::post('/upload/image', 'Step\IntroductionController@upload');
     Route::post('/newsletter', 'Controller@newsletter');
 
     Route::get('/date/{timestamp}', 'ExperienceController@date');
+    Route::get('/messages/read/{message_id}', 'MessageController@read');
 
     // profile resources
     Route::get('/profile/{username}', 'Profile\InfoController@show');
@@ -64,7 +66,6 @@ Route::group(['prefix' => 'local'], function () {
 
     Route::get('/dashboard', 'SearchController@index');
     Route::get('/bookings', 'BookingController@index');
-    Route::get('/messages', 'MessageController@index');
     Route::post('/bookings', 'BookingController@index')->name('bookings');
 
     // bookings resources
