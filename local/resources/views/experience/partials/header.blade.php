@@ -26,8 +26,13 @@
             <div class='row'>
                 <div class="col-sm-12 col-xs-12" id="booking-btn-container">
                     @if(Auth::guest() OR $experience->user->id != Auth::user()->id)
-                        <a id="book-experience-btn" href="/local/messages?experience_id={{ $experience->id }}"
-                           class="btn btn-lg btn-yellow fullwidth mb-1">Contact host</a>
+                        @if($type == 'schedule')
+                            <a id="book-experience-btn" href="/local/messages?experience_id={{ $experience->id }}"
+                               class="btn btn-lg btn-yellow fullwidth mb-1">Contact host</a>
+                        @else
+                            <a id="book-experience-btn" href="/local/experience/{{ $experience->id }}/schedule"
+                               class="btn btn-lg btn-yellow fullwidth mb-1">Book experience</a>
+                        @endif
                     @else
                         <a href="/local/info/{{ $experience->id }}/edit"
                            class="btn btn-lg btn-yellow fullwidth mb-1">Edit experience</a>

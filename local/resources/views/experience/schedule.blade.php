@@ -3,7 +3,7 @@
 @section('content')
     <section id="page" class="gray-block">
 
-        @include('experience.partials.header')
+        @include('experience.partials.header', ['type' => 'schedule'])
 
         <div class="container experience-block gray-block" id='experience-info'>
             <div class="gray-bottom-border"></div>
@@ -21,7 +21,8 @@
                     @if(Auth::guest() || Auth::user()->id != $experience->user->id)
                         <h3>Confirm your dates</h3>
                         <div class="media-summary">
-                            <p>We’d hate to see you set your heart on an experience only to find out afterwards that your selected host is unavailable.</p>
+                            <p>We’d hate to see you set your heart on an experience only to find out afterwards that
+                                your selected host is unavailable.</p>
                             <p>Check when your host is available and not available on this convenient calendar.</p>
                         </div>
                     @else

@@ -32,6 +32,7 @@ class SendContact
         $data['subject'] = 'Sightseeing Buddy - New contact message';
         $data['email'] = env("CONTACT_EMAIL");
         $data['name'] = env("CONTACT_NAME");
+        $data['from'] = 'info@sightseeingbuddy.com';
 
         try {
             $this->mailer->send('email.contact', $data, function ($message) use ($data) {

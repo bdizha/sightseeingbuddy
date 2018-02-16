@@ -3,7 +3,7 @@
 @section('content')
     <section id="page" class="gray-block">
 
-        @include('experience.partials.header')
+        @include('experience.partials.header', ['type' => 'show'])
 
         <?php $score = 3.52 ?>
         <?php $ratings = ['Excellent', 'Very good', 'Average', 'Poor', 'Terrible'] ?>

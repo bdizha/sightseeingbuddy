@@ -26,21 +26,21 @@ class SendMessage
     public function handle(Compose $event)
     {
         $message = $event->message;
-
         $sender = $message->sender;
         $recipient = $message->recipient;
+
         $data = [
-            'message' => $message,
+            'content' => $message->content,
             'user' => $recipient,
-            'from' => env("MAIL_FROM"),
+            'from' => 'info@sightseeingbuddy.com',
             'subject' => 'Sightseeing Buddy: You\'ve a new message from ' . $sender->first_name . " " . $sender->last_name
         ];
 
         try {
 
             $this->mailer->send('email.message', $data, function ($message) use ($data) {
-                $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
+                $message->to('keenan@sightseeingbuddy.com', $data['user']->first_name)
+                    ->cc('bdizha@gmail.com', 'Batanayi Matuku')
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
