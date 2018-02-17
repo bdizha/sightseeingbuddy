@@ -51,7 +51,7 @@ class MessageController extends Controller
         $user = Auth::user();
         $message = new Message();
         $message->sender_id = $user->id;
-        $message->is_read = false;
+        $message->reads = serialize([]);
 
         return $this->save($message, $request);
     }
@@ -61,13 +61,17 @@ class MessageController extends Controller
      *
      * @return Response
      */
-    public function read(Request $request)
+    public function read(Request $request, $message_id)
     {
         $user = Auth::user();
-        $messageId = $request->get("message_id");
-        $message = Message::where('id', '=', $messageId)->first();
-        $message->is_read = $user->id !== $message->sender_id;
+
+        $reads = [$user->id];
+        $message = Message::where('id', '=', $message_id)->first();
+        $message->reads = serialize(array_merge($reads, unserialize($message->reads)));
         $message->save();
+
+        echo 'ok';
+        exit(200);
     }
 
     private function save($message, $request)

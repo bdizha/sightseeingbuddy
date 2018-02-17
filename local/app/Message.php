@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Message extends Model
 {
@@ -16,7 +17,7 @@ class Message extends Model
         'experience_id',
         'sender_id',
         'recipient_id',
-        'is_read',
+        'reads',
         'content',
         'nickname'
     ];
@@ -34,5 +35,41 @@ class Message extends Model
     public function experience()
     {
         return $this->hasOne('App\Experience', 'id', 'experience_id');
+    }
+
+    public function getIsReadAttribute()
+    {
+        $user = Auth::user();
+        $reads = [];
+        if (!empty($this->reads)) {
+            $reads = unserialize($this->reads);
+        }
+
+        return in_array($user->id, $reads);
+    }
+
+    public function getHasRepliedAttribute()
+    {
+        $user = Auth::user();
+        $repliesCount = Self::where("experience_id", "=", $this->experience_id)
+            ->where("id", ">", $this->id)
+            ->where("sender_id", "=", $user->id)
+            ->count();
+
+        return $repliesCount > 0;
+    }
+
+    public function getStatusAttribute()
+    {
+        $status = "Unread";
+        if ($this->getHasRepliedAttribute()) {
+            $status = "Replied";
+        } else {
+            if ($this->getIsReadAttribute()) {
+                $status = "Read";
+            }
+        }
+
+        return $status;
     }
 }

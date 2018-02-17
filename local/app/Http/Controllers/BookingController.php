@@ -24,26 +24,26 @@ class BookingController extends Controller
          *   can safely be removed from live code.
          * - Remember to set PAYFAST_SERVER to LIVE for production/live site
          */
-        // General defines
-        define('PAYFAST_SERVER', 'TEST');
-        // Whether to use "sandbox" test server or live server
-        define('USER_AGENT', 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
-        // User Agent for cURL
-
-        // Messages
-        // Error
-        define('PF_ERR_AMOUNT_MISMATCH', 'Amount mismatch');
-        define('PF_ERR_BAD_SOURCE_IP', 'Bad source IP address');
-        define('PF_ERR_CONNECT_FAILED', 'Failed to connect to PayFast');
-        define('PF_ERR_BAD_ACCESS', 'Bad access of page');
-        define('PF_ERR_INVALID_SIGNATURE', 'Security signature mismatch');
-        define('PF_ERR_CURL_ERROR', 'An error occurred executing cURL');
-        define('PF_ERR_INVALID_DATA', 'The data received is invalid');
-        define('PF_ERR_UKNOWN', 'Unkown error occurred');
-
-        // General
-        define('PF_MSG_OK', 'Payment was successful');
-        define('PF_MSG_FAILED', 'Payment has failed');
+//        // General defines
+//        define('PAYFAST_SERVER', 'TEST');
+//        // Whether to use "sandbox" test server or live server
+//        define('USER_AGENT', 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
+//        // User Agent for cURL
+//
+//        // Messages
+//        // Error
+//        define('PF_ERR_AMOUNT_MISMATCH', 'Amount mismatch');
+//        define('PF_ERR_BAD_SOURCE_IP', 'Bad source IP address');
+//        define('PF_ERR_CONNECT_FAILED', 'Failed to connect to PayFast');
+//        define('PF_ERR_BAD_ACCESS', 'Bad access of page');
+//        define('PF_ERR_INVALID_SIGNATURE', 'Security signature mismatch');
+//        define('PF_ERR_CURL_ERROR', 'An error occurred executing cURL');
+//        define('PF_ERR_INVALID_DATA', 'The data received is invalid');
+//        define('PF_ERR_UKNOWN', 'Unkown error occurred');
+//
+//        // General
+//        define('PF_MSG_OK', 'Payment was successful');
+//        define('PF_MSG_FAILED', 'Payment has failed');
     }
 
     public function times(Request $request)

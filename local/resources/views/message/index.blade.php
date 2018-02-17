@@ -37,14 +37,15 @@
                 </thead>
                 <tbody>
                 @foreach($messages as $k => $message)
-                    <tr class="<?php echo $message->is_read ? "" : "text-bold" ?>">
+                    <tr class="{{ $message->is_read || $message->has_replied ? "" : "text-bold" }}" id="message-{{ $message->id }}">
                         <td scope="row">{{ $message->sender->first_name }}</td>
                         <td>{{ str_limit($message->experience->teaser, 50) }}</td>
                         <td>{{ \Carbon\Carbon::parse($message->created_at)->format("d/m/Y") }}</td>
                         <td>{{ \Carbon\Carbon::parse($message->created_at)->format("H\hi") }}</td>
-                        <td>{{ ucfirst($message->status) }}</td>
+                        <td>{{ $message->status }}</td>
                         <td>
-                            <button class="btn btn-primary btn-modal" modal-id="read-modal-{{ $message->id }}">
+                            <button class="btn btn-primary btn-modal modal-read" data-read-id="{{ $message->id }}"
+                                    modal-id="read-modal-{{ $message->id }}">
                                 Read
                             </button>
                             <button class="btn btn-primary btn-modal" modal-id="respond-modal-{{ $message->id }}">
@@ -73,6 +74,15 @@
             var messageId = $(this).attr("data-id");
             $("#respond-modal-" + messageId).modal("show");
             console.log("replying ...", messageId);
+        });
+
+        $(".modal-read").click(function () {
+            var messageId = $(this).attr("data-read-id");
+            $("#message-" + messageId).removeClass("text-bold");
+
+            $.get("/local/messages/read/" + messageId, function (data) {
+                console.log("read message");
+            });
         });
     </script>
 @endsection

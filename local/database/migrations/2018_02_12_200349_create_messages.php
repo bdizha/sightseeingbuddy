@@ -19,7 +19,7 @@ class CreateMessages extends Migration
             $table->integer('sender_id')->unsigned();
             $table->integer('recipient_id')->unsigned();
             $table->integer('experience_id')->default(0);
-            $table->boolean('is_read');
+            $table->mediumText('reads');
             $table->timestamps();
 
             $table->foreign('sender_id')->references('id')->on('users');
