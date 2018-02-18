@@ -10,6 +10,10 @@
                 </h3>
             </div>
             @include('message.partials.header')
+            <div class="modal-footer text-right">
+                <button modal-id="read-modal-6" data-id="6" type="button" class="btn btn-yellow btn-close btn-reply">Reply
+                </button>
+            </div>
             <div class="modal-body">
                 @foreach($replies as $key => $reply)
                     <div class="{{ $reply->sender->id !== $user->id ? "even " : "odd " }}css-xgcy47">
