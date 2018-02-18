@@ -10927,7 +10927,7 @@ small a:hover {
   border-radius: 5px;
   background-color: transparent;
   border-color: #FFFFFF;
-  border-width: 3px;
+  border-width: 2px;
   font-weight: 900;
 }
 .btn-tertiary.btn-lg {
@@ -11931,12 +11931,6 @@ div#newsletter-group input#newsletter_email {
 }
 .container.hidden-xs .search-block {
   margin-left: 100px;
-}
-.item.active.slick-slide.slick-current.slick-active .carousel-caption .container h1 {
-  margin-right: 384px !important;
-}
-.item.active.slick-slide.slick-current.slick-active .carousel-caption .container h2 {
-  margin-left: -200px !important;
 }
 @media only screen and (max-width: 500px) {
   .item.active.slick-slide.slick-current.slick-active .carousel-caption .container h1 {
