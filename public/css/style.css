@@ -9174,15 +9174,15 @@ h3,
 }
 .search-item input[type="checkbox"] + label icon.category-1,
 .search-item input[type="radio"] + label icon.category-1 {
-  background-image: url(/images/category-1.png);
+  background-image: url(/images/category-1.svg);
 }
 .search-item input[type="checkbox"] + label icon.category-2,
 .search-item input[type="radio"] + label icon.category-2 {
-  background-image: url(/images/category-2.png);
+  background-image: url(/images/category-2.svg);
 }
 .search-item input[type="checkbox"] + label icon.category-3,
 .search-item input[type="radio"] + label icon.category-3 {
-  background-image: url(/images/category-3.png);
+  background-image: url(/images/category-3.svg);
 }
 .checkbox-inline label {
   font-size: 14px;
@@ -11460,6 +11460,9 @@ a.thumbnail:active {
 .modal-content {
   background: #E6E6E6;
   font-weight: normal;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 600px;
 }
 .booking-block {
   padding-bottom: 0 !important;

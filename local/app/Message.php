@@ -17,7 +17,9 @@ class Message extends Model
         'experience_id',
         'sender_id',
         'recipient_id',
+        'message_id',
         'reads',
+        'is_reply',
         'content',
         'nickname'
     ];
@@ -46,6 +48,16 @@ class Message extends Model
         }
 
         return in_array($user->id, $reads);
+    }
+
+    public function getRepliesAttribute()
+    {
+        $replies = Message::where("is_reply", "=", true)
+            ->where("message_id", "=", $this->id)
+            ->orderBy("updated_at", "DESC")
+            ->get();
+
+        return $replies;
     }
 
     public function getHasRepliedAttribute()

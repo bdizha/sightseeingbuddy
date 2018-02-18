@@ -13,11 +13,11 @@
         <div class="col-xs-6">
             <div class="message-row">
                 <span class="text-bold">Date</span>
-                <span class="value">{{ \Carbon\Carbon::parse($message->created_at)->format("d/m/Y") }}</span>
+                <span class="value">{{ \Carbon\Carbon::parse($message->updated_at)->format("d/m/Y") }}</span>
             </div>
             <div class="message-row">
                 <span class="text-bold">Time</span>
-                <span class="value">{{ \Carbon\Carbon::parse($message->created_at)->format("H\hi") }}</span>
+                <span class="value">{{ \Carbon\Carbon::parse($message->updated_at)->format("H\hi") }}</span>
             </div>
         </div>
     </div>

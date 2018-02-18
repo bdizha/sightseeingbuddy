@@ -262,13 +262,13 @@ h1, .h1, h2, .h2, h3, .h3 {
     background-size: 100%;
     cursor: pointer;
     &.category-1 {
-      background-image: url(/images/category-1.png);
+      background-image: url(/images/category-1.svg);
     }
     &.category-2 {
-      background-image: url(/images/category-2.png);
+      background-image: url(/images/category-2.svg);
     }
     &.category-3 {
-      background-image: url(/images/category-3.png);
+      background-image: url(/images/category-3.svg);
     }
   }
 }
@@ -2860,6 +2860,9 @@ a.thumbnail:hover, a.thumbnail:active {
 .modal-content {
   background: #E6E6E6;
   font-weight: normal;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 600px;
 }
 
 .booking-block {

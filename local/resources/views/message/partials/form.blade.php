@@ -26,6 +26,7 @@
 <div class="modal-body">
     {{ Form::hidden('experience_id', $experience->id) }}
     {{ Form::hidden('recipient_id', $experience->user->id) }}
+    {{ Form::hidden('message_id', $message->id) }}
     <div class="row form-group {{ $errors->has('content') ? 'has-error' : '' }}">
         <div class="col-xs-12">
             @if ($errors->has('content'))

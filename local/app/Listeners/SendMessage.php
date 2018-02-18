@@ -31,6 +31,7 @@ class SendMessage
 
         $data = [
             'content' => $message->content,
+            'messageId' => empty($message->message_id) ? $message->id : $message->message_id,
             'experience' => $message->experience,
             'user' => $recipient,
             'from' => 'info@sightseeingbuddy.com',

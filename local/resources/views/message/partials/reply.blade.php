@@ -9,7 +9,7 @@
                     Re: Message
                 </h3>
             </div>
-            @include("message.partials.form", ["experience" => $experience])
+            @include("message.partials.form", ["experience" => $experience, "message" => $message])
         </div>
     </div>
 </div>

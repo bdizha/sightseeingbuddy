@@ -21,7 +21,8 @@ class MessageController extends Controller
         $user = Auth::user();
         $messages = Message::with('sender')
             ->with('recipient')
-            ->orderBy("created_at", "DESC")->get();
+            ->where("is_reply", "=", false)
+            ->orderBy("updated_at", "DESC")->get();
 
         $data = [
             'messages' => $messages,
@@ -32,6 +33,8 @@ class MessageController extends Controller
             $experienceId = $request->get("experience_id");
         } elseif (old("experience_id", false)) {
             $experienceId = old("experience_id");
+        } elseif ($request->has('message_id')) {
+            $data['messageId'] = $request->get("message_id");
         }
 
         if (!empty($experienceId)) {
@@ -82,9 +85,19 @@ class MessageController extends Controller
 
         $this->validate($request, $fields);
         $input = $request->all();
+
+        $messageId = $input['message_id'];
+        if (!empty($messageId)) {
+            $input['is_reply'] = !empty($messageId);
+        }
         $message->fill($input)->save();
 
         event(new Compose($message));
+
+        if (!empty($messageId)) {
+            $message = Message::where('id', '=', $messageId)->first();
+            $message->save();
+        }
 
         Session::flash('flash_message', 'Message successfully sent!');
         return redirect(route("messages.index"));
