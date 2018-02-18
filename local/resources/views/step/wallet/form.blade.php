@@ -23,7 +23,7 @@
                             @endif
                             <div class="input-group">
                                 <label class="control-label" for="branch">Branch</label>
-                                {{ Form::text('branch', $wallet->branch, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Your branch name*']) }}
+                                {{ Form::text('branch', $wallet->branch, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Your branch name or code*']) }}
                             </div>
                         </div>
                     </div>
