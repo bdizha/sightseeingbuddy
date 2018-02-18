@@ -10268,6 +10268,9 @@ section #sidebar h2 {
 .profile-nav > li > a i.bookings {
   background-image: url(/images/bookings.svg);
 }
+.profile-nav > li > a i.messages {
+  background-image: url(/images/messages.svg);
+}
 .profile-nav > li > a img {
   height: 35px;
   width: 35px;
@@ -10305,6 +10308,9 @@ section #sidebar h2 {
 }
 .white-block .profile-nav > li > a i.bookings {
   background-image: url(/images/bookings_white.png);
+}
+.white-block .profile-nav > li > a i.messages {
+  background-image: url(/images/messages_white.png);
 }
 .top-nav {
   margin-bottom: 0;

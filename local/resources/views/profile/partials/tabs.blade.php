@@ -8,7 +8,7 @@
         <ul class="profile-nav pull-right">
             <li class="item<?php echo $tab === 'messages' ? ' active' : '' ?>">
                 <a href="{{ "/local/messages" }}">
-                    <i class="bookings"></i>
+                    <i class="messages"></i>
                     <span>Messages</span>
                 </a>
             </li>
