@@ -90,6 +90,9 @@ class MessageController extends Controller
         if (!empty($messageId)) {
             $input['is_reply'] = !empty($messageId);
         }
+        else{
+            $input['message_id'] = 0;
+        }
         $message->fill($input)->save();
 
         event(new Compose($message));
