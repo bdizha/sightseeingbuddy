@@ -30,14 +30,14 @@ class SendContact
         $data = [];
         $data['contact'] = $event->contact;
         $data['subject'] = 'Sightseeing Buddy - New contact message';
-        $data['email'] = env("CONTACT_EMAIL");
-        $data['name'] = env("CONTACT_NAME");
-        $data['from'] = 'info@sightseeingbuddy.com';
+        $data['email'] = config("mail.CONTACT_EMAIL");
+        $data['name'] = config("mail.CONTACT_NAME");
+        $data['from'] = config("mail.FROM_EMAIL");
 
         try {
             $this->mailer->send('email.contact', $data, function ($message) use ($data) {
                 $message->to($data['email'], $data['name'])
-                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
+                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

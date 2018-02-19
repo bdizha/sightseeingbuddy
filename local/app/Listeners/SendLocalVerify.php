@@ -33,8 +33,8 @@ class SendLocalVerify
         $data = [
             'user' => $event->user,
             'subject' => 'Sightseeing Buddy: New local verification request',
-            'email' => env('VERIFY_EMAIL'),
-            'name' => env('VERIFY_NAME')
+            'email' =>config('mail.VERIFY_EMAIL'),
+            'name' =>config('mail.VERIFY_NAME')
         ];
 
         $user = $data['user'];
@@ -53,8 +53,8 @@ class SendLocalVerify
 
         try {
             $this->mailer->send('email.admin.verify', $data, function ($message) use ($data) {
-                $message->to(env("ADMIN_EMAIL"), env("ADMIN_NAME"))
-                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
+                $message->to(config("mail.ADMIN_EMAIL"), config("mail.ADMIN_NAME"))
+                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

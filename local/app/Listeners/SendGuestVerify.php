@@ -27,7 +27,7 @@ class SendGuestVerify
     {
         $data = [
             'user' => $event->user,
-            'from' => env("MAIL_FROM"),
+            'from' => config("mail.FROM_EMAIL"),
             'subject' => 'Sightseeing Buddy: Please confirm your email'
         ];
 
@@ -35,7 +35,7 @@ class SendGuestVerify
 
             $this->mailer->send('email.guest.verify', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
+                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

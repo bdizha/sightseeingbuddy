@@ -29,7 +29,7 @@ class SendGuestWelcome
     {
         $data = [
             'user' => $event->user,
-            'from' => 'info@sightseeingbuddy.com',
+            'from' => config("mail.FROM_EMAIL"),
             'subject' => 'Welcome to our community'
         ];
 
@@ -37,7 +37,7 @@ class SendGuestWelcome
 
             $this->mailer->send('email.guest.welcome', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
+                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

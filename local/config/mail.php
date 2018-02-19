@@ -60,6 +60,18 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'port' => env('MAIL_PORT', 587),
+
+    'CONTACT_EMAIL' => env('CONTACT_EMAIL', "admin@sightseeingbuddy.com"),
+    'CONTACT_NAME' => env('CONTACT_NAME', "Sightseeing Buddy"),
+    'VERIFY_EMAIL' => env('VERIFY_EMAIL', "keenan@sightseeingbuddy.com"),
+    'VERIFY_NAME' => env('VERIFY_NAME', "Keenan"),
+    'CC_EMAIL' => env('CC_EMAIL', "admin@sightseeingbuddy.com"),
+    'CC_NAME' => env('CC_NAME', "Sightseeing Buddy"),
+    'ADMIN_EMAIL' => env('ADMIN_EMAIL', "admin@sightseeingbuddy.com"),
+    'FROM_EMAIL' => env('FROM_EMAIL', "info@sightseeingbuddy.com"),
+    'ADMIN_NAME' => env('ADMIN_NAME', "Sightseeing Buddy"),
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

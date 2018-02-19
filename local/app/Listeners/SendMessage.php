@@ -34,7 +34,7 @@ class SendMessage
             'messageId' => empty($message->message_id) ? $message->id : $message->message_id,
             'experience' => $message->experience,
             'user' => $recipient,
-            'from' => env("MAIL_FROM"),
+            'from' => config("mail.FROM_EMAIL"),
             'subject' => 'Sightseeing Buddy: You\'ve a new message from ' . $sender->first_name . " " . $sender->last_name
         ];
 
@@ -42,7 +42,7 @@ class SendMessage
 
             $this->mailer->send('email.message', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc(env("CC_EMAIL"))
+                    ->cc(config("mail.CC_EMAIL"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

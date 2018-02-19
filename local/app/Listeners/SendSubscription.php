@@ -30,13 +30,13 @@ class SendSubscription
         $data = [];
         $data['subscriber'] = $event->subscriber;
         $data['subject'] = 'Sightseeing Buddy - New subscription email';
-        $data['email'] = env("CONTACT_EMAIL");
-        $data['name'] = env("CONTACT_NAME");
+        $data['email'] = config("mail.CONTACT_EMAIL");
+        $data['name'] = config("mail.CONTACT_NAME");
 
         try {
             $this->mailer->send('email.subscription', $data, function ($message) use ($data) {
                 $message->to($data['email'], $data['name'])
-                    ->cc(env("CC_EMAIL"), env("CC_NAME"))
+                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
