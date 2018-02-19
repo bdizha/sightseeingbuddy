@@ -128,40 +128,42 @@
                     @endforeach
                 </div>
             </div>
-            <h1 id="experiences">
-                Reviews
-            </h1>
 
             <div class="row">
-                <div class="col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-4 text-left">
-                            <span class="overall-rating">Overall Rating</span>
-                            <div class="rating-box">
-                                @foreach($ratings as $key => $rating)
-                                    <div class="rating star<?php echo ($key + 1 <= ceil($average)) ? ' star-filled' : '' ?>"></div>
-                                @endforeach
+                <div class="col-sm-6 col-xs-12">
+                    <div class="review-table">
+                        <div class="review-row">
+                            <div class="table-cell">
+                                <h3>{{ count($reviews) }} Reviews</h3>
+                            </div>
+                            <div class="table-cell text-right">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#review-modal">
+                                    Write a review
+                                </button>
                             </div>
                         </div>
-                        <div class="col-xs-4 overall-score text-center">
-                            <strong>{{ number_format($average, 1) }}</strong>
-                            out of <strong>5 stars</strong>
-                            from <strong>{{ count($reviews) }}</strong> reviews
-                        </div>
-                        <div class="col-xs-4 block-review-new text-right">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                Write a review
-                            </button>
+                        <div class="review-row">
+                            <div class="table-cell">
+                                Overall rating
+                            </div>
+                            <div class="table-cell text-right">
+                                <div class="rating-box">
+                                    @foreach($ratings as $key => $rating)
+                                        <div class="rating star<?php echo ($key + 1 <= ceil($experience->average_rating)) ? ' star-filled' : '' ?>"></div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="gray-bottom-border mt-1 mb-1"></div>
                 </div>
             </div>
 
-            <div class="gray-bottom-border mt-1 mb-1"></div>
-
             <div class="row" id="reviews">
-                @foreach($reviews as $review)
-                    <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12 col-sm-6">
+                    @foreach($reviews as $review)
                         <article class="media media-responsive">
                             <div class="media-top pull-top">
                                 <div class="rating-box">
@@ -181,28 +183,27 @@
                                 {{ $review->content }}
                             </div>
                         </article>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
             @if($reviews->count() === 0)
                 <div>No reviews found.</div>
-            @endif
+        @endif
 
         <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4 class="modal-title" id="myModalLabel">
+                            <h4 class="modal-title" id="review-modalLabel">
                                 You're Reviewing "{{ $experience->teaser }}"
                             </h4>
                         </div>
                         <div class="modal-body">
-                            <div id="thank-you" class="alert-success">
-                                <i class="fa fa-check" aria-hidden="true"></i>
+                            <div id="thank-you">
                                 Thank you for submitting your review.
                             </div>
                             {!! Form::open(['route' => 'review.store','id' => 'review-form']) !!}
@@ -236,7 +237,8 @@
                                             <div class="col-sm-4 col-xs-4">
                                                 <div class="row">
                                                     <label class="checkbox-inline">
-                                                        <input id="is_recommended_yes" checked="checked" name="is_recommended"
+                                                        <input id="is_recommended_yes" checked="checked"
+                                                               name="is_recommended"
                                                                type="radio"
                                                                value="1">
                                                         <label for="is_recommended_yes">
@@ -301,118 +303,6 @@
             </div>
         </div>
     </section>
-    <style type="text/css">
-        .reviews {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .reviews > * {
-            flex: 0 0 60%;
-        }
-
-        .overall-score,
-        .block-review-new {
-            display: inline-block;
-            padding-top: 0;
-        }
-
-        #thank-you {
-            display: none;
-        }
-
-        #thank-you.active {
-            display: block;
-        }
-
-        .rating-box {
-            width: 150px;
-            display: table;
-        }
-
-        .overall-rating {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .star {
-            display: table-cell;
-            vert-align: middle;
-            width: 30px;
-            height: 24px;
-            padding-right: 5px;
-            background: url(/images/star.svg);
-            background-repeat: no-repeat;
-        }
-
-        .star-filled {
-            background-image: url(/images/star-filled.svg);
-        }
-
-        #ratingFlag {
-            position: absolute;
-            left: 160px;
-            top: 0px;
-        }
-
-        #rating-text {
-            background: #1a75bb;
-            color: #FFFFFF;
-            display: block;
-            font-size: 1.167em;
-            font-weight: bold;
-            line-height: 24px;
-            margin: 0;
-            padding: 6px 17px;
-            position: relative;
-            text-align: center;
-            top: 1px;
-        }
-
-        #rating-text:before {
-            content: "";
-            border-style: solid;
-            border-width: 14px 14px 14px 0;
-            border-color: transparent #1a75bb transparent transparent;
-            width: 0;
-            height: 0;
-            position: absolute;
-            left: -10px;
-            top: 4px;
-        }
-
-        #review-content {
-            height: 120px;
-        }
-
-        .error {
-            color: #CC0000;
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        #reviews article {
-            padding: 20px;
-            color: #3F3F3F;
-        }
-
-        #reviews .rating-box {
-            margin-bottom: 10px;
-        }
-
-        #reviews article .media-top h3 {
-            margin-bottom: 5px;
-        }
-
-        #reviews article .media-top .review-meta {
-            margin-bottom: 10px;
-            color: rgba(63, 63, 63, 0.65)
-        }
-    </style>
     <script type="text/javascript">
         $('#reviews').masonry({
             itemSelector: '.col-sm-6'
@@ -458,13 +348,12 @@
             settings.data = data;
             settings.dataType = 'json';
             settings.success = function () {
-                $("#review-form").hide();
+                $("#review-form, #review-modal .modal-footer").hide();
                 $("#thank-you").addClass('active');
 
                 setTimeout(function () {
                     location.reload();
-                }, 3000);
-                console.log("done");
+                }, 2000);
             };
             settings.error = function (data) {
                 $(".error").hide();

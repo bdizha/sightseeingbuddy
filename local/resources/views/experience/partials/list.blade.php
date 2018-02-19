@@ -7,9 +7,15 @@
                 </p>
             </div>
         @endif
+        <?php $ratings = ['Excellent', 'Very good', 'Average', 'Poor', 'Terrible'] ?>
         @foreach($experiences as $experience)
             <div class="col-xs-12 col-sm-6">
                 <article class="media media-responsive same-height" data-mh="experience">
+                    <div class="rating-box">
+                        @foreach($ratings as $key => $rating)
+                            <div class="rating star<?php echo ($key + 1 <= ceil($experience->average_rating)) ? ' star-filled' : '' ?>"></div>
+                        @endforeach
+                    </div>
                     <div class="media-top pull-top">
                         <a href="/local/experience/{{ $experience->slug }}">
                             {!! $experience->cover_image !!}

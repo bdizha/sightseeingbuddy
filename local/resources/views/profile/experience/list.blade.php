@@ -20,9 +20,11 @@
                         <div class="readmore mt-1">
                             <a href="/local/experience/{{ $experience->slug }}" class="btn btn-primary">View</a>
                         </div>
-                        <div class="readmore mt-1">
-                            <a href="/local/info/{{ $experience->id }}/edit" class="btn btn-primary">Edit</a>
-                        </div>
+                        @if(Auth::check() && $experience->user_id === Auth::user()->id)
+                            <div class="readmore mt-1">
+                                <a href="/local/info/{{ $experience->id }}/edit" class="btn btn-primary">Edit</a>
+                            </div>
+                        @endif
                     </div>
                 </article>
             </div>

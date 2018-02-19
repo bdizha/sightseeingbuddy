@@ -35,26 +35,14 @@ class ExperienceController extends Controller
         $user->image = $this->getImage('/pages/imager?w=200&h=200&url=' . $user->image);
         $experience->cover_image = $this->getImage('/pages/imager?w=550&h=320&url=' . $experience->cover_image);
 
-
         $reviews = $experience->reviews;
-
-        $total = 0;
-        $average = 0;
-        foreach($reviews as $review){
-            $total += $review->vote;
-        }
-
-        if(!empty($total)){
-            $average = number_format($total / $reviews->count(), 2);
-        }
 
         return view('experience.show', [
             'experience' => $experience,
             'gallery' => $gallery,
             'user' => $user,
             'extras' => $this->getExras(),
-            'reviews' => $reviews,
-            'average' => $average
+            'reviews' => $reviews
         ]);
     }
 

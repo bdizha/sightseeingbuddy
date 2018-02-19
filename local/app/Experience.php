@@ -175,4 +175,21 @@ class Experience extends Model {
         return number_format($total, 2, '.', '');
     }
 
+    public function getAverageRatingAttribute()
+    {
+        $reviews = $this->reviews;
+        $total = 0;
+        $average = 5;
+
+        foreach ($this->reviews as $review) {
+            $total += $review->vote;
+        }
+
+        if (!empty($total)) {
+            $average = number_format($total / $reviews->count(), 2);
+        }
+
+        return $average;
+    }
+
 }

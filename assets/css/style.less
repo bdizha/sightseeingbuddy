@@ -2,6 +2,7 @@
 @import "../vendor/font-awesome/less/font-awesome";
 @import "fonts";
 @import "variables";
+@import "reviews";
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,500i,700,900');
 /*
 * Vendor specific
@@ -629,6 +630,9 @@ form {
   }
 
   .form-group {
+    .control-label {
+      text-align: left;
+    }
     .input-add {
       position: relative;
       .btn-add {
@@ -1275,11 +1279,23 @@ section {
     }
   }
   .search-list {
-    color: @gray-base;
+    color: @white;
     .media {
       margin-top: 0;
       margin-bottom: 30px;
       border: none;
+      position: relative;
+      .rating-box {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        .star{
+          background-image: url(/images/star-white.svg);
+        }
+        .star-filled {
+          background-image: url(/images/star-filled-white.svg);
+        }
+      }
       .media-object {
         width: 100%;
       }
@@ -1290,6 +1306,7 @@ section {
         font-size: 20px;
         line-height: 44px;
         position: relative;
+        color: @white;
         @media (max-width: @grid-float-breakpoint) {
           font-size: 16px;
           line-height: 32px;
@@ -1338,19 +1355,19 @@ section {
 }
 
 .media {
-  background-color: @blue;
-  color: @white;
+  background-color: @white;
+  color: @gray-base;
   padding: 0;
   margin-bottom: @panel-body-padding;
   border-radius: 0;
   .media-body {
     background-color: @white;
-    color: @black;
+    color: @gray-base;
     padding: @panel-body-padding;
     padding-bottom: 20px;
     .readmore {
       .btn {
-        min-width: 80px;
+        min-width: 100px;
       }
     }
   }
@@ -1820,7 +1837,7 @@ small {
     cursor: pointer;
     position: absolute;
     right: 10px;
-    top: 8px;
+    bottom: 8px;
     width: 39.72px;
     height: 21.62px;
     background: url(/images/eye-closed.svg) no-repeat;
@@ -2870,7 +2887,7 @@ a.thumbnail:hover, a.thumbnail:active {
   font-weight: normal;
   overflow-x: hidden;
   overflow-y: auto;
-  max-height: 600px;
+  max-height: 700px;
 }
 
 #notifications-modal {
@@ -3317,18 +3334,6 @@ a.thumbnail:hover, a.thumbnail:active {
   margin-left: 44px;
 }
 
-/*.container.hidden-xs .search-block .search-form #guests {
-  margin-left: 11px;
-}*/
-
-/*.container.hidden-xs .search-block .search-form #duration {
-  margin-left: 11px;
-}
-
-.container.hidden-xs .search-block .search-form .hidden-xs.form-group {
-  margin-left: 20px;
-}*/
-
 .container.hidden-xs .search-block .search-form .form-group .input-group,
 .container.search-xs .search-block .search-form .form-group .input-group {
   background: @white;
@@ -3340,7 +3345,7 @@ a.thumbnail:hover, a.thumbnail:active {
 }
 
 .col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body h2.media-heading a {
-  color: black !important;
+  color: @gray-base !important;
   text-decoration: none;
 }
 
@@ -3414,6 +3419,16 @@ div#newsletter-group input#newsletter_email {
   border-top: none;
   border-bottom: none;
 
+}
+
+#page {
+  .experiences-row {
+    article {
+      &.media {
+        background: transparent;
+      }
+    }
+  }
 }
 
 .panel > .panel-body h2 {

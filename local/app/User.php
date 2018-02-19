@@ -2,10 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cviebrock\EloquentSluggable\Sluggable;
-use App\Booking;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -80,6 +79,26 @@ class User extends Authenticatable
     {
         return Booking::where("local_id", "=", $this->id)
             ->sum('amount');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        $total = 0;
+        $average = 5;
+
+        $reviews = Review::whereHas('experience', function ($query) {
+            $query->where('experiences.user_id', '=', $this->id);
+        })->get();
+
+        foreach ($reviews as $review) {
+            $total += $review->vote;
+        }
+
+        if (!empty($total)) {
+            $average = number_format($total / $reviews->count(), 2);
+        }
+
+        return $average;
     }
 
 }
