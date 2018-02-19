@@ -29,16 +29,6 @@ class Controller extends BaseController
         }
     }
 
-    public function verify()
-    {
-//        $user = Auth::user();
-//
-//        if (Auth::check() && empty($user->is_verified)) {
-//            Auth::logout();
-//            return redirect('/local/auth/unverified/' . $user->id);
-//        }
-    }
-
     public function newsletter(Request $request)
     {
         $fields = [

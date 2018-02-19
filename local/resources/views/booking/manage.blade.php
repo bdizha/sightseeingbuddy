@@ -1,21 +1,15 @@
 @extends('layouts.app', ['url' => '/local/search'])
 
 @section('content')
-    @if(!Auth::guest() && Auth::user()->type == 'guest')
-        <section id="page" class="booking-block">
-            @include('profile.partials.header', ['user' => $user, 'section' => 'search', 'title' => 'Your booking history'])
-        </section>
-    @endif
+    <section id="page" class="booking-block">
+        @include('profile.partials.header', ['user' => $user, 'section' => 'search', 'title' => 'Find your booking'])
+    </section>
 
     <section id="page" class="gray-block">
         <div class="container profile">
 
-            @if(!Auth::guest() && Auth::user()->type == 'local')
-                @include('profile.partials.local', ['title' => 'Your booking history'])
-            @else
-                @include('profile.partials.tabs', ['user' => $user, 'title' => '', 'tab' => 'manage'])
-                <div class="gray-bottom-border mb-1"></div>
-            @endif
+            @include('profile.partials.tabs', ['user' => $user, 'title' => '', 'tab' => 'manage'])
+            <div class="gray-bottom-border mb-1"></div>
 
             <section id="page" class="gray-block booking-block">
                 <div class="container gray-block mt-1">

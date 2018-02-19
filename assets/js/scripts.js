@@ -804,7 +804,7 @@ $(function () {
 
     (new UIBindings).bindSubmittingButtons();
 
-    (new Notifications).init();
+    // (new Notifications).init();
 
     (new Vertilize).init();
 

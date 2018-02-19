@@ -23,7 +23,7 @@ class SettingsController extends Controller {
     public function edit($id, Request $request) {
         $user = $request->user();
 
-        $this->verify();
+
 
         $countries = [];
         $cities = City::lists('name', 'id');

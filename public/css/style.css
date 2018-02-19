@@ -9868,7 +9868,7 @@ section #sidebar h2 {
 #page .profile .profile-picture {
   vertical-align: top;
   text-align: center;
-  padding-top: 15px;
+  padding: 24px 0;
   display: table-cell;
 }
 #page .profile .profile-picture img {
@@ -11469,6 +11469,10 @@ a.thumbnail:active {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 600px;
+}
+#notifications-modal .modal-content {
+  color: #3F3F3F;
+  text-align: center;
 }
 .booking-block {
   padding-bottom: 0 !important;

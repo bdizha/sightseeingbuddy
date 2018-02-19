@@ -1,21 +1,4 @@
-<div class='row'>
-    <div class="col-sm-12 col-xs-12">
-        <ul class="profile-nav pull-right">
-            <li class="item active">
-                <a href="{{ "/local/dashboard" }}">
-                    <i class="dashboard"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="item">
-                <a href="{{ "/local/bookings" }}">
-                    <i class="bookings"></i>
-                    <span>Bookings</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+@include('profile.partials.tabs', ['tab' => '', 'title' => ''])
 <div class="gray-bottom-border mb-1"></div>
 <div class='row'>
     <div class="col-sm-7 col-xs-12">

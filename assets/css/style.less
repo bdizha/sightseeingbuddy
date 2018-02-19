@@ -1095,7 +1095,7 @@ section {
     .profile-picture {
       vertical-align: top;
       text-align: center;
-      padding-top: 15px;
+      padding: 24px 0;
       img {
         width: 200px;
         height: 200px;
@@ -2832,12 +2832,14 @@ a.thumbnail:hover, a.thumbnail:active {
     }
   }
 }
+
 .redactor-toolbar {
   li a:hover {
     background-color: @white;
     color: @gray-base;
   }
 }
+
 .redactor-layer {
   max-height: 400px;
   overflow-x: hidden;
@@ -2869,6 +2871,14 @@ a.thumbnail:hover, a.thumbnail:active {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 600px;
+}
+
+#notifications-modal {
+  .modal-content {
+    color: @gray-base;
+    text-align: center;
+  }
+
 }
 
 .booking-block {
@@ -3451,6 +3461,3 @@ div#newsletter-group input#newsletter_email {
   border-color: #E6E6E6;
   color: white;
 }
-
-
-

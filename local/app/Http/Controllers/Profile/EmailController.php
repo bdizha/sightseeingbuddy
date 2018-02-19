@@ -23,7 +23,7 @@ class EmailController extends Controller {
         $user = User::findOrFail($id);
         $email = $this->findOrCreate($id);
 
-        $this->verify();
+
 
         return view('profile.email', ['email' => $email, 'user' => $user]);
     }
