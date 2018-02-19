@@ -8,7 +8,7 @@ class StepController extends Controller {
 
     public function getLinks($user = null) {
 
-        $action = empty($user) ? "create" : "edit";
+        $action = empty($user->id) ? "create" : "edit";
         $parameters = empty($user) ? [] : ["id" => $user->id];
         
         $links = [

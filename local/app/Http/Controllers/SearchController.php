@@ -21,7 +21,7 @@ class SearchController extends Controller
         $dateTo = $request->get("date_to");
         $guests = $request->get("guests");
 
-//        dd([$guests]);
+//        dd([$dateFrom, $dateTo]);
 
         $query = Experience::has("pricing");
 

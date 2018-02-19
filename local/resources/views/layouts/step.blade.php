@@ -11,7 +11,7 @@
     <main id="content" role="main">
         <section class="gray-block" id="step">
             <div class="container vertilize">
-                @include('step.partials.sidebar', ['active' => $active, 'links' => $links])
+                @include('step.partials.sidebar', ['active' => $active, 'links' => $links, 'disable' => true])
                 <div class="col-sm-8 col-sm-offset-1 gray-bottom-border gray-top-border same-height mt-3 mb-1 pt-1" data-mh="step">
                     @yield('form')
                 </div>
