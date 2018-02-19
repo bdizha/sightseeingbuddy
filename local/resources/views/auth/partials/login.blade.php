@@ -5,24 +5,31 @@
             <div class="panel-body">
                 <form id="sign-in" method="POST" class="form" action="{{ route('login') }}">
                     {!! csrf_field() !!}
-                    <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}" id="email-field">
+                    <div class="row form-group {{ $errors->has('email') || request('unverified') ? 'has-error' : '' }}"
+                         id="email-field">
                         <div class="col-sm-9 col-xs-12">
                             @if ($errors->has('email'))
-                                <label class="control-label" for="inputError1">{{ $errors->first('email') }}</label>
+                                <label class="control-label"
+                                       for="inputError1">{{ $errors->first('email') || request('unverified') }}</label>
+                            @elseif(request('unverified'))
+                                <label class="control-label"
+                                       for="inputError1">{{ 'Please verify your email before using this site.' }}</label>
                             @endif
                             <input class="form-control fullwidth" type="text" id="email" name="email"
-                                   value="{{ old('email') }}"  autocomplete="off"
+                                   value="{{ old('email') }}" autocomplete="off"
                                    required placeholder="Your email">
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}" id="email-field">
                         <div class="col-sm-9 col-xs-12">
                             <div class="password-group ">
-                            @if ($errors->has('password'))
-                                <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
-                            @endif
-                            <input class="form-control fullwidth" type="password" id="password" name="password" value=""
-                                    autocomplete="off" required placeholder="Your password" />
+                                @if ($errors->has('password'))
+                                    <label class="control-label"
+                                           for="inputError1">{{ $errors->first('password') }}</label>
+                                @endif
+                                <input class="form-control fullwidth" type="password" id="password" name="password"
+                                       value=""
+                                       autocomplete="off" required placeholder="Your password"/>
                                 <div class="password-eye"></div>
                             </div>
                         </div>

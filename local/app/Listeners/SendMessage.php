@@ -34,15 +34,15 @@ class SendMessage
             'messageId' => empty($message->message_id) ? $message->id : $message->message_id,
             'experience' => $message->experience,
             'user' => $recipient,
-            'from' => 'info@sightseeingbuddy.com',
+            'from' => env("MAIL_FROM"),
             'subject' => 'Sightseeing Buddy: You\'ve a new message from ' . $sender->first_name . " " . $sender->last_name
         ];
 
         try {
 
             $this->mailer->send('email.message', $data, function ($message) use ($data) {
-                $message->to('keenan@sightseeingbuddy.com', $data['user']->first_name)
-                    ->cc('bdizha@gmail.com', 'Batanayi Matuku')
+                $message->to($data['user']->email, $data['user']->first_name)
+                    ->cc(env("CC_EMAIL"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

@@ -52,7 +52,7 @@ class GuestController extends Controller {
 
         $input = $request->all();
 
-        if(!empty($user->id)){
+        if(!empty($user->id) && $input['password'] == $input['password_confirmation']){
             unset($fields['password']);
         }
 
