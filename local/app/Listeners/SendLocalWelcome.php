@@ -32,7 +32,7 @@ class SendLocalWelcome
     {
         $data = [
             'user' => $event->user,
-            'from' => env("EMAIL_FROM"),
+            'from' => env("MAIL_FROM"),
             'subject' => 'Welcome to our community'
         ];
 

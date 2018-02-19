@@ -27,7 +27,7 @@ class SendGuestVerify
     {
         $data = [
             'user' => $event->user,
-            'from' => env("EMAIL_FROM"),
+            'from' => env("MAIL_FROM"),
             'subject' => 'Sightseeing Buddy: Please confirm your email'
         ];
 
