@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\GuestVerify;
 use App\Events\GuestWelcome;
-use App\Events\LocalWelcome;
-use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
+use App\User;
+use DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Session;
 
 class VerifyController extends AuthController
@@ -48,12 +49,11 @@ class VerifyController extends AuthController
      *
      * @return \Illuminate\Http\Response
      */
-    public function email(Request $request)
+    public function email(Request $request, $token)
     {
-        $token = $request->get("verify_token");
         $user = User::where("verify_token", "=", $token)->first();
 
-        if(empty($user->id)){
+        if (empty($user->id)) {
             Session::flash('flash_message', "An error has occurred! Please try and login again!");
             return redirect("/local/dashboard");
         }
@@ -69,6 +69,35 @@ class VerifyController extends AuthController
 
         Session::flash('flash_message', 'Thanks for verifying your email! Please login with your credentials.');
         return redirect("/local/login");
+    }
+
+    public function again(Request $request, $userId)
+    {
+        $user = User::where("id", "=", $userId)->first();
+
+        if (!empty($user->id)) {
+
+            $user->verify_token = md5($user->email . time());
+            $user->save();
+
+            event(new GuestVerify($user));
+        }
+
+        Session::flash('flash_message', 'An email has been sent to the address provided containing a link to verify your email address.');
+
+        return redirect('/local/auth/unverified/' . $userId);
+    }
+
+    public function unverified(Request $request, $userId)
+    {
+        $links = $this->getLinks();
+        $user = User::where("id", "=", $userId)->first();
+
+        return view('auth.unverified', [
+            'userId' => $userId,
+            'links' => $links,
+            'user' => $user
+        ]);
     }
 
 }

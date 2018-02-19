@@ -19,6 +19,8 @@ class PasswordController extends Controller {
      * @return Response
      */
     public function edit($id, Request $request) {
+
+        $this->verify();
         $user = $request->user();
         return view('profile.password', ['user' => $user]);
     }

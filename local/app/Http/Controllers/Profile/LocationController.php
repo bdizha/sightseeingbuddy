@@ -21,6 +21,8 @@ class LocationController extends Controller {
      */
     public function edit() {
         $user = Auth::user();
+
+        $this->verify();
         
         $provinces = $this->getProvinces();        
         return view('profile.location', ['user' => $user, 'provinces' => $provinces]);

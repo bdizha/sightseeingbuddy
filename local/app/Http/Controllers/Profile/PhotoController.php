@@ -20,6 +20,8 @@ class PhotoController extends Controller {
      * @return Response
      */
     public function edit($id, Request $request) {
+
+        $this->verify();
         $user = $request->user();
         return view('profile.photo', ['user' => $user]);
     }

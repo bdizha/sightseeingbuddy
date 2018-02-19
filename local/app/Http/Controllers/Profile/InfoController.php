@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class InfoController extends Controller
@@ -12,6 +13,7 @@ class InfoController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['nav', 'show']]);
+
     }
 
     public function show($username)
@@ -34,11 +36,11 @@ class InfoController extends Controller
             $user->save();
         }
 
-        $user->image = $this->getImage( '/pages/imager?w=200&h=200&url=' . $user->image);
+        $user->image = $this->getImage('/pages/imager?w=200&h=200&url=' . $user->image);
 
         $experiences = $user->experiences;
         foreach ($experiences as $key => $experience) {
-            $experiences[$key]->cover_image = $this->getImage( '/pages/imager?w=550&h=320&url=' . $experience->cover_image);
+            $experiences[$key]->cover_image = $this->getImage('/pages/imager?w=550&h=320&url=' . $experience->cover_image);
         }
 
         if ($user) {

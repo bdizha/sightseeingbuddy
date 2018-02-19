@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\Request;
-use App\Subscriber;
 use App\Events\Subscribe;
+use App\Subscriber;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
@@ -26,6 +27,16 @@ class Controller extends BaseController
                 "flag" => Session("currency", "za")
             ]);
         }
+    }
+
+    public function verify()
+    {
+//        $user = Auth::user();
+//
+//        if (Auth::check() && empty($user->is_verified)) {
+//            Auth::logout();
+//            return redirect('/local/auth/unverified/' . $user->id);
+//        }
     }
 
     public function newsletter(Request $request)

@@ -33,6 +33,8 @@ Route::group(['prefix' => 'local'], function () {
     Route::auth();
 
     Route::get('/local/auth/{verify_token}', 'Auth\VerifyController@email')->name("auth_verify");
+    Route::get('/auth/unverified/{userId}', 'Auth\VerifyController@unverified')->name("auth_unverified");
+    Route::get('/auth/again/{userId}', 'Auth\VerifyController@again')->name("auth_again");
     Route::get('/currency', 'Controller@currency')->name("currency");
 
     Route::resource('guest', 'GuestController');

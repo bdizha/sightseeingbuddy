@@ -55,6 +55,8 @@ class IntroductionController extends StepController {
     public function edit($id, Request $request) {
         $user = User::find($id);
 
+        $this->verify();
+
         $links = $this->getLinks($user);
 
         return view('step.introduction.edit', [
