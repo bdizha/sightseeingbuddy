@@ -18,17 +18,17 @@ class VerifyProfile
     {
         $response = $next($request);
 
-//        if ($request->getRequestUri() == "/local/login") {
-//            if ($request->user()) {
-//                $user = $request->user();
-//
-//                // check to see if the user is currently active
-//                if (empty($user->is_verified)) {
-//                    Auth::logout();
-//                    return redirect('/local/auth/unverified/' . $user->id);
-//                }
-//            }
-//        }
+        if ($request->getRequestUri() == "/local/login") {
+            if ($request->user()) {
+                $user = $request->user();
+
+                // check to see if the user is currently active
+                if (empty($user->is_verified)) {
+                    Auth::logout();
+                    return redirect('/local/auth/unverified/' . $user->id);
+                }
+            }
+        }
 
         return $response;
     }
