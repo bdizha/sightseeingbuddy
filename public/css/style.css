@@ -10087,7 +10087,7 @@ section #sidebar h2 {
   font-size: 75px;
   font-weight: 900;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
   padding: 0;
   margin: 15px 0;
 }
@@ -10100,7 +10100,6 @@ section #sidebar h2 {
 @media (max-width: 991px) {
   #page.booking-block .profile h1 {
     font-size: 25px;
-    text-align: center;
   }
   #page.booking-block .profile h2 {
     font-size: 18px;
@@ -10114,7 +10113,7 @@ section #sidebar h2 {
 }
 #page.booking-block .text-left {
   float: left;
-  margin-top: 44px;
+  margin-top: 56px;
 }
 #page.booking-block form .booking-row h4 {
   font-size: 18px;
