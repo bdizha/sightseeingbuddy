@@ -13,7 +13,7 @@
                     </div>
 
                     <!-- The fileinput-button span is used to style the file input field as button -->
-                    <span class="btn btn-yellow">
+                    <span class="btn btn-default">
                         <span>Upload profile pic</span>
                         <!-- The file input field used as target for the file upload widget -->
                         <input id="fileupload" class="fileupload" bin="cover-image-bin" image-type="single" type="file"
@@ -186,7 +186,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Next"/>
+                        <input type="submit" class="btn btn-default" value="Next"/>
                     </div>
                 </div>
             </div>

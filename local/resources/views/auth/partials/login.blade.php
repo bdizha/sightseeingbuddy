@@ -36,7 +36,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-9 col-xs-12">
-                            <input type="submit" class="btn fullwidth btn-yellow" value="Log In"/>
+                            <input type="submit" class="btn fullwidth btn-default" value="Log In"/>
                         </div>
                     </div>
                     <div class="row form-group">

@@ -5191,7 +5191,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   white-space: nowrap;
   vertical-align: baseline;
   background-color: #999999;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .badge:empty {
@@ -6487,7 +6487,7 @@ button.close {
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #ffffff;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .carousel-indicators .active {

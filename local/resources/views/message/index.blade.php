@@ -39,11 +39,11 @@
                         <td>{{ \Carbon\Carbon::parse($message->created_at)->format("H\hi") }}</td>
                         <td>{{ $message->status }}</td>
                         <td>
-                            <button class="btn btn-primary btn-modal modal-read" data-read-id="{{ $message->id }}"
+                            <button class="btn btn-default btn-modal modal-read" data-read-id="{{ $message->id }}"
                                     modal-id="read-modal-{{ $message->id }}">
                                 Read
                             </button>
-                            <button class="btn btn-primary btn-modal mobile-none" modal-id="respond-modal-{{ $message->id }}">
+                            <button class="btn btn-default btn-modal mobile-none" modal-id="respond-modal-{{ $message->id }}">
                                 Reply
                             </button>
                             @include("message.partials.read", ['message' => $message, 'replies' => $message->replies])

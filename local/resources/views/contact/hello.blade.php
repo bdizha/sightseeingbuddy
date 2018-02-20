@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-sm-6 col-xs-12">
-                                        <input type="submit" class="btn btn-yellow" value="Submit"/>
+                                        <input type="submit" class="btn btn-default" value="Submit"/>
                                     </div>
                                 </div>
                                 {!! Form::close() !!}

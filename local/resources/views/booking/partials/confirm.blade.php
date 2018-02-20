@@ -13,8 +13,8 @@
                 You're about to make a payment for this experience.
             </div>
             <div class="modal-footer text-right">
-                <button modal-id="confirm-modal" type="button" class="btn btn-primary btn-close">Back</button>
-                <button type="submit" class="btn btn-yellow">Make payment</button>
+                <button modal-id="confirm-modal" type="button" class="btn btn-default btn-close">Back</button>
+                <button type="submit" class="btn btn-default">Make payment</button>
             </div>
         </div>
     </div>

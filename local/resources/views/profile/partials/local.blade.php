@@ -9,12 +9,12 @@
             <div class='row mt-1'>
                 <div class="col-sm-6 col-xs-6">
                     <a href="{{ url('/local/profile/' . $user->username . "?verify=true") }}"
-                       class="btn btn-yellow fullwidth">Verify profile
+                       class="btn btn-default fullwidth">Verify profile
                     </a>
                 </div>
                 <div class="col-sm-6 col-xs-6">
                     <a href="{{ url('/local/profile/' . $user->username . "?verify=false") }}"
-                       class="btn btn-primary fullwidth">Decline profile
+                       class="btn btn-default fullwidth">Decline profile
                     </a>
                 </div>
             </div>
@@ -23,9 +23,9 @@
                 <div class="col-sm-12 col-xs-12">
                     @if(Auth::guest() OR $user->id != Auth::user()->id)
                         <a href="{{ route('search') }}"
-                           class="btn btn-lg btn-yellow fullwidth mb-1">find a buddy</a>
+                           class="btn btn-lg btn-default fullwidth mb-1">find a buddy</a>
                     @else
-                        <a href="{{ route('info.create') }}" class="btn btn-lg btn-yellow fullwidth mb-1">
+                        <a href="{{ route('info.create') }}" class="btn btn-lg btn-default fullwidth mb-1">
                             Create new experience
                         </a>
                     @endif
@@ -33,17 +33,17 @@
                 <div class="col-sm-6 col-xs-6">
                     @if(Auth::guest() OR $user->id != Auth::user()->id)
                         <a href="#experiences"
-                           class="btn btn-primary fullwidth">Experiences</a>
+                           class="btn btn-default fullwidth">Experiences</a>
                     @else
                         <a href="{{ route('introduction.edit', ["id" => Auth::user()->id]) }}"
-                           class="btn btn-primary fullwidth">Edit Profile</a>
+                           class="btn btn-default fullwidth">Edit Profile</a>
                     @endif
                 </div>
                 <div class="col-sm-6 col-xs-6">
                     @if(Auth::guest() OR $user->id != Auth::user()->id)
-                        <a href="" onclick="window.history.go(-1); return false;" class="btn btn-primary pull-right fullwidth">Back</a>
+                        <a href="" onclick="window.history.go(-1); return false;" class="btn btn-default fullwidth pull-right">Back</a>
                     @else
-                        <a href="{{ url('/local/profile/' . $user->username) }}#experiences" class="btn btn-primary pull-right fullwidth">My Experiences</a>
+                        <a href="{{ url('/local/profile/' . $user->username) }}#experiences" class="btn btn-default fullwidth pull-right">My Experiences</a>
                     @endif
                 </div>
             </div>

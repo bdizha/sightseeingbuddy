@@ -35,10 +35,10 @@
                         <td>R{{ $booking->amount }}</td>
                         <td>{{ ucfirst($booking->status) }}</td>
                         <td>
-                            <button class="btn btn-primary btn-modal" modal-id="booking-modal-{{ $booking->id }}">View
+                            <button class="btn btn-default btn-modal" modal-id="booking-modal-{{ $booking->id }}">View
                             </button>
                             @if($booking->status !== 'pending')
-                                <button class="btn btn-primary btn-danger btn-modal" modal-id="cancel-modal-{{ $booking->id }}">Cancel</button>
+                                <button class="btn btn-default btn-danger btn-modal" modal-id="cancel-modal-{{ $booking->id }}">Cancel</button>
                             @endif
                             @include("booking.partials.cancel", ['booking' => $booking])
                             @include('booking.partials.history', ['booking' => $booking, 'experience' => $booking->experience, 'user' => $booking->user])

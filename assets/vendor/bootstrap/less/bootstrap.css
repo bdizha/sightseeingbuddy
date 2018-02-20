@@ -4948,7 +4948,7 @@ a.label:focus {
   white-space: nowrap;
   text-align: center;
   background-color: #777777;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .badge:empty {
   display: none;
@@ -6418,7 +6418,7 @@ button.close {
   margin: 1px;
   text-indent: -999px;
   border: 1px solid #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);

@@ -86,7 +86,7 @@
                                                 <?php $params['required'] = true ?>
                                         @endif
                                         {{ Form::text('language', old('language'), $params) }}
-                                        <input type="button" class="btn btn-yellow btn-add" count="0"
+                                        <input type="button" class="btn btn-default btn-add" count="0"
                                                field="language" plural="languages" value="Add"/>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@
                                     <?php $params['required'] = true ?>
                                 @endif
                                 {{ Form::text('highlight', old('highlight'), $params) }}
-                                <input type="button" class="btn btn-yellow btn-add" count="0"
+                                <input type="button" class="btn btn-default btn-add" count="0"
                                        field="highlight"
                                        plural="highlights" value="Add"/>
                             </div>
@@ -240,7 +240,7 @@
                             <div class="input-add">
                                 <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Extra activities*', "data-id" => "activity"] ?>
                                 {{ Form::text('activity', old('activity'), $params) }}
-                                <input type="button" class="btn btn-yellow btn-add" count="0"
+                                <input type="button" class="btn btn-default btn-add" count="0"
                                        field="activity"
                                        plural="activities" value="Add"/>
                             </div>
@@ -274,7 +274,7 @@
         <div class='row'>
             <div class="col-sm-12 col-xs-12">
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary pull-right" value="Next"/>
+                    <input type="submit" class="btn btn-default pull-right" value="Next"/>
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@
         <div class="col-sm-7 col-xs-7">
             @if(!in_array($time, $bookedTimes))
                 <a href="/local/booking/create/{{ $experience->id }}/{{ $time }}{{ empty($timestamp) ? "" : "/" . $timestamp }}"
-                   class="btn btn-yellow pull-right book-now">Book now</a>
+                   class="btn btn-default pull-right book-now">Book now</a>
             @endif
         </div>
     </div>

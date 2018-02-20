@@ -58,7 +58,7 @@
                                     <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
                                 </small>
                             </div>
-                            <button type="submit" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-yellow mb-1">
+                            <button type="submit" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-default mb-1">
                                 Make payment
                             </button>
                         </div>
@@ -99,7 +99,7 @@
                                     <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
                                 </small>
                             </div>
-                            <button type="button" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-yellow mb-1">
+                            <button type="button" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-default mb-1">
                                 Make payment
                             </button>
                         </div>

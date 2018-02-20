@@ -12,7 +12,7 @@
             @include('message.partials.header')
             <div class="modal-footer text-right">
                 <button modal-id="read-modal-{{ $message->id }}" data-id="{{ $message->id }}" type="button"
-                        class="btn btn-yellow btn-close btn-reply">Reply
+                        class="btn btn-default btn-close btn-reply">Reply
                 </button>
             </div>
             <div class="modal-body">
@@ -61,7 +61,7 @@
             </div>
             <div class="modal-footer text-right">
                 <button modal-id="read-modal-{{ $message->id }}" data-id="{{ $message->id }}" type="button"
-                        class="btn btn-yellow btn-close btn-reply">Reply
+                        class="btn btn-default btn-close btn-reply">Reply
                 </button>
             </div>
         </div>

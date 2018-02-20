@@ -41,6 +41,6 @@
     </div>
 </div>
 <div class="modal-footer text-right">
-    <button modal-id="compose-modal" type="submit" class="btn btn-yellow">Send</button>
+    <button modal-id="compose-modal" type="submit" class="btn btn-default">Send</button>
 </div>
 {!! Form::close() !!}

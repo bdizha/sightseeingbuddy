@@ -43,7 +43,7 @@
                                                 <div class="error"></div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="submit" class="btn fullwidth btn-yellow"
+                                                <input type="submit" class="btn fullwidth btn-default"
                                                        value="Find It">
                                             </div>
                                         </div>

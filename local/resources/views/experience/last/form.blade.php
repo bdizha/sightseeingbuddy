@@ -23,7 +23,7 @@
         <div class='row mb-2'>
             <div class="col-sm-12 col-xs-12">
                 <div class="text-left mb-1">
-                    <a target="_blank" href="/local/experience/{{ $experience->slug }}" class="btn btn-yellow">PREVIEW
+                    <a target="_blank" href="/local/experience/{{ $experience->slug }}" class="btn btn-default">PREVIEW
                         MY LOCAL EXPERIENCE</a>
                 </div>
                 <div class="form-group {{ $errors->has('terms') ? 'has-error' : '' }}" id="terms">
@@ -46,11 +46,11 @@
         <div class='row mb-1'>
             <div class="col-sm-12 col-xs-12">
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary hide" value="Save"/>
+                    <input type="submit" class="btn btn-default hide" value="Save"/>
                     <a href="{{ route('images.edit', ["id" => $experience->id]) }}"
-                       class="btn btn-primary pull-right">Back</a>
+                       class="btn btn-default pull-right">Back</a>
                     <span class='inline pull-right'>&nbsp;&nbsp;</span>
-                    <input type="submit" class="btn btn-yellow pull-right" value="Submit"/>
+                    <input type="submit" class="btn btn-default pull-right" value="Submit"/>
                 </div>
             </div>
         </div>

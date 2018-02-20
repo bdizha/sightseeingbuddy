@@ -3145,7 +3145,7 @@ html.ie7 #pma_console .query_input {
     min-height: 300px;
     z-index: 800;
     -webkit-box-shadow: 0 0 15px #999;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: move;
 }
 

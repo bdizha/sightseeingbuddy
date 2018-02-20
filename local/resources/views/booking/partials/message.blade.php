@@ -13,7 +13,7 @@
                 <textarea id="message" class="form-control fullwidth" rows="3" placeholder="Your special request..."></textarea>
             </div>
             <div class="text-center">
-                <button type="button" modal-id="message-modal" class="btn btn-primary mb-1 btn-close">Submit</button>
+                <button type="button" modal-id="message-modal" class="btn btn-default mb-1 btn-close">Submit</button>
             </div>
         </div>
     </div>

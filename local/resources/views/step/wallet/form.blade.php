@@ -50,8 +50,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <a href="{{ route('location.edit', ['id' => $user->id]) }}" class="btn btn-primary">Back</a>
-                        <input type="submit" class="btn btn-primary pull-right" value="Next"/>
+                        <a href="{{ route('location.edit', ['id' => $user->id]) }}" class="btn btn-default">Back</a>
+                        <input type="submit" class="btn btn-default pull-right" value="Next"/>
                     </div>
                 </div>
             </div>

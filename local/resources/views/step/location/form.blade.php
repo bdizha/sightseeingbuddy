@@ -56,8 +56,8 @@
                     </div>
                     <div class="form-group">
                         <a href="{{ route('introduction.edit', ['id' => $user->id]) }}"
-                           class="btn btn-primary">Back</a>
-                        <input type="submit" class="btn btn-primary pull-right" value="Next"/>
+                           class="btn btn-default">Back</a>
+                        <input type="submit" class="btn btn-default pull-right" value="Next"/>
                     </div>
                 </div>
             </div>

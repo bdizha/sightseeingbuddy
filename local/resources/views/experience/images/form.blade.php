@@ -41,7 +41,7 @@
                     <label class="control-label" for="fileupload">{{ $errors->first('image') }}</label>
                 @endif
             </div>
-            <span class="btn btn-yellow full-width">
+            <span class="btn btn-default full-width">
                     <span>UPLOAD COVER IMAGE</span>
                 <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload" class="fileupload" bin="cover-image-bin" image-type="single" type="file"
@@ -66,7 +66,7 @@
                     <label class="control-label" for="fileupload">{{ $errors->first('images') }}</label>
                 @endif
             </div>
-            <span class="btn btn-yellow full-width">
+            <span class="btn btn-default full-width">
                     <span>UPLOAD 3 GALLERY IMAGES</span>
                 <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload" class="fileupload" bin="gallery-bin" image-type="multiple" type="file"
@@ -83,11 +83,11 @@
     <div class="col-sm-12 col-xs-12">
         <div class="row">
             <div class="form-group">
-                <input type="submit" class="btn btn-primary hide" value="Save"/>
+                <input type="submit" class="btn btn-default hide" value="Save"/>
                 <a href="{{ route('pricing.edit', ["id" => $experience->id]) }}"
-                   class="btn btn-primary">Back</a>
+                   class="btn btn-default">Back</a>
                 <span class='inline pull-right'>&nbsp;&nbsp;</span>
-                <input type="submit" class="btn btn-primary pull-right" value="Next"/>
+                <input type="submit" class="btn btn-default pull-right" value="Next"/>
             </div>
         </div>
     </div>

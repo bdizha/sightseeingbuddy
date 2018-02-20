@@ -76,9 +76,9 @@ pre span.error-ln {
 	padding: 1em;
 	font-size: 11pt;
 	background: #f3f3f3;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
 	margin-bottom: 1em;
 	line-height: 160%;
 }

@@ -13,10 +13,10 @@
                 Are you sure you want to cancel this booking?
             </div>
             <div class="text-center mb-1">
-                <a class="btn btn-primary btn-danger" href="/local/booking/cancel?reference={{ $booking->reference }}">
+                <a class="btn btn-default btn-danger" href="/local/booking/cancel?reference={{ $booking->reference }}">
                     Yes, cancel
                 </a>
-                <button modal-id="cancel-modal-{{ $booking->id }}" type="button" class="btn btn-primary btn-close">No, nevermind</button>
+                <button modal-id="cancel-modal-{{ $booking->id }}" type="button" class="btn btn-default btn-close">No, nevermind</button>
             </div>
         </div>
     </div>

@@ -52,7 +52,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-sm-4 col-xs-6">
-                            <input type="submit" class="btn fullwidth btn-yellow" value="Change password"/>
+                            <input type="submit" class="btn fullwidth btn-default" value="Change password"/>
                         </div>
                     </div>
                 </form>

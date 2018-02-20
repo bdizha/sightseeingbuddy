@@ -233,7 +233,7 @@ body.rtl th.right, body.rtl td.right { text-align: left; }
 
 .fullwidth { width: 100%; }
 
-.token { display: inline-block; border: 1px solid #c1c1c1; border-radius: 10px; padding: 1px 7px; font-size: 12px; line-height: 14px; color: #29323d; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); background: #ddd; }
+.token { display: inline-block; border: 1px solid #c1c1c1; border-radius: 8px; padding: 1px 7px; font-size: 12px; line-height: 14px; color: #29323d; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); background: #ddd; }
 
 .token[data-name='*'] { position: relative; width: 10px; }
 
@@ -563,7 +563,7 @@ body.rtl .color .colorpreview { right: 0; }
 .colorhex { display: inline-block; margin-left: 5px; vertical-align: middle; color: #8f98a3; }
 
 /* switch */
-.lightswitch { position: relative; border: none !important; border-radius: 11px; width: 33px; height: 22px; overflow: hidden; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; overflow: hidden; -webkit-box-shadow: 0 0 0 1px rgba(51, 170, 255, 0), 0 0 2px rgba(51, 170, 255, 0); -moz-box-shadow: 0 0 0 1px rgba(51, 170, 255, 0), 0 0 2px rgba(51, 170, 255, 0); box-shadow: 0 0 0 1px rgba(51, 170, 255, 0), 0 0 2px rgba(51, 170, 255, 0); -webkit-transition: -webkit-box-shadow linear 100ms; -moz-transition: box-shadow linear 100ms; }
+.lightswitch { position: relative; border: none !important; border-radius: 8px; width: 33px; height: 22px; overflow: hidden; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; overflow: hidden; -webkit-box-shadow: 0 0 0 1px rgba(51, 170, 255, 0), 0 0 2px rgba(51, 170, 255, 0); -moz-box-shadow: 0 0 0 1px rgba(51, 170, 255, 0), 0 0 2px rgba(51, 170, 255, 0); box-shadow: 0 0 0 1px rgba(51, 170, 255, 0), 0 0 2px rgba(51, 170, 255, 0); -webkit-transition: -webkit-box-shadow linear 100ms; -moz-transition: box-shadow linear 100ms; }
 
 .lightswitch.small { border-radius: 9px; width: 27px; height: 18px; }
 
@@ -589,7 +589,7 @@ body.rtl .lightswitch .label { float: right; }
 .lightswitch.small .label { width: 18px; height: 18px; }
 
 .lightswitch .label.on { background: #00b007; }
-body.ltr .lightswitch .label.on { border-radius: 11px 0 0 11px; }
+body.ltr .lightswitch .label.on { border-radius: 8px 0 0 11px; }
 body.rtl .lightswitch .label.on { border-radius: 0 11px 11px 0; }
 
 body.ltr .lightswitch.small .label.on { border-radius: 9px 0 0 9px; }
@@ -597,14 +597,14 @@ body.rtl .lightswitch.small .label.on { border-radius: 0 9px 9px 0; }
 
 .lightswitch .label.off { background: #ebedef; }
 body.ltr .lightswitch .label.off { border-radius: 0 11px 11px 0; }
-body.rtl .lightswitch .label.off { border-radius: 11px 0 0 11px; }
+body.rtl .lightswitch .label.off { border-radius: 8px 0 0 11px; }
 
 body.ltr .lightswitch.small .label.off { border-radius: 0 9px 9px 0; }
 body.rtl .lightswitch.small .label.off { border-radius: 9px 0 0 9px; }
 
 .lightswitch:not(.dragging).on .label.off, .lightswitch:not(.dragging):not(.on) .label.on { visibility: hidden; }
 
-.lightswitch .handle { position: relative; border-radius: 11px; margin: 0 -11px; width: 22px; height: 22px; background-image: -webkit-linear-gradient(#fff, #fafafa); background-image: -moz-linear-gradient(#fff, #fafafa); background-image: -ms-linear-gradient(#fff, #fafafa); background-image: -o-linear-gradient(#fff, #fafafa); background-image: linear-gradient(#fff, #fafafa); -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1); }
+.lightswitch .handle { position: relative; border-radius: 8px; margin: 0 -11px; width: 22px; height: 22px; background-image: -webkit-linear-gradient(#fff, #fafafa); background-image: -moz-linear-gradient(#fff, #fafafa); background-image: -ms-linear-gradient(#fff, #fafafa); background-image: -o-linear-gradient(#fff, #fafafa); background-image: linear-gradient(#fff, #fafafa); -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1); }
 body.ltr .lightswitch .handle { float: left; }
 body.rtl .lightswitch .handle { float: right; }
 
@@ -1659,7 +1659,7 @@ body.rtl .selectize.select .selectize-control .selectize-input { padding: 7px 10
 
 .selectize.multiselect .selectize-control.multi .selectize-input.has-items { padding: 5px 8px; }
 
-.selectize.multiselect .selectize-control.multi .selectize-input > div { display: inline-block; border: 1px solid #c1c1c1; border-radius: 10px; padding: 1px 7px; font-size: 12px; line-height: 14px; color: #29323d; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); background: #ddd; margin-top: 1px; margin-bottom: 1px; }
+.selectize.multiselect .selectize-control.multi .selectize-input > div { display: inline-block; border: 1px solid #c1c1c1; border-radius: 8px; padding: 1px 7px; font-size: 12px; line-height: 14px; color: #29323d; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); background: #ddd; margin-top: 1px; margin-bottom: 1px; }
 
 .selectize.multiselect .selectize-control.plugin-remove_button [data-value] .remove { padding: 0; }
 

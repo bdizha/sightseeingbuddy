@@ -82,15 +82,16 @@ h1, .h1, h2, .h2, h3, .h3 {
 }
 
 .experiences-row {
-  .media-heading {
-    a {
-      color: @gray-base;
-    }
-  }
   .media-summary {
     height: 88px;
     max-height: 88px;
     overflow: hidden;
+  }
+}
+
+.media-heading {
+  a {
+    color: @gray-base;
   }
 }
 
@@ -566,7 +567,7 @@ a {
 
 .form-control {
   background-color: transparent;
-  border-radius: 10px !important;
+  border-radius: 8px !important;
   font-size: 14px;
   color: @gray-base;
 }
@@ -658,10 +659,18 @@ form {
 .container {
   .redactor-box {
     background: transparent;
-    border: 1px solid #4b4b4b;
-    border-radius: 11px;
+    border: 1px solid @gray-base;
+    border-radius: 8px;
     .redactor-toolbar {
+      overflow: hidden;
       background: transparent;
+      li a {
+        &:hover {
+          outline: none;
+          background-color: @gray-base;
+          color: @white;
+        }
+      }
     }
     .redactor-editor {
       padding: 15px;
@@ -1236,7 +1245,7 @@ section {
     }
     .text-left {
       float: left;
-      margin-top: 56px;
+      margin-top: 22px;
     }
     form {
       .booking-row {
@@ -1287,7 +1296,7 @@ section {
         position: absolute;
         top: 20px;
         left: 20px;
-        .star{
+        .star {
           background-image: url(/images/star-white.svg);
         }
         .star-filled {
@@ -1511,10 +1520,10 @@ section {
   -webkit-margin-end: 0;
   -webkit-padding-start: 0;
   padding-bottom: 22px;
-  margin-top: 44px;
+  margin-top: 22px;
   > li {
     display: inline-block;
-    margin-top: 11px;
+    margin-top: 0;
     margin-left: 20px;
     > a {
       color: @gray-base;
@@ -1761,14 +1770,6 @@ section {
   #duration .input-group-addon {
     background-image: url(/images/duration.svg?v=2);
   }
-
-  .btn-block {
-    border-radius: 6px;
-    &.btn-lg {
-      height: 65px;
-      line-height: 39px;
-    }
-  }
 }
 
 p {
@@ -1791,6 +1792,7 @@ small {
 
 .btn {
   outline: none;
+  padding: 7px 15px;
   &:focus,
   &:hover {
     outline: none;
@@ -1894,7 +1896,7 @@ small {
     position: relative;
     .input-group {
       padding-left: 45px;
-      border-radius: 11px;
+      border-radius: 8px;
       border: 1px solid @gray-base;;
       height: 65px;
       .form-control {
@@ -2191,10 +2193,12 @@ small {
 
 .btn-default {
   border-width: 2px;
-  border-color: @btn-default-color;
+  color: @blue;
+  border-color: @blue;
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 5px;
+  background: transparent;
   &:hover,
   &:focus {
     color: @white;
@@ -2203,17 +2207,18 @@ small {
     outline: none;
   }
   &.btn-lg {
-    background: @blue;
+    background: transparent;
     border-color: @blue;
-    color: @white;
+    color: @blue;
     font-weight: 900;
     font-size: 24px;
+    line-height: 24px;
     border-width: 2px;
-    padding: 10px 15px;
+    padding: 18px 30px;
     &:hover,
     &:focus {
-      color: @blue;
-      background-color: @white;
+      color: @white;
+      background-color: @blue;
       border-color: @blue;
     }
   }
@@ -2274,6 +2279,7 @@ small {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
+  line-height: 16px;
   padding: 7px 24px;
   border-radius: 5px;
   background: @blue;
@@ -2287,10 +2293,10 @@ small {
     outline: none;
   }
   &.btn-lg {
-    padding: 8px 15px;
+    padding: 18px 30px;
     font-size: 24px;
-    line-height: 1.3333333;
-    border-radius: 6px;
+    line-height: 24px;
+    border-radius: 5px;
     color: @white;
     background-color: transparent;
     border-color: @white;
@@ -2298,6 +2304,7 @@ small {
     font-weight: 900;
     @media (max-width: @grid-float-breakpoint) {
       font-size: 20px;
+      line-height: 22px;
     }
     &.btn-white {
       border-color: @white;
@@ -2314,7 +2321,8 @@ small {
 
 .btn-tertiary {
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 16px;
   padding: 7px 24px;
   border-radius: 5px;
   background-color: transparent;
@@ -2322,10 +2330,10 @@ small {
   border-width: 2px;
   font-weight: 900;
   &.btn-lg {
-    padding: 10px 15px;
+    padding: 18px 30px;
     font-size: 24px;
-    line-height: 1.3333333;
-    border-radius: 6px;
+    line-height: 24px;
+    border-radius: 5px;
     color: @blue;
     background-color: @white;
     border-color: @blue;
@@ -2357,10 +2365,10 @@ small {
     border-color: @blue;
   }
   &.btn-lg {
-    padding: 10px 15px;
+    padding: 18px 30px;
     font-size: 24px;
-    line-height: 1.3333333;
-    border-radius: 6px;
+    line-height: 24px;
+    border-radius: 5px;
     color: @white;
     border-color: @blue;
     border-width: 2px;
@@ -2802,7 +2810,7 @@ a.thumbnail:hover, a.thumbnail:active {
   height: 11px;
   margin-bottom: 11px;
   background-color: transparent;
-  border-radius: 11px;
+  border-radius: 8px;
   box-shadow: none;
 }
 
@@ -3342,28 +3350,6 @@ a.thumbnail:hover, a.thumbnail:active {
   display: none;
 }
 
-.col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body h2.media-heading a {
-  color: @gray-base !important;
-  text-decoration: none;
-}
-
-.col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body .media-summary {
-  color: black;
-}
-
-.col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body .readmore.mt-1 a.btn.btn-primary {
-  color: black;
-  background-color: white;
-}
-
-.col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body {
-  background-color: white;
-}
-
-.col-md-4.col-sm-4.col-xs-6.col-xs-6-full article.media.media-responsive.same-height .media-body .readmore.mt-1 a.btn.btn-primary:hover {
-  border: white;
-}
-
 .container {
   .redactor-styles {
     font-family: @font-family-sans-serif;
@@ -3436,41 +3422,4 @@ div#newsletter-group input#newsletter_email {
 
 .panel > .panel-body h2:first-child {
   margin-top: -14px;
-}
-
-.col-sm-8.col-sm-offset-1.gray-bottom-border.gray-top-border.same-height.mt-3.mb-1 .row .panel.panel-default .panel-body {
-  margin-top: -25px;
-}
-
-.container .text-center .btn-primary.btn-lg {
-
-  border-color: #1a75bb;
-
-}
-
-.gray-left-border .panel-body .form-group input.btn.btn-primary {
-  background-color: #727272;
-}
-
-.gray-left-border .panel-body .form-group input.btn.btn-primary:hover {
-  border-color: #727272;
-  color: white;
-}
-
-.col-sm-6.col-xs-12 .panel.panel-default .panel-body .form-group a.btn.btn-primary {
-  background-color: #727272;
-}
-
-.col-sm-6.col-xs-12 .panel.panel-default .panel-body .form-group input.btn.btn-primary.pull-right {
-  background-color: #727272;
-}
-
-.col-sm-6.col-xs-12 .panel.panel-default .panel-body .form-group a.btn.btn-primary:hover {
-  border-color: #E6E6E6;
-  color: white;
-}
-
-.col-sm-6.col-xs-12 .panel.panel-default .panel-body .form-group input.btn.btn-primary.pull-right:hover {
-  border-color: #E6E6E6;
-  color: white;
 }

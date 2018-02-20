@@ -137,7 +137,7 @@
                                 <h3>{{ count($reviews) }} Reviews</h3>
                             </div>
                             <div class="table-cell text-right">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                <button type="button" class="btn btn-default" data-toggle="modal"
                                         data-target="#review-modal">
                                     Write a review
                                 </button>
@@ -296,7 +296,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" id="submit-review" class="btn btn-primary">Submit your review</button>
+                            <button type="button" id="submit-review" class="btn btn-default">Submit your review</button>
                         </div>
                     </div>
                 </div>
