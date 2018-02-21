@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
                 <div class="available-times">
-                    <div class='row schedule-item'>
+                    <div class='row schedule-item text-center'>
                         <div class="col-sm-2 col-xs-2">
                             <label>Time</label>
                         </div>

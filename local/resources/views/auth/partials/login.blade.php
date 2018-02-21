@@ -5,18 +5,13 @@
             <div class="panel-body">
                 <form id="sign-in" method="POST" class="form" action="{{ route('login') }}">
                     {!! csrf_field() !!}
-                    <div class="row form-group {{ $errors->has('email') || request('unverified') ? 'has-error' : '' }}"
-                         id="email-field">
+                    <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}" id="email-field">
                         <div class="col-sm-9 col-xs-12">
                             @if ($errors->has('email'))
-                                <label class="control-label"
-                                       for="inputError1">{{ $errors->first('email') || request('unverified') }}</label>
-                            @elseif(request('unverified'))
-                                <label class="control-label"
-                                       for="inputError1">{{ 'Please verify your email before using this site.' }}</label>
+                                <label class="control-label" for="inputError1">{{ $errors->first('email') }}</label>
                             @endif
                             <input class="form-control fullwidth" type="text" id="email" name="email"
-                                   value="{{ old('email') }}" autocomplete="off"
+                                   value="{{ old('email') }}"  autocomplete="off"
                                    required placeholder="Your email">
                         </div>
                     </div>

@@ -6,27 +6,10 @@
     </section>
     <section class="gray-block booking-block">
         <div class="container mt-1">
-            <div class='row'>
-                <div class="col-sm-12 col-xs-12">
-                    <ul class="profile-nav pull-right">
-                        <li class="item">
-                            <a href="{{ "/local/dashboard" }}">
-                                <i class="dashboard"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="item">
-                            <a href="{{ "/local/bookings" }}">
-                                <i class="bookings"></i>
-                                <span>Bookings</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            @include('profile.partials.tabs', ['user' => $user, 'title' => '', 'tab' => 'messages'])
             <div class="gray-bottom-border mb-1"></div>
         </div>
-        <div class="container pb-3 pt-1">
+        <div class="container pb-3">
             <form method="POST" action="https://{{ $pfHost }}/eng/process">
                 @foreach($data as $key => $input)
                     <input type="hidden" name="{{ $key }}" value="{{ $input }}"/>
@@ -58,7 +41,8 @@
                                     <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
                                 </small>
                             </div>
-                            <button type="submit" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-default mb-1">
+                            <button type="submit" modal-id="confirm-modal"
+                                    class="btn btn-modal btn-lg btn-default mb-1">
                                 Make payment
                             </button>
                         </div>
@@ -79,14 +63,15 @@
                         </div>
                         <div class="booking-row">
                             <h4>Price per guest:</h4>
-                            <h3 class="data-currency" data-currency-base="{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}">
+                            <h3 class="data-currency"
+                                data-currency-base="{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}">
                                 R{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}
                             </h3>
                         </div>
                         <div class="booking-row">
                             <h4>Grand total:</h4>
                             <h1>
-                                <span  class="data-currency" data-currency-base="{{ $experience->total }}">
+                                <span class="data-currency" data-currency-base="{{ $experience->total }}">
                                     {{ $experience->total }}
                                 </span>
                             </h1>
@@ -99,7 +84,8 @@
                                     <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
                                 </small>
                             </div>
-                            <button type="button" modal-id="confirm-modal" class="btn btn-modal btn-lg btn-default mb-1">
+                            <button type="button" modal-id="confirm-modal"
+                                    class="btn btn-modal btn-lg btn-default mb-1">
                                 Make payment
                             </button>
                         </div>

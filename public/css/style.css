@@ -9606,6 +9606,10 @@ form .form-group .input-add .btn-add {
 form .form-group .input-add .form-control {
   padding-right: 55px;
 }
+form .panel-body {
+  position: relative;
+  overflow: hidden;
+}
 .container .redactor-box {
   background: transparent;
   border: 1px solid #3F3F3F;
@@ -10390,7 +10394,7 @@ section #sidebar h2 {
 }
 .profile-nav > li > a i {
   width: 24px;
-  height: 24px;
+  height: 26px;
   background-size: 100%;
   background-position-x: 0;
   display: inline-block;
@@ -10401,6 +10405,9 @@ section #sidebar h2 {
 }
 .profile-nav > li > a i.dashboard {
   background-image: url(/images/dashboard.svg);
+}
+.profile-nav > li > a i.find {
+  background-image: url(/images/find.svg);
 }
 .profile-nav > li > a i.bookings {
   background-image: url(/images/bookings.svg);
@@ -10574,7 +10581,6 @@ section #sidebar h2 {
   width: 60px;
   height: 60px;
   background-size: 100%;
-  border: 1px solid transparent;
   position: absolute;
   left: 11px;
   top: 11px;
@@ -10604,6 +10610,7 @@ small a:hover {
 .btn {
   outline: none;
   padding: 7px 15px;
+  border-radius: 5px;
 }
 .btn:focus,
 .btn:hover {
@@ -10708,7 +10715,7 @@ small a:hover {
   width: 36px;
   height: 36px;
   background-size: 100%;
-  border: 1px solid transparent;
+  border: none;
   z-index: 99;
   top: 11px;
 }
@@ -10986,13 +10993,18 @@ small a:hover {
   border-color: #1a75bb;
 }
 .btn-danger {
-  background-color: #ee0027 !important;
+  border-width: 2px;
+  background-color: transparent;
+  color: #ee0027;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 5px;
 }
 .btn-danger:hover,
 .btn-danger:focus {
-  color: #ee0027 !important;
-  background-color: #FFFFFF !important;
-  border-color: #ee0027 !important;
+  background-color: #ee0027;
+  color: #FFFFFF;
+  border-color: #ee0027;
 }
 .carousel-caption h1 {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
@@ -11623,14 +11635,13 @@ a.thumbnail:active {
 }
 .booking-block .profile-nav > li > a i.dashboard {
   background-image: url(/images/dashboard.svg);
-  width: 24px;
-  height: 24px;
   background-position-x: 0;
 }
 .booking-block .profile-nav > li > a i.bookings {
-  width: 24px;
-  height: 24px;
   background-position-x: 0;
+}
+.booking-block .profile-nav > li > a i.find {
+  background-image: url(/images/find.svg);
 }
 .datepicker-inline {
   width: 100%;

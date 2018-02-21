@@ -14,7 +14,7 @@
             </li>
             <li class="item<?php echo $tab === 'manage' ? ' active' : '' ?>">
                 <a href="{{ "/local/booking/manage" }}">
-                    <i class="bookings"></i>
+                    <i class="find"></i>
                     <span>Find my booking</span>
                 </a>
             </li>

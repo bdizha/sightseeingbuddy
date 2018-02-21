@@ -654,6 +654,11 @@ form {
       }
     }
   }
+
+  .panel-body{
+    position: relative;
+    overflow: hidden;
+  }
 }
 
 .container {
@@ -1532,7 +1537,7 @@ section {
       text-transform: uppercase;
       i {
         width: 24px;
-        height: 24px;
+        height: 26px;
         background-size: 100%;
         background-position-x: 0;
         display: inline-block;
@@ -1542,6 +1547,9 @@ section {
         background-repeat: no-repeat;
         &.dashboard {
           background-image: url(/images/dashboard.svg);
+        }
+        &.find {
+          background-image: url(/images/find.svg);
         }
         &.bookings {
           background-image: url(/images/bookings.svg);
@@ -1755,7 +1763,6 @@ section {
     width: 60px;
     height: 60px;
     background-size: 100%;
-    border: 1px solid transparent;
     position: absolute;
     left: 11px;
     top: 11px;
@@ -1793,6 +1800,7 @@ small {
 .btn {
   outline: none;
   padding: 7px 15px;
+  border-radius: 5px;
   &:focus,
   &:hover {
     outline: none;
@@ -1914,7 +1922,7 @@ small {
         width: 36px;
         height: 36px;
         background-size: 100%;
-        border: 1px solid transparent;
+        border: none;
         z-index: 99;
         top: 11px;
       }
@@ -2225,12 +2233,17 @@ small {
 }
 
 .btn-danger {
-  background-color: @state-danger-text !important;
+  border-width: 2px;
+  background-color: transparent;
+  color: @state-danger-text;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 5px;
   &:hover,
   &:focus {
-    color: @state-danger-text !important;
-    background-color: @white !important;
-    border-color: @state-danger-text !important;
+    background-color: @state-danger-text;
+    color: @white;
+    border-color: @state-danger-text;
   }
 }
 
@@ -2915,14 +2928,13 @@ a.thumbnail:hover, a.thumbnail:active {
           top: 0;
           &.dashboard {
             background-image: url(/images/dashboard.svg);
-            width: 24px;
-            height: 24px;
             background-position-x: 0;
           }
           &.bookings {
-            width: 24px;
-            height: 24px;
             background-position-x: 0;
+          }
+          &.find {
+            background-image: url(/images/find.svg);
           }
         }
       }
