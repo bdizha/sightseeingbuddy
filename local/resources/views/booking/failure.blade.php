@@ -6,7 +6,7 @@
     </section>
     <section id="page" class="gray-block booking-block">
         <div class="container gray-block mt-1">
-            <div class="gray-bottom-border mb-1 mt-3"></div>
+            <div class="gray-bottom-border mt-3"></div>
             <div class='row'>
                 <div class="col-sm-12 col-xs-12 mt-1 mb-1">
                     Thank you for your interest in the Sightseeing Buddy experiences.
