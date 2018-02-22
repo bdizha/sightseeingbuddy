@@ -112,7 +112,7 @@ class BookingController extends Controller
         ]);
     }
 
-    public function create($id, $time, $timestamp, Request $request)
+    public function create($id, $time, $timestamp, $guests, Request $request)
     {
         $user = Auth::user();
         $experience = Experience::where('id', '=', $id)->first();
@@ -131,6 +131,7 @@ class BookingController extends Controller
         $booking->reference = $reference;
         $booking->special_requests = serialize([]);
         $booking->time = $time;
+        $booking->guests = $guests;
         $booking->date = $date;
         $booking->save();
 
@@ -175,15 +176,18 @@ class BookingController extends Controller
 
         $request->session()->set('reference', $booking->reference);
 
+        $pricingPerPerson = $experience->pricing->per_person;
+        $pricingPerPerson = str_replace("R", "", $pricingPerPerson);
 
         return view('booking.add', [
             'experience' => $experience,
             'user' => Auth::user(),
             'time' => $time,
+            'total' => $pricingPerPerson * $guests,
+            'guests' => $guests,
             'date' => $date,
             'data' => $data,
             'pfHost' => $pfHost,
-            'date' => $date,
             'reference' => $reference
         ]);
     }

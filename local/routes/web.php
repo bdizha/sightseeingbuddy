@@ -72,7 +72,7 @@ Route::group(['prefix' => 'local'], function () {
 
     // bookings resources
     Route::group(['prefix' => 'booking'], function () {
-        Route::get('/create/{id}/{time}/{timestamp}', 'BookingController@create');
+        Route::get('/create/{id}/{time}/{timestamp}/{guests}', 'BookingController@create');
         Route::post('/confirm', 'BookingController@confirm')->name("payment_confirm");
         Route::post('/times', 'BookingController@times')->name("payment_times");
         Route::get('/success', 'BookingController@success')->name("payment_success");

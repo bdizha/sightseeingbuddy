@@ -12,13 +12,16 @@
             <div class="modal-body">
                 <div class="available-times">
                     <div class='row schedule-item text-center'>
-                        <div class="col-sm-2 col-xs-2">
+                        <div class="col-sm-2 col-xs-2 text-left">
                             <label>Time</label>
                         </div>
                         <div class="col-sm-2 col-xs-2">
                             <label>Available</label>
                         </div>
-                        <div class="col-sm-8 col-xs-8">
+                        <div class="col-sm-4 col-xs-4">
+                            <label for="">Number of guests</label>
+                        </div>
+                        <div class="col-sm-4 col-xs-4">
                         </div>
                     </div>
                     <div class="times-row">

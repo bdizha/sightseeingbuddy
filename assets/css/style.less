@@ -655,7 +655,7 @@ form {
     }
   }
 
-  .panel-body{
+  .panel-body {
     position: relative;
     overflow: hidden;
   }
@@ -3272,6 +3272,38 @@ a.thumbnail:hover, a.thumbnail:active {
         line-height: 34px;
         &.odd {
           background-color: #E6E6E6;
+        }
+        .schedule-guest {
+          position: relative;
+          height: 40px;
+          width: 100%;
+          .guest-amount {
+            background: @white;
+            height: 40px;
+            width: 50px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            margin-left: -30px;
+          }
+          .guest-arrow {
+            position: absolute;
+            right: 15px;
+            height: 13px;
+            width: 30px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            background-size: 100%;
+            background-position-y: -11px;
+          }
+          .arrow-top {
+            top: 10px;
+            background-image: url(/images/guest-top-arrow.svg);
+          }
+          .arrow-bottom {
+            bottom: 6px;
+            background-image: url(/images/guest-bottom-arrow.svg);
+          }
         }
       }
       &:last-child {

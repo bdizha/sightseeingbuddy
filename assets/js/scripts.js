@@ -558,7 +558,6 @@ function DatePicker() {
             // console.log("date: " + day);
 
             $(".available-times").attr("date", date);
-
             $(".times-row").hide();
 
             var data = {
@@ -572,6 +571,30 @@ function DatePicker() {
                     console.log(html);
 
                     $(".times-row").html(html).show();
+
+                    setTimeout(function () {
+                        $(".guest-arrow").on("click", function () {
+                            var dir = $(this).attr("data-dir");
+                            console.log(dir, "dir");
+                            var guests = parseInt($(this).siblings(".guest-amount").html());
+
+                            if (dir < 0) {
+                                if (guests > 1) {
+                                    guests -= 1;
+                                }
+                            } else {
+                                guests += 1;
+                            }
+
+                            $(this).siblings(".guest-amount").html(guests);
+                            var dataId = $(this).attr("data-id");
+
+                            var bookNow = $(".schedule-item-" + dataId + " .book-now");
+                            var dataHref = bookNow.attr("data-href");
+
+                            bookNow.attr("href", dataHref + "/" + guests);
+                        });
+                    }, 3000);
                 });
 
             $("#schedule-modal").modal('show');

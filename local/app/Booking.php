@@ -23,6 +23,7 @@ class Booking extends Model
         'schedule_id',
         'time',
         'date',
+        'guests',
         'reference'
     ];
     

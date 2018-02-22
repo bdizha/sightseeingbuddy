@@ -59,7 +59,7 @@
                         </div>
                         <div class="booking-row">
                             <h4>Number of guests:</h4>
-                            <h3>{{ $experience->pricing->guests }}</h3>
+                            <h3>{{ $guests }}</h3>
                         </div>
                         <div class="booking-row">
                             <h4>Price per guest:</h4>
@@ -71,8 +71,8 @@
                         <div class="booking-row">
                             <h4>Grand total:</h4>
                             <h1>
-                                <span class="data-currency" data-currency-base="{{ $experience->total }}">
-                                    {{ $experience->total }}
+                                <span class="data-currency" data-currency-base="{{ $total }}">
+                                    {{ $total }}
                                 </span>
                             </h1>
                         </div>
