@@ -46,8 +46,8 @@ class SearchController extends Controller
             $toDate = Carbon::parse($dateTo)->addDays(1);
 
             $query->whereHas('dates', function ($q) use ($fromDate, $toDate) {
-                $q->where("experience_dates.dates", ">=", $fromDate);
-                $q->where("experience_dates.date", "<=", $toDate);
+                $q->where("experience_dates.date", ">=", $fromDate);
+                $q->where("experience_dates.date", "<", $toDate);
             });
         }
 
