@@ -594,7 +594,7 @@ function DatePicker() {
 
                             bookNow.attr("href", dataHref + "/" + guests);
                         });
-                    }, 3000);
+                    }, 1000);
                 });
 
             $("#schedule-modal").modal('show');
