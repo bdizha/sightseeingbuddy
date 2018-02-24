@@ -22,6 +22,10 @@ class MessageController extends Controller
         $messages = Message::with('sender')
             ->with('recipient')
             ->where("is_reply", "=", false)
+            ->where(function ($query) use ($user) {
+                $query->where('sender_id', '=', $user->id)
+                    ->orWhere('recipient_id', '=', $user->id);
+            })
             ->orderBy("updated_at", "DESC")->get();
 
         $data = [
@@ -89,8 +93,7 @@ class MessageController extends Controller
         $messageId = $input['message_id'];
         if (!empty($messageId)) {
             $input['is_reply'] = !empty($messageId);
-        }
-        else{
+        } else {
             $input['message_id'] = 0;
         }
         $message->fill($input)->save();
