@@ -45,10 +45,10 @@ class SearchController extends Controller
             $fromDate = Carbon::parse($dateFrom);
             $toDate = Carbon::parse($dateTo);
 
-            $duration = $fromDate->diffInDays($toDate);
-
-            $query->where("duration", "like", "%" . $duration . "%");
-            $query->where("duration", "like", "%days%");
+            $query->whereHas('dates', function ($q) use ($fromDate, $toDate) {
+                $q->where("experience_dates.date", ">=", $fromDate);
+                $q->where("experience_dates.date", "<=", $toDate);
+            });
         }
 
         if (!empty($guests)) {

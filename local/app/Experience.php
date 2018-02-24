@@ -110,6 +110,10 @@ class Experience extends Model {
         return $this->hasOne('App\ExperienceSchedule');
     }
 
+    public function dates() {
+        return $this->hasOne('App\ExperienceDate');
+    }
+
     public function pricing() {
         return $this->hasOne('App\Pricing');
     }

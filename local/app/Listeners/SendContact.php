@@ -37,7 +37,7 @@ class SendContact
         try {
             $this->mailer->send('email.contact', $data, function ($message) use ($data) {
                 $message->to($data['email'], $data['name'])
-                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
+                    ->bcc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

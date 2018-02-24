@@ -42,7 +42,7 @@ class SendMessage
 
             $this->mailer->send('email.message', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc(config("mail.CC_EMAIL"))
+                    ->bcc(config("mail.CC_EMAIL"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {

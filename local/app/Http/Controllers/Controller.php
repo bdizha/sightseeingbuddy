@@ -29,6 +29,21 @@ class Controller extends BaseController
         }
     }
 
+    public function guest(Request $request)
+    {
+        $isGuest = false;
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            if ($user->type === "guest") {
+                $isGuest = true;
+            }
+        }
+
+        echo $isGuest;
+        exit(200);
+    }
+
     public function newsletter(Request $request)
     {
         $fields = [

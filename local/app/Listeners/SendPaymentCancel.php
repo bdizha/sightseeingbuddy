@@ -43,7 +43,7 @@ class SendPaymentCancel
 
             $this->mailer->send('email.guest.payment.cancel', $data, function ($message) use ($data) {
                 $message->to($data['user']->email, $data['user']->first_name)
-                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
+                    ->bcc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
