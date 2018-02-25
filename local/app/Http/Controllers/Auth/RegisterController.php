@@ -111,7 +111,7 @@ class RegisterController extends AuthController
             $this->redirectTo = '/local/introduction/create';
         }
 
-        Session::flash('flash_message', 'Welcome to Sightseeing Buddy!');
+        Session::flash('flash_message', 'An email has been sent to the address provided containing a link to verify your email address.');
 
         $user = User::create([
             'first_name' => $data['first_name'],

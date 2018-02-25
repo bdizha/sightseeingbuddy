@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers\Step;
 
+use App\Http\Controllers\StepController;
+use App\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\StepController;
 use Session;
-use App\Wallet;
 
-class WalletController extends StepController {
+class WalletController extends StepController
+{
 
     protected $next_step = "contact";
     protected $cur_step = "wallet";
     protected $prev_step = "wallet";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -23,7 +25,8 @@ class WalletController extends StepController {
      *
      * @return Response
      */
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $wallet = new Wallet();
         $user = Auth::user();
 
@@ -42,7 +45,8 @@ class WalletController extends StepController {
      *
      * @return Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         $user = Auth::user();
         $wallet = new Wallet();
@@ -56,7 +60,8 @@ class WalletController extends StepController {
      *
      * @return Response
      */
-    public function edit($id, Request $request) {
+    public function edit($id, Request $request)
+    {
         $user = Auth::user();
 
         $wallet = Wallet::firstOrNew(['user_id' => $user->id]);
@@ -76,14 +81,15 @@ class WalletController extends StepController {
      *
      * @return Response
      */
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
         $user = Auth::user();
         $wallet = Wallet::firstOrNew(['user_id' => $user->id]);
         return $this->save($wallet, $request);
     }
 
-    private function save($wallet, $request) {
-
+    private function save($wallet, $request)
+    {
         $fields = [
             'bank' => 'required|max:255',
             'branch' => 'required|max:255',
@@ -95,11 +101,17 @@ class WalletController extends StepController {
 
         $wallet->fill($input)->save();
 
-        Session::flash('flash_message', 'Your profile has been successfully saved!');
-
         $user = Auth::user();
 
-        return redirect(url("/local/profile/" . $user->username));
+        if ($user->is_verified) {
+            Session::flash('flash_message', 'Your profile has been successfully saved!');
+            return redirect(url("/local/profile/" . $user->username));
+
+        } else {
+            Session::flash('flash_message', 'Thank you for signing up to become a local. You’ll be contacted by us to verify your profile, have a certified copy of your ID/Passport ready.');
+            Auth::guard()->logout();
+            return redirect('/local/auth/unverified/' . $user->id);
+        }
     }
 
 }
