@@ -32,6 +32,7 @@ class LastController extends ExperienceController {
         return view('experience.last.edit', [
             'experience' => $experience,
             'links' => $links,
+            'index' => 4,
             'user' => $user
         ]);
     }

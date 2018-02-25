@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers\Experience;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ExperienceController;
-use Session;
-use App\Pricing;
 use App\Experience;
 use App\ExperienceSchedule;
+use App\Http\Controllers\ExperienceController;
+use App\Pricing;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
-class PricingController extends ExperienceController {
+class PricingController extends ExperienceController
+{
 
     protected $next_step = "images";
     protected $cur_step = "pricing";
     protected $prev_step = "info";
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -25,7 +27,8 @@ class PricingController extends ExperienceController {
      *
      * @return Response
      */
-    public function edit($id, Request $request) {
+    public function edit($id, Request $request)
+    {
         $user = Auth::user();
         $experience = Experience::where('id', '=', $id)->first();
         $links = $this->getLinks($experience);
@@ -37,6 +40,7 @@ class PricingController extends ExperienceController {
             'pricing' => $pricing,
             'links' => $links,
             'experience' => $experience,
+            'index' => 2,
             'user' => $user,
         ]);
     }
@@ -46,12 +50,14 @@ class PricingController extends ExperienceController {
      *
      * @return Response
      */
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
         $experience = Experience::where('id', '=', $id)->first();
         return $this->save($experience, $request);
     }
 
-    private function save($experience, $request) {
+    private function save($experience, $request)
+    {
 
         $fields = [
             'guests' => 'required|max:255',
@@ -69,7 +75,7 @@ class PricingController extends ExperienceController {
         $pricing->fill($input)->save();
 
         $schedule = ExperienceSchedule::where("experience_id", "=", $input["experience_id"])->first();
-        if(empty($schedule->id)) {
+        if (empty($schedule->id)) {
             $schedule = New ExperienceSchedule();
         }
 
@@ -86,10 +92,11 @@ class PricingController extends ExperienceController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $pricing = Pricing::findOrFail($id);
         $pricing->delete();
 

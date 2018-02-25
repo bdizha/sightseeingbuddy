@@ -115,12 +115,10 @@
                 </div>
                 <div class='row mt-2'>
                     <div class="col-sm-12 col-xs-12">
-                        <div class="row">
-                            <input type="submit" class="btn btn-default hide" value="Save"/>
-                            <a href="{{ route('info.edit', ["id" => $experience->id]) }}"
-                               class="btn btn-default">Back</a>
-                            <input type="submit" class="btn btn-default pull-right" value="Next"/>
-                        </div>
+                        <input type="submit" class="btn btn-default hide" value="Save"/>
+                        <a href="{{ route('info.edit', ["id" => $experience->id]) }}"
+                           class="btn btn-default">Back</a>
+                        <input type="submit" class="btn btn-default pull-right" value="Next"/>
                     </div>
                 </div>
             </div>

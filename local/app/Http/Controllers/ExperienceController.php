@@ -74,7 +74,7 @@ class ExperienceController extends Controller
         $links = [
             'info' => [
                 'label' => 'Your local experience',
-                'route' => route("info.{$action}", $parameters)
+                'route' => route("info.{$action}", $parameters),
             ],
             'pricing' => [
                 'label' => 'Pricing & availability',

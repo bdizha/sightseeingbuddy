@@ -41,7 +41,7 @@
                     <label class="control-label" for="fileupload">{{ $errors->first('image') }}</label>
                 @endif
             </div>
-            <span class="btn btn-default full-width">
+            <span class="btn btn-default full-width btn-image">
                     <span>UPLOAD COVER IMAGE</span>
                 <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload" class="fileupload" bin="cover-image-bin" image-type="single" type="file"
@@ -66,7 +66,7 @@
                     <label class="control-label" for="fileupload">{{ $errors->first('images') }}</label>
                 @endif
             </div>
-            <span class="btn btn-default full-width">
+            <span class="btn btn-default full-width btn-image">
                     <span>UPLOAD 3 GALLERY IMAGES</span>
                 <!-- The file input field used as target for the file upload widget -->
                     <input id="fileupload" class="fileupload" bin="gallery-bin" image-type="multiple" type="file"

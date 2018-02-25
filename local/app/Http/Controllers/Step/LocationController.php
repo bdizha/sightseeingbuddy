@@ -32,7 +32,8 @@ class LocationController extends StepController {
         return view('step.location.add', [
             'location' => $location,
             'links' => $links,
-            'user' => $user
+            'user' => $user,
+            'index' => 2
         ]);
     }
 
@@ -65,7 +66,8 @@ class LocationController extends StepController {
         return view('step.location.edit', [
             'location' => $location,
             'links' => $links,
-            'user' => $user
+            'user' => $user,
+            'index' => 1
         ]);
     }
 

@@ -737,10 +737,7 @@ function FileUpload() {
         var imageType = "";
 
         var removeBin = function () {
-            $(".bin-item img").remove();
-
-            $(".bin-close").hide();
-
+            $(this).parent().remove();
             $(window).resize();
             (new Vertilize).init();
         };

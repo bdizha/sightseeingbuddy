@@ -9103,6 +9103,11 @@ html a:focus,
 body a:focus {
   color: #3F3F3F;
 }
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
 .white-font {
   color: #FFFFFF;
 }
@@ -9305,6 +9310,9 @@ h3,
 .search-item input[type="checkbox"] + label icon.category-3,
 .search-item input[type="radio"] + label icon.category-3 {
   background-image: url(/images/category-3.svg);
+}
+#terms .checkbox-inline {
+  padding-left: 0;
 }
 .checkbox-inline label {
   font-size: 14px;
@@ -9585,7 +9593,6 @@ form .schedule-item {
 }
 form small {
   display: inline-block;
-  margin-top: 15px;
 }
 form .form-group .control-label {
   text-align: left;
@@ -11010,6 +11017,12 @@ small a:hover {
   color: #FFFFFF;
   border-color: #ee0027;
 }
+.btn-image {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  margin: 15px auto 30px;
+}
 .carousel-caption h1 {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
 }
@@ -11533,19 +11546,22 @@ a.thumbnail:active {
 }
 .btn input {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -2px;
+  bottom: -2px;
+  right: -2px;
+  left: -2px;
   margin: 0;
   opacity: 0;
   -ms-filter: 'alpha(opacity=0)';
-  font-size: 200px !important;
+  font-size: 80px !important;
   direction: ltr;
   cursor: pointer;
 }
 .progress {
+  margin: 15px auto;
+  float: none;
   overflow: hidden;
-  height: 11px;
-  margin-bottom: 11px;
+  height: 10px;
   background-color: transparent;
   border-radius: 8px;
   box-shadow: none;

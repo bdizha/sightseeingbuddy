@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers\Step;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\StepController;
-use App\Events\LocalWelcome;
 use App\Events\LocalVerify;
-use Session;
+use App\Events\LocalWelcome;
+use App\Http\Controllers\StepController;
 use App\Images\UploadHandler;
 use App\User;
-use Imgix\UrlBuilder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
-class IntroductionController extends StepController {
+class IntroductionController extends StepController
+{
 
     protected $next_step = "location";
     protected $cur_step = "introduction";
     protected $prev_step = null;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth', ['except' => ["create", "store", "upload"]]);
     }
 
@@ -27,14 +28,16 @@ class IntroductionController extends StepController {
      *
      * @return Response
      */
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $user = new User();
 
         $links = $this->getLinks($user);
 
         return view('step.introduction.add', [
             'user' => $user,
-            'links' => $links
+            'links' => $links,
+            'index' => 1
         ]);
     }
 
@@ -43,7 +46,8 @@ class IntroductionController extends StepController {
      *
      * @return Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         return $this->save(new User(), true, $request);
     }
 
@@ -52,16 +56,15 @@ class IntroductionController extends StepController {
      *
      * @return Response
      */
-    public function edit($id, Request $request) {
+    public function edit($id, Request $request)
+    {
         $user = User::find($id);
-
-
-
         $links = $this->getLinks($user);
 
         return view('step.introduction.edit', [
             'user' => $user,
-            'links' => $links
+            'links' => $links,
+            'index' => 1
         ]);
     }
 
@@ -70,12 +73,14 @@ class IntroductionController extends StepController {
      *
      * @return Response
      */
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
         $user = User::find($id);
         return $this->save($user, false, $request);
     }
 
-    private function save($user, $notifyUser, $request) {
+    private function save($user, $notifyUser, $request)
+    {
         $fields = [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -93,19 +98,19 @@ class IntroductionController extends StepController {
 
         $input = $request->all();
 
-        if(!empty($user->id) && $input['password'] == $input['password_confirmation']){
+        if (!empty($user->id) && $input['password'] == $input['password_confirmation']) {
             unset($fields['password']);
         }
 
         $this->validate($request, $fields);
 
-        if(!empty($input['password'])){
+        if (!empty($input['password'])) {
             $input['password'] = bcrypt($input['password']);
         }
 
         $user->fill($input)->save();
 
-        if($notifyUser) {
+        if ($notifyUser) {
             event(new LocalWelcome($user));
             event(new LocalVerify($user));
         }
@@ -117,7 +122,8 @@ class IntroductionController extends StepController {
         return redirect(route("{$this->next_step}.edit", ["id" => $user->id]));
     }
 
-    public function upload(Request $request) {
+    public function upload(Request $request)
+    {
         new UploadHandler();
     }
 

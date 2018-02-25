@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Experience;
 
+use App\City;
+use App\Experience;
+use App\ExperienceActivity;
+use App\ExperienceHighlight;
+use App\ExperienceLanguage;
+use App\Http\Controllers\ExperienceController;
+use App\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ExperienceController;
 use Session;
-use App\Experience;
-use App\City;
-use App\ExperienceHighlight;
-use App\ExperienceActivity;
-use App\ExperienceLanguage;
-use App\Language;
-use App\ExperienceCategory;
 
 class InfoController extends ExperienceController
 {
@@ -50,6 +49,7 @@ class InfoController extends ExperienceController
             'languages' => $languages,
             'highlights' => $highlights,
             'activities' => $activities,
+            'index' => 1
         ]);
     }
 
@@ -104,6 +104,7 @@ class InfoController extends ExperienceController
             'languages' => $languages,
             'highlights' => $highlights,
             'activities' => $activities,
+            'index' => 1
         ]);
     }
 
@@ -168,7 +169,7 @@ class InfoController extends ExperienceController
             ]);
         }
 
-        if(!empty($input['activities'])) {
+        if (!empty($input['activities'])) {
             // set activities
             foreach ($input['activities'] as $activity) {
                 ExperienceActivity::updateOrCreate([

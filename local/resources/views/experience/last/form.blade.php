@@ -30,15 +30,15 @@
                     @if ($errors->has('terms'))
                         <label class="control-label" for="fileupload">{{ $errors->first('terms') }}</label>
                     @endif
-                </div>
-                <label class="checkbox-inline">
-                    {{ Form::checkbox('terms', 1, false, ['id' => "experience_terms"]) }}
-                    <label for="experience_terms">
-                        <span></span>
-                        I agree that I will be contacted by an ambassador & confirm that I will be available over
-                        the next 3 weeks for a verification
+                    <label class="checkbox-inline">
+                        {{ Form::checkbox('terms', 1, false, ['id' => "experience_terms"]) }}
+                        <label for="experience_terms">
+                            <span></span>
+                            I agree that I will be contacted by an ambassador & confirm that I will be available over
+                            the next 3 weeks for a verification
+                        </label>
                     </label>
-                </label>
+                </div>
             </div>
         </div>
     </div>
@@ -48,8 +48,7 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-default hide" value="Save"/>
                     <a href="{{ route('images.edit', ["id" => $experience->id]) }}"
-                       class="btn btn-default pull-right">Back</a>
-                    <span class='inline pull-right'>&nbsp;&nbsp;</span>
+                       class="btn btn-default">Back</a>&nbsp;
                     <input type="submit" class="btn btn-default pull-right" value="Submit"/>
                 </div>
             </div>

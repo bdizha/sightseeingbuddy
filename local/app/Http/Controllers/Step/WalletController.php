@@ -32,7 +32,8 @@ class WalletController extends StepController {
         return view('step.wallet.add', [
             'wallet' => $wallet,
             'links' => $links,
-            'user' => $user
+            'user' => $user,
+            'index' => 3
         ]);
     }
 
@@ -65,7 +66,8 @@ class WalletController extends StepController {
         return view('step.wallet.edit', [
             'wallet' => $wallet,
             'links' => $links,
-            'user' => $user
+            'user' => $user,
+            'index' => 3
         ]);
     }
 

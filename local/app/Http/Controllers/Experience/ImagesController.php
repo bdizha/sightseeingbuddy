@@ -36,6 +36,7 @@ class ImagesController extends ExperienceController
         return view('experience.images.edit', [
             'gallery' => $gallery,
             'experience' => $experience,
+            'index' => 3,
             'links' => $links
         ]);
     }

@@ -4,7 +4,7 @@
         @foreach($links as $key => $link)
             <?php $counter++ ?>
             <li class="item item-level-1 @if ($key == $active)active @endif">
-                <a href="{{ $key !== $active && !empty($disable) ? "javascript:void();" : $link['route'] }}">
+                <a href="{{ !empty($index) && $counter <= $index ? $link['route'] : "javascript:void();" }}">
                     <h2>{{ 'Step ' . ($counter) }}</h2>
                     <span>{{ $link['label'] }}</span>
                 </a>

@@ -11,19 +11,17 @@
                             <i class="fa fa-close bin-close"></i>
                         </div>
                     </div>
+                    <!-- The global progress bar -->
+                    <div id="progress" class="progress">
+                        <div class="progress-bar progress-bar-success"></div>
+                    </div>
 
                     <!-- The fileinput-button span is used to style the file input field as button -->
-                    <span class="btn btn-default">
+                    <div class="btn btn-default btn-image">
                         <span>Upload profile pic</span>
                         <!-- The file input field used as target for the file upload widget -->
                         <input id="fileupload" class="fileupload" bin="cover-image-bin" image-type="single" type="file"
                                name="files[]">
-                    </span>
-                    <br>
-                    <br>
-                    <!-- The global progress bar -->
-                    <div id="progress" class="progress">
-                        <div class="progress-bar progress-bar-success"></div>
                     </div>
 
                     <div class="form-group text-center {{ $errors->has('image') ? 'has-error' : '' }}"
