@@ -10901,6 +10901,7 @@ small a:hover {
   -webkit-padding-start: 0;
 }
 .navbar-nav > li {
+  visibility: hidden;
   margin-bottom: 11px;
 }
 .navbar-nav > li > a {
@@ -12024,6 +12025,15 @@ a.thumbnail:active {
 .nav > li > a:hover {
   text-decoration: none;
   background-color: transparent;
+}
+#become-a-buddy-item {
+  display: none;
+}
+.btn-guest {
+  visibility: hidden;
+}
+.btn-guest-off {
+  display: none;
 }
 .newsletter-alert {
   padding: 15px;

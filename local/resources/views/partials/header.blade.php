@@ -30,7 +30,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img src="/uploads/files/_AUTOx52_crop_center-center/ssb_logo.svg" alt="Sightseeing Buddy" style="height: 67px">
+                        <img src="/uploads/files/_AUTOx52_crop_center-center/ssb_logo.svg" alt="Sightseeing Buddy"
+                             style="height: 67px">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="primaryNav">
@@ -51,14 +52,13 @@
                                 About Us
                             </a>
                         </li>
-                        <li class="
-                            item
-                            item-level-1
-                            ">
-                            <a href="/become-a-buddy">
-                                become a buddy
-                            </a>
-                        </li>
+                        @if (Auth::guest())
+                            <li class="item item-level-1" id="become-a-buddy-item">
+                                <a href="/become-a-buddy">
+                                    become a buddy
+                                </a>
+                            </li>
+                        @endif
                         <li class="
                             item
                             item-level-1

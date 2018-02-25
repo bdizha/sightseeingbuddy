@@ -380,6 +380,20 @@ function HeaderNav() {
             navContainer.append(data);
         });
 
+        $.get("/local/auth/guest", function (data) {
+            if (data.guest) {
+                $("#become-a-buddy-item").show();
+                $(".btn-guest-off").css({display: "inline-block"});
+                $(".btn-guest-on").hide();
+            }
+            else {
+                $(".btn-guest-on").css({display: "inline-block"});
+                $(".btn-guest-off").hide();
+            }
+            $(".nav .item").css({visibility: "visible"});
+            $(".btn-guest").css({visibility: "visible"});
+        }, "json");
+
         var url = $("#url").val();
         if (url === "undefined" || url === undefined) {
             return false;
@@ -404,9 +418,6 @@ function SetCurrency() {
             flag = "za";
         }
 
-        console.log("Setting currency ::::");
-        console.log(flag);
-
         SelectCurrency(flag);
 
         $.get("/local/booking/forex", function (data) {
@@ -417,8 +428,6 @@ function SetCurrency() {
             // convert currency
             ConvertCurrency();
 
-            console.log("Currency rates:::");
-            console.log(currencyRates);
         }, "json");
 
         $(".dropdown .flag-icon").click(function () {
@@ -448,18 +457,9 @@ function CalcDateWidth() {
     $(".datepicker-months .table-condensed").width((dateWidth / 2) - 3).height(dateHeight);
     $(".datepicker-decades .table-condensed").width((dateWidth / 2) - 3).height(dateHeight);
     $(".datepicker-centuries .table-condensed").width((dateWidth / 2) - 3).height(dateHeight);
-
-    console.log("setting width...: " + (dateWidth / 2));
-
-    // setTimeout(function () {
-    //     // CalcDateWidth();
-    // }, 1500);
 }
 
 function ConvertCurrency() {
-
-    console.log("Currency length::::" + _.isEmpty(currencyRates));
-
     if (!_.isEmpty(currencyRates)) {
 
         var currencies = {
@@ -471,11 +471,6 @@ function ConvertCurrency() {
 
         var currency = $("#current_currency").val();
         var currencyRate = currencyRates[currency];
-
-        console.log("current currency:" + currency);
-        console.log(currencyRates);
-
-        console.log("Conversion rate: " + currencyRates[currency]);
 
         $(".data-currency").each(function () {
             var pricing = $(this).attr("data-currency-base");
@@ -554,9 +549,6 @@ function DatePicker() {
             var experienceId = $("#experience-id").val();
             var date = day + " " + monthYear;
 
-            // console.log("datepicker switch: " + monthYear);
-            // console.log("date: " + day);
-
             $(".available-times").attr("date", date);
             $(".times-row").hide();
 
@@ -567,15 +559,12 @@ function DatePicker() {
 
             $.post("/local/booking/times", data)
                 .done(function (html) {
-                    console.log("times html::::");
-                    console.log(html);
 
                     $(".times-row").html(html).show();
 
                     setTimeout(function () {
                         $(".guest-arrow").on("click", function () {
                             var dir = $(this).attr("data-dir");
-                            console.log(dir, "dir");
                             var guests = parseInt($(this).siblings(".guest-amount").html());
 
                             if (dir < 0) {
@@ -602,17 +591,11 @@ function DatePicker() {
             (new BookNow).init();
         });
 
-        $(".table-condensed tr").click(function () {
-            console.log("table-condensed disabled...");
-        });
-
         var dateRangeWidth = 0;
         $(".datetime-input").click(function () {
             $(".datetime-group").css({visibility: "visible", "height": 'auto', overflow: 'hidden'});
 
             CalcDateWidth();
-
-            console.log($(".date-range").width());
         });
 
         $('.date-range').datepicker({

@@ -25,13 +25,7 @@
         {% set dropdownToggle = '' %}
     {% endif %}
 
-    <li class="
-                item
-                item-level-{{ navItem.level }}
-                {{ active }}
-                {{ activeParent }}
-                {{ dropdownClass }}
-            ">
+    <li class="item item-level-{{ navItem.level }} {{ active }} {{ activeParent }} {{ dropdownClass }}" id="{{ navItem.slug }}-item">
         <a href="{{ _self.renderNavItemUri(navItem) }}" {{ dropdownToggle|raw }}>
             {{ navItem.title }}
         </a>

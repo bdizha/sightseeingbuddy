@@ -10,14 +10,16 @@
         <div class="container">
             <div class="hidden-lg hidden-md hidden-sm">
                 <div class="text-center">
-                    <a href="/local/introduction/create" class="btn btn-primary btn-lg">become a buddy</a>
+                    <a href="/local/introduction/create" class="btn btn-primary btn-lg btn-guest btn-guest-off">become a buddy</a>
+                    <a href="/local/info/create" class="btn btn-primary btn-lg btn-guest btn-guest-on">Create an experience</a>
                 </div>
             </div>
             {% set hasArrows = false %}
             <h2 class="text-center section-title"> {{ entry.body.type('text').first().text }}</h2>
             {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(1).panel.first(), hasArrows) }}
             <div class="text-center">
-                <a href="/local/introduction/create" class="btn btn-primary btn-lg">become a buddy</a>
+                <a href="/local/introduction/create" class="btn btn-primary btn-lg btn-guest btn-guest-off">become a buddy</a>
+                <a href="/local/info/create" class="btn btn-primary btn-lg btn-guest btn-guest-on">Create an experience</a>
             </div>
         </div>
     </section>
