@@ -36,7 +36,7 @@ class SendPaymentCancel
             'pricing' => $booking->experience->pricing,
             'local' => $booking->experience->user,
             'from' =>config('mail.FROM_EMAIL'),
-            'subject' => 'Sightseeing Buddy: Booking cancelled'
+            'subject' => 'Successful Cancelled - ' . $booking->reference
         ];
 
         try {

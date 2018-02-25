@@ -30,7 +30,7 @@ class SendGuestWelcome
         $data = [
             'user' => $event->user,
             'from' => config("mail.FROM_EMAIL"),
-            'subject' => 'Welcome to our community'
+            'subject' => 'Welcome to our buddy community'
         ];
 
         try {

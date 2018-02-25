@@ -28,7 +28,7 @@ class SendGuestVerify
         $data = [
             'user' => $event->user,
             'from' => config("mail.FROM_EMAIL"),
-            'subject' => 'Sightseeing Buddy: Please confirm your email'
+            'subject' => 'Profile activation on Sightseeing Buddy'
         ];
 
         try {

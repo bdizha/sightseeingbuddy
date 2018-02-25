@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Events\LocalWelcome;
 use App\User;
 use Session;
 
@@ -24,6 +25,8 @@ class InfoController extends Controller
             if ($verify == "true") {
                 Session::flash('flash_message', 'You\'ve successfully verified this profile!');
                 $user->is_verified = true;
+
+                event(new LocalWelcome($user));
             }
 
             if ($verify === "false") {

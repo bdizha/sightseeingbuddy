@@ -1,4 +1,4 @@
 <b style="font-weight: 500;">
-    Cheers,<br />
+    Thanks,<br />
     Sightseeing Buddy Team
 </b>

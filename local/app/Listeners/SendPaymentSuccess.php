@@ -36,7 +36,7 @@ class SendPaymentSuccess
             'pricing' => $booking->experience->pricing,
             'local' => $booking->experience->user,
             'from' => $booking->experience->user->email,
-            'subject' => 'Sightseeing Buddy: Successful payment'
+            'subject' => 'Successful Payment - ' . $booking->reference
         ];
 
         try {

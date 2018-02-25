@@ -36,6 +36,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\LocalVerify' => [
             'App\Listeners\SendLocalVerify@handle'
         ],
+        'App\Events\AdminVerify' => [
+            'App\Listeners\SendAdminVerify@handle'
+        ],
         'App\Events\LocalResult' => [
             'App\Listeners\SendLocalResult@handle'
         ],

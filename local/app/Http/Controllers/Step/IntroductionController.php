@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Step;
 
 use App\Events\LocalVerify;
-use App\Events\LocalWelcome;
+use App\Events\AdminVerify;
 use App\Http\Controllers\StepController;
 use App\Images\UploadHandler;
 use App\User;
@@ -111,7 +111,7 @@ class IntroductionController extends StepController
         $user->fill($input)->save();
 
         if ($notifyUser) {
-            event(new LocalWelcome($user));
+            event(new AdminVerify($user));
             event(new LocalVerify($user));
         }
 
