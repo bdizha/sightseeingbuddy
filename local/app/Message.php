@@ -73,13 +73,24 @@ class Message extends Model
 
     public function getStatusAttribute()
     {
+        $user = Auth::user();
         $status = "Unread";
-        if ($this->getHasRepliedAttribute()) {
-            $status = "Replied";
-        } else {
-            if ($this->getIsReadAttribute()) {
-                $status = "Read";
+
+        $reply = Self::where("experience_id", "=", $this->experience_id)
+            ->where("is_reply", "=", true)
+            ->first();
+
+        if ($this->getIsReadAttribute()) {
+            $status = "Read";
+        }
+
+        if ($reply) {
+            if ($reply->sender_id === $user->id) {
+                $status = "Replied";
+            } else {
+                $status = "Unread";
             }
+
         }
 
         return $status;
