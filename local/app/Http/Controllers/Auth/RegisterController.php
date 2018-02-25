@@ -31,7 +31,7 @@ class RegisterController extends AuthController
      *
      * @var string
      */
-    protected $redirectTo = '/local/search';
+    protected $redirectTo = '/local/login';
 
     /**
      * Create a new controller instance.
