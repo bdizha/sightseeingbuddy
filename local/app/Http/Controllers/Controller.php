@@ -31,8 +31,16 @@ class Controller extends BaseController
 
     public function guest(Request $request)
     {
+        $authenticated = false;
+        $type = "";
+        if (Auth::check()) {
+            $authenticated = true;
+            $type = Auth::user()->type;
+        }
+
         return json_encode([
-            "guest" => Auth::guest()
+            "authenticated" => $authenticated,
+            "type" => $type
         ]);
     }
 

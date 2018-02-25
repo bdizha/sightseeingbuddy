@@ -37,13 +37,14 @@
                         <td class="mobile-none">{{ str_limit($message->experience->teaser, 50) }}</td>
                         <td class="mobile-none">{{ \Carbon\Carbon::parse($message->created_at)->format("d/m/Y") }}</td>
                         <td>{{ \Carbon\Carbon::parse($message->created_at)->format("H\hi") }}</td>
-                        <td>{{ $message->status }}</td>
+                        <td id="status-{{ $message->id }}">{{ $message->status }}</td>
                         <td>
                             <button class="btn btn-default btn-modal modal-read" data-read-id="{{ $message->id }}"
                                     modal-id="read-modal-{{ $message->id }}">
                                 Read
                             </button>
-                            <button class="btn btn-default btn-modal mobile-none" modal-id="respond-modal-{{ $message->id }}">
+                            <button class="btn btn-default btn-modal mobile-none"
+                                    modal-id="respond-modal-{{ $message->id }}">
                                 Reply
                             </button>
                             @include("message.partials.read", ['message' => $message, 'replies' => $message->replies])
@@ -70,11 +71,10 @@
             $(document).ready(function () {
                 var messageId = {{ $messageId }};
                 $("#message-" + messageId).removeClass("text-bold");
-
                 $("#read-modal-" + messageId).modal("show");
+                $("#status-" + messageId).html("Read");
 
                 $.get("/local/messages/read/" + messageId, function (data) {
-                    console.log("read message");
                 });
             });
         </script>
@@ -89,9 +89,9 @@
         $(".modal-read").click(function () {
             var messageId = $(this).attr("data-read-id");
             $("#message-" + messageId).removeClass("text-bold");
+            $("#status-" + messageId).html("Read");
 
             $.get("/local/messages/read/" + messageId, function (data) {
-                console.log("read message");
             });
         });
     </script>

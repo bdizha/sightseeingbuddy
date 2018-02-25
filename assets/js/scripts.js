@@ -381,14 +381,16 @@ function HeaderNav() {
         });
 
         $.get("/local/auth/guest", function (data) {
-            if (data.guest) {
+            if (!data.authenticated || data.type === "local") {
                 $("#become-a-buddy-item").show();
-                $(".btn-guest-off").css({display: "inline-block"});
-                $(".btn-guest-on").hide();
             }
-            else {
+            if (data.authenticated) {
                 $(".btn-guest-on").css({display: "inline-block"});
                 $(".btn-guest-off").hide();
+            }
+            else {
+                $(".btn-guest-off").css({display: "inline-block"});
+                $(".btn-guest-on").hide();
             }
             $(".nav .item").css({visibility: "visible"});
             $(".btn-guest").css({visibility: "visible"});

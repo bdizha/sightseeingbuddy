@@ -76,21 +76,29 @@ class Message extends Model
         $user = Auth::user();
         $status = "Unread";
 
-        $reply = Self::where("experience_id", "=", $this->experience_id)
-            ->where("is_reply", "=", true)
-            ->first();
+        if ($this->getRepliesAttribute()->count() > 0) {
+            $reply = Self::where("experience_id", "=", $this->experience_id)
+                ->where("is_reply", "=", true)
+                ->orderBy("created_at", "DESC")
+                ->first();
 
-        if ($this->getIsReadAttribute()) {
-            $status = "Read";
-        }
+            if ($reply) {
+                if ($reply->sender_id === $user->id) {
+                    $status = "Replied";
+                } else {
+                    $status = "Unread";
+                }
 
-        if ($reply) {
-            if ($reply->sender_id === $user->id) {
-                $status = "Replied";
-            } else {
-                $status = "Unread";
             }
 
+        } else {
+            if ($this->sender_id === $user->id) {
+                $status = "Sent";
+            }
+        }
+
+        if ($this->getIsReadAttribute() && $status !== "Sent") {
+            $status = "Read";
         }
 
         return $status;

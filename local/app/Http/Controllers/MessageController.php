@@ -102,6 +102,7 @@ class MessageController extends Controller
 
         if (!empty($messageId)) {
             $message = Message::where('id', '=', $messageId)->first();
+            $message->reads = serialize([]);
             $message->save();
         }
 
