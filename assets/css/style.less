@@ -1893,7 +1893,7 @@ small {
           }
         }
         .form-control {
-          font-size: 17px;
+          font-size: 18px;
         }
       }
     }
@@ -1921,14 +1921,15 @@ small {
     position: relative;
     .input-group {
       padding-left: 45px;
-      border-radius: 8px;
+      border-radius: 0;
       border: 1px solid @gray-base;;
       height: 65px;
+      background: @white;
       .form-control {
         border: 1px solid transparent;
         height: 63px;
         font-size: 21px;
-        padding: 6px 15px;
+        padding: 6px 10px;
         &:hover,
         &:focus {
           box-shadow: none;
@@ -2147,7 +2148,7 @@ small {
       text-transform: uppercase;
       font-size: 17px;
       font-weight: 900;
-      border-radius: 3px;
+      border-radius: 0;
       padding: 2px 11px;
       line-height: 25px;
     }
@@ -2716,16 +2717,28 @@ a.thumbnail:hover, a.thumbnail:active {
 // Hidden by default for smaller viewports
 .carousel-caption {
   position: absolute;
-  right: auto;
   bottom: 0;
-  top: 25%;
+  left: 0;
+  top: -140px;
+  right: 0;
   z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  @media (max-width: 1200px) {
+    top: -40px;
+  }
   @media (max-width: @grid-float-breakpoint-max) {
-    top: 20%;
-    left: 0;
+    top: 0;
   }
   .container {
-    height: 100%;
+    margin: auto;
     h1 {
       font-weight: 400;
       font-size: 81px;
@@ -2750,18 +2763,10 @@ a.thumbnail:hover, a.thumbnail:active {
       width: 100%;
       @media (max-width: @grid-float-breakpoint-max) {
         line-height: 20px;
-        padding-top: 0;
         font-size: 20px;
-        margin: 0;
         padding: 15px;
+        margin: 0;
       }
-    }
-  }
-  @media (max-width: @grid-float-breakpoint-max) {
-    top: 35px;
-    // Move up the indicators
-    .carousel-indicators {
-      bottom: 20px;
     }
   }
 }
@@ -3208,7 +3213,6 @@ a.thumbnail:hover, a.thumbnail:active {
             }
           }
         }
-
         > tbody > tr {
           td {
             padding: 2px;
@@ -3228,8 +3232,8 @@ a.thumbnail:hover, a.thumbnail:active {
 
 #search-block {
   position: absolute;
-  top: -180px;
-  width: 100%;
+  top: -260px;
+  margin: 0 -15px;
   .datetime-group {
     width: auto;
     left: -146px;
@@ -3239,12 +3243,22 @@ a.thumbnail:hover, a.thumbnail:active {
     }
   }
   .search-form {
+    display: table;
+    width: 100%;
     .form-group {
-      display: inline-block;
-      margin: 0 43px;
-      width: 200px;
-      height: 65px;
-      float: left;
+      display: table-cell;
+      width: 25%;
+      padding: 0 5px;
+      vertical-align: top;
+      .btn{
+        border-radius: 0;
+      }
+      &:first-child{
+        padding-left: 0;
+      }
+      &:last-child{
+        padding-right: 0;
+      }
       .input-group {
         select {
           .form-control {
@@ -3252,7 +3266,7 @@ a.thumbnail:hover, a.thumbnail:active {
           }
         }
         .form-control {
-          font-size: 17px;
+          font-size: 18px;
         }
       }
     }
@@ -3417,11 +3431,11 @@ a.thumbnail:hover, a.thumbnail:active {
 }
 
 .search-field #search-form .ltr .fullwidth {
-  border-radius: 5px !important;
+  border-radius: 0 !important;
 }
 
 .container.hidden-xs .search-block {
-  margin-left: 44px;
+
 }
 
 .container.hidden-xs .search-block .search-form .form-group .input-group,
@@ -3447,32 +3461,6 @@ a.thumbnail:hover, a.thumbnail:active {
 
 div#newsletter-group input#newsletter_email {
   border-radius: 6px !important;
-}
-
-.container.hidden-xs .search-block div#guests {
-  margin-right: -33px !important;
-}
-
-.container.hidden-xs .search-block button.btn.btn-default.btn-lg.btn-block {
-  margin-left: -76px !important;
-}
-
-.container.hidden-xs .search-block div#guests {
-  margin-left: -32px !important;
-}
-
-.container.hidden-xs .search-block {
-  margin-left: 100px;
-}
-
-@media only screen and (max-width: 500px) {
-  .item.active.slick-slide.slick-current.slick-active .carousel-caption .container h1 {
-    margin-right: 0 !important;
-  }
-
-  .item.active.slick-slide.slick-current.slick-active .carousel-caption .container h2 {
-    margin-left: 1px !important;
-  }
 }
 
 .gray-top-border {
@@ -3501,7 +3489,7 @@ div#newsletter-group input#newsletter_email {
 
 .panel > .panel-body h2 {
   font-size: 24px !important;
-  font-weight: 550 !important;
+  font-weight: 500 !important;
 }
 
 .panel > .panel-body h2:first-child {
