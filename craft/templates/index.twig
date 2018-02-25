@@ -17,7 +17,7 @@
         {%- include "_includes/search.twig" -%}
     </div>
 
-    <section id='trust-items'>
+    <section id="trust-items" class="white-font">
         <div class="container">
             <h2 class="text-center section-title"> {{ entry.body.type('text').first().text }}</h2>
             {% set points = craft.entries.section('points').limit(3) %}
@@ -33,7 +33,7 @@
         </div>
     </section>
 
-    <section id="reviews">
+    <section id="reviews" class="white-font">
         <div class="container">
             <h2 class="text-center section-title">What <b>guests</b> are saying</h2>
             {% set reviews = craft.entries.section('reviews').limit(3) %}

@@ -6,7 +6,7 @@
         {{ templateMacros.renderPanel(entry.body.type('relatedPanel').first().panel.first()) }}
     </div>
 
-    <section id='trust-items'>
+    <section id="trust-items" class="white-font">
         <div class="container">
             <div class="hidden-lg hidden-md hidden-sm">
                 <div class="text-center">
@@ -33,13 +33,13 @@
         </div>
     </section>
 
-    <section id='steps-items'>
+    <section id="steps-items" class="white-font">>
         <div class="container">
             {% set hasArrows = false %}
             <h2 class="text-center section-title"> {{ entry.body.type('text').offsetGet(2).text }}</h2>
             {{ templateMacros.renderPanel(entry.body.type('relatedPanel').offsetGet(3).panel.first(), hasArrows) }}
             <div class="text-center">
-                <a href="/local/introduction/create" class="btn btn-primary btn-lg">
+                <a href="/local/info/create" class="btn btn-primary btn-lg">
                     Create an Experience
                 </a>
             </div>

@@ -20,14 +20,18 @@
 html, body {
   height: 100%;
   background: #E6E6E6;
-  color: @white;
+  color: @gray-base;
   a {
-    color: @white;
+    color: @gray-base;
     &:hover,
     &:focus {
-      color: @white;
+      color: @gray-base;
     }
   }
+}
+
+.white-font {
+  color: @white;
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
@@ -50,7 +54,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 #page {
   &.gray-block {
-    min-height: 630px;
+    //min-height: 630px;
   }
 }
 
@@ -92,6 +96,9 @@ h1, .h1, h2, .h2, h3, .h3 {
 .media-heading {
   a {
     color: @gray-base;
+    &:hover {
+      color: @gray-base;
+    }
   }
 }
 
@@ -641,13 +648,13 @@ form {
         position: absolute;
         right: 0;
         bottom: 0;
-        top: 1px;
-        height: 37px;
+        top: 0px;
+        height: 38px;
         z-index: 999;
         outline: none;
         border-radius: 0;
-        border-bottom-right-radius: 11px;
-        border-top-right-radius: 11px;
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
       }
       .form-control {
         padding-right: 55px;

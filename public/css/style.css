@@ -9091,16 +9091,19 @@ html,
 body {
   height: 100%;
   background: #E6E6E6;
-  color: #FFFFFF;
+  color: #3F3F3F;
 }
 html a,
 body a {
-  color: #FFFFFF;
+  color: #3F3F3F;
 }
 html a:hover,
 body a:hover,
 html a:focus,
 body a:focus {
+  color: #3F3F3F;
+}
+.white-font {
   color: #FFFFFF;
 }
 h1,
@@ -9121,9 +9124,6 @@ h3,
 .gray-block {
   background: #E6E6E6;
   color: #3F3F3F;
-}
-#page.gray-block {
-  min-height: 630px;
 }
 #privacy-policy .panel .panel-body,
 #terms-conditions .panel .panel-body,
@@ -9149,6 +9149,9 @@ h3,
   overflow: hidden;
 }
 .media-heading a {
+  color: #3F3F3F;
+}
+.media-heading a:hover {
   color: #3F3F3F;
 }
 @media (max-width: 592px) {
@@ -9595,13 +9598,13 @@ form .form-group .input-add .btn-add {
   position: absolute;
   right: 0;
   bottom: 0;
-  top: 1px;
-  height: 37px;
+  top: 0px;
+  height: 38px;
   z-index: 999;
   outline: none;
   border-radius: 0;
-  border-bottom-right-radius: 11px;
-  border-top-right-radius: 11px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
 }
 form .form-group .input-add .form-control {
   padding-right: 55px;
