@@ -9,7 +9,6 @@
             @include('email.partials.content', ['text' => "<b>" . $label . "</b>: " . $detail])
         @endforeach
         @include('email.partials.button', ['url' => '/local/profile/' . $user->username . "?verify=yes", 'text' => 'Verify profile'])
-        @include('email.partials.content', ['text' => "Thank you,"])
         </tbody>
     </table>
 @stop

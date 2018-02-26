@@ -12,7 +12,6 @@
         @include('email.partials.content', ['text' => "If there’s anything you need help with, please feel free to contact us."])
         @include('email.partials.button', ['url' => '/local/experience/' . $experience->slug, 'text' => "View Experience"])
         @include('email.partials.content', ['text' => "If there’s anything you need help with, please contact us."])
-        @include('email.partials.content', ['text' => "Good luck,"])
         </tbody>
     </table>
 @stop

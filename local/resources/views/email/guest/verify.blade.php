@@ -5,8 +5,7 @@
         @include('email.partials.greeting', ['name' => $user->first_name])
         @include('email.partials.content', ['text' => "Be ready to be inspired by our unique, fun and hospitable locals."])
         @include('email.partials.content', ['text' => "Activate your profile on Sightseeing Buddy by clicking the button."])
-        @include('email.partials.button', ['url' => route("auth_verify", ['verify_token' => $user->verify_token]), 'text' => 'Click to confirm email'])
-        @include('email.partials.content', ['text' => "Thank you for joining Sightseeing Buddy!"])
+        @include('email.partials.button', ['url' => route("auth_verify", ['verify_token' => $user->verify_token]), 'text' => 'Activate my profile'])
         </tbody>
     </table>
 @stop

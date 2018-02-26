@@ -10,9 +10,7 @@
         @include('email.partials.content', ['text' => "<b>Time</b>: " . $booking->time])
         @include('email.partials.content', ['text' => "<b>Number of guests</b>: " . $pricing->guests])
         @include('email.partials.content', ['text' => "If there’s anything you need help with, please feel free to contact us."])
-        @include('email.partials.button', ['url' => '/local/profile/' . $booking->local->username, 'text' => 'Visit your host\'s profile'])
         @include('email.partials.button', ['url' => '/local/messages?experience_id=' . $booking->experience_id, 'text' => 'Contact host'])
-        @include('email.partials.content', ['text' => "Enjoy your experience,"])
         </tbody>
     </table>
 @stop

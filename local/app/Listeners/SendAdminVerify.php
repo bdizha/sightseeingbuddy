@@ -38,13 +38,13 @@ class SendAdminVerify
         $user = $data['user'];
 
         $data['details'] = [
-            'First name' => $user->first_name,
-            'Last name' => $user->first_name,
+            'First Name' => $user->first_name,
+            'Last Name' => $user->first_name,
             'Email' => $user->email,
             'Gender' => $user->gender,
             'Mobile' => $user->mobile,
             'Telephone' => $user->telephone,
-            'Id number' => $user->id_number,
+            'ID/Passport Number' => $user->id_number,
             'Reason' => $user->reason,
             'Description' => $user->description
         ];
@@ -52,11 +52,11 @@ class SendAdminVerify
         try {
             $this->mailer->send('email.admin.verify', $data, function ($message) use ($data) {
                 $message->to(config("mail.ADMIN_EMAIL"), config("mail.ADMIN_NAME"))
-                    ->bcc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
+                    ->cc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
         } catch (\Exception $e) {
-            dd($e);
+//            dd($e);
         }
     }
 }
