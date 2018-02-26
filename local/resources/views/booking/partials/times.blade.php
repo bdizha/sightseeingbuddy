@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-4 col-xs-4">
             @if(!in_array($time, $bookedTimes))
-                <a data-href="/local/booking/create/{{ $experience->id }}/{{ $time }}{{ empty($timestamp) ? "" : "/" . $timestamp }}" href="/local/booking/create/{{ $experience->id }}/{{ $time }}{{ empty($timestamp) ? "" : "/" . $timestamp }}"
+                <a data-href="/local/booking/create/{{ $experience->id }}/{{ $time }}{{ empty($timestamp) ? "" : "/" . $timestamp }}" href="/local/booking/create/{{ $experience->id }}/{{ $time }}{{ empty($timestamp) ? "" : "/" . $timestamp }}/1"
                    class="btn btn-default pull-right book-now">Book now</a>
             @endif
         </div>
