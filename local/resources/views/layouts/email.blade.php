@@ -20,8 +20,8 @@
         <tr>
         <tr>
             <td align="center" style="padding: 5px 5px 40px;">
-                <table align="center" border="0" cellpadding="0" cellspacing="0" width="600"
-                       style=" background: #f9f9f9;margin: 0px;padding: 20px;width: 600px">
+                <table align="center" border="0" cellpadding="0" cellspacing="0"
+                       style=" background: #f9f9f9;margin: 0px;padding: 20px;max-width: 600px">
                     <tbody>
                     <tr>
                         <td align="center" height="40"
