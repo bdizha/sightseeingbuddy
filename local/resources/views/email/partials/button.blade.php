@@ -1,5 +1,5 @@
 <tr>
-    <td style="padding-top: 20px;padding-bottom: 0;">
+    <td style="padding-top: 10px;padding-bottom: 10px;">
         <!--[if mso]>
         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://litmus.com" style="height:40px;line-height: 40px;v-text-anchor:middle;width:auto;" arcsize="5%" strokecolor="#1a75bb" fillcolor="#1a75bb">
             <w:anchorlock/>
