@@ -5,14 +5,14 @@
             <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
                 <tbody>
                 <tr>
-                    <td style="color:#a7a9ab;font-size:11px;line-height:13px;text-align: center;">
+                    <td style="color:#a7a9ab;font-size:14px;line-height:13px;text-align: center;">
                         You're receiving this
                         email from our secure server at
                         <a href="{{ url('/') }}" style="color:#a7a9ab;text-decoration:none"
                            target="_blank"><span>Sightseeing Buddy</span>.</a></td>
                 </tr>
                 <tr>
-                    <td style="color:#a7a9ab;font-size:11px;line-height:13px;padding-top:20px;text-align: center;">
+                    <td style="color:#a7a9ab;font-size:14px;line-height:13px;padding-top:20px;text-align: center;">
                         <a href="{{ url('/pages/privacy-policy') }}" style="color:#1a75bb;text-decoration:none"
                            target="_blank">Privacy&nbsp;</a>|
                         <a href="{{ url('/pages/terms-conditions') }}" style="color:#1a75bb;text-decoration:none"
@@ -22,7 +22,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="color:#a7a9ab;font-size:11px;line-height:13px;padding-bottom:20px;text-align: center;">
+                    <td style="color:#a7a9ab;font-size:14px;line-height:13px;padding-bottom:20px;text-align: center;">
                         <span>© {{ date('Y') }} </span>
                         <a href="" style="color:#a7a9ab;text-decoration:none" target="_blank">
                             <span style="font-weight: 500;">Sightseeing Buddy</span>
