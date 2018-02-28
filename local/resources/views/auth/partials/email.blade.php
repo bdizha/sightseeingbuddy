@@ -26,7 +26,7 @@
                             <input type="submit" class="btn fullwidth btn-default" value="Send new password link"/>
                         </div>
                         <div class="col-sm-4 col-xs-12">
-                            <a href="{{ url('/login') }}" class="btn-height mt-xs-1">Sign In</a>
+                            <a href="{{ url('/login') }}" class="btn btn-tertiary">Sign In</a>
                         </div>
                     </div>
                 </form>

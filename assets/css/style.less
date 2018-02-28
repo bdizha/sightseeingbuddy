@@ -585,7 +585,7 @@ a {
 
 .form-control {
   background-color: transparent;
-  border-radius: 8px !important;
+  border-radius: 3px !important;
   font-size: 14px;
   color: @gray-base;
 }
@@ -682,7 +682,7 @@ form {
   .redactor-box {
     background: transparent;
     border: 1px solid @gray-base;
-    border-radius: 8px;
+    border-radius: 3px;
     .redactor-toolbar {
       overflow: hidden;
       background: transparent;
@@ -711,7 +711,7 @@ form {
     color: @white;
     position: relative;
     padding: 0 11px;
-    border-radius: 4px;
+    border-radius: 3px;
     margin-bottom: 5px;
     line-height: 25px;
     &:hover,
@@ -2148,7 +2148,7 @@ small {
       text-transform: uppercase;
       font-size: 17px;
       font-weight: 900;
-      border-radius: 0;
+      border-radius: 3px;
       padding: 2px 11px;
       line-height: 25px;
     }
@@ -2361,13 +2361,19 @@ small {
 .btn-tertiary {
   text-transform: uppercase;
   font-size: 16px;
-  line-height: 16px;
   padding: 7px 24px;
   border-radius: 5px;
   background-color: transparent;
-  border-color: @white;
+  border-color: transparent;
   border-width: 2px;
   font-weight: 900;
+  color: @gray-base;
+  &:hover,
+  &:focus {
+    color: @blue;
+    background-color: transparent;
+    border-color: transparent;
+  }
   &.btn-lg {
     padding: 18px 30px;
     font-size: 24px;
@@ -2856,7 +2862,7 @@ a.thumbnail:hover, a.thumbnail:active {
   overflow: hidden;
   height: 10px;
   background-color: transparent;
-  border-radius: 8px;
+  border-radius: 3px;
   box-shadow: none;
 }
 
@@ -3431,7 +3437,7 @@ a.thumbnail:hover, a.thumbnail:active {
 }
 
 .search-field #search-form .ltr .fullwidth {
-  border-radius: 0 !important;
+  border-radius: 3px;
 }
 
 .container.hidden-xs .search-block {

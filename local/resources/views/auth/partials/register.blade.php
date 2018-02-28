@@ -121,7 +121,7 @@
                                    value="Sign Up & @if($currentType == 'local') become a buddy @else find a buddy @endif "/>
                         </div>
                         <div class="col-sm-5 col-xs-12">
-                            <a href="{{ route('login') }}" class="btn-height">Already have an account?</a>
+                            <a href="{{ route('login') }}" class="btn btn-tertiary">Already have an account?</a>
                         </div>
                     </div>
                 </form>

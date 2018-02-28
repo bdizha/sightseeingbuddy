@@ -6357,7 +6357,7 @@ button.close {
   margin: 1px;
   text-indent: -999px;
   border: 1px solid #fff;
-  border-radius: 8px;
+  border-radius: 3px;
   cursor: pointer;
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);
@@ -8937,7 +8937,7 @@ textarea.parsley-error {
   padding: 5px 15px;
   margin: 10px 0 20px;
   border: 1px solid #ebccd1;
-  border-radius: 4px;
+  border-radius: 3px;
   list-style-type: none;
   opacity: 0;
 }
@@ -9544,7 +9544,7 @@ a:hover {
 }
 .form-control {
   background-color: transparent;
-  border-radius: 8px !important;
+  border-radius: 3px !important;
   font-size: 14px;
   color: #3F3F3F;
 }
@@ -9623,7 +9623,7 @@ form .panel-body {
 .container .redactor-box {
   background: transparent;
   border: 1px solid #3F3F3F;
-  border-radius: 8px;
+  border-radius: 3px;
 }
 .container .redactor-box .redactor-toolbar {
   overflow: hidden;
@@ -9649,7 +9649,7 @@ form .panel-body {
   color: #FFFFFF;
   position: relative;
   padding: 0 11px;
-  border-radius: 4px;
+  border-radius: 3px;
   margin-bottom: 5px;
   line-height: 25px;
 }
@@ -10919,7 +10919,7 @@ small a:hover {
   text-transform: uppercase;
   font-size: 17px;
   font-weight: 900;
-  border-radius: 0;
+  border-radius: 3px;
   padding: 2px 11px;
   line-height: 25px;
 }
@@ -11095,13 +11095,19 @@ small a:hover {
 .btn-tertiary {
   text-transform: uppercase;
   font-size: 16px;
-  line-height: 16px;
   padding: 7px 24px;
   border-radius: 5px;
   background-color: transparent;
-  border-color: #FFFFFF;
+  border-color: transparent;
   border-width: 2px;
   font-weight: 900;
+  color: #3F3F3F;
+}
+.btn-tertiary:hover,
+.btn-tertiary:focus {
+  color: #1a75bb;
+  background-color: transparent;
+  border-color: transparent;
 }
 .btn-tertiary.btn-lg {
   padding: 18px 30px;
@@ -11569,7 +11575,7 @@ a.thumbnail:active {
   overflow: hidden;
   height: 10px;
   background-color: transparent;
-  border-radius: 8px;
+  border-radius: 3px;
   box-shadow: none;
 }
 .datepicker table tr td.active.active.focus,
@@ -12105,7 +12111,7 @@ a.thumbnail:active {
   width: 100% !important;
 }
 .search-field #search-form .ltr .fullwidth {
-  border-radius: 0 !important;
+  border-radius: 3px;
 }
 .container.hidden-xs .search-block .search-form .form-group .input-group,
 .container.search-xs .search-block .search-form .form-group .input-group {
