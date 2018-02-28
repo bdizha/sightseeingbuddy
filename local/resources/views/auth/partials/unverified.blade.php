@@ -9,8 +9,9 @@
                         Thank you for signing up to Sightseeing Buddy to become a host in your city. We are busy reviewing your profile and will be in contact with you in order to complete the verification process.
                     </p>
                 @else
-                    <p>An email has been sent to the address provided containing a link to verify your email
-                        address. Activate your profile on Sightseeing Buddy by clicking the button below.</p>
+                    <p>
+                        Verification has been sent to your email address. Activate your profile by clicking on the button in the email.
+                    </p>
                     <p><a href="{{ url('/local/auth/again', $userId) }}">Click here to resend verification link.</a></p>
                 @endif
             </div>

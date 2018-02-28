@@ -13,23 +13,24 @@
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    How to find your local Buddy?
+                    How to find your local?
                 </div>
                 <div class="panel-body">
                     <ul class="text-gray">
                         <li>
-                            <p>Browse
-                                through our extensive list of host buddies, and choose the buddy that best suits your
-                                needs.
+                            <p>
+                                Browse through our extensive list of locals and choose the local that best suits your needs.
                             </p>
                         </li>
                         <li>
-                            <p>Get
-                                chatting with your host buddy, and start planning your trip to Cape Town.
+                            <p>
+                                Get chatting with your local and start planning your trip to one of the top traveler destinations around the world.
                             </p>
                         </li>
                         <li>
-                            <p>Arrive and enjoy your tailor-made experience the local way. &nbsp;&nbsp;</p>
+                            <p>
+                                Arrive and enjoy your tailor-made experience the local way.
+                            </p>
                         </li>
                     </ul>
                 </div>

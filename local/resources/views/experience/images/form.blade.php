@@ -9,10 +9,7 @@
                     {!! csrf_field() !!}
                     {{ Form::hidden('experience_id', $experience->id) }}
                     <p>
-                        Upload a cover photo size to be supplied by Sergio. This is where you want to impress and
-                        entice your audience, make sure it sums up your experience. The cover photo will be
-                        displayed in the
-                        search results when guests are still undecided, make them choose you!
+                        "A picture is worth a thousand words"- this is part of the experience where you want to impress and entice the guest to select you as their local. Please ensure the cover photo and gallery images sums up the experience offered.
                     </p>
                     <p>
                         Upload 1 - 3 gallery photos. This will be displayed in your local gallery.

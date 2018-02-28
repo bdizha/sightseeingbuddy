@@ -7,13 +7,10 @@
             <div class="panel-body">
                 {!! csrf_field() !!}
                 <p>
-                    Did you forget to tell us about The Big Five roaming around in your backyard? Your
-                    mouth-watering menu? Your guests won’t be happy! Go back and change it if you’re not 100%
-                    satisfied.
+                    Did you forget to tell us about the "Big Five" roaming around in your backyard? Or the mouth-watering barbeque with friends? Your guests will love to hear about this. Go back and change your experience if you are not 100% satisfied.
                 </p>
                 <p>
-                    We guarantee a safe and worry-free experience. Our team will contact you within the next 3 days
-                    to verify your profile and experience submitted.
+                    We guarantee a safe and worry free experience. Our team will be in contact with you to verify your experience submitted.
                 </p>
             </div>
         </div>
@@ -34,8 +31,7 @@
                         {{ Form::checkbox('terms', 1, false, ['id' => "experience_terms"]) }}
                         <label for="experience_terms">
                             <span></span>
-                            I agree that I will be contacted by an ambassador & confirm that I will be available over
-                            the next 3 weeks for a verification
+                            I hereby agree that I will be contacted by a Sightseeing Buddy ambassador and hereby confirm that I will be available over the next 3 weeks for a full verification.
                         </label>
                     </label>
                 </div>
