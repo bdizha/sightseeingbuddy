@@ -20,9 +20,9 @@
   text-decoration: none;
   width: 50px;
   background-color: #eee;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px; }
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
 
 .sharrre .share {
   color: #FFFFFF;
@@ -36,9 +36,9 @@
   text-decoration: none;
   width: 50px;
   background-color: #9CCE39;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px; }
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
 
 .sharrre .buttons {
   width: 300px; }

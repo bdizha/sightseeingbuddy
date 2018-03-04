@@ -16,23 +16,38 @@
                     How to find your local?
                 </div>
                 <div class="panel-body">
-                    <ul class="text-gray">
-                        <li>
-                            <p>
-                                Browse through our extensive list of locals and choose the local that best suits your needs.
+                    <div class="row steps-block mt-1 mb-1">
+                        <div class="step col-sm-4 col-xs-12">
+                            <figure class="step-figure" style="background-image: url(/uploads/files/_AUTOx160_crop_center-center_80/SSB_Assets_GlobalAsset-6.svg)"></figure>
+                            <h3 class="text-bold text-center">
+                                <span class="sub-heading">1. Find </span>
+                            </h3>
+                            <p class="text-center text-light">
+                                Browse through our extensive list of hosts, and choose the host that best suits your needs
                             </p>
-                        </li>
-                        <li>
-                            <p>
-                                Get chatting with your local and start planning your trip to one of the top traveler destinations around the world.
+                            <div class="step-arrow"></div>
+                        </div>
+                        <div class="step col-sm-4 col-xs-12">
+                            <figure class="step-figure" style="background-image: url(/uploads/files/_AUTOx160_crop_center-center_80/SSB_Assets_GlobalAsset-7.svg)"></figure>
+                            <h3 class="text-bold text-center">
+                                <span class="sub-heading">2. Book</span>
+                            </h3>
+                            <p class="text-center text-light">
+                                Get chatting with your host, and start planning your trip
                             </p>
-                        </li>
-                        <li>
-                            <p>
-                                Arrive and enjoy your tailor-made experience the local way.
+                            <div class="step-arrow"></div>
+                        </div>
+                        <div class="step col-sm-4 col-xs-12">
+                            <figure class="step-figure" style="background-image: url(/uploads/files/_AUTOx160_crop_center-center_80/SSB_Assets_GlobalAsset-8.svg)"></figure>
+                            <h3 class="text-bold text-center">
+                                <span class="sub-heading">3. Enjoy</span>
+                            </h3>
+                            <p class="text-center text-light">
+                                Arrive and enjoy your tailor-made experience the local way
                             </p>
-                        </li>
-                    </ul>
+                            <div class="step-arrow"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="gray-bottom-border mb-1"></div>
@@ -98,7 +113,7 @@
                         <button type="submit" class="btn btn-default btn-lg btn-block">Go</button>
                     </div>
                     <div class="form-group">
-                        <a href="/local/search?all=true" class="btn btn-tertiary btn-lg btn-block">BROWSE ALL</a>
+                        <a href="/local/search?all=true" class="btn btn-default btn-lg btn-block">BROWSE ALL</a>
                     </div>
                     <!--<a href="#" class="btn btn-default btn-lg btn-block" id="advanced-search">ADVANCED SEARCH</a>-->
                 </div>

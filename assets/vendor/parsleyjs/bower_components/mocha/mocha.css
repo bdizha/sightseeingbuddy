@@ -152,11 +152,11 @@ body {
   max-height: 300px;
   word-wrap: break-word;
   border-bottom-color: #ddd;
-  -webkit-border-radius: 3px;
+  -webkit-border-radius: 5px;
   -webkit-box-shadow: 0 1px 3px #eee;
-  -moz-border-radius: 3px;
+  -moz-border-radius: 5px;
   -moz-box-shadow: 0 1px 3px #eee;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 #mocha .test .html-error pre.error {
@@ -188,11 +188,11 @@ body {
   max-width: calc(100% - 42px); /*(2)*/
   word-wrap: break-word;
   border-bottom-color: #ddd;
-  -webkit-border-radius: 3px;
+  -webkit-border-radius: 5px;
   -webkit-box-shadow: 0 1px 3px #eee;
-  -moz-border-radius: 3px;
+  -moz-border-radius: 5px;
   -moz-box-shadow: 0 1px 3px #eee;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 #mocha .test h2 {

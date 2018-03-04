@@ -6357,7 +6357,7 @@ button.close {
   margin: 1px;
   text-indent: -999px;
   border: 1px solid #fff;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);
@@ -8937,7 +8937,7 @@ textarea.parsley-error {
   padding: 5px 15px;
   margin: 10px 0 20px;
   border: 1px solid #ebccd1;
-  border-radius: 3px;
+  border-radius: 5px;
   list-style-type: none;
   opacity: 0;
 }
@@ -9544,7 +9544,7 @@ a:hover {
 }
 .form-control {
   background-color: transparent;
-  border-radius: 3px !important;
+  border-radius: 5px !important;
   font-size: 14px;
   color: #3F3F3F;
 }
@@ -9623,7 +9623,7 @@ form .panel-body {
 .container .redactor-box {
   background: transparent;
   border: 1px solid #3F3F3F;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .container .redactor-box .redactor-toolbar {
   overflow: hidden;
@@ -9649,7 +9649,7 @@ form .panel-body {
   color: #FFFFFF;
   position: relative;
   padding: 0 11px;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-bottom: 5px;
   line-height: 25px;
 }
@@ -9841,7 +9841,7 @@ section #sidebar h2 {
 #steps-items .step:nth-child(1) .step-arrow,
 #trust-items .step:nth-child(2) .step-arrow,
 #steps-items .step:nth-child(2) .step-arrow {
-  display: none;
+  background: url(/images/right_arrow_white.svg) no-repeat;
 }
 #page .steps-block figure {
   width: 100px;
@@ -10179,12 +10179,30 @@ section #sidebar h2 {
   position: absolute;
   top: 20px;
   left: 20px;
+  z-index: 9;
 }
 #page .search-list .media .rating-box .star {
   background-image: url(/images/star-white.svg);
 }
 #page .search-list .media .rating-box .star-filled {
   background-image: url(/images/star-filled-white.svg);
+}
+#page .search-list .media .media-top a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#page .search-list .media .media-top a .media-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+#page .search-list .media:hover .media-top a .media-overlay {
+  background: rgba(0, 0, 0, 0);
 }
 #page .search-list .media .media-object {
   width: 100%;
@@ -10634,9 +10652,9 @@ small a:hover {
   padding: 7px 24px;
   border-radius: 5px;
   display: inline-block;
-  background-color: #FFFFFF;
-  border-color: #1a75bb;
-  color: #1a75bb;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3F3F3F;
   width: 100%;
   text-align: center;
 }
@@ -10706,7 +10724,7 @@ small a:hover {
 }
 .search-form .form-group .input-group {
   padding-left: 45px;
-  border-radius: 0;
+  border-radius: 5px;
   border: 1px solid #3F3F3F;
   height: 65px;
   background: #FFFFFF;
@@ -10919,7 +10937,7 @@ small a:hover {
   text-transform: uppercase;
   font-size: 17px;
   font-weight: 900;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 2px 11px;
   line-height: 25px;
 }
@@ -11024,8 +11042,24 @@ small a:hover {
   position: relative;
   margin: 15px auto 30px;
 }
+.carousel-inner .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.carousel-inner:hover .overlay {
+  background: rgba(0, 0, 0, 0);
+}
 .carousel-caption h1 {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
+}
+@media (min-width: 992px) {
+  .carousel-caption {
+    padding-bottom: 0;
+  }
 }
 .page- .carousel-caption h1 {
   margin-top: -15px;
@@ -11569,7 +11603,7 @@ a.thumbnail:active {
   overflow: hidden;
   height: 10px;
   background-color: transparent;
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: none;
 }
 .datepicker table tr td.active.active.focus,
@@ -11958,7 +11992,7 @@ a.thumbnail:active {
   vertical-align: top;
 }
 #search-block .search-form .form-group .btn {
-  border-radius: 0;
+  border-color: #FFFFFF;
 }
 #search-block .search-form .form-group:first-child {
   padding-left: 0;
@@ -12105,16 +12139,12 @@ a.thumbnail:active {
   width: 100% !important;
 }
 .search-field #search-form .ltr .fullwidth {
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .container.hidden-xs .search-block .search-form .form-group .input-group,
 .container.search-xs .search-block .search-form .form-group .input-group {
   background: #FFFFFF;
   border: 1px solid white;
-}
-#trust-items .container .points-block .point:nth-child(1) .point-arrow,
-.points-block .point:nth-child(2) .point-arrow {
-  display: none;
 }
 .container .redactor-styles {
   font-family: "Roboto", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
