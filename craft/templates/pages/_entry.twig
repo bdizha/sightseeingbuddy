@@ -23,23 +23,7 @@
                         </div>
                         <div class="panel-body">
                             {{ templateMacros.renderBody(entry.body, guestEntry) }}
-                            {% if entry.slug == "security" %}
-                                <div class="col-xs-12">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-xs-12 text-center">
-                                            <img src="/images/security.jpg" alt="" class="page-image"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% elseif entry.slug == "reviews-ratings" %}
-                                <div class="col-xs-12">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-xs-12 text-center">
-                                            <img src="/images/reviews-1.jpg" alt="" class="page-half-image">
-                                        </div>
-                                    </div>
-                                </div>
-                            {% elseif entry.slug == "finding-a-buddy" %}
+                            {% if entry.slug == "finding-a-buddy" %}
                                 <div class="col-xs-12">
                                     <div class="row mt-2">
                                         <div class="col-sm-12 col-xs-12 text-center">

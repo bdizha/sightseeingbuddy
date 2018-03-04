@@ -917,6 +917,23 @@ section {
   }
 }
 
+@media (min-width: 400px) {
+  .article-image.align-left, .article-image.align-right {
+    max-width: 100%;
+    float: none;
+  }
+}
+
+.thumbnail {
+  background: transparent;
+  border: none;
+  > img,
+  a > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 #page {
   .steps-block {
     figure {
