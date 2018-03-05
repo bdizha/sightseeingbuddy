@@ -37,7 +37,7 @@ class SendPaymentCancel
             'pricing' => $booking->experience->pricing,
             'local' => $booking->experience->user,
             'meetingPoint' => $experience->street_address . ", " . $experience->postal_code . ", " . $experience->city->name . ", " . $experience->country->name,
-            'total' => 'R' . number_format(sprintf("%.2f", $booking->total), 2, '.', ''),
+            'total' => 'R' . number_format(sprintf("%.2f", $booking->amount), 2, '.', ''),
             'from' => config('mail.FROM_EMAIL'),
             'subject' => 'Successful Cancellation - ' . $booking->reference
         ];
