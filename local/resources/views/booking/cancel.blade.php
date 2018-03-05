@@ -8,7 +8,7 @@
         <div class="container gray-block mt-1">
             <div class="gray-bottom-border mt-3"></div>
             <div class='row'>
-                <div class="col-sm-12 col-xs-12 mt-1 mb-1">
+                <div class="col-sm-12 col-xs-12 mt-1 mb-1 text-center">
                     Thank you for booking online with SightseeingBuddy. We look forward to you booking again with us soon.
                     <p>
                         Your refund (less cancellation/administration charges) will be made to the payment card used to make the booking.

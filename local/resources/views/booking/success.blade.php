@@ -8,7 +8,7 @@
         <div class="container gray-block mt-1">
             <div class="gray-bottom-border mt-3"></div>
             <div class='row'>
-                <div class="col-sm-12 col-xs-12 mt-1 mb-1">
+                <div class="col-sm-12 col-xs-12 mt-1 mb-1 text-center">
                     Thank you for your payment for Sightseeing Buddy experience. We've received your experience request and will soon be in touch with you.
                 </div>
             </div>

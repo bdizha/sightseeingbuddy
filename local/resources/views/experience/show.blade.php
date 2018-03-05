@@ -92,6 +92,8 @@
                             <label>{{ "Meeting point:" }}</label>
                         </div>
                         <div class="col-sm-6 col-xs-6">
+                            {{ $experience->street_address }},
+                            {{ $experience->postal_code }},
                             {{ $experience->city->name }},
                             {{ $experience->country->name }}
                         </div>
@@ -162,8 +164,8 @@
             </div>
 
             <div class="row" id="reviews">
-                <div class="col-xs-12 col-sm-6">
-                    @foreach($reviews as $review)
+                @foreach($reviews as $review)
+                    <div class="col-xs-6 col-sm-6">
                         <article class="media media-responsive">
                             <div class="media-top pull-top">
                                 <div class="rating-box">
@@ -183,8 +185,8 @@
                                 {{ $review->content }}
                             </div>
                         </article>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
             @if($reviews->count() === 0)
                 <div>No reviews found.</div>
@@ -350,6 +352,7 @@
             settings.success = function () {
                 $("#review-form, #review-modal .modal-footer").hide();
                 $("#thank-you").addClass('active');
+                $(".modal-body").addClass('text-center');
 
                 setTimeout(function () {
                     location.reload();

@@ -40,7 +40,7 @@
                         @if ($errors->has('guests'))
                             <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
                         @endif
-                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'id' => 'guests','required' => true, 'placeholder' => 'Maximum number of guests*']) }}
+                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'id' => 'guests','required' => true, 'tabindex' => 3, 'placeholder' => 'Maximum number of guests*']) }}
                     </div>
                 </div>
                 <div class='row'>
@@ -85,7 +85,7 @@
                         @foreach(Helper::days() as $key => $day)
                             <div class="schedule-item">
                                 <label class="checkbox-inline">
-                                    {{ Form::checkbox('days[]', $key, in_array($key, $experience->days), ['id' => "days_" . $key]) }}
+                                    {{ Form::checkbox('days[]', $key, in_array($key, $experience->days), ['id' => "days_" . $key, 'tabindex' => 3 + $key]) }}
                                     <label for="{{ "days_" . $key }}">
                                         <span></span>
                                         {{ $day }}

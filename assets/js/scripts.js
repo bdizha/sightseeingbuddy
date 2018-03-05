@@ -293,22 +293,20 @@ function setPricing() {
     var rate = 0.2;
     this.init = function () {
 
-        if ($("#per_person").length > 0 && $("#pricing_persons").length > 0) {
-            console.log("setting new pricings");
-            var persons = $("#pricing_persons").attr("data-pricing-persons");
-            var perPerson = $("#per_person").val().replace("R", "");
-            var pricingTotal = parseFloat(perPerson) * parseFloat(persons);
-            var pricingCommission = pricingTotal * rate;
-            var pricingLocalFee = pricingTotal - pricingCommission;
+        var $perPerson = $("#per_person");
+        var $pricingPersons = $("#pricing_persons");
 
-            $('#pricing_total').html("R" + pricingTotal.toFixed(2));
+        if ($perPerson.length > 0 && $pricingPersons.length > 0) {
+            var persons = $pricingPersons.attr("data-pricing-persons");
+            var perPerson = $perPerson.val().replace("R", "");
+            var pricingLocalFee = parseFloat(perPerson) * parseFloat(persons);
+            var pricingCommission = pricingLocalFee * rate;
+            var totalPricing = pricingLocalFee + pricingCommission;
+
+            $('#pricing_total').html("R" + totalPricing.toFixed(2));
             $('#pricing_commission').html("R" + pricingCommission.toFixed(2));
             $('#pricing_local_fee').html("R" + pricingLocalFee.toFixed(2));
-            $("#per_person").val('R' + perPerson);
-
-            console.log("pricingTotal: " + pricingTotal.toFixed(2));
-            console.log("pricingCommission: " + pricingCommission.toFixed(2));
-            console.log("pricingLocalFee: " + pricingLocalFee.toFixed(2));
+            $perPerson.val('R' + perPerson);
         }
     };
 }
@@ -568,6 +566,7 @@ function DatePicker() {
                         $(".guest-arrow").on("click", function () {
                             var dir = $(this).attr("data-dir");
                             var guests = parseInt($(this).siblings(".guest-amount").html());
+                            var experienceGuests = parseInt($("#experience-guests").val());
 
                             if (dir < 0) {
                                 if (guests > 1) {
@@ -575,6 +574,18 @@ function DatePicker() {
                                 }
                             } else {
                                 guests += 1;
+                            }
+
+                            console.log("experienceGuests", experienceGuests);
+
+                            if (guests > experienceGuests) {
+                                return false;
+                            }
+                            else {
+                                if (guests === experienceGuests) {
+                                    $(this).parent().children(".arrow-top").hide();
+                                }
+                                $(this).siblings(".arrow-top").show();
                             }
 
                             $(this).siblings(".guest-amount").html(guests);

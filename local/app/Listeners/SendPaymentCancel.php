@@ -29,13 +29,16 @@ class SendPaymentCancel
     public function handle(PaymentCancel $event)
     {
         $booking = $event->booking;
+        $experience = $booking->experience;
         $data = [
             'booking' => $booking,
             'user' => $booking->user,
-            'experience' => $booking->experience,
+            'experience' => $experience,
             'pricing' => $booking->experience->pricing,
             'local' => $booking->experience->user,
-            'from' =>config('mail.FROM_EMAIL'),
+            'meetingPoint' => $experience->street_address . ", " . $experience->postal_code . ", " . $experience->city->name . ", " . $experience->country->name,
+            'total' => 'R' . number_format(sprintf("%.2f", $booking->total), 2, '.', ''),
+            'from' => config('mail.FROM_EMAIL'),
             'subject' => 'Successful Cancellation - ' . $booking->reference
         ];
 

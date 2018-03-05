@@ -85,7 +85,7 @@ class Experience extends Model {
      * Get the reviews.
      */
     public function reviews() {
-        return $this->hasMany('App\Review', 'experience_id', 'id');
+        return $this->hasMany('App\Review', 'experience_id', 'id')->orderBy("created_at", "DESC");
     }
 
     /**

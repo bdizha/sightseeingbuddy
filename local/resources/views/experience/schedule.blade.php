@@ -46,6 +46,7 @@
             </div>
         </div>
         <input type="hidden" value="{{ $experience->id }}" id="experience-id"/>
+        <input type="hidden" value="{{ $experience->pricing->guests }}" id="experience-guests"/>
 
         @include('experience.partials.availability')
     </section>

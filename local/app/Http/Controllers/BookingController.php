@@ -121,11 +121,13 @@ class BookingController extends Controller
 
         $date = date("Y-m-d", $timestamp);
 
+        $total = number_format($guests * str_replace("R", "", $pricing->per_person), 2, '.', '');
+
         $booking = new Booking();
         $booking->user_id = $user->id;
         $booking->local_id = $experience->user->id;
         $booking->experience_id = $id;
-        $booking->amount = $experience->total;
+        $booking->amount = $total;
         $booking->pricing_id = $pricing->id;
         $booking->schedule_id = 4;
         $booking->reference = $reference;
@@ -148,7 +150,7 @@ class BookingController extends Controller
             'email_address' => $user->email,
             // Transaction details
             'm_payment_id' => $reference, // Unique payment ID to pass through to notify_url
-            'amount' => number_format(sprintf("%.2f", $experience->total), 2, '.', ''),  // Amount needs to be in ZAR,if you have a multicurrency system, the conversion needs to place before building this array
+            'amount' => number_format(sprintf("%.2f", $total), 2, '.', ''),  // Amount needs to be in ZAR,if you have a multicurrency system, the conversion needs to place before building this array
             'item_name' => $experience->teaser,
             'item_description' => $experience->teaser
         );
@@ -176,14 +178,11 @@ class BookingController extends Controller
 
         $request->session()->set('reference', $booking->reference);
 
-        $pricingPerPerson = $experience->pricing->per_person;
-        $pricingPerPerson = str_replace("R", "", $pricingPerPerson);
-
         return view('booking.add', [
             'experience' => $experience,
             'user' => Auth::user(),
             'time' => $time,
-            'total' => $pricingPerPerson * $guests,
+            'total' => $total,
             'guests' => $guests,
             'date' => $date,
             'data' => $data,
