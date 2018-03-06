@@ -76,7 +76,7 @@ class RegisterController extends AuthController
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'mobile' => 'required|max:255|unique:users',
+            'mobile' => 'required|max:20',
             'password' => 'required|min:6|confirmed',
             'country_id' => 'required',
             'type' => 'required',

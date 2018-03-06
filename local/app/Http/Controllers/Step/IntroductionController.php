@@ -85,13 +85,13 @@ class IntroductionController extends StepController
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'mobile' => 'required|max:255|unique:users,mobile,' . $user->id,
+            'mobile' => 'required|max:20',
             'password' => 'required|min:6|confirmed',
             'image' => 'required',
             'type' => 'required',
             'gender' => 'required',
             'id_number' => 'required',
-            'telephone' => 'max:255',
+            'telephone' => 'max:20',
             'reason' => 'required',
             'description' => 'required'
         ];
