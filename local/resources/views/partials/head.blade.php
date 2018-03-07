@@ -34,5 +34,4 @@
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" type="text/css" href="/cpresources/lib/redactor/redactor.css?d=1491941552">
 </head>

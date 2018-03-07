@@ -114,10 +114,10 @@ gulp.task('clean', function () {
 
 //  Grouped Functions
 gulp.task('copy-misc', function () {
-    
+
   gulp.src(BOWER_PATH + '/roboto-fontface/fonts/*/*')
     .pipe(gulp.dest(BUILD_PATH + '/css/fonts'));
-    
+
   gulp.src(BOWER_PATH + '/slick-carousel/slick/fonts/*')
     .pipe(gulp.dest(BUILD_PATH + '/css/fonts'));
 
@@ -127,7 +127,9 @@ gulp.task('copy-misc', function () {
   gulp.src([
       BOWER_PATH + '/picturefill/dist/picturefill.min.js',
       BOWER_PATH + '/html5shiv/dist/html5shiv.min.js',
-      BOWER_PATH + '/respond/dest/respond.min.js'
+      BOWER_PATH + '/respond/dest/respond.min.js',
+      './bower_components/underscore/underscore-min.js',
+      './node_modules/underscore.string/dist/underscore.string.min.js',
     ])
     .pipe(gulp.dest(BUILD_PATH + '/js'));
 });

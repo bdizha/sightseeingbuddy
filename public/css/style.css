@@ -9143,13 +9143,15 @@ textarea.parsley-error {
   font-size: 30px;
   line-height: 30px;
   padding: 10px;
-  background: #1a75bb;
+  background: transparent;
   color: #FFFFFF;
   z-index: 999;
   transition: opacity .3s 0s, visibility 0s .3s;
-}
-.scroll-to-top .fa {
-  color: #FFFFFF;
+  width: 50px;
+  height: 50px;
+  background-image: url(/images/scroll-top.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 .scroll-to-top.visible {
   visibility: visible;
@@ -9665,7 +9667,7 @@ form .input-group .control-label {
 }
 form .input-group textarea {
   resize: vertical;
-  min-height: 300px;
+  min-height: 150px;
 }
 form .input-group .form-control {
   background-color: transparent;
@@ -12164,18 +12166,25 @@ a.thumbnail:active {
   background: rgba(0, 0, 0, 0.35);
 }
 .modal-content .modal-header {
-  padding: 10px 15px;
+  padding: 15px 30px;
   text-align: center;
   text-transform: uppercase;
   background-color: #1a75bb;
 }
 .modal-content .modal-header .modal-title {
   color: #FFFFFF;
+  font-size: 18px;
 }
 .modal-content .modal-header .close {
   font-size: 36px;
   font-weight: bold;
   line-height: 36px;
+  margin-top: -6px;
+}
+.modal-content .modal-body textarea {
+  width: 100%;
+  padding: 15px;
+  min-height: 150px;
 }
 .modal-content .modal-body .available-times {
   padding: 15px;

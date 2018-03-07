@@ -38,7 +38,9 @@
                             <button class="btn btn-default btn-modal" modal-id="booking-modal-{{ $booking->id }}">View
                             </button>
                             @if($booking->status !== 'pending')
-                                <button class="btn btn-danger btn-modal" modal-id="cancel-modal-{{ $booking->id }}">Cancel</button>
+                                <button class="btn btn-danger btn-modal" modal-id="cancel-modal-{{ $booking->id }}">
+                                    Cancel
+                                </button>
                             @endif
                             @include("booking.partials.cancel", ['booking' => $booking])
                             @include('booking.partials.history', ['booking' => $booking, 'experience' => $booking->experience, 'user' => $booking->user])
@@ -58,4 +60,28 @@
             </table>
         </div>
     </section>
+    <script type="text/javascript">
+        $(".btn-reason").click(function () {
+            var bookingId = $(this).attr("data-id");
+            $("#cancel-modal-" + bookingId).modal("hide");
+            $("#reason-modal-" + bookingId).modal("show");
+            console.log("reasoning ...", bookingId);
+        });
+
+        $(".btn-cancel").click(function () {
+            var bookingId = $(this).attr("data-id");
+            var reason = $("#reason-" + bookingId).val();
+            var reference = $("#reference-" + bookingId).val();
+            console.log("reason", reason);
+            console.log("reference", reference);
+            console.log("reason.length", reason.length);
+
+            window.location = "/local/booking/cancel?reference=" + reference + "&reason=" + encodeURI(reason);
+            console.log("empty ...", bookingId);
+        });
+
+        @if(Request::has('error') && Request::has('booking_id'))
+            $("#reason-modal-{{ Request::get('booking_id') }}").modal("show");
+        @endif
+    </script>
 @endsection

@@ -17,8 +17,7 @@
                         <div class="col-sm-6 col-xs-12">
                             <div class="row">
                                 <div class="panel panel-default">
-                                    @if(Request::isMethod('post'))
-                                    @else
+                                    @if(!Request::isMethod('post'))
                                         <div class="panel-heading">
                                             Find my booking
                                         </div>

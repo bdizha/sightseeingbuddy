@@ -83,7 +83,8 @@ class BookingController extends Controller
 
         if (strpos($request->headers->get('referer'), 'manage') !== false
             && $request->has('reference')
-            && $request->has('surname')) {
+            && $request->has('surname')
+        ) {
             $bookingsQuery->with('user');
             $bookingsQuery->where('reference', str_replace("#", "", $values['reference']));
 
@@ -411,15 +412,22 @@ class BookingController extends Controller
     public function cancel(Request $request)
     {
         $reference = $request->get('reference');
+        $reason = $request->get('reason', null);
+        $reason = trim($reason);
+
+        $user = Auth::user();
+        $booking = Booking::where('reference', '=', $reference)->first();
+
+        if ($request->exists("reason") && empty($reason)) {
+            return redirect("/local/bookings?error=reason&booking_id=" . $booking->id);
+        }
 
         if (empty($reference)) {
             file_put_contents(public_path() . "/" . "error.txt", "Error: " . date("Y-m-d", time()));
         }
 
-        $user = Auth::user();
-        $booking = Booking::where('reference', '=', $reference)->first();
-
         $booking->status = "cancelled";
+        $booking->reason = $reason;
         $booking->save();
 
         event(new PaymentCancel($booking));

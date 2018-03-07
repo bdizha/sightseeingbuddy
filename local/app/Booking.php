@@ -24,7 +24,8 @@ class Booking extends Model
         'time',
         'date',
         'guests',
-        'reference'
+        'reference',
+        'reason'
     ];
     
     public function user() {

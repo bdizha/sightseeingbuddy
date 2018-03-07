@@ -34,7 +34,7 @@
                        for="experience">{{ $errors->first('content') }}</label>
             @endif
             <div class="input-group">
-                            <textarea name="content" class="redactor-input hide"
+                            <textarea name="content" class="form-control"
                                       placeholder="Compose your message here...">{{ old('content') }}</textarea>
             </div>
         </div>

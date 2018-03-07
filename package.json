@@ -39,6 +39,7 @@
   "engines": {},
   "dependencies": {
     "jquery-match-height": "^0.7.2",
-    "roboto-fontface": "^0.7.0"
+    "roboto-fontface": "^0.7.0",
+    "underscore.string": "^3.3.4"
   }
 }

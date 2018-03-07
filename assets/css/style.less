@@ -616,7 +616,7 @@ form {
     }
     textarea {
       resize: vertical;
-      min-height: 300px;
+      min-height: 150px;
     }
     .form-control {
       background-color: transparent;
@@ -3389,20 +3389,27 @@ a.thumbnail:hover, a.thumbnail:active {
 // Actual modal
 .modal-content {
   .modal-header {
-    padding: 10px 15px;
+    padding: 15px 30px;
     text-align: center;
     text-transform: uppercase;
     background-color: @blue;
     .modal-title {
       color: @white;
+      font-size: 18px;
     }
     .close {
       font-size: 36px;
       font-weight: bold;
       line-height: 36px;
+      margin-top: -6px;
     }
   }
   .modal-body {
+    textarea{
+      width: 100%;
+      padding: 15px;
+      min-height: 150px;
+    }
     .available-times {
       padding: 15px;
       border: 1px solid @legend-border-color;
