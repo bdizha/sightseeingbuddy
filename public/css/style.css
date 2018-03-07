@@ -11724,6 +11724,9 @@ a.thumbnail:active {
   overflow-y: auto;
   max-height: 700px;
 }
+.modal-footer {
+  text-align: center;
+}
 #notifications-modal .modal-content {
   color: #3F3F3F;
   text-align: center;
