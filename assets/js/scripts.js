@@ -562,7 +562,7 @@ function DatePicker() {
 
         var today = new Date();
 
-        var sDate = new Date(today.getTime() + 1000 * 60 * 60 * 24);
+        var sDate = new Date(today.getTime() + 1000 * 60 * 60 * 24 * 3);
 
         $('#datepicker').datepicker({
             daysOfWeekDisabled: daysInActive,
