@@ -9567,6 +9567,10 @@ form .input-group {
 form .input-group .control-label {
   display: none;
 }
+form .input-group textarea {
+  resize: vertical;
+  min-height: 300px;
+}
 form .input-group .form-control {
   background-color: transparent;
   padding: 6px 12px;
@@ -10209,6 +10213,16 @@ section #sidebar h2 {
   height: 100%;
   position: relative;
 }
+#page .search-list .media .media-top a img {
+  transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  transition: -webkit-transform .8s;
+  transition: transform .8s;
+  transition: transform .8s, -webkit-transform .8s;
+}
 #page .search-list .media .media-top a .media-overlay {
   position: absolute;
   left: 0;
@@ -10216,6 +10230,13 @@ section #sidebar h2 {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
+}
+#page .search-list .media:hover .media-top a img {
+  transform: scale(1.2);
+  -o-transform: scale(11.2);
+  -ms-transform: scale(11.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
 }
 #page .search-list .media:hover .media-top a .media-overlay {
   background: rgba(0, 0, 0, 0);
@@ -11000,6 +11021,13 @@ small a:hover {
     width: 283px;
   }
 }
+.payfast-logo {
+  margin-top: 30px;
+  width: 130px;
+}
+.payfast-logo svg {
+  width: 100%;
+}
 .blogs-header h3 {
   font-weight: 900;
   font-size: 29px;
@@ -11059,12 +11087,13 @@ small a:hover {
   margin: 15px auto 30px;
 }
 .carousel-inner .overlay {
+  display: none;
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
 }
 .carousel-inner:hover .overlay {
   background: rgba(0, 0, 0, 0);

@@ -10,7 +10,7 @@
                 </h3>
             </div>
             @include('message.partials.header')
-            <div class="modal-footer text-right">
+            <div class="modal-footer text-center">
                 <button modal-id="read-modal-{{ $message->id }}" data-id="{{ $message->id }}" type="button"
                         class="btn btn-default btn-close btn-reply">Reply
                 </button>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer text-right">
+            <div class="modal-footer text-center">
                 <button modal-id="read-modal-{{ $message->id }}" data-id="{{ $message->id }}" type="button"
                         class="btn btn-default btn-close btn-reply">Reply
                 </button>

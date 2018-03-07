@@ -62,10 +62,17 @@
             address += " " + selectedCity.text();
         }
 
+        var countryName = $('#country_name');
+        if (!_.isUndefined(countryName) && !_.isEmpty(countryName.val())) {
+            address += " " + countryName.val();
+        }
+
         var selectedCountry = $('#country_id option:selected');
         if (!_.isUndefined(selectedCountry) && !_.isEmpty(selectedCountry.val())) {
             address += " " + selectedCountry.text();
         }
+
+        console.log(address, "address");
 
         if (address.length > 0) {
             var geocoder = new google.maps.Geocoder();

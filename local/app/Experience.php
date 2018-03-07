@@ -139,6 +139,16 @@ class Experience extends Model {
         return $city->first()->name;
     }
 
+    public function getCountryNameAttribute() {
+
+        if (empty($this->country_id)) {
+            return "";
+        }
+
+        $country = \App\Country::where('id', "=", $this->country_id);
+        return $country->first()->name;
+    }
+
     public static function findOrNew($userId = null) {
         $experience = self::where('user_id', '=', $userId)->first();
 

@@ -12,7 +12,7 @@
             <div class="modal-body text-center">
                 You're about to make a payment for this experience.
             </div>
-            <div class="modal-footer text-right">
+            <div class="modal-footer text-center">
                 <button modal-id="confirm-modal" type="button" class="btn btn-default btn-close">Back</button>
                 <button type="submit" class="btn btn-default">Make payment</button>
             </div>

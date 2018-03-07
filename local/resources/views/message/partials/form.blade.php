@@ -40,7 +40,7 @@
         </div>
     </div>
 </div>
-<div class="modal-footer text-right">
+<div class="modal-footer text-center">
     <button modal-id="compose-modal" type="submit" class="btn btn-default">Send</button>
 </div>
 {!! Form::close() !!}
