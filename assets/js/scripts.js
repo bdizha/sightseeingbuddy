@@ -204,6 +204,37 @@ function UIBindings() {
 
 }
 
+
+var $window = $(window);
+
+function ScrollTop() {
+    var scrollButton = $('.scroll-to-top');
+    var container = $('#container');
+    var containerTop = container.offset().top;
+
+    this.hideOnScroll = function () {
+        $(window).on('scroll', function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > containerTop) {
+                scrollButton.addClass('visible');
+            } else {
+                scrollButton.removeClass('visible');
+            }
+        });
+
+        scrollButton.click(function () {
+            $('html, body').stop().animate({
+                scrollTop: 0
+            }, 1250, 'easeInOutExpo');
+        });
+    };
+
+    this.init = function () {
+        this.hideOnScroll();
+    };
+}
+
+
 function Notifications() {
     var wrapper = $('#notifications-wrapper');
     var div = $('#notifications');
@@ -850,9 +881,10 @@ $(function () {
 
     (new AffixButton).init();
 
+    (new ScrollTop).init();
+
     setHeightFor('.media-heading.same-height');
     setHeightFor('.media-media-summary.same-height');
-
 
     $window.on('resize', function () {
         (new AffixButton).init();

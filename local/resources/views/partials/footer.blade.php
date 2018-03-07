@@ -107,6 +107,9 @@
                 </div>
             </div>
         </div>
+        <a class="scroll-to-top hvr-wobble-vertical" href="#">
+            <i class="fa fa-chevron-circle-up"></i>
+        </a>
     </div>
 </footer>
 <footer id="bottom">
