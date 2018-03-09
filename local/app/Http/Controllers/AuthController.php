@@ -1,19 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
+class AuthController extends Controller
+{
 
-class AuthController extends Controller {
-
-    public function getLinks() {
-
-        $type = !empty($_GET['type']) ? $_GET['type'] : "";
+    public function getLinks()
+    {
         $links = [
-            'register' => [
+            'find' => [
                 'label' => 'Sign up',
                 'route' => 'register',
-                'sub_label' => $type == "local" ? 'become a buddy' : 'Become a guest & find a buddy'
+                'sub_label' => 'Find a buddy'
+            ],
+            'become' => [
+                'label' => 'Sign up',
+                'route' => 'introduction.create',
+                'sub_label' => 'Become a buddy'
             ],
             'login' => [
                 'label' => 'Log in',
@@ -21,8 +25,19 @@ class AuthController extends Controller {
                 'sub_label' => 'Access my account'
             ]
         ];
-        
+
         return $links;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function become(Request $request)
+    {
+        $links = $this->getLinks();
+        return view('auth.become', ['links' => $links]);
     }
 
 }

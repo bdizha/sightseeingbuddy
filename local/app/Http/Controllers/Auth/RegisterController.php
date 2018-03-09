@@ -120,7 +120,7 @@ class RegisterController extends AuthController
             'mobile' => $data['mobile'],
             'country_id' => $data['country_id'],
             'password' => bcrypt($data['password']),
-            'type' => $data['type'],
+            'type' => "guest",
         ]);
 
         $user->verify_token = md5($user->email);
