@@ -30,12 +30,12 @@ class SendMessage
         $recipient = $message->recipient;
 
         $data = [
-            'content' => $message->content,
             'messageId' => empty($message->message_id) ? $message->id : $message->message_id,
             'experience' => $message->experience,
-            'user' => $recipient,
+            'recipient' => $recipient,
+            'sender' => $sender,
             'from' => config("mail.FROM_EMAIL"),
-            'subject' => 'Sightseeing Buddy: You\'ve a new message from ' . $sender->first_name . " " . $sender->last_name
+            'subject' => 'New message notification ' . $sender->first_name . " " . $sender->last_name
         ];
 
         try {
