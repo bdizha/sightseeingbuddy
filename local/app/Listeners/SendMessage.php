@@ -41,7 +41,7 @@ class SendMessage
         try {
 
             $this->mailer->send('email.message', $data, function ($message) use ($data) {
-                $message->to($data['user']->email, $data['user']->first_name)
+                $message->to($data['recipient']->email, $data['recipient']->first_name)
                     ->bcc(config("mail.CC_EMAIL"))
                     ->subject($data['subject']);
             });
