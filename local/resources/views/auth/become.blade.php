@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Experience the Culture with Sightseeing Buddy</div>
                 <div class="panel-body">
-                    <p>Some text here some text here some text here some text here some text here some text here some text some text here some text</p>
+                    <p>If you are looking to book an authentic experience with a buddy or interested in hosting one, please sign up by selecting the button below</p>
                     <div class="row form-group">
                         <div class="col-sm-5 col-xs-12">
                             <a href="{{ route('register') }}" class="btn fullwidth btn-default">Find a buddy</a>
