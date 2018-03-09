@@ -12,7 +12,7 @@
         <![endif]-->
         <![if !mso]>
         <a href="{{ url($url)}}"
-           style="line-height: 40px;display: inline-block;color: #FFFFFF;text-decoration:none;font-weight: 500;padding: 0;font-size: 12px;text-transform: uppercase;background: #1a75bb;border-color: #1a75bb;border-radius: 4px;-moz-box-shadow: 0 2px 1px 0 #1a75bb;-webkit-box-shadow: 0 2px 1px 0 #1a75bb;box-shadow: 0 2px 1px 0 #1a75bb;"
+           style="line-height: 30px;display: inline-block;color: #FFFFFF;text-decoration:none;font-weight: 500;padding: 0;font-size: 12px;text-transform: uppercase;background: #1a75bb;border-color: #1a75bb;border-radius: 4px;-moz-box-shadow: 0 2px 1px 0 #1a75bb;-webkit-box-shadow: 0 2px 1px 0 #1a75bb;box-shadow: 0 2px 1px 0 #1a75bb;"
            target="_blank">
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
