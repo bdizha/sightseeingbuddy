@@ -29,8 +29,8 @@
                                 {!! nl2br($experience->description) !!}
                             </div>
                         </div>
+                        {!! $experience->cover_image !!}
                     </article>
-                    {!! $experience->cover_image !!}
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <div class="gray-bottom-border mt-1 mb-1"></div>
