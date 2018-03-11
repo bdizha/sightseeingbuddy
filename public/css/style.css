@@ -10127,7 +10127,7 @@ section #sidebar h2 {
 #page .profile h2 {
   font-weight: 900;
   font-size: 25px;
-  margin: 0 0 30px;
+  margin: 0 0 15px;
 }
 #page .profile h2.media-heading {
   font-size: 23px;
@@ -10166,9 +10166,9 @@ section #sidebar h2 {
 #page .profile .profile-value {
   display: block;
   font-weight: 900;
-  font-size: 17px;
+  font-size: 14px;
   text-align: left;
-  line-height: 30px;
+  line-height: 24px;
 }
 #page .profile .profile-verified,
 #page .profile .profile-declined {
@@ -11788,7 +11788,7 @@ a.thumbnail:active {
 .table-condensed > thead > tr > td,
 .table-condensed > tbody > tr > td,
 .table-condensed > tfoot > tr > td {
-  padding: 10px 23px;
+  padding: 10px 18px;
   font-size: 26px;
   font-weight: 700;
   border-radius: 0;
@@ -11880,7 +11880,7 @@ a.thumbnail:active {
 .datepicker-inline .table-condensed > tfoot > tr > th {
   font-weight: 900;
   border-radius: 0;
-  padding: 20px 23px;
+  padding: 20px 18px;
   font-size: 24px;
   text-transform: uppercase;
   color: #3F3F3F;
@@ -11894,10 +11894,10 @@ a.thumbnail:active {
 .datepicker-inline .table-condensed > thead > tr > th.prev,
 .datepicker-inline .table-condensed > tfoot > tr > th.prev {
   position: absolute;
-  width: 46px;
-  height: 46px;
-  left: 36px;
-  top: 16px;
+  width: 40px;
+  height: 40px;
+  left: 33px;
+  top: 15px;
   background-image: url(/images/date-prev-arrow.png) !important;
   background-size: 100% !important;
   text-indent: -44555px;
@@ -11912,10 +11912,10 @@ a.thumbnail:active {
 .datepicker-inline .table-condensed > thead > tr > th.next,
 .datepicker-inline .table-condensed > tfoot > tr > th.next {
   position: absolute;
-  width: 46px;
-  height: 46px;
-  right: 36px;
-  top: 16px;
+  width: 40px;
+  height: 40px;
+  right: 33px;
+  top: 15px;
   background-image: url(/images/date-next-arrow.png) !important;
   background-size: 100% !important;
   text-indent: -44555px;
