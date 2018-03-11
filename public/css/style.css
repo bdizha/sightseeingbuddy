@@ -9305,6 +9305,9 @@ h3,
   border-bottom: 1px solid #3F3F3F;
   font-size: 15px;
 }
+#page article .media-object {
+  width: 100%;
+}
 #page .blog-list article {
   border: none;
   margin-top: 15px;
@@ -12363,7 +12366,7 @@ div#newsletter-group input#newsletter_email {
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #3F3F3F;
+  background-color: rgba(63, 63, 63, 0.85);
 }
 
 /*# sourceMappingURL=style.css.map */
