@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta property="og:description" content="" />
     <meta itemprop="description" content="">
+    <meta name="theme-color" content="#1a75bb">
     <!-- Image -->
     <meta property="og:image" content=/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png"/>
     <meta itemprop="image" content=/uploads/files/_600xAUTO_crop_center-center/Keep-It-Local-Website-AssetsAsset-2@3x.png">

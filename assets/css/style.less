@@ -53,6 +53,12 @@ h1, .h1, h2, .h2, h3, .h3 {
   min-height: 100%;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    width: 1053px;
+  }
+}
+
 .gray-block {
   background: #E6E6E6;
   color: @gray-base;
@@ -480,9 +486,10 @@ input[type="radio"] {
 
 .alert-success {
   background-color: @blue;
-  color: #FFFFFF;
-  padding: 4px 15px;
+  color: @white;
+  padding: 15px;
   font-size: 15px;
+  border-radius: 8px;
   width: 100%;
 }
 
@@ -1732,12 +1739,10 @@ section {
 .site-footer {
   color: @gray-light;
   text-align: left;
-  padding: 11px;
-
+  padding: 11px 0;
   .form-control {
     background-color: @white;
   }
-
   .socials-block {
     margin-top: 25px;
   }
@@ -2054,7 +2059,7 @@ small {
 }
 
 #footer {
-  background: @gray-base;
+  background: rgba(63, 63, 63, 0.85);
   font-size: 16px;
   @media (max-width: @grid-float-breakpoint) {
     font-size: 14px;
@@ -3405,7 +3410,7 @@ a.thumbnail:hover, a.thumbnail:active {
     }
   }
   .modal-body {
-    textarea{
+    textarea {
       width: 100%;
       padding: 15px;
       min-height: 150px;
@@ -3615,4 +3620,20 @@ div#newsletter-group input#newsletter_email {
 
 .flag-icon-za {
   background-image: url(/flags/za.svg);
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F8F8F8;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F8F8F8;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: @gray-base;
 }
