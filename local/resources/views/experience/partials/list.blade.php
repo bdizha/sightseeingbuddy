@@ -18,7 +18,7 @@
                         </a>
                     </div>
                     <div class="media-footer">
-                        {{ str_limit($experience->teaser, 29) }}
+                        {{ str_limit($experience->teaser, 24) }}
                         <span>
                             <span>|</span>
                             <span class="data-currency"
