@@ -19,14 +19,20 @@ class ExperienceController extends Controller
         $experience = Experience::where('slug', '=', $slug)->first();
 
         $gallery = [];
+        $galleryImages = [];
+        $galleryImages[] = $experience->cover_image;
+        $totalImages = $experience->gallery->count() + 1;
 
-        $totalImages = $experience->gallery->count();
         foreach ($experience->gallery as $key => $image) {
+            $galleryImages[] = $image->image;
+        }
+
+        foreach ($galleryImages as $key => $image) {
             $count = ($key + 1);
             $item = [
-                "URL" => $image->image,
+                "URL" => $image,
                 "options" => [
-                    "thumbnail" => $image->image
+                    "thumbnail" => $image
                 ],
                 "caption" => "{$count}/{$totalImages}: #{$count} {$experience->teaser}"
             ];
@@ -43,6 +49,7 @@ class ExperienceController extends Controller
         return view('experience.show', [
             'experience' => $experience,
             'gallery' => $gallery,
+            'galleryImages' => $galleryImages,
             'user' => $user,
             'extras' => $this->getExras(),
             'reviews' => $reviews

@@ -29,7 +29,6 @@
                                 {!! nl2br($experience->description) !!}
                             </div>
                         </div>
-                        {!! $experience->cover_image !!}
                     </article>
                 </div>
                 <div class="col-sm-6 col-xs-12">
@@ -204,7 +203,7 @@
             </div>
             @if($reviews->count() === 0)
                 <div>No reviews found.</div>
-        @endif
+            @endif
 
         <!-- Modal -->
             <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modalLabel">
