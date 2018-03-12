@@ -2871,12 +2871,42 @@ a.thumbnail:hover, a.thumbnail:active {
   }
 }
 
+.experience-carousel {
+  .carousel-caption {
+    top: 0;
+  }
+  .slick-initialized {
+    .slick-slide {
+      margin-right: 8px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  .btn-default {
+    border-color: @white;
+    background: @white;
+    color: @blue;
+    z-index: 20;
+    &:hover,
+    &:focus {
+      background: @blue;
+      border-color: @blue;
+      color: @white;
+    }
+  }
+  .btn-images{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+  }
+}
+
 .inline {
   display: inline-block;
 }
 
 // jquery upload
-
 .fileupload-buttonbar .btn,
 .fileupload-buttonbar .toggle {
   margin-bottom: 5px;

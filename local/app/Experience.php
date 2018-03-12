@@ -153,7 +153,7 @@ class Experience extends Model {
         $experience = self::where('user_id', '=', $userId)->first();
 
         if (empty($experience->id)) {
-            $experience = new Expe();
+            $experience = new Experience();
         }
 
         return $experience;

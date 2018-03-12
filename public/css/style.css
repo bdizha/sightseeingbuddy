@@ -11683,6 +11683,32 @@ a.thumbnail:active {
     margin: 0;
   }
 }
+.experience-carousel .carousel-caption {
+  top: 0;
+}
+.experience-carousel .slick-initialized .slick-slide {
+  margin-right: 8px;
+}
+.experience-carousel .slick-initialized .slick-slide:last-child {
+  margin-right: 0;
+}
+.experience-carousel .btn-default {
+  border-color: #FFFFFF;
+  background: #FFFFFF;
+  color: #1a75bb;
+  z-index: 20;
+}
+.experience-carousel .btn-default:hover,
+.experience-carousel .btn-default:focus {
+  background: #1a75bb;
+  border-color: #1a75bb;
+  color: #FFFFFF;
+}
+.experience-carousel .btn-images {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
 .inline {
   display: inline-block;
 }

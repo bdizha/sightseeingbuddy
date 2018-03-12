@@ -132,11 +132,11 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="row">
-                                <input type="hidden" id="id" value="{{ $experience->id }}" />
-                                <input type="hidden" id="street_address" value="{{ $experience->street_address }}" />
-                                <input type="hidden" id="postal_code" value="{{ $experience->postal_code }}" />
-                                <input type="hidden" id="city_name" value="{{ $experience->city_name }}" />
-                                <input type="hidden" id="country_name" value="{{ $experience->country_name }}" />
+                                <input type="hidden" id="id" value="{{ $experience->id }}"/>
+                                <input type="hidden" id="street_address" value="{{ $experience->street_address }}"/>
+                                <input type="hidden" id="postal_code" value="{{ $experience->postal_code }}"/>
+                                <input type="hidden" id="city_name" value="{{ $experience->city_name }}"/>
+                                <input type="hidden" id="country_name" value="{{ $experience->country_name }}"/>
                                 <div id="map"></div>
                             </div>
                             @include('partials.map')

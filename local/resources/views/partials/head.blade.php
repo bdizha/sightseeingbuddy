@@ -34,5 +34,5 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="/ilightbox/css/ilightbox.css"/>
 </head>

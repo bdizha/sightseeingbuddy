@@ -107,6 +107,13 @@ function UIBindings() {
             autoplaySpeed: 3000
         });
 
+        $('[data-slick-carousel-auto-width]').slick({
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            variableWidth: true
+        });
+
         $('[data-slick-carousel-three]').slick({
             dots: true,
             infinite: true,

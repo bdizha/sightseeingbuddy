@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Experience;
 use Carbon\Carbon;
-use Craft\Exception;
 
 class ExperienceController extends Controller
 {
@@ -21,14 +19,19 @@ class ExperienceController extends Controller
         $experience = Experience::where('slug', '=', $slug)->first();
 
         $gallery = [];
+
+        $totalImages = $experience->gallery->count();
         foreach ($experience->gallery as $key => $image) {
-            try {
-                $transformedImage = $this->getImage('/pages/imager?url=' . $image->image);
-                if ($transformedImage) {
-                    $gallery[] = $transformedImage;
-                }
-            } catch (\Exception $e) {
-            }
+            $count = ($key + 1);
+            $item = [
+                "URL" => $image->image,
+                "options" => [
+                    "thumbnail" => $image->image
+                ],
+                "caption" => "{$count}/{$totalImages}: #{$count} {$experience->teaser}"
+            ];
+
+            $gallery[] = $item;
         }
 
         $user = $experience->user;
