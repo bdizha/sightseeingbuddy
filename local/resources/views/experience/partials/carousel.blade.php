@@ -11,7 +11,7 @@
             <h1>{{ str_limit($experience->teaser, 300) }}</h1>
         </div>
     </div>
-    <a href="#" id="show-image" class="btn btn-default btn-images">View Photos</a>
+    <a href="#" target="_blank" id="show-images" class="btn btn-default btn-images">View Photos</a>
 </div>
 <script type="text/javascript" src="/ilightbox/js/jquery.requestAnimationFrame.js"></script>
 <script type="text/javascript" src="/ilightbox/js/jquery.mousewheel.js"></script>
