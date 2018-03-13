@@ -35,7 +35,7 @@ class SendMessage
             'recipient' => $recipient,
             'sender' => $sender,
             'from' => config("mail.FROM_EMAIL"),
-            'subject' => 'New message notification ' . $sender->first_name . " " . $sender->last_name
+            'subject' => 'New message notification : ' . $sender->first_name . " " . $sender->last_name
         ];
 
         try {

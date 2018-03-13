@@ -5,7 +5,7 @@
         @include('email.partials.content', ['text' => 'Hi ' . $user->first_name])
         @include('email.partials.content', ['text' => "Your booking has been cancelled - " . $booking->reference])
         @include('email.partials.content', ['text' => "<b>Experience</b>: " . $experience->teaser])
-        @include('email.partials.content', ['text' => "<b>Local</b>: " . $local->name])
+        @include('email.partials.content', ['text' => "<b>Buddy</b>: " . $local->name])
         @include('email.partials.content', ['text' => "<b>Meeting Point</b>: " . $meetingPoint])
         @include('email.partials.content', ['text' => "<b>Date</b>: " . \Carbon\Carbon::parse($booking->date)->format("d/m/Y")])
         @include('email.partials.content', ['text' => "<b>Time</b>: " . $booking->time])

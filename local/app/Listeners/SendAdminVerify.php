@@ -30,7 +30,7 @@ class SendAdminVerify
     {
         $data = [
             'user' => $event->user,
-            'subject' => 'Sightseeing Buddy: New local verification request',
+            'subject' => 'Sightseeing Buddy: New buddy verification request',
             'email' => config('mail.VERIFY_EMAIL'),
             'name' => config('mail.VERIFY_NAME')
         ];
