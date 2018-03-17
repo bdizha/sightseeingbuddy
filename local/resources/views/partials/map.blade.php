@@ -71,7 +71,9 @@
             address += " " + selectedCountry.text();
         }
 
-        console.log(address, "address");
+        address = address.replace(/'/g, "");
+
+        console.log(address);
 
         if (address.length > 0) {
 
