@@ -130,6 +130,8 @@
     {%- endblock -%}
 {% endset %}
 
+{% block body %}
+
 <style type="text/css">
 	.redactor-layer ol {
 		counter-reset: item;
@@ -146,8 +148,6 @@
 		right: 10px;
 	}
 </style>
-
-{% block body %}
 	<header id="global-sidebar">
 
 		{% if currentUser.admin and craft.config.devMode %}
