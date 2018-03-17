@@ -130,6 +130,22 @@
     {%- endblock -%}
 {% endset %}
 
+<style type="text/css">
+	.redactor-layer ol {
+		counter-reset: item;
+	}
+	.redactor-layer ol li {
+		display: block;
+		position: relative;
+	}
+	.redactor-layer ol li:before {
+		content: counters(item, ".") ".";
+		counter-increment: item;
+		position: absolute;
+		margin-right: 100%;
+		right: 10px;
+	}
+</style>
 
 {% block body %}
 	<header id="global-sidebar">
