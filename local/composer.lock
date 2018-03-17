@@ -4,9 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c8f971cfe6064a1dfbba8c4f0d3b7f26",
-    "content-hash": "6476527cf5c31858ac88c81a93b8574e",
+    "hash": "dc8e3cd3a8b386be715f4e09c7a93a5a",
+    "content-hash": "8f61b523092925e89670f3e0d896c301",
     "packages": [
+        {
+            "name": "altelma/laravel-mailchimp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ALTELMA/laravel-mailchimp.git",
+                "reference": "5d9dbab54253d0cbb729efb46abb2a2f04452552"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ALTELMA/laravel-mailchimp/zipball/5d9dbab54253d0cbb729efb46abb2a2f04452552",
+                "reference": "5d9dbab54253d0cbb729efb46abb2a2f04452552",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelMailChimp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ALTELMA",
+                    "email": "phongthorn.a@gmail.com"
+                }
+            ],
+            "description": "A packages provide you to connect with mailchimp API v3, so easiest.",
+            "keywords": [
+                "api",
+                "mailchimp",
+                "php",
+                "v3"
+            ],
+            "time": "2017-06-11 08:59:22"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.1.0",
@@ -639,7 +686,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imgix/imgix-php/zipball/024a9379310e6ef848bc4fe78fcfefddfc49a306",
+                "url": "https://api.github.com/repos/imgix/imgix-php/zipball/48135b04ec02f504904d69a3af1435414f60750c",
                 "reference": "024a9379310e6ef848bc4fe78fcfefddfc49a306",
                 "shasum": ""
             },
@@ -2817,7 +2864,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elasticquent/Elasticquent/zipball/03aa15d344730a6d0619944b70a8e4f9436d14b0",
+                "url": "https://api.github.com/repos/elasticquent/Elasticquent/zipball/46c838bc1de1f0a2e3e4d28254700171aa51df03",
                 "reference": "03aa15d344730a6d0619944b70a8e4f9436d14b0",
                 "shasum": ""
             },
@@ -4873,7 +4920,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dweidner/laravel-goutte/zipball/afe42b8c7bb326c5b4d1c913d6ad93ff70fa3cc2",
+                "url": "https://api.github.com/repos/dweidner/laravel-goutte/zipball/03b62d59cc3a1e33935bf11d8d9baa96c9488c9e",
                 "reference": "afe42b8c7bb326c5b4d1c913d6ad93ff70fa3cc2",
                 "shasum": ""
             },
@@ -4917,6 +4964,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "altelma/laravel-mailchimp": 20,
         "imgix/imgix-php": 20,
         "elasticquent/elasticquent": 20,
         "weidner/goutte": 20

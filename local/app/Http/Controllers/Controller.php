@@ -10,6 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
+use LaravelMailChimp\MailchimpFacade;
 
 class Controller extends BaseController
 {
@@ -55,6 +56,15 @@ class Controller extends BaseController
 
         $subscriber = new Subscriber();
         $subscriber->fill($input)->save();
+
+        $options = [
+            'email_address' => $input['email'],
+            'status' => 'subscribed',
+            'email_type' => 'html',
+        ];
+
+        $listId = "66e3dfb3c8";
+        MailchimpFacade::post("lists/{$listId}/members", $options);
 
         event(new Subscribe($subscriber));
 

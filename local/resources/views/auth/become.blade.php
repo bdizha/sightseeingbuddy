@@ -10,10 +10,10 @@
                     <p>If you are looking to book an authentic experience with a buddy or interested in hosting one,
                         please sign up by selecting the button below</p>
                     <div class="row form-group">
-                        <div class="col-sm-5 col-xs-12">
+                        <div class="col-sm-6 col-xs-12">
                             <a href="{{ route('register') }}" class="btn fullwidth btn-default">Find a buddy</a>
                         </div>
-                        <div class="col-sm-4 col-xs-12">
+                        <div class="col-sm-6 col-xs-12">
                             <a href="{{ route("introduction.create") }}" class="btn fullwidth btn-default">Become a
                                 buddy</a>
                         </div>

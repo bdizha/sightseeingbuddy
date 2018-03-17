@@ -22,11 +22,15 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-5 col-xs-12">
-                            <input type="submit" class="btn fullwidth btn-default" value="Send new password link"/>
-                        </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <a href="{{ url('/login') }}" class="btn-height mt-xs-1">Sign In</a>
+                        <div class="col-sm-9 col-xs-12">
+                            <div class="row form-group">
+                                <div class="col-sm-6 col-xs-12">
+                                    <input type="submit" class="btn fullwidth btn-default" value="Send new password link"/>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <a href="{{ url('/login') }}" class="btn-height mt-xs-1">Sign In</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>

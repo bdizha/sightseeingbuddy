@@ -13,7 +13,7 @@
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    How to find your local?
+                    How to find your buddy?
                 </div>
                 <div class="panel-body">
                     <div class="row steps-block mt-1 mb-1">
@@ -23,7 +23,7 @@
                                 <span class="sub-heading">1. Find </span>
                             </h3>
                             <p class="text-center text-light">
-                                Browse through our extensive list of hosts, and choose the host that best suits your needs
+                                Browse through our extensive list of buddies, and choose the buddy that best suits your needs
                             </p>
                             <div class="step-arrow"></div>
                         </div>
@@ -33,7 +33,7 @@
                                 <span class="sub-heading">2. Book</span>
                             </h3>
                             <p class="text-center text-light">
-                                Get chatting with your host, and start planning your trip
+                                Get chatting with your buddy, and start planning your trip
                             </p>
                             <div class="step-arrow"></div>
                         </div>
@@ -43,7 +43,7 @@
                                 <span class="sub-heading">3. Enjoy</span>
                             </h3>
                             <p class="text-center text-light">
-                                Arrive and enjoy your tailor-made experience the local way
+                                Arrive and enjoy your tailor-made experience the buddy way
                             </p>
                             <div class="step-arrow"></div>
                         </div>

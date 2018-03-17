@@ -2,15 +2,14 @@
 
 namespace App;
 
+use App\Events\ForgotPassword;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
 
-    use Notifiable,
-        Sluggable;
+    use Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -99,6 +98,22 @@ class User extends Authenticatable
         }
 
         return $average;
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $data = [
+            "token" => $token,
+            "user" => $this
+        ];
+
+        event(new ForgotPassword($data));
     }
 
 }

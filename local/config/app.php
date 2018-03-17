@@ -162,6 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        LaravelMailChimp\MailChimpServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -179,7 +180,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Weidner\Goutte\GoutteServiceProvider::class,
-	Elasticquent\ElasticquentServiceProvider::class,
+        Elasticquent\ElasticquentServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
     ],
 
@@ -231,8 +232,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Helper' => App\Helpers\Helper::class,
-	'Goutte' => Weidner\Goutte\GoutteFacade::class,
-	'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
+        'Goutte' => Weidner\Goutte\GoutteFacade::class,
+        'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
+        'MailChimp' => LaravelMailChimp\MailChimpFacde::class,
 
     ],
 

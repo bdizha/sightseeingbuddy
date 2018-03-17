@@ -1,5 +1,5 @@
 <tr>
-    <td style="padding-top: 10px;padding-bottom: 10px;">
+    <td style="padding-top: 10px;padding-bottom: 10px;text-align: center">
         <!--[if mso]>
         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
                      href="{{ url($url)}}" style="height:40px;v-text-anchor:middle;width:250px;" arcsize="10%"

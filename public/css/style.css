@@ -10783,6 +10783,7 @@ small a:hover {
   outline: none;
   padding: 7px 15px;
   border-radius: 5px;
+  font-size: 14px;
 }
 .btn:focus,
 .btn:hover {
@@ -10792,7 +10793,7 @@ small a:hover {
 .btn-height {
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 16px;
+  font-size: 14px;
   padding: 7px 24px;
   border-radius: 5px;
   display: inline-block;

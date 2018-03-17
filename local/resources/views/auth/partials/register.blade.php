@@ -8,7 +8,7 @@
                     <input type="hidden" name="type" value="guest">
                     <div class="row form-group {{ $errors->has('first_name') ? 'has-error' : '' }}"
                          id="fields-first-name-field">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('first_name'))
                                 <label class="control-label"
                                        for="inputError1">{{ $errors->first('first_name') }}</label>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="row form-group {{ $errors->has('last_name') ? 'has-error' : '' }}"
                          id="fields-last-name-field">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('last_name'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('last_name') }}</label>
                             @endif
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('email'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('email') }}</label>
                             @endif
@@ -39,8 +39,8 @@
                                    required placeholder="Your email address*">
                         </div>
                     </div>
-                 <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
-                        <div class="col-sm-9 col-xs-12">
+                    <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('country_id'))
                                 <label class="control-label"
                                        for="country_id">{{ $errors->first('country_id') }}</label>
@@ -51,9 +51,9 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row form-group {{ $errors->has('mobile') ? 'has-error' : '' }}">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('mobile'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('mobile') }}</label>
                             @endif
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="row form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('country_id'))
                                 <label class="control-label"
                                        for="country_id">{{ $errors->first('country_id') }}</label>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="row form-group {{ $errors->has('password') ? 'has-error' : '' }}"
                          id="fields-password-field">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('password'))
                                 <label class="control-label" for="inputError1">{{ $errors->first('password') }}</label>
                             @endif
@@ -91,7 +91,7 @@
                     </div>
                     <div class="row form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}"
                          id="fields-password-confirmation-field">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             @if ($errors->has('password_confirmation'))
                                 <label class="control-label"
                                        for="inputError1">{{ $errors->first('password_confirmation') }}</label>
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-9 col-xs-12">
+                        <div class="col-sm-10 col-xs-12">
                             <small>
                                 By creating an account, you confirm that you've read and accept our
                                 <a href="/pages/terms-conditions" class="text-bold" target="_blank">Terms &
@@ -116,12 +116,16 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-4 col-xs-12">
-                            <input type="submit" class="btn fullwidth btn-default"
-                                   value="Sign Up & @if($currentType == 'local') become a buddy @else find a buddy @endif "/>
-                        </div>
-                        <div class="col-sm-5 col-xs-12">
-                            <a href="{{ route('login') }}" class="btn-height">Already have an account</a>
+                        <div class="col-sm-10 col-xs-12">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <input type="submit" class="btn fullwidth btn-default"
+                                           value="Sign Up & @if($currentType == 'local') become a buddy @else find a buddy @endif "/>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <a href="{{ route('login') }}" class="btn-height">Already have an account</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -132,7 +132,7 @@ class InfoController extends ExperienceController
             'duration' => 'required',
             'units' => 'required',
             'category_id' => 'required|max:255',
-            'sub_category_id' => 'required|max:255',
+//            'sub_category_id' => 'required|max:255',
             'description' => 'required|max:10000',
             'extra_pickup' => 'required|max:1',
             'extra_food' => 'required|max:1',

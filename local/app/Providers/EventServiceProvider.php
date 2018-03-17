@@ -50,6 +50,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\Compose' => [
             'App\Listeners\SendMessage@handle'
+        ],
+        'App\Events\ForgotPassword' => [
+            'App\Listeners\SendForgotPassword@handle'
         ]
     ];
 
