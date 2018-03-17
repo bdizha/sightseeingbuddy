@@ -24,8 +24,13 @@
 </div>
 {!! Form::open(['route' => 'messages.store']) !!}
 <div class="modal-body">
+    <?php if (empty($message->id)): ?>
+    <?php $recipientId = $experience->user->id ?>
+    <?php else: ?>
+    <?php $recipientId = Auth::user()->id === $message->sender_id ? $message->recipient_id : $message->sender_id ?>
+    <?php endif ?>
     {{ Form::hidden('experience_id', $experience->id) }}
-    {{ Form::hidden('recipient_id', $experience->user->id) }}
+    {{ Form::hidden('recipient_id', $recipientId) }}
     {{ Form::hidden('message_id', $message->id) }}
     <div class="row form-group {{ $errors->has('content') ? 'has-error' : '' }}">
         <div class="col-xs-12">
