@@ -132,7 +132,7 @@ class InfoController extends ExperienceController
             'duration' => 'required',
             'units' => 'required',
             'category_id' => 'required|max:255',
-//            'sub_category_id' => 'required|max:255',
+            'sub_category_id' => 'required|max:255',
             'description' => 'required|max:10000',
             'extra_pickup' => 'required|max:1',
             'extra_food' => 'required|max:1',
@@ -149,10 +149,10 @@ class InfoController extends ExperienceController
             ]);
 
         $input["city_id"] = $city->id;
-
         $experience->fill($input)->save();
 
         // set languages
+        ExperienceLanguage::where("experience_id", $experience->id)->delete();
         foreach ($input['languages'] as $language) {
             $language = Language::updateOrCreate(['name' => $language]);
             ExperienceLanguage::updateOrCreate([
@@ -162,6 +162,7 @@ class InfoController extends ExperienceController
         }
 
         // set highlights
+        ExperienceHighlight::where("experience_id", $experience->id)->delete();
         foreach ($input['highlights'] as $highlight) {
             ExperienceHighlight::updateOrCreate([
                 'description' => $highlight,
@@ -169,6 +170,7 @@ class InfoController extends ExperienceController
             ]);
         }
 
+        ExperienceActivity::where("experience_id", $experience->id)->delete();
         if (!empty($input['activities'])) {
             // set activities
             foreach ($input['activities'] as $activity) {

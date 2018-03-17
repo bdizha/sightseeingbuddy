@@ -4,6 +4,7 @@
             <div class="panel-heading mt-0">
                 Your local experience you'd like to offer
             </div>
+            <?php $subCategoryId = 7 ?>
             <div class="panel-body">
                 {!! csrf_field() !!}
                 <div class='row'>
@@ -119,7 +120,7 @@
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('sub_category_id') ? 'has-error' : '' }}"
-                     id="sub_category_id">
+                     id="sub_category_id" style="display: none;">
                     <div class="col-xs-12">
                         @if ($errors->has('sub_category_id'))
                             <label class="control-label"
@@ -127,7 +128,7 @@
                         @endif
                         <div class="input-group">
                             <label class="control-label" for="sub_category_id">Experience sub category</label>
-                            {{ Form::select('sub_category_id', \App\ExperienceCategory::getList('sub'), $experience->sub_category_id, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Experience sub category*']) }}
+                            {{ Form::select('sub_category_id', \App\ExperienceCategory::getList('sub'), $subCategoryId, ['class' => 'form-control fullwidth','required' => true, 'placeholder' => 'Experience sub category*']) }}
                         </div>
                     </div>
                 </div>
