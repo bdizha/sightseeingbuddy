@@ -1,6 +1,5 @@
 <style type="text/css">
     #map {
-        height: 317px;
         margin-left: 15px;
     }
 
@@ -26,17 +25,17 @@
     }
 </style>
 <script>
-    function initMap() {
-        $(document).ready(function () {
-            setTimeout(function () {
-                initGeocodeAddress();
-            }, 1000);
+    $(document).ready(function () {
+        setTimeout(function () {
+            initGeocodeAddress();
+        }, 1000);
 
-            $("#street_address, #postal_code").on('blur', function () {
-                initGeocodeAddress();
-            });
+        $("#street_address, #postal_code").on('blur', function () {
+            initGeocodeAddress();
         });
-    }
+
+        $window.on('resize', initGeocodeAddress);
+    });
 
     function initGeocodeAddress() {
         var address = "";
@@ -75,35 +74,25 @@
         console.log(address, "address");
 
         if (address.length > 0) {
-            var geocoder = new google.maps.Geocoder();
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
-                center: {lat: -34.270, lng: 18.459}
-            });
 
-            geocodeAddress(geocoder, map, address);
-        }
-        else{
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 7,
-                center: {lat: -34.270, lng: 18.459}
-            });
+            var width = $("#map").width() - 15;
+            var height = width * (2/3);
+
+            console.log("width ::: " + width);
+            console.log("height ::: " + height);
+
+            var embed = "<iframe " +
+                "width='" + width + "' " +
+                "height='" + height + "' " +
+                "frameborder='0'" +
+                "scrolling = 'no'" +
+                "marginheight = '0' " +
+                "marginwidth = '0'" +
+                "src = 'https://maps.google.com/maps?key=AIzaSyCTZ6MrDn00n_eQLrlqRcl5sB-GwnSZZk4&q=" +
+                encodeURIComponent(address) +
+                "&amp;output=embed'></iframe>";
+
+            $('#map').html(embed);
         }
     }
-
-    function geocodeAddress(geocoder, resultsMap, address) {
-        geocoder.geocode({'address': address}, function (results, status) {
-            console.log(status);
-            if (status === 'OK') {
-                resultsMap.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: resultsMap,
-                    position: results[0].geometry.location
-                });
-            }
-        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTZ6MrDn00n_eQLrlqRcl5sB-GwnSZZk4&callback=initMap">
 </script>

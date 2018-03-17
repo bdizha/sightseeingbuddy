@@ -12382,6 +12382,23 @@ div#newsletter-group input#newsletter_email {
 .flag-icon-za {
   background-image: url(/flags/za.svg);
 }
+.redactor-layer ol,
+.panel-body ol {
+  counter-reset: item;
+}
+.redactor-layer ol li,
+.panel-body ol li {
+  display: block;
+  position: relative;
+}
+.redactor-layer ol li:before,
+.panel-body ol li:before {
+  content: counters(item, ".") ".";
+  counter-increment: item;
+  position: absolute;
+  margin-right: 100%;
+  right: 10px;
+}
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #F8F8F8;
