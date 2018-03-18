@@ -130,7 +130,6 @@ class BookingController extends Controller
         $booking->experience_id = $id;
         $booking->amount = $total;
         $booking->pricing_id = $pricing->id;
-        $booking->schedule_id = 4;
         $booking->reference = $reference;
         $booking->special_requests = serialize([]);
         $booking->time = $time;
