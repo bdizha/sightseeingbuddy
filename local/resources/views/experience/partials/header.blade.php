@@ -28,7 +28,7 @@
                     @if(Auth::guest() OR $experience->user->id != Auth::user()->id)
                         @if($type == 'schedule')
                             <a id="book-experience-btn" href="/local/messages?experience_id={{ $experience->id }}"
-                               class="btn btn-lg btn-default fullwidth mb-1">Contact host</a>
+                               class="btn btn-lg btn-default fullwidth mb-1">Contact Buddy</a>
                         @else
                             <a id="book-experience-btn" href="/local/experience/{{ $experience->id }}/schedule"
                                class="btn btn-lg btn-default fullwidth mb-1">Book experience</a>

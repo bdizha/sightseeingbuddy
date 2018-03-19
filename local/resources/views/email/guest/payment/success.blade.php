@@ -12,7 +12,7 @@
         @include('email.partials.content', ['text' => "<b>Number of Guests</b>: " . $booking->guests])
         @include('email.partials.content', ['text' => "<b>Total Price</b>: " . $total])
         @include('email.partials.content', ['text' => "If there’s anything you need help with, please feel free to contact us."])
-        @include('email.partials.button', ['url' => '/local/messages?experience_id=' . $booking->experience_id, 'text' => 'Contact host'])
+        @include('email.partials.button', ['url' => '/local/messages?experience_id=' . $booking->experience_id, 'text' => 'Contact Buddy'])
         </tbody>
     </table>
 @stop
