@@ -2,14 +2,16 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Model;
 
-class Experience extends Model {
+class Experience extends Model
+{
 
     use Sluggable;
 
     protected $table = 'experiences';
+    protected $commissionRate = 20 / 100;
 
     /*
      * Fillable fields
@@ -33,13 +35,14 @@ class Experience extends Model {
         'description',
         'cover_image'
     ];
-    
+
     /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
      */
-    public function sluggable() {
+    public function sluggable()
+    {
         return [
             'slug' => [
                 'source' => ['teaser']
@@ -47,78 +50,93 @@ class Experience extends Model {
         ];
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
 
-    public function country() {
+    public function country()
+    {
         return $this->hasOne('App\Country', 'id', 'country_id');
     }
 
-    public function city() {
+    public function city()
+    {
         return $this->hasOne('App\City', 'id', 'city_id');
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->hasOne('App\ExperienceCategory', 'id', 'category_id');
     }
 
-    public function sub_category() {
+    public function sub_category()
+    {
         return $this->hasOne('App\ExperienceCategory', 'id', 'sub_category_id');
     }
 
     /**
      * Get the languages.
      */
-    public function languages() {
+    public function languages()
+    {
         return $this->belongsToMany('App\Language', 'experience_languages');
     }
 
     /**
      * Get the bookings.
      */
-    public function bookings() {
+    public function bookings()
+    {
         return $this->hasMany('App\Booking', 'experience_id', 'id');
     }
 
     /**
      * Get the reviews.
      */
-    public function reviews() {
+    public function reviews()
+    {
         return $this->hasMany('App\Review', 'experience_id', 'id')->orderBy("created_at", "DESC");
     }
 
     /**
      * Get the highliths.
      */
-    public function highlights() {
+    public function highlights()
+    {
         return $this->hasMany('App\ExperienceHighlight');
     }
 
     /**
      * Get the activities.
      */
-    public function activities() {
+    public function activities()
+    {
         return $this->hasMany('App\ExperienceActivity');
     }
 
-    public function gallery() {
+    public function gallery()
+    {
         return $this->hasMany('App\ExperienceGallery');
     }
 
-    public function schedule() {
+    public function schedule()
+    {
         return $this->hasOne('App\ExperienceSchedule');
     }
 
-    public function dates() {
+    public function dates()
+    {
         return $this->hasOne('App\ExperienceDate');
     }
 
-    public function pricing() {
+    public function pricing()
+    {
         return $this->hasOne('App\Pricing');
     }
 
-    public function getSubCategoryAttribute() {
+    public function getSubCategoryAttribute()
+    {
         $subCategoryId = $this->sub_category_id;
 
         if (empty($subCategoryId)) {
@@ -129,7 +147,8 @@ class Experience extends Model {
         return $category->first()->name;
     }
 
-    public function getCityNameAttribute() {
+    public function getCityNameAttribute()
+    {
 
         if (empty($this->city_id)) {
             return "";
@@ -139,7 +158,8 @@ class Experience extends Model {
         return $city->first()->name;
     }
 
-    public function getCountryNameAttribute() {
+    public function getCountryNameAttribute()
+    {
 
         if (empty($this->country_id)) {
             return "";
@@ -149,7 +169,8 @@ class Experience extends Model {
         return $country->first()->name;
     }
 
-    public static function findOrNew($userId = null) {
+    public static function findOrNew($userId = null)
+    {
         $experience = self::where('user_id', '=', $userId)->first();
 
         if (empty($experience->id)) {
@@ -159,32 +180,43 @@ class Experience extends Model {
         return $experience;
     }
 
-    public function getTimesAttribute() {
+    public function getCommissionedPerPersonAttribute()
+    {
+        $pricingPerPerson = str_replace("R", "", $this->pricing->per_person);
+        $totalPerPerson = $pricingPerPerson * (1 + $this->commissionRate);
+
+        return $totalPerPerson;
+    }
+
+    public function getTimesAttribute()
+    {
 
         $times = [];
-        if(!empty($this->schedule)){
+        if (!empty($this->schedule)) {
             $times = unserialize($this->schedule->times);
         }
 
         return $times;
     }
 
-    public function getDaysAttribute() {
+    public function getDaysAttribute()
+    {
 
         $days = [];
-        if(!empty($this->schedule)){
+        if (!empty($this->schedule)) {
             $days = unserialize($this->schedule->days);
         }
 
         return $days;
     }
 
-    public function getExperiencesCountAttribute() {
+    public function getExperiencesCountAttribute()
+    {
         return $this->experiences->count();
     }
 
-    public function getTotalAttribute() {
-
+    public function getTotalAttribute()
+    {
         $total = $this->pricing->guests * str_replace("R", "", $this->pricing->per_person);
         return number_format($total, 2, '.', '');
     }

@@ -122,7 +122,7 @@ class BookingController extends Controller
 
         $date = date("Y-m-d", $timestamp);
 
-        $total = number_format($guests * str_replace("R", "", $pricing->per_person), 2, '.', '');
+        $total = number_format($guests * str_replace("R", "", $experience->commissioned_per_person), 2, '.', '');
 
         $booking = new Booking();
         $booking->user_id = $user->id;

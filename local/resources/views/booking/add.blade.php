@@ -64,8 +64,8 @@
                         <div class="booking-row">
                             <h4>Price per guest:</h4>
                             <h3 class="data-currency"
-                                data-currency-base="{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}">
-                                R{{ number_format(str_replace("R", "", $experience->pricing->per_person), 2, '.', '') }}
+                                data-currency-base="{{ number_format(str_replace("R", "", $experience->commissioned_per_person), 2, '.', '') }}">
+                                R{{ number_format(str_replace("R", "", $experience->commissioned_per_person), 2, '.', '') }}
                             </h3>
                         </div>
                         <div class="booking-row">

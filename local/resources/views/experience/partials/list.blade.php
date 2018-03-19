@@ -22,7 +22,7 @@
                         <span>
                             <span>|</span>
                             <span class="data-currency"
-                                  data-currency-base="{{ str_replace("R", "", $experience->pricing->per_person) }}">
+                                  data-currency-base="{{ str_replace("R", "", $experience->commissioned_per_person) }}">
                                 {{ $experience->pricing->per_person }}
                             </span>
                             <span>|</span>

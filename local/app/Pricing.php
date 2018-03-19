@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pricing extends Model {
+class Pricing extends Model
+{
 
     protected $table = 'pricings';
 
@@ -19,17 +20,19 @@ class Pricing extends Model {
         'per_person'
     ];
 
-    public function experience() {
+    public function experience()
+    {
         return $this->hasOne('App\Experience', 'id', 'experience_id');
     }
 
-    public static function findOrNew($experienceid) {
-        $pricing = self::where('experience_id', "=", $experienceid)->first();
+    public static function findOrNew($experienceId)
+    {
+        $pricing = self::where('experience_id', "=", $experienceId)->first();
         if (empty($pricing)) {
             $pricing = new Pricing();
-            $pricing->experience_id = $experienceid;
+            $pricing->experience_id = $experienceId;
         }
-        
+
         return $pricing;
     }
 
