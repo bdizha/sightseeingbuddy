@@ -49,6 +49,12 @@ class SendPaymentSuccess
                     ->bcc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
                     ->subject($data['subject']);
             });
+
+            $this->mailer->send('email.local.payment.success', $data, function ($message) use ($data) {
+                $message->to($data['local']->email, $data['local']->first_name)
+                    ->bcc(config("mail.CC_EMAIL"), config("mail.CC_NAME"))
+                    ->subject($data['subject']);
+            });
         } catch (\Exception $e) {
 //            dd($e);
         }
