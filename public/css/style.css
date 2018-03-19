@@ -10137,7 +10137,7 @@ section #sidebar h2 {
 #page .profile .profile-picture {
   vertical-align: top;
   text-align: center;
-  padding: 24px 0;
+  padding: 0;
   display: table-cell;
 }
 #page .profile .profile-picture img {
