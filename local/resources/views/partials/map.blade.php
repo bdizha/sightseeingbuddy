@@ -38,7 +38,7 @@
     });
 
     function initGeocodeAddress() {
-        var address = "";
+        var address = "Cape Town, South Africa";
 
         var streetAddress = $('#street_address');
 
@@ -73,7 +73,7 @@
 
         address = address.replace(/'/g, "");
 
-        console.log(address);
+        console.log(address, "address");
 
         if (address.length > 0) {
 
