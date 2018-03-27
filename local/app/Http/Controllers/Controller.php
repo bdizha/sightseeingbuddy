@@ -63,7 +63,7 @@ class Controller extends BaseController
             'email_type' => 'html',
         ];
 
-        $listId = "66e3dfb3c8";
+        $listId = "e19630069a";
         MailchimpFacade::post("lists/{$listId}/members", $options);
 
         event(new Subscribe($subscriber));
