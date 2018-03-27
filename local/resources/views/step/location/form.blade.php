@@ -65,7 +65,12 @@
     </div>
     <div class='col-sm-6 col-xs-12'>
         <div class="row">
-            <div id="map"></div>
+            <div class="panel panel-default">
+                <div class="panel-heading">&nbsp;</div>
+                <div class="panel-body">
+                    <div id="map"></div>
+                </div>
+            </div>
         </div>
         @include('partials.map')
     </div>

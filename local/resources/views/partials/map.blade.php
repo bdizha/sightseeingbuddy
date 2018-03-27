@@ -73,12 +73,12 @@
 
         address = address.replace(/'/g, "");
 
-        console.log(address, "address");
+//        console.log(address, "address");
 
         if (address.length > 0) {
 
             var width = $("#map").width() - 15;
-            var height = width * (2/3);
+            var height = (width * (2/3)) - 10;
 
             console.log("width ::: " + width);
             console.log("height ::: " + height);
