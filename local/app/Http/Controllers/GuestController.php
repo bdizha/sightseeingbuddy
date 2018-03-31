@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Session;
-use App\User;
 
-class GuestController extends Controller {
+class GuestController extends Controller
+{
 
     protected $next_step = "location";
     protected $cur_step = "introduction";
     protected $prev_step = null;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -21,7 +23,8 @@ class GuestController extends Controller {
      *
      * @return Response
      */
-    public function edit($id, Request $request) {
+    public function edit($id, Request $request)
+    {
         $user = User::find($id);
 
         return view('guest.edit', [
@@ -34,12 +37,14 @@ class GuestController extends Controller {
      *
      * @return Response
      */
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
         $user = User::find($id);
         return $this->save($user, false, $request);
     }
 
-    private function save($user, $notifyUser, $request) {
+    private function save($user, $notifyUser, $request)
+    {
         $fields = [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
@@ -52,11 +57,14 @@ class GuestController extends Controller {
 
         $input = $request->all();
 
-        if(!empty($user->id) && $input['password'] == $input['password_confirmation']){
-            unset($fields['password']);
+        if (!empty($user->id) && $input['password'] == $input['password_confirmation']) {
+            if ($user->salt !== $input['password']) {
+                unset($fields['password']);
+                unset($input['password']);
+            }
         }
 
-        if(!empty($input['password'])){
+        if (!empty($input['password'])) {
             $input['salt'] = $input['password'];
             $input['password'] = bcrypt($input['password']);
         }

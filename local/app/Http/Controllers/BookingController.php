@@ -57,14 +57,12 @@ class BookingController extends Controller
 
         $bookings = Booking::where("experience_id", "=", $experienceId)
             ->where("date", "=", $date)
-            ->where("status", "!=", "cancelled")->get();
+            ->where("status", "=", "success")->get();
 
         $bookedTimes = [];
         foreach ($bookings as $booking) {
             $bookedTimes[] = $booking->time;
         }
-
-//        dd($bookedTimes);
 
         $html = view('booking.partials.times', [
             'bookedTimes' => $bookedTimes,
