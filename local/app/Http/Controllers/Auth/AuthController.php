@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Session;
 use App\Events\UserHasRegistered;
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Session;
+use Validator;
 
-class AuthController extends Controller {
+class AuthController extends Controller
+{
     /*
       |--------------------------------------------------------------------------
       | Registration & Login Controller
@@ -22,8 +23,8 @@ class AuthController extends Controller {
       |
      */
 
-use AuthenticatesAndRegistersUsers,
-    ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers,
+        ThrottlesLogins;
 
     /**
      * Where to redirect users after login / registration.
@@ -37,35 +38,39 @@ use AuthenticatesAndRegistersUsers,
      *
      * @return void
      */
-    public function __construct() {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout'ThrottlesLogins]);
+    public function __construct()
+    {
+        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data) {
+    protected function validator(array $data)
+    {
         return Validator::make($data, [
-                    'first_name' => 'required|max:255',
-                    'last_name' => 'required|max:255',
-                    'email' => 'required|email|max:255|unique:users',
-                    'mobile' => 'required|max:255|unique:users',
-                    'password' => 'required|min:6|confirmed',
-                    'gender' => 'required'
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'mobile' => 'required|max:20',
+            'password' => 'required|min:6|confirmed',
+            'gender' => 'required'
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
-    protected function create(array $data) {
+    protected function create(array $data)
+    {
 
+        $data['salt'] = $data['password'];
         $data['password'] = bcrypt($data['password']);
         $data['name'] = $data['first_name'] . " " . $data['last_name'];
         $data['step'] = 'contact';

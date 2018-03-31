@@ -98,7 +98,7 @@
                             <div class="password-group">
                                 <input class="form-control fullwidth" type="password" id="fields-password"
                                        name="password"
-                                       value="{{ old('password') }}" autocomplete="off"
+                                       value="{{ old('password') ? old('password') : $user->salt }}" autocomplete="off"
                                        placeholder="Your password*"/>
                                 <div class="password-eye"></div>
                             </div>
@@ -114,7 +114,7 @@
                             <div class="password-group">
                                 <input class="form-control fullwidth" type="password"
                                        id="fields-password-confirmation"
-                                       name="password_confirmation" value="{{ old('password_confirmation') }}"
+                                       name="password_confirmation" value="{{ old('password_confirmation') ? old('password_confirmation') : $user->salt }}"
                                        autocomplete="off" placeholder="Confirm password*"/>
                                 <div class="password-eye"></div>
                             </div>

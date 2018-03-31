@@ -50,17 +50,21 @@ class BookingController extends Controller
     {
         $input = $request->all();
         $experienceId = $input["experience_id"];
-        $date = $input["date"];
 
         $experience = Experience::where('id', '=', $experienceId)->first();
 
+        $date = Carbon::parse($input["date"])->format("Y-m-d");
+
         $bookings = Booking::where("experience_id", "=", $experienceId)
-            ->where("date", "=", $date)->get();
+            ->where("date", "=", $date)
+            ->where("status", "!=", "cancelled")->get();
 
         $bookedTimes = [];
         foreach ($bookings as $booking) {
-            $bookedTimes[] = $booking->times;
+            $bookedTimes[] = $booking->time;
         }
+
+//        dd($bookedTimes);
 
         $html = view('booking.partials.times', [
             'bookedTimes' => $bookedTimes,

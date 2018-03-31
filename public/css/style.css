@@ -12230,6 +12230,12 @@ a.thumbnail:active {
   padding: 10px 0;
   line-height: 34px;
 }
+.modal-content .modal-body .available-times .schedule-item .btn {
+  width: 120px;
+}
+.modal-content .modal-body .available-times .schedule-item .btn-danger {
+  cursor: default;
+}
 .modal-content .modal-body .available-times .schedule-item.odd {
   background-color: #E6E6E6;
 }

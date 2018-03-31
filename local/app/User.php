@@ -30,7 +30,8 @@ class User extends Authenticatable
         'reason',
         'description',
         'country_id',
-        'image'
+        'image',
+        'salt'
     ];
 
     /**

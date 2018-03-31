@@ -106,6 +106,7 @@ class IntroductionController extends StepController
 
         if (!empty($input['password'])) {
             $input['password'] = bcrypt($input['password']);
+            $input['salt'] = $input['password'];
         }
 
         $user->fill($input)->save();

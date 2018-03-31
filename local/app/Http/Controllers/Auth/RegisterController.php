@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Events\GuestVerify;
-use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Registered;
-use App\User;
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Validator;
+use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Session;
 
 class RegisterController extends AuthController
@@ -86,7 +86,7 @@ class RegisterController extends AuthController
     /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function register(Request $request)
@@ -121,6 +121,7 @@ class RegisterController extends AuthController
             'country_id' => $data['country_id'],
             'password' => bcrypt($data['password']),
             'type' => "guest",
+            'salt' => $data['password']
         ]);
 
         $user->verify_token = md5($user->email);

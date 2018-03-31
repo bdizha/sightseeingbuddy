@@ -44,7 +44,7 @@ class GuestController extends Controller {
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'mobile' => 'required|max:255|unique:users,mobile,' . $user->id,
+            'mobile' => 'required|max:255',
             'password' => 'required|min:6|confirmed',
             'country_id' => 'required',
             'type' => 'required',
@@ -57,6 +57,7 @@ class GuestController extends Controller {
         }
 
         if(!empty($input['password'])){
+            $input['salt'] = $input['password'];
             $input['password'] = bcrypt($input['password']);
         }
 
