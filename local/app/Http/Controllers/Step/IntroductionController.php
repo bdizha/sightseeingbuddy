@@ -98,15 +98,11 @@ class IntroductionController extends StepController
 
         $input = $request->all();
 
-        if (!empty($user->id) && $input['password'] == $input['password_confirmation']) {
-            unset($fields['password']);
-        }
-
         $this->validate($request, $fields);
 
         if (!empty($input['password'])) {
-            $input['password'] = bcrypt($input['password']);
             $input['salt'] = $input['password'];
+            $input['password'] = bcrypt($input['password']);
         }
 
         $user->fill($input)->save();

@@ -1,7 +1,7 @@
 <div class='row introduction-form'>
     <div class='col-sm-5 col-xs-12 step-form-left'>
         <div class="panel panel-default">
-            <div class="panel-heading">Create a profile</div>
+            <div class="panel-heading"> {{ empty($user->id) ? "Create" : "Edit" }} Your Profile</div>
             <div class="panel-body">
                 <div class='text-center'>
                     <div id="cover-image-bin" class="image-bin profile-picture form-group">
@@ -78,7 +78,7 @@
                                 @endif
                                 <input class="form-control fullwidth" type="password" id="fields-password"
                                        name="password"
-                                       value="" autocomplete="off" @if (Auth::guest())required
+                                       value="{{ old('password') ? old('password') : $user->salt }}" autocomplete="off" @if (Auth::guest())required
                                        @endif placeholder="Your password*"/>
                                 <div class="password-eye"></div>
                             </div>
@@ -93,7 +93,7 @@
                                            for="inputError1">{{ $errors->first('password_confirmation') }}</label>
                                 @endif
                                 <input class="form-control fullwidth" type="password" id="fields-password-confirmation"
-                                       name="password_confirmation" value="" autocomplete="off"
+                                       name="password_confirmation" value="{{ old('password_confirmation') ? old('password_confirmation') : $user->salt }}" autocomplete="off"
                                        @if (Auth::guest())required @endif placeholder="Confirm password*"/>
                                 <div class="password-eye"></div>
                             </div>

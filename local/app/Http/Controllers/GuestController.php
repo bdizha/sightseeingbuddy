@@ -57,13 +57,6 @@ class GuestController extends Controller
 
         $input = $request->all();
 
-        if (!empty($user->id) && $input['password'] == $input['password_confirmation']) {
-            if ($user->salt !== $input['password']) {
-                unset($fields['password']);
-                unset($input['password']);
-            }
-        }
-
         if (!empty($input['password'])) {
             $input['salt'] = $input['password'];
             $input['password'] = bcrypt($input['password']);

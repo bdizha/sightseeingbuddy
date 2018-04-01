@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-sm-4 col-xs-12">
+                        <div class="col-sm-9 col-xs-12">
                             <input type="submit" class="btn fullwidth btn-default"
                                    value="Submit"/>
                         </div>

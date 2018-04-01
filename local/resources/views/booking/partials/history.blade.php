@@ -41,7 +41,7 @@
                 <div class='row'>
                     <div class="col-sm-6 col-xs-12">
                         @if($booking->user->id == Auth::user()->id)
-                            <h3>Your local's details</h3>
+                            <h3>Your buddy's details</h3>
                             <div class="booking-row">
                                 <h4>Name:</h4>
                                 <h3>{{ $booking->local->first_name }}</h3>
@@ -66,7 +66,7 @@
                         <h3>Your experience details</h3>
                         <div class="booking-row">
                             <h4>Number of guests:</h4>
-                            <h3>{{ $experience->pricing->guests }}</h3>
+                            <h3>{{ $booking->guests }}</h3>
                         </div>
                         <div class="booking-row">
                             <h4>Price per guest:</h4>
