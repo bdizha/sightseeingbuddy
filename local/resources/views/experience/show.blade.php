@@ -13,11 +13,9 @@
         </div>
 
         <div class="container profile experience-block gray-block mt-1" id='experience-info'>
-
             <h1 id="experiences">
                 Local experience information
             </h1>
-
             <div class="row">
                 <div class="col-sm-6 col-xs-12">
                     <article class="media media-responsive">
@@ -39,19 +37,24 @@
                         </h3>
                         <ul>
                             @foreach($experience->languages as $key => $language)
-                                <li>{{ $language->name }}</li>
+                                <li>
+                                    <div class="dot"></div>
+                                    {{ $language->name }}</li>
                             @endforeach
                         </ul>
                     </div>
-                    <div class="exp-item">
+                    <div class="exp-item experience-timeline">
                         <h3>
                             Experience highlights
                         </h3>
-                        <ul>
+                        <div class="exp-list">
                             @foreach($experience->highlights as $key => $highlight)
-                                <li>{{ $highlight->description }}</li>
+                                <div class="list-item">
+                                    <div class="dot"></div>
+                                    {{ $highlight->description }}
+                                </div>
                             @endforeach
-                        </ul>
+                        </div>
                     </div>
                     @if($experience->activities->count())
                         <div class="exp-item">
@@ -60,7 +63,10 @@
                             </h3>
                             <ul>
                                 @foreach($experience->activities as $key => $activity)
-                                    <li>{{ $activity->description }}</li>
+                                    <li>
+                                        <div class="dot"></div>
+                                        {{ $activity->description }}
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -203,7 +209,7 @@
             </div>
             @if($reviews->count() === 0)
                 <div>No reviews found.</div>
-            @endif
+        @endif
 
         <!-- Modal -->
             <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modalLabel">

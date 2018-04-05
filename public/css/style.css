@@ -9341,8 +9341,33 @@ h3,
 #page .experience-block .media .media-object {
   width: 100%;
 }
-#page .experience-block ul li {
+#page .experience-block .exp-item {
+  margin-bottom: 30px;
+}
+#page .experience-block .exp-item ul li {
   font-size: 15px;
+}
+#page .experience-block .exp-item.experience-timeline .exp-list {
+  background: url(/images/exp-bg.svg) transparent repeat-y;
+  background-position: 0;
+}
+#page .experience-block .exp-item.experience-timeline .exp-list .list-item {
+  padding-bottom: 15px;
+  position: relative;
+  font-size: 15px;
+  padding-left: 25px;
+}
+#page .experience-block .exp-item.experience-timeline .exp-list .list-item:last-child {
+  padding-bottom: 0;
+}
+#page .experience-block .exp-item.experience-timeline .exp-list .list-item .dot {
+  position: absolute;
+  left: -3px;
+  top: -1px;
+  height: 25px;
+  width: 25px;
+  background: url(/images/exp-dot.svg) #E6E6E6 no-repeat;
+  background-position: center;
 }
 #page .experience-block h2 {
   font-weight: 900;

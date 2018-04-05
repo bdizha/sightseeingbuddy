@@ -203,9 +203,36 @@ h1, .h1, h2, .h2, h3, .h3 {
         width: 100%;
       }
     }
-    ul {
-      li {
-        font-size: 15px;
+    .exp-item {
+      margin-bottom: 30px;
+      ul {
+        li {
+          font-size: 15px;
+        }
+      }
+      &.experience-timeline {
+        .exp-list{
+          background: url(/images/exp-bg.svg) transparent repeat-y;
+          background-position: 0;
+          .list-item {
+            padding-bottom: 15px;
+            position: relative;
+            font-size: 15px;
+            padding-left: 25px;
+            &:last-child {
+              padding-bottom: 0;
+            }
+            .dot {
+              position: absolute;
+              left: -3px;
+              top: -1px;
+              height: 25px;
+              width: 25px;
+              background: url(/images/exp-dot.svg) #E6E6E6 no-repeat;
+              background-position: center;
+            }
+          }
+        }
       }
     }
     h2 {
@@ -3455,10 +3482,10 @@ a.thumbnail:hover, a.thumbnail:active {
       .schedule-item {
         padding: 10px 0;
         line-height: 34px;
-        .btn{
+        .btn {
           width: 120px;
         }
-        .btn-danger{
+        .btn-danger {
           cursor: default;
         }
         &.odd {
