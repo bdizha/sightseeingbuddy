@@ -22,9 +22,9 @@
                 fieldElm.removeAttr('required');
             }
 
-            console.log("value: " + value);
-            console.log("count: " + count);
-            console.log(fieldItems.html());
+//            console.log("value: " + value);
+//            console.log("count: " + count);
+//            console.log(fieldItems.html());
 
             var html = "<div class=\"line-item\" id=\"" + field + "-" + count + "\">" +
                 "<label>" + value + "</label>" +

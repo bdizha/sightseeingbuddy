@@ -8795,8 +8795,9 @@ button.close {
   src: url('../fonts/Coolvetica.ttf');
 }
 .review-table {
-  margin-top: 40px;
+  margin-top: 30px;
   width: 100%;
+  padding: 0 15px;
 }
 .review-row {
   display: table;
@@ -9233,6 +9234,34 @@ h3,
   background: #E6E6E6;
   color: #3F3F3F;
 }
+#page.gray-block .slick-slider {
+  margin-bottom: 0;
+}
+section .blue-block {
+  background: #1a75bb;
+  padding: 48px;
+}
+section .blue-block h2 {
+  font-weight: 900;
+  font-size: 36px;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  section .blue-block {
+    padding: 36px;
+  }
+  section .blue-block h2 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 400px) {
+  section .blue-block {
+    padding: 30px;
+  }
+  section .blue-block h2 {
+    font-size: 26px;
+  }
+}
 #privacy-policy .panel .panel-body,
 #terms-conditions .panel .panel-body,
 #faq .panel .panel-body {
@@ -9318,6 +9347,9 @@ h3,
 }
 #page .experience-block {
   font-size: 15px;
+}
+#page .experience-block .exp-padding {
+  padding: 30px 15px 15px;
 }
 #page .experience-block h3 {
   font-size: 21px;
@@ -9803,8 +9835,9 @@ form .panel-body {
 .line-items .line-item .line-close {
   position: absolute;
   top: 4px;
-  right: 11px;
+  right: 6px;
   color: #FFFFFF;
+  cursor: pointer;
 }
 section {
   padding-bottom: 44px;
@@ -11171,7 +11204,7 @@ small a:hover {
   border-width: 2px;
   color: #1a75bb;
   border-color: #1a75bb;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   border-radius: 5px;
   background: transparent;

@@ -66,7 +66,33 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 #page {
   &.gray-block {
-    //min-height: 630px;
+    .slick-slider {
+      margin-bottom: 0;
+    }
+  }
+}
+
+section {
+  .blue-block {
+    background: @blue;
+    padding: 48px;
+    h2 {
+      font-weight: 900;
+      font-size: 36px;
+      margin: 0;
+    }
+    @media (max-width: @screen-sm) {
+      padding: 36px;
+      h2 {
+        font-size: 28px;
+      }
+    }
+    @media (max-width: @screen-xs) {
+      padding: 30px;
+      h2 {
+        font-size: 26px;
+      }
+    }
   }
 }
 
@@ -179,6 +205,9 @@ h1, .h1, h2, .h2, h3, .h3 {
   }
   .experience-block {
     font-size: 15px;
+    .exp-padding {
+      padding: 30px 15px 15px;
+    }
     h3 {
       font-size: 21px;
       font-weight: 900;
@@ -211,7 +240,7 @@ h1, .h1, h2, .h2, h3, .h3 {
         }
       }
       &.experience-timeline {
-        .exp-list{
+        .exp-list {
           background: url(/images/exp-bg.svg) transparent repeat-y;
           background-position: 0;
           .list-item {
@@ -770,8 +799,9 @@ form {
     .line-close {
       position: absolute;
       top: 4px;
-      right: 11px;
+      right: 6px;
       color: @white;
+      cursor: pointer;
     }
   }
 }
@@ -2330,7 +2360,7 @@ small {
   border-width: 2px;
   color: @blue;
   border-color: @blue;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   border-radius: 5px;
   background: transparent;

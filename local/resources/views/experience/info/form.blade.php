@@ -61,7 +61,20 @@
                         <div class="row form-group {{ $errors->has('languages') ? 'has-error' : '' }}"
                              id="languages">
                             <div class="col-sm-12 col-xs-12">
-                                <div class="gray-bottom-border"></div>
+                                <div class="input-group">
+                                    <label class="control-label" for="activity">Offered languages</label>
+                                    <div class="input-add">
+                                        <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Offered languages*', "data-id" => "languages"] ?>
+                                        @if (empty($languages))
+                                                <?php $params['required'] = true ?>
+                                        @endif
+                                        {{ Form::text('language', old('language'), $params) }}
+                                        <input type="button" class="btn btn-default btn-add" count="0"
+                                               field="language" plural="languages" value="Add"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
                                 <div class="line-items language-items">
                                     <?php $languages = !empty(old("languages")) ? old("languages") : $languages ?>
                                     @foreach($languages as $key => $language)
@@ -77,20 +90,7 @@
                                     <label class="control-label"
                                            for="language">{{ $errors->first('languages') }}</label>
                                 @endif
-                            </div>
-                            <div class="col-sm-12 col-xs-12">
-                                <div class="input-group">
-                                    <label class="control-label" for="activity">Offered languages</label>
-                                    <div class="input-add">
-                                        <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Offered languages*', "data-id" => "languages"] ?>
-                                        @if (empty($languages))
-                                                <?php $params['required'] = true ?>
-                                        @endif
-                                        {{ Form::text('language', old('language'), $params) }}
-                                        <input type="button" class="btn btn-default btn-add" count="0"
-                                               field="language" plural="languages" value="Add"/>
-                                    </div>
-                                </div>
+                                <div class="gray-bottom-border"></div>
                             </div>
                         </div>
                     </div>
@@ -165,7 +165,21 @@
             <div class="col-sm-5 col-xs-12">
                 <div class="row form-group {{ $errors->has('highlights') ? 'has-error' : '' }}" id="highlight">
                     <div class="col-sm-12 col-xs-12">
-                        <div class="gray-bottom-border"></div>
+                        <div class="input-group ">
+                            <label class="control-label" for="activity">Experience highlights</label>
+                            <div class="input-add">
+                                <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Experience highlights*', "data-id" => "highlight"] ?>
+                                @if (empty($highlights))
+                                    <?php $params['required'] = true ?>
+                                @endif
+                                {{ Form::text('highlight', old('highlight'), $params) }}
+                                <input type="button" class="btn btn-default btn-add" count="0"
+                                       field="highlight"
+                                       plural="highlights" value="Add"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12">
                         <div class="line-items highlight-items">
                             <?php $highlights = !empty(old("highlights")) ? old("highlights") : $highlights ?>
                             @foreach($highlights as $key => $highlight)
@@ -180,21 +194,7 @@
                             <label class="control-label"
                                    for="highlight">{{ $errors->first('highlights') }}</label>
                         @endif
-                    </div>
-                    <div class="col-sm-12 col-xs-12">
-                        <div class="input-group ">
-                            <label class="control-label" for="activity">Experience highlights</label>
-                            <div class="input-add">
-                                <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Experience highlights*', "data-id" => "highlight"] ?>
-                                @if (empty($highlights))
-                                    <?php $params['required'] = true ?>
-                                @endif
-                                {{ Form::text('highlight', old('highlight'), $params) }}
-                                <input type="button" class="btn btn-default btn-add" count="0"
-                                       field="highlight"
-                                       plural="highlights" value="Add"/>
-                            </div>
-                        </div>
+                        <div class="gray-bottom-border"></div>
                     </div>
                 </div>
                 <div class="row form-group {{ $errors->has('duration') ? 'has-error' : '' }}" id="duration">
@@ -219,7 +219,18 @@
                 </div>
                 <div class="row form-group {{ $errors->has('activities') ? 'has-error' : '' }}" id="activity">
                     <div class="col-sm-12 col-xs-12">
-                        <div class="gray-bottom-border"></div>
+                        <div class="input-group">
+                            <label class="control-label" for="activity">Experience activities</label>
+                            <div class="input-add">
+                                <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Extra activities*', "data-id" => "activity"] ?>
+                                {{ Form::text('activity', old('activity'), $params) }}
+                                <input type="button" class="btn btn-default btn-add" count="0"
+                                       field="activity"
+                                       plural="activities" value="Add"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12">
                         <div class="line-items activity-items">
                             <?php $activities = !empty(old("activities")) ? old("activities") : $activities ?>
                             @foreach($activities as $key => $activity)
@@ -234,18 +245,7 @@
                             <label class="control-label"
                                    for="activity">{{ $errors->first('activities') }}</label>
                         @endif
-                    </div>
-                    <div class="col-sm-12 col-xs-12">
-                        <div class="input-group">
-                            <label class="control-label" for="activity">Experience activities</label>
-                            <div class="input-add">
-                                <?php $params = ['class' => 'form-control fullwidth btn-input', 'placeholder' => 'Extra activities*', "data-id" => "activity"] ?>
-                                {{ Form::text('activity', old('activity'), $params) }}
-                                <input type="button" class="btn btn-default btn-add" count="0"
-                                       field="activity"
-                                       plural="activities" value="Add"/>
-                            </div>
-                        </div>
+                        <div class="gray-bottom-border"></div>
                     </div>
                 </div>
             </div>

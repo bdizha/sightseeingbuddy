@@ -78,13 +78,17 @@
         if (address.length > 0) {
 
             var width = $("#map").width() - 15;
-            var height = (width * (2/3)) - 10;
+            var height = (width * (2 / 3)) - 10;
+
+            if (height > 500) {
+                height = 500;
+            }
 
             console.log("width ::: " + width);
             console.log("height ::: " + height);
 
             var embed = "<iframe " +
-                "width='" + width + "' " +
+                "width='100%' " +
                 "height='" + height + "' " +
                 "frameborder='0'" +
                 "scrolling = 'no'" +
