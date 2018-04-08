@@ -9478,7 +9478,8 @@ section .blue-block h2 {
   padding-left: 0;
 }
 .checkbox-inline label {
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 13px;
   font-weight: 400;
 }
 input[type="checkbox"],
@@ -9820,6 +9821,7 @@ form .panel-body {
   border-radius: 5px;
   margin-bottom: 5px;
   line-height: 25px;
+  font-size: 13px;
 }
 .line-items .line-item:hover,
 .line-items .line-item:focus {
@@ -9838,6 +9840,40 @@ form .panel-body {
   right: 6px;
   color: #FFFFFF;
   cursor: pointer;
+}
+.table-pricing > thead > tr > th {
+  font-size: 14px;
+  line-height: 30px;
+  padding: 10px 0;
+}
+.table-pricing > thead > tr > th:first-child {
+  padding-right: 8px;
+}
+.table-pricing > thead > tr > th:last-child {
+  padding-left: 8px;
+}
+.table-pricing > tbody > tr > td {
+  line-height: 30px;
+  font-size: 14px;
+  padding: 10px 0;
+}
+.table-pricing > tbody > tr > td:first-child {
+  padding-right: 8px;
+}
+.table-pricing > tbody > tr > td:last-child {
+  padding-left: 8px;
+}
+@media (max-width: 768px) {
+  .table-pricing > thead > tr > th {
+    font-size: 13px;
+  }
+  .table-pricing > tbody > tr > td {
+    font-size: 13px;
+  }
+}
+.image-error {
+  color: #ee0027;
+  font-weight: 700;
 }
 section {
   padding-bottom: 44px;
@@ -11502,6 +11538,7 @@ small a:hover {
 }
 form .panel > .panel-heading {
   margin-top: 0;
+  margin-bottom: 0;
 }
 .share-btn {
   background: transparent;
@@ -12424,8 +12461,14 @@ div#newsletter-group input#newsletter_email {
   background: transparent;
 }
 .panel > .panel-body h2 {
-  font-size: 24px !important;
-  font-weight: 500 !important;
+  font-size: 28px;
+  font-weight: 900;
+}
+@media (max-width: 992px) {
+  .panel > .panel-body h2 {
+    font-weight: 700;
+    font-size: 22px;
+  }
 }
 .panel > .panel-body h2:first-child {
   margin-top: -14px;

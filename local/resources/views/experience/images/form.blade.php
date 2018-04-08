@@ -19,8 +19,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="mt-3 text-center">
     <div class='row'>
         <div class="col-sm-6 col-xs-12">
@@ -45,6 +43,7 @@
                            name="files[]">
                 </span>
             <div class='mb-2'>
+                <small>** minimum photo requirements 600x400</small>
                 <small>This photo will show up in search results</small>
             </div>
         </div>

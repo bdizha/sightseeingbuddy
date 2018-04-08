@@ -361,7 +361,8 @@ section {
 
 .checkbox-inline {
   label {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 13px;
     font-weight: 400;
   }
 }
@@ -785,6 +786,7 @@ form {
     border-radius: 5px;
     margin-bottom: 5px;
     line-height: 25px;
+    font-size: 13px;
     &:hover,
     &:focus {
       color: @white;
@@ -804,6 +806,61 @@ form {
       cursor: pointer;
     }
   }
+}
+
+.table-pricing {
+  > thead {
+    > tr {
+      > th {
+        font-size: 14px;
+        line-height: 30px;
+        padding: 10px 0;
+        &:first-child{
+          padding-right: 8px;
+        }
+        &:last-child{
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+  > tbody {
+    > tr {
+      > td {
+        line-height: 30px;
+        font-size: 14px;
+        padding: 10px 0;
+        &:first-child{
+          padding-right: 8px;
+        }
+        &:last-child{
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+  @media (max-width: @screen-sm) {
+    > thead {
+      > tr {
+        > th {
+          font-size: 13px;
+        }
+      }
+    }
+
+    > tbody {
+      > tr {
+        > td {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+.image-error{
+  color: @state-danger-text;
+  font-weight: 700;
 }
 
 section {
@@ -2692,6 +2749,7 @@ form {
   .panel {
     > .panel-heading {
       margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }
@@ -3690,8 +3748,12 @@ div#newsletter-group input#newsletter_email {
 }
 
 .panel > .panel-body h2 {
-  font-size: 24px !important;
-  font-weight: 500 !important;
+  font-size: 28px;
+  font-weight: 900;
+  @media (max-width: @grid-float-breakpoint) {
+    font-weight: 700;
+    font-size: 22px;
+  }
 }
 
 .panel > .panel-body h2:first-child {

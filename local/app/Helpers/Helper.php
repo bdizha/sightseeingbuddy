@@ -4,33 +4,47 @@ namespace App\Helpers;
 
 use Carbon\Carbon;
 
-class Helper {
+class Helper
+{
 
-    public static function imagePathFor($media, $size = "") {
+    public static function imagePathFor($media, $size = "")
+    {
         return "";
     }
 
-    public static function dateFormatFor($created_at) {
+    public static function dateFormatFor($created_at)
+    {
         $date = Carbon::parse($created_at)->diffForHumans(null, true);
         $dateParts = explode(" ", $date);
         return $dateParts[0] . $dateParts[1][0];
     }
 
-    public static function timestamp($path) {
+    public static function timestamp($path)
+    {
         return filemtime(__DIR__ . "/../../../public/" . $path);
     }
 
-    public static function guests() {
-        $guests = range(1, 10);
-        return array_combine($guests, $guests);
+    public static function guests()
+    {
+        $range = range(1, 10);
+
+        $guests = [];
+        $counter = 1;
+        foreach (array_combine($range, $range) as $item) {
+            $guests[$item] = $counter === 1 ? $counter . " person" : $counter . " persons";
+            $counter++;
+        }
+        return $guests;
     }
 
-    public static function gender() {
+    public static function gender()
+    {
         $guests = ['female' => 'Female', 'male' => 'Male'];
         return $guests;
     }
 
-    public static function days() {
+    public static function days()
+    {
         $days = [
             1 => 'Mondays',
             2 => 'Tuesdays',
@@ -44,7 +58,8 @@ class Helper {
         return $days;
     }
 
-    public static function times() {
+    public static function times()
+    {
         $hours = range(0, 23);
         $times = [];
         foreach ($hours as $hour) {
@@ -58,7 +73,8 @@ class Helper {
         return $times;
     }
 
-    public static function strLimit($value, $limit, $end) {
+    public static function strLimit($value, $limit, $end)
+    {
         $limitedParts = explode(" ", str_limit($value, $limit, ""));
         $valueParts = explode(" ", $value);
 
@@ -73,7 +89,8 @@ class Helper {
         return $preserved;
     }
 
-    public static function personImage($image, $color = "yellow") {
+    public static function personImage($image, $color = "yellow")
+    {
         if (empty($image)) {
             $image = "/images/person-{$color}.png";
         }

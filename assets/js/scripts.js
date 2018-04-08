@@ -332,11 +332,14 @@ function setPricing() {
     this.init = function () {
 
         var $perPerson = $("#per_person");
+        var perPerson = $perPerson.val().replace("R", "");
         var $pricingPersons = $("#pricing_persons");
+        var persons = $pricingPersons.attr("data-pricing-persons");
 
-        if ($perPerson.length > 0 && $pricingPersons.length > 0) {
-            var persons = $pricingPersons.attr("data-pricing-persons");
-            var perPerson = $perPerson.val().replace("R", "");
+        console.log("persons", persons);
+        console.log("$perPerson.length", $perPerson.length);
+
+        if (parseFloat(persons) > 0 && perPerson.length > 0) {
             var pricingLocalFee = parseFloat(perPerson) * parseFloat(persons);
             var pricingCommission = pricingLocalFee * rate;
             var totalPricing = pricingLocalFee + pricingCommission;
@@ -794,17 +797,27 @@ function FileUpload() {
         $('.fileupload').fileupload({
             url: url,
             dataType: 'json',
+            fail: function (e, data) {
+            },
             done: function (e, data) {
+                $(".image-error").remove();
+
                 $.each(data.result.files, function (index, file) {
-                    $('.profile-picture img').attr('src', "/files/" + file.name);
 
-                    var inputName = imageType === "single" ? "image" : "images[]";
-                    var imageSet = "<div class=\"bin-item\">" +
-                        "<img src=\"/files/" + file.name + "\" />" +
-                        "<input type=\"hidden\" name=\"" + inputName + "\" value=\"/files/" + file.name + "\" />" +
-                        "<i class=\"fa fa-close bin-close\"></i>" +
-                        "</div>";
-
+                    if (file.error == "Image requires a minimum width") {
+                        var imageSet = "<div class=\"image-error\">" +
+                            "Image requires a minimum width" +
+                            "</div>";
+                    }
+                    else {
+                        $('.profile-picture img').attr('src', "/files/" + file.name);
+                        var inputName = imageType === "single" ? "image" : "images[]";
+                        var imageSet = "<div class=\"bin-item\">" +
+                            "<img src=\"/files/" + file.name + "\" />" +
+                            "<input type=\"hidden\" name=\"" + inputName + "\" value=\"/files/" + file.name + "\" />" +
+                            "<i class=\"fa fa-close bin-close\"></i>" +
+                            "</div>";
+                    }
                     if (imageType === "single") {
                         imageBin.html(imageSet);
                     } else {
@@ -872,7 +885,7 @@ $(function () {
 
     (new FileUpload).init();
 
-    (new setPricing).init();
+    // (new setPricing).init();
 
     (new setGuest).init();
 

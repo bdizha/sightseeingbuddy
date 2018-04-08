@@ -104,8 +104,8 @@ class UploadHandler {
             // Image resolution restrictions:
             'max_width' => null,
             'max_height' => null,
-            'min_width' => 1,
-            'min_height' => 1,
+            'min_width' => 600,
+            'min_height' => 400,
             // Set the following option to false to enable resumable uploads:
             'discard_aborted_uploads' => true,
             // Set to 0 to use the GD library to scale and orient images,
@@ -521,11 +521,11 @@ class UploadHandler {
         }
 
         $name = $name . "_" . time();
-        
+
         if (count($nameParts) > 1) {
             $name .= "." . $nameParts[count($nameParts) - 1];
         }
-        
+
         return $name;
     }
 
