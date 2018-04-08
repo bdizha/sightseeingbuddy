@@ -37,52 +37,44 @@
                 <h2 class="page-title page-title-left">
                     Guests & deals
                 </h2>
+                <div class="row form-group {{ $errors->has('guests') ? 'has-error' : '' }}">
+                    <div class="col-sm-5 col-xs-6">
+                        @if ($errors->has('guests'))
+                            <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
+                        @endif
+                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'id' => 'guests','required' => true, 'tabindex' => 3, 'placeholder' => 'Maximum number of guests*']) }}
+                    </div>
+                </div>
                 <div class='row'>
-                    <div class="col-sm-12 col-xs-12">
-                        <table class="table table-pricing">
-                            <thead>
-                                <tr>
-                                    <th>Booking for</th>
-                                    <th>Price per person</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="{{ $errors->has('guests') ? 'has-error' : '' }}">
-                                        @if ($errors->has('guests'))
-                                            <label class="control-label" for="guests">{{ $errors->first('guests') }}</label>
-                                        @endif
-                                        {{ Form::select('guests', Helper::guests(), $pricing->guests, ['class' => 'form-control fullwidth', 'id' => 'guests','required' => true, 'tabindex' => 3, 'placeholder' => 'Maximum number of guests*']) }}
-                                    </td>
-                                    <td>
-                                        {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth', 'id' => 'per_person', 'required' => true, 'placeholder' => 'R0.00', 'onkeyup' => '(new setPricing).init();', 'onkeypress' => "return isNumber(event)"]) }}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-pricing">
-                            <thead>
-                                <tr>
-                                    <th>You'll receive</th>
-                                    <th>Sightseeing Buddy fee</th>
-                                    <th>Total price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <span id="pricing_persons" style="display: none"></span>
-                                        <label class="control-value" id="pricing_local_fee">R00.00</label>
-                                    </td>
-                                    <td>
-                                        <label class="control-value" id="pricing_commission">R0.00</label>
-                                    </td>
-                                    <td>
-                                        <label class="control-value" id="pricing_total">R10.00</label>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="col-sm-7 col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <label class="control-label">Booking for</label>
+                                <label class="control-value" id="pricing_persons"
+                                       data-pricing-persons="{{ $pricing->guests ? $pricing->guests : 0 }}">{{ $pricing->guests ? $pricing->guests : 0 }}
+                                    person</label>
+                            </div>
+                            <div class="col-xs-4">
+                                <label class="control-label">Price per person</label>
+                                {{ Form::text('per_person', $pricing->per_person, ['class' => 'form-control fullwidth', 'id' => 'per_person', 'required' => true, 'placeholder' => 'R0.00', 'onkeyup' => '(new setPricing).init();', 'onkeypress' => "return isNumber(event)"]) }}
+                            </div>
+                            <div class="col-sm-4 col-xs-3">
+                                <label class="control-label">You'll receive</label>
+                                <label class="control-value" id="pricing_local_fee">R00.00</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <label class="control-label">Sightseeing Buddy fee</label>
+                                <label class="control-value" id="pricing_commission">R0.00</label>
+                            </div>
+                            <div class="col-xs-5">
+                                <label class="control-label">Total price</label>
+                                <label class="control-value" id="pricing_total">R10.00</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="gray-bottom-border mt-1 mb-1"></div>
@@ -92,7 +84,14 @@
                 <h4>
                     Available days
                 </h4>
-                <div class='row'>
+                @if ($errors->has('days'))
+                    <div class="row form-group {{ $errors->has('days') ? 'has-error' : '' }}">
+                        <div class="col-sm-12 col-xs-12">
+                            <label class="control-label" for="guests">{{ $errors->first('days') }}</label>
+                        </div>
+                    </div>
+                @endif
+                <div class="row">
                     <div class="col-sm-12 col-xs-12">
                         @foreach(Helper::days() as $key => $day)
                             <div class="schedule-item">
@@ -110,7 +109,14 @@
                 <h4>
                     Available starting times
                 </h4>
-                <div class='row'>
+                @if ($errors->has('times'))
+                    <div class="row form-group {{ $errors->has('times') ? 'has-error' : '' }}">
+                        <div class="col-sm-12 col-xs-12">
+                            <label class="control-label" for="guests">{{ $errors->first('times') }}</label>
+                        </div>
+                    </div>
+                @endif
+                <div class="row">
                     <div class="col-sm-12 col-xs-12">
                         @foreach(Helper::times() as $key => $time)
                             <div class="schedule-item">
@@ -137,3 +143,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        (new setPricing).init();
+    });
+</script>

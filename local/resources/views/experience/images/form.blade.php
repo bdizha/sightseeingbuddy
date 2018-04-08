@@ -43,7 +43,7 @@
                            name="files[]">
                 </span>
             <div class='mb-2'>
-                <small>** minimum photo requirements 600x400</small>
+                <small>** minimum photo resolution 600x400</small>
                 <small>This photo will show up in search results</small>
             </div>
         </div>

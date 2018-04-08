@@ -9789,6 +9789,10 @@ form .panel-body {
   position: relative;
   overflow: hidden;
 }
+form .panel-body .control-label,
+form .panel-body .control-value {
+  font-size: 13px;
+}
 .container .redactor-box {
   background: transparent;
   border: 1px solid #3F3F3F;

@@ -331,15 +331,17 @@ function setPricing() {
     var rate = 0.2;
     this.init = function () {
 
+        var $guests = $("#guests");
         var $perPerson = $("#per_person");
-        var perPerson = $perPerson.val().replace("R", "");
         var $pricingPersons = $("#pricing_persons");
-        var persons = $pricingPersons.attr("data-pricing-persons");
+        var perPerson = $perPerson.val().replace("R", "");
 
-        console.log("persons", persons);
-        console.log("$perPerson.length", $perPerson.length);
+        console.log("$perPerson.val()", $perPerson.val());
+        console.log("$guests.val().length", $guests.val().length);
+        console.log("perPerson",perPerson);
 
-        if (parseFloat(persons) > 0 && perPerson.length > 0) {
+        if ($guests.val().length > 0 && perPerson.length > 0) {
+            var persons = $pricingPersons.attr("data-pricing-persons");
             var pricingLocalFee = parseFloat(perPerson) * parseFloat(persons);
             var pricingCommission = pricingLocalFee * rate;
             var totalPricing = pricingLocalFee + pricingCommission;
@@ -884,8 +886,6 @@ $(function () {
     (new UIModal).init();
 
     (new FileUpload).init();
-
-    // (new setPricing).init();
 
     (new setGuest).init();
 
